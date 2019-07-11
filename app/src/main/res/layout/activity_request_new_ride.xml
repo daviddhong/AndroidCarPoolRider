@@ -22,6 +22,25 @@
                 android:src="@drawable/ic_close"
                 android:tint="#035EE8"/>
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_request_new_ride"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:background="#035EE8">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:text="Post"
+                android:textStyle="bold|italic"
+                android:textSize="25sp"
+                android:textColor="#ffffff"/>
+
+        </RelativeLayout>
     </RelativeLayout>
 
 </LinearLayout>
