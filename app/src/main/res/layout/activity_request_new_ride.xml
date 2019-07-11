@@ -17,17 +17,46 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="18dp"
-                android:layout_marginLeft="18dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_close"
                 android:tint="#035EE8"/>
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/relative_layout_request_new_ride"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relative_layout_ic_close_activity_request_new_ride"
+            android:layout_above="@id/relative_layout_request_new_ride"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp">
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_bags"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_above="@+id/relative_layout_passenger_number">
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_passenger_number"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true">
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_request_new_ride"
+            android:layout_width="380dp"
             android:layout_height="70dp"
+            android:layout_marginBottom="15dp"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:background="#035EE8">
 
             <TextView

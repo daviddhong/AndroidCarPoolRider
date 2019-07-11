@@ -9,21 +9,46 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/relative_layout_request_new_ride"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_alignParentBottom="true"
-            android:background="#035EE8">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
-                android:text="Request New Ride"
-                android:textStyle="bold|italic"
-                android:textSize="25sp"
-                android:textColor="#ffffff"/>
+            <RelativeLayout
+                android:id="@+id/relative_layout_header_rides_requested"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="Rides Requested"
+                    android:textColor="#035EE8"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_request_new_ride"
+                android:layout_width="380dp"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
+                android:background="#035EE8">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:text="Request New Ride"
+                    android:textColor="#ffffff"
+                    android:textSize="25sp"
+                    android:textStyle="bold|italic" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
