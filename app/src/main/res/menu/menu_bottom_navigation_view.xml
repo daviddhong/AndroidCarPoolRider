@@ -16,6 +16,13 @@
     </item>
 
     <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_account_circle"
+        android:title="Profile">
+
+    </item>
+
+    <item
         android:id="@+id/rate_drivers"
         android:icon="@drawable/ic_rate_review"
         android:title="Rate Drivers">
@@ -23,9 +30,9 @@
     </item>
 
     <item
-        android:id="@+id/profile"
-        android:icon="@drawable/ic_account_circle"
-        android:title="Profile">
+        android:id="@+id/more"
+        android:icon="@drawable/ic_more_horiz"
+        android:title="More">
 
     </item>
 </menu>
