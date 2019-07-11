@@ -19,5 +19,19 @@ public class RequestNewRideActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_new_ride);
+
+        setCloseRequestNewRideAcitivity();
     }
+
+    // EFFECTS: Set OnClickActivity for closeActivity.
+    private void setCloseRequestNewRideAcitivity() {
+        closeRequestNewRideAcitivity = (ImageView) findViewById(R.id.ic_close_activity_request_new_ride);
+        closeRequestNewRideAcitivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
 }
