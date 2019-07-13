@@ -27,6 +27,8 @@ public class RequestNewRideActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                // EFFECTS: Animation from ProfileActivity to ()Activity.
+                overridePendingTransition(R.anim.slide_down, R.anim.slide_vertical_null);
             }
         });
     }
