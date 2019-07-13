@@ -53,11 +53,11 @@
         <RelativeLayout
             android:id="@+id/relative_layout_request_new_ride"
             android:layout_width="380dp"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="15dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:background="#035EE8">
+            android:background="@drawable/border_rectangle_fill">
 
             <TextView
                 android:layout_width="wrap_content"

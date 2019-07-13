@@ -11,7 +11,8 @@
         <RelativeLayout
             android:id="@+id/relative_layout_header_settings"
             android:layout_width="match_parent"
-            android:layout_height="56dp">
+            android:layout_height="56dp"
+            android:background="#035EE8">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -20,8 +21,72 @@
                 android:layout_marginLeft="15dp"
                 android:text="More"
                 android:textSize="25sp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_text_view_account"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_below="@+id/relative_layout_header_settings"
+            android:background="#F0F0F0">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="Account"
+                android:textSize="17sp"
                 android:textColor="#035EE8"
                 android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_ride_history_more"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_below="@+id/relative_layout_text_view_account"
+            android:background="@drawable/border_bottom">
+
+            <ImageView
+                android:id="@+id/image_view_ride_history"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_history"
+                android:tint="#035EE8"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/image_view_ride_history"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="Ride History"
+                android:textColor="#035EE8"
+                android:textSize="17sp"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_chevron_right"
+                android:tint="#035EE8"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_below="@id/relative_layout_ride_history_more"
+            android:background="@drawable/border_bottom">
+
         </RelativeLayout>
 
     </RelativeLayout>

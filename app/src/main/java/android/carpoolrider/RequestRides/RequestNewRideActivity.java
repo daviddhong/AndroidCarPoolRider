@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class RequestNewRideActivity extends AppCompatActivity {
 
-    ImageView closeRequestNewRideAcitivity;
+    ImageView closeRequestNewRideActivity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,8 +22,8 @@ public class RequestNewRideActivity extends AppCompatActivity {
 
     // EFFECTS: Set OnClickActivity for closeActivity.
     private void setCloseRequestNewRideAcitivity() {
-        closeRequestNewRideAcitivity = (ImageView) findViewById(R.id.ic_close_activity_request_new_ride);
-        closeRequestNewRideAcitivity.setOnClickListener(new View.OnClickListener() {
+        closeRequestNewRideActivity = (ImageView) findViewById(R.id.ic_close_activity_request_new_ride);
+        closeRequestNewRideActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

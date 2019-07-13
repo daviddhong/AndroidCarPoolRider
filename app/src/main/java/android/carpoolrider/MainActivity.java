@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment;
 
 import android.carpoolrider.AvaliableRides.AvailableRidesFragment;
 import android.carpoolrider.More.MoreFragment;
-import android.carpoolrider.Profile.ProfileFragment;
 import android.carpoolrider.RateDrivers.RateDriversFragment;
 import android.carpoolrider.RequestRides.RequestRidesFragment;
+import android.carpoolrider.ReservedRides.ReservedRidesFragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.request_rides:
                     fragment = new RequestRidesFragment();
                     break;
-                case R.id.profile:
-                    fragment = new ProfileFragment();
+                case R.id.reserved_rides:
+                    fragment = new ReservedRidesFragment();
                     break;
                 case R.id.rate_drivers:
                     fragment = new RateDriversFragment();

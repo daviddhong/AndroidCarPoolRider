@@ -10,15 +10,15 @@
 
     <item
         android:id="@+id/request_rides"
-        android:icon="@drawable/ic_edit_location"
+        android:icon="@drawable/ic_place"
         android:title="Request Rides">
 
     </item>
 
     <item
-        android:id="@+id/profile"
-        android:icon="@drawable/ic_account_circle"
-        android:title="Profile">
+        android:id="@+id/reserved_rides"
+        android:icon="@drawable/ic_timer"
+        android:title="Reserved Rides">
 
     </item>
 

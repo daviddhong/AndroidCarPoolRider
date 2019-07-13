@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/relative_layout_header_rate_drivers"
+            android:id="@+id/relative_layout_header_reserved_rides"
             android:layout_width="match_parent"
             android:layout_height="56dp">
 
@@ -18,13 +18,13 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:text="Rate Your Drivers"
+                android:text="Your Reserved Rides"
                 android:textSize="25sp"
                 android:textColor="#035EE8"
                 android:textStyle="bold"/>
 
             <ImageView
-                android:id="@+id/rate_drivers_profile"
+                android:id="@+id/reserved_rides_profile"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
