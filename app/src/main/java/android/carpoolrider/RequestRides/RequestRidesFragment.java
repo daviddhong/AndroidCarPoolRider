@@ -2,6 +2,7 @@ package android.carpoolrider.RequestRides;
 
 import android.carpoolrider.Profile.ProfileActivity;
 import android.carpoolrider.R;
+import android.carpoolrider.RequestRides.RequestNewRide.RequestNewRideActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -49,7 +50,7 @@ public class RequestRidesFragment extends Fragment {
         });
     }
 
-    // EFFECTS: Set OnClickActivity for RequestNewRideActivity.
+    // EFFECTS: Set OnClickActivity for RequestNewRideOriginLaterActivity.
     private void setRequestNewRideRelativeLayout() {
         requestNewRideRelativeLayout = (RelativeLayout) requestRidesView.findViewById(R.id.relative_layout_request_new_ride);
         requestNewRideRelativeLayout.setOnClickListener(new View.OnClickListener() {

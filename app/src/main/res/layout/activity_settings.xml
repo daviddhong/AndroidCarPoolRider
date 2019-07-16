@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -15,11 +16,11 @@
 
             <ImageView
                 android:id="@+id/settings_back_image_view"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:tint="#035EE8"
+                android:tint="#0077B5"
                 android:src="@drawable/ic_arrow_back"/>
 
             <TextView
@@ -28,7 +29,7 @@
                 android:layout_centerInParent="true"
                 android:text="Settings"
                 android:textSize="20sp"
-                android:textColor="#035EE8"
+                android:textColor="#0077B5"
                 android:textStyle="bold"/>
         </RelativeLayout>
 

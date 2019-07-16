@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -19,19 +20,19 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:text="Rate Your Drivers"
-                android:textSize="25sp"
-                android:textColor="#035EE8"
+                android:textSize="20sp"
+                android:textColor="#0077B5"
                 android:textStyle="bold"/>
 
             <ImageView
                 android:id="@+id/rate_drivers_profile"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/ic_account_circle"
-                android:tint="#035EE8" />
+                android:tint="#0077B5" />
         </RelativeLayout>
 
     </RelativeLayout>

@@ -1,75 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/relative_layout_ic_close_activity_request_new_ride"
+            android:id="@+id/relative_layout_request_new_ride_type"
             android:layout_width="match_parent"
-            android:layout_height="70dp">
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true">
 
             <ImageView
-                android:id="@+id/ic_close_activity_request_new_ride"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:id="@+id/ic_back_activity_request_new_ride_where_later"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_close"
-                android:tint="#035EE8"/>
+                android:tint="#0077B5"/>
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/relative_layout_ic_close_activity_request_new_ride"
-            android:layout_above="@id/relative_layout_request_new_ride"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp">
+            android:id="@+id/relative_layout_carpool_..."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/relative_layout_request_new_ride_type">
 
-            <RelativeLayout
-                android:id="@+id/relative_layout_bags"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_above="@+id/relative_layout_passenger_number">
+            <TextView
+                android:id="@+id/text_view_carpool_..."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Do you need"
+                android:textStyle="bold"
+                android:textColor="#0077B5"
+                android:textSize="25sp" />
 
-            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_carpool_..."
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="100dp"
+                android:text="a carpool..."
+                android:textStyle="bold"
+                android:textColor="#0077B5"
+                android:textSize="25sp"/>
+        </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/relative_layout_passenger_number"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_alignParentBottom="true">
+        <RelativeLayout
+            android:id="@+id/relative_layout_later"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/relative_layout_carpool_...">
 
-            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="57dp"
+                android:text="Later?"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#0077B5"/>
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/relative_layout_request_new_ride"
-            android:layout_width="380dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="15dp"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/relative_layout_request_for_later"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/relative_layout_later"
+            android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/border_rectangle_fill">
+            android:background="@drawable/border_rectangle_fill_blue">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
-                android:text="Post"
-                android:textStyle="bold|italic"
-                android:textSize="25sp"
-                android:textColor="#ffffff"/>
+                android:text="Request For Later"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/relative_layout_request_for_later">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="57dp"
+                android:text="or Now?"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#0077B5"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_match_now"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/relative_layout_now"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_rectangle_unfilled">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Match Now"
+                android:textColor="#0077B5"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </LinearLayout>
