@@ -1,7 +1,7 @@
 package android.carpoolrider.RequestRides.RequestNewRide;
 
 import android.carpoolrider.R;
-import android.carpoolrider.RequestRides.RequestNewRide.Later.RequestNewRideOriginLaterActivity;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.RequestNewRideWhereLaterActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -47,7 +47,7 @@ public class RequestNewRideActivity extends AppCompatActivity {
         requestForLaterRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RequestNewRideActivity.this, RequestNewRideOriginLaterActivity.class);
+                Intent intent = new Intent(RequestNewRideActivity.this, RequestNewRideWhereLaterActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from ()Activity to ()Activity.

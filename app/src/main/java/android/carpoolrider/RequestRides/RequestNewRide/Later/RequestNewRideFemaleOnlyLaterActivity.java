@@ -40,6 +40,7 @@ public class RequestNewRideFemaleOnlyLaterActivity extends AppCompatActivity {
         });
     }
 
+    // MODIFIES: this
     // EFFECTS: Set OnClickActivity for nextActivity
     private void setNextActivityRelativeLayout() {
         nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_female_only_next);

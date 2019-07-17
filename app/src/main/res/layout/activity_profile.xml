@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -20,30 +20,147 @@
                 android:layout_height="25dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:tint="#0077B5"
-                android:src="@drawable/ic_close"/>
+                android:src="@drawable/ic_close"
+                android:tint="#0077B5" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Profile"
-                android:textSize="20sp"
                 android:textColor="#0077B5"
+                android:textSize="20sp"
                 android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_layout_header_profile"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/ic_star"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_star_rate"
+                android:tint="#ffcc00" />
+
+            <TextView
+                android:id="@+id/profile_rating_num"
+                android:layout_width="29dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/ic_star"
+                android:layout_marginTop="2dp"
+                android:text="4.2"
+                android:textColor="#0077B5"
+                android:textStyle="bold"
+                android:textSize="17sp" />
+
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="120dp"
-            android:layout_below="@id/relative_layout_header_profile">
+            android:layout_below="@id/relative_layout_header_profile"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp">
 
             <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@drawable/border_oval_outline"/>
+                android:id="@+id/image_view_edit_profile"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:src="@drawable/ic_edit"
+                android:tint="#0077B5"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_layout_header_profile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@drawable/border_oval_outline" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_layout_header_profile"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="244dp"
+            android:background="#ffffff">
+
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_camera"
+                android:tint="#ff9900" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_picture"
+            android:layout_marginTop="38dp">
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Samuel Smith"
+                    android:textSize="25sp"
+                    android:textColor="#0077B5"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_profile_number_of_rides"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@id/relative_layout_profile_name"
+                android:layout_marginTop="17dp">
+
+                <TextView
+                    android:id="@+id/number_of_rides_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of Trips"
+                    android:textSize="20sp"
+                    android:textColor="#0077B5"/>
+
+                <TextView
+                    android:id="@+id/number_of_rides_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/number_of_rides_text_view"
+                    android:layout_marginLeft="17dp"
+                    android:text="1,123"
+                    android:textSize="20sp"
+                    android:textColor="#000000"/>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

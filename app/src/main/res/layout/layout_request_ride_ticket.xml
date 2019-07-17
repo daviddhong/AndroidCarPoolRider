@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="178dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border_rectangle_unfilled">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="38dp">
+
+            <ImageView
+                android:id="@+id/origin_ticket"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_trip_origin"
+                android:tint="#0077B5"/>
+
+            <ImageView
+                android:id="@+id/vert_one_ticket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/origin_ticket"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_more_vert"
+                android:tint="#0077B5"/>
+
+            <ImageView
+                android:id="@+id/vert_two_ticket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="77dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_more_vert"
+                android:tint="#0077B5"/>
+
+            <ImageView
+                android:id="@+id/destination"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_below="@id/vert_two_ticket"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/border_oval_fill" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp">
+
+            <ImageView
+                android:id="@+id/expand_ticket"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_add_box"
+                android:tint="#ff9900"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

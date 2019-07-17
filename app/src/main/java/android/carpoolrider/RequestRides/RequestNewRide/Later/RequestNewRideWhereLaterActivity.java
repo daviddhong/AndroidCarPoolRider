@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RequestNewRideOriginLaterActivity extends AppCompatActivity {
+public class RequestNewRideWhereLaterActivity extends AppCompatActivity {
 
     ImageView backRequestNewRideOriginActivity;
     RelativeLayout nextActivityRelativeLayout;
@@ -18,7 +18,7 @@ public class RequestNewRideOriginLaterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_new_ride_origin_later);
+        setContentView(R.layout.activity_request_new_ride_where_later);
 
         // EFFECTS: Call setBackRequestNewRideOriginActivity.
         setBackRequestNewRideWhereActivity();
@@ -46,8 +46,8 @@ public class RequestNewRideOriginLaterActivity extends AppCompatActivity {
         nextActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RequestNewRideOriginLaterActivity.this,
-                        RequestNewRideDestinationLaterActivity.class);
+                Intent intent = new Intent(RequestNewRideWhereLaterActivity.this,
+                        RequestNewRideWhenLaterActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from ()Activity to ()Activity.

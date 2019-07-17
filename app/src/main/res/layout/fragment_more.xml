@@ -1,94 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/relative_layout_header_settings"
             android:layout_width="match_parent"
-            android:layout_height="56dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:text="More"
-                android:textSize="20sp"
-                android:textColor="#0077B5"
-                android:textStyle="bold" />
+            <RelativeLayout
+                android:id="@+id/relative_layout_header_settings"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/border_bottom">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="More"
+                    android:textColor="#0077B5"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_profile_more"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_below="@id/relative_layout_header_settings"
+                android:background="@drawable/border_bottom">
+
+                <ImageView
+                    android:id="@+id/image_view_profile_more"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/border_oval_outline" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="28dp"
+                    android:layout_toRightOf="@+id/image_view_profile_more">
+
+                    <TextView
+                        android:id="@+id/text_view_profile_name_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="Samuel Smith"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/text_view_profile_phone_number_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_view_profile_name_more"
+                        android:inputType="phone"
+                        android:text="+1 778 823 2929"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_view_profile_phone_number_more"
+                        android:inputType="textEmailAddress"
+                        android:text="rideshare@gmail.com"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="#0077B5" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_verification_more"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_below="@+id/relative_layout_profile_more"
+                android:background="#F0F0F0">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="Please verify your email"
+                    android:textColor="#ff9900"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_ride_history_more"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_below="@+id/relative_layout_verification_more"
+                android:background="@drawable/border_bottom">
+
+                <ImageView
+                    android:id="@+id/image_view_ride_history"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_history"
+                    android:tint="#0077B5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/image_view_ride_history"
+                    android:text="Ride History"
+                    android:textColor="#0077B5"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="#0077B5" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_family"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_below="@+id/relative_layout_ride_history_more"
+                android:background="@drawable/border_bottom">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true">
+
+                    <TextView
+                        android:id="@+id/text_view_family"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="Family"
+                        android:textColor="#0077B5"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/text_view_family"
+                        android:layout_marginLeft="15dp"
+                        android:text="Set up your family and get trip notifications" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="#0077B5" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_break"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_below="@+id/relative_layout_family"
+                android:background="#F0F0F0">
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_privacy_more"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_below="@+id/relative_layout_break"
+                android:background="@drawable/border_bottom">
+
+                <ImageView
+                    android:id="@+id/image_view_privacy"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_fingerprint"
+                    android:tint="#0077B5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/image_view_privacy"
+                    android:text="Privacy"
+                    android:textColor="#0077B5"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="#0077B5" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_second_break"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_below="@+id/relative_layout_privacy_more"
+                android:background="#F0F0F0">
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_help_more"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_below="@id/relative_layout_second_break"
+                android:background="@drawable/border_bottom">
+
+                <ImageView
+                    android:id="@+id/image_view_help"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_help"
+                    android:tint="#0077B5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/image_view_help"
+                    android:text="Help"
+                    android:textColor="#0077B5"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="#0077B5" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_terms_and_policies"
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_below="@+id/relative_layout_help_more"
+                android:background="@drawable/border_bottom">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="Terms and Policies"
+                    android:textColor="#0077B5"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_chevron_right"
+                    android:tint="#0077B5" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_third_break"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_below="@+id/relative_layout_terms_and_policies"
+                android:background="#F0F0F0">
+
+            </RelativeLayout>
+
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/relative_layout_text_view_account"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_below="@+id/relative_layout_header_settings"
-            android:background="#F0F0F0">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:text="Account"
-                android:textSize="17sp"
-                android:textColor="#0077B5"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/relative_layout_ride_history_more"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_below="@+id/relative_layout_text_view_account"
-            android:background="@drawable/border_bottom">
-
-            <ImageView
-                android:id="@+id/image_view_ride_history"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginLeft="15dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_history"
-                android:tint="#0077B5"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/image_view_ride_history"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:text="Ride History"
-                android:textColor="#0077B5"
-                android:textSize="17sp"/>
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_chevron_right"
-                android:tint="#0077B5"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_below="@id/relative_layout_ride_history_more"
-            android:background="@drawable/border_bottom">
-
-        </RelativeLayout>
-
-    </RelativeLayout>
+    </ScrollView>
 
 </LinearLayout>

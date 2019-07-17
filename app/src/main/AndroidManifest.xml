@@ -16,15 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".More.Settings.SettingsActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.RequestNewRideOriginLaterActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.RequestNewRideDestinationLaterActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.Later.RequestNewRideWhereLaterActivity"/>
         <activity android:name=".Profile.ProfileActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.RequestNewRideActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.RequestNewRideWhenLaterActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.RequestNewRidePassengerNumberLaterActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.RequestNewRideFemaleOnlyLaterActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.RequestNewRideConfirmLaterActivity"/>
+        <activity android:name=".Profile.EditProfileActivity"/>
     </application>
 
 </manifest>

@@ -50,7 +50,7 @@ public class RequestRidesFragment extends Fragment {
         });
     }
 
-    // EFFECTS: Set OnClickActivity for RequestNewRideOriginLaterActivity.
+    // EFFECTS: Set OnClickActivity for RequestNewRideWhereLaterActivity.
     private void setRequestNewRideRelativeLayout() {
         requestNewRideRelativeLayout = (RelativeLayout) requestRidesView.findViewById(R.id.relative_layout_request_new_ride);
         requestNewRideRelativeLayout.setOnClickListener(new View.OnClickListener() {

@@ -128,7 +128,7 @@
                             android:text="AM"
                             android:textColor="#ffffff"
                             android:textSize="17sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"/>
 
                     </RelativeLayout>
 
@@ -147,7 +147,7 @@
                             android:text="2019"
                             android:textColor="#ffffff"
                             android:textSize="17sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"/>
 
                         <TextView
                             android:id="@+id/month"

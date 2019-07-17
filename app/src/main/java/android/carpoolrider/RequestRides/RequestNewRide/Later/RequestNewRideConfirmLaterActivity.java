@@ -14,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class RequestNewRideConfirmLaterActivity extends AppCompatActivity {
 
     ImageView backRequestNewRideConfirmActivity;
+    RelativeLayout editPassengerNumber;
+    RelativeLayout editTime;
+    RelativeLayout editDate;
     RelativeLayout confirmActivityRelativeLayout;
     RelativeLayout cancelActivityRelativeLayout;
 
@@ -24,6 +27,15 @@ public class RequestNewRideConfirmLaterActivity extends AppCompatActivity {
 
         // EFFECTS: Call setBackRequestNewRideConfirmActivity.
         setBackRequestNewRideConfirmActivity();
+
+        // EFFECTS: Call setEditPassengerNumber.
+        setEditPassengerNumber();
+
+        // EFFECTS: Call setEditTime.
+        setEditTime();
+
+        // EFFECTS: Call setEditDate.
+        setEditDate();
 
         // EFFECTS: Call setConfirmActivityRelativeLayout.
         setConfirmActivityRelativeLayout();
@@ -39,8 +51,59 @@ public class RequestNewRideConfirmLaterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                // EFFECTS: Animation from ()Activity to ()Activity.
+                // EFFECTS: Animation from Activity.this to new Activity.
                 overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            }
+        });
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Set EditPassengerNumber.
+    private void setEditPassengerNumber() {
+        editPassengerNumber = (RelativeLayout) findViewById(R.id.passenger_number);
+        editPassengerNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RequestNewRideConfirmLaterActivity.this,
+                        RequestNewRidePassengerNumberLaterActivity.class);
+                startActivity(intent);
+
+                // EFFECTS: Animation from Activity.this to Activity.class.
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Set EditTime.
+    private void setEditTime() {
+        editTime = (RelativeLayout) findViewById(R.id.time_confirm);
+        editTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RequestNewRideConfirmLaterActivity.this,
+                        RequestNewRideWhenLaterActivity.class);
+                startActivity(intent);
+
+                // EFFECTS: Animation from Activity.this to Activity.class.
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Set EditDate.
+    private void setEditDate() {
+        editDate = (RelativeLayout) findViewById(R.id.date_confirm);
+        editDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RequestNewRideConfirmLaterActivity.this,
+                        RequestNewRideWhenLaterActivity.class);
+                startActivity(intent);
+
+                // EFFECTS: Animation from Activity.this to Activity.class.
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
     }
