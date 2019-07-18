@@ -10,27 +10,27 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RequestNewRideFemaleOnlyLaterActivity extends AppCompatActivity {
+public class LaterWhereActivity extends AppCompatActivity {
 
-    ImageView backRequestNewRideFemaleOnlyActivity;
+    ImageView backRequestNewRideOriginActivity;
     RelativeLayout nextActivityRelativeLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_new_ride_female_only_later);
+        setContentView(R.layout.activity_request_new_ride_where_later);
 
-        // EFFECTS: Call setBackRequestNewRideFemaleOnlyActivity.
-        setBackRequestNewRideFemaleOnlyActivity();
+        // EFFECTS: Call setBackRequestNewRideOriginActivity.
+        setBackRequestNewRideWhereActivity();
 
         // EFFECTS: Call setNextActivity.
         setNextActivityRelativeLayout();
     }
 
     // EFFECTS: Set OnClickActivity for backActivity.
-    private void setBackRequestNewRideFemaleOnlyActivity() {
-        backRequestNewRideFemaleOnlyActivity = (ImageView) findViewById(R.id.ic_back_arrow_request_new_ride_female_only);
-        backRequestNewRideFemaleOnlyActivity.setOnClickListener(new View.OnClickListener() {
+    private void setBackRequestNewRideWhereActivity() {
+        backRequestNewRideOriginActivity = (ImageView) findViewById(R.id.ic_back_activity_request_new_ride_where_later);
+        backRequestNewRideOriginActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -40,15 +40,14 @@ public class RequestNewRideFemaleOnlyLaterActivity extends AppCompatActivity {
         });
     }
 
-    // MODIFIES: this
     // EFFECTS: Set OnClickActivity for nextActivity
     private void setNextActivityRelativeLayout() {
-        nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_female_only_next);
+        nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_where_next);
         nextActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RequestNewRideFemaleOnlyLaterActivity.this,
-                        RequestNewRideConfirmLaterActivity.class);
+                Intent intent = new Intent(LaterWhereActivity.this,
+                        LaterWhenActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from ()Activity to ()Activity.

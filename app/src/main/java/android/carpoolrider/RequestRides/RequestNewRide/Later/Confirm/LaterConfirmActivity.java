@@ -1,7 +1,8 @@
-package android.carpoolrider.RequestRides.RequestNewRide.Later;
+package android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm;
 
 import android.carpoolrider.R;
-import android.carpoolrider.RequestRides.RequestRidesFragment;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.LaterPassengerNumberActivity;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.LaterWhenActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RequestNewRideConfirmLaterActivity extends AppCompatActivity {
+public class LaterConfirmActivity extends AppCompatActivity {
 
     ImageView backRequestNewRideConfirmActivity;
     RelativeLayout editPassengerNumber;
@@ -64,8 +65,8 @@ public class RequestNewRideConfirmLaterActivity extends AppCompatActivity {
         editPassengerNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RequestNewRideConfirmLaterActivity.this,
-                        RequestNewRidePassengerNumberLaterActivity.class);
+                Intent intent = new Intent(LaterConfirmActivity.this,
+                        ConfirmEditPassengerNumberActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from Activity.this to Activity.class.
@@ -81,8 +82,8 @@ public class RequestNewRideConfirmLaterActivity extends AppCompatActivity {
         editTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RequestNewRideConfirmLaterActivity.this,
-                        RequestNewRideWhenLaterActivity.class);
+                Intent intent = new Intent(LaterConfirmActivity.this,
+                        ConfirmEditWhenActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from Activity.this to Activity.class.
@@ -98,8 +99,8 @@ public class RequestNewRideConfirmLaterActivity extends AppCompatActivity {
         editDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RequestNewRideConfirmLaterActivity.this,
-                        RequestNewRideWhenLaterActivity.class);
+                Intent intent = new Intent(LaterConfirmActivity.this,
+                        ConfirmEditWhenActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from Activity.this to Activity.class.

@@ -1,6 +1,7 @@
 package android.carpoolrider.RequestRides.RequestNewRide.Later;
 
 import android.carpoolrider.R;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm.LaterConfirmActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,27 +11,27 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RequestNewRidePassengerNumberLaterActivity extends AppCompatActivity {
+public class LaterFemaleOnlyActivity extends AppCompatActivity {
 
-    ImageView backRequestNewRidePassengerNumberActivity;
+    ImageView backRequestNewRideFemaleOnlyActivity;
     RelativeLayout nextActivityRelativeLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_new_ride_passenger_number_later);
+        setContentView(R.layout.activity_request_new_ride_female_only_later);
 
-        // EFFECTS: Call setBackRequestNewRidePassengerNumberActivity.
-        setBackRequestNewRidePassengerActivity();
+        // EFFECTS: Call setBackRequestNewRideFemaleOnlyActivity.
+        setBackRequestNewRideFemaleOnlyActivity();
 
         // EFFECTS: Call setNextActivity.
         setNextActivityRelativeLayout();
     }
 
     // EFFECTS: Set OnClickActivity for backActivity.
-    private void setBackRequestNewRidePassengerActivity() {
-        backRequestNewRidePassengerNumberActivity = (ImageView) findViewById(R.id.ic_back_arrow_request_new_ride_passenger_number);
-        backRequestNewRidePassengerNumberActivity.setOnClickListener(new View.OnClickListener() {
+    private void setBackRequestNewRideFemaleOnlyActivity() {
+        backRequestNewRideFemaleOnlyActivity = (ImageView) findViewById(R.id.ic_back_arrow_request_new_ride_female_only);
+        backRequestNewRideFemaleOnlyActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -40,14 +41,15 @@ public class RequestNewRidePassengerNumberLaterActivity extends AppCompatActivit
         });
     }
 
+    // MODIFIES: this
     // EFFECTS: Set OnClickActivity for nextActivity
     private void setNextActivityRelativeLayout() {
-        nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_next_passenger_number);
+        nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_female_only_next);
         nextActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RequestNewRidePassengerNumberLaterActivity.this,
-                        RequestNewRideFemaleOnlyLaterActivity.class);
+                Intent intent = new Intent(LaterFemaleOnlyActivity.this,
+                        LaterConfirmActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from ()Activity to ()Activity.
@@ -55,5 +57,4 @@ public class RequestNewRidePassengerNumberLaterActivity extends AppCompatActivit
             }
         });
     }
-
 }

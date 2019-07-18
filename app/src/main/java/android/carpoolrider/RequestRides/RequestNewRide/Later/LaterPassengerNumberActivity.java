@@ -10,27 +10,27 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RequestNewRideWhereLaterActivity extends AppCompatActivity {
+public class LaterPassengerNumberActivity extends AppCompatActivity {
 
-    ImageView backRequestNewRideOriginActivity;
+    ImageView backRequestNewRidePassengerNumberActivity;
     RelativeLayout nextActivityRelativeLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_new_ride_where_later);
+        setContentView(R.layout.activity_request_new_ride_passenger_number_later);
 
-        // EFFECTS: Call setBackRequestNewRideOriginActivity.
-        setBackRequestNewRideWhereActivity();
+        // EFFECTS: Call setBackRequestNewRidePassengerNumberActivity.
+        setBackRequestNewRidePassengerActivity();
 
         // EFFECTS: Call setNextActivity.
         setNextActivityRelativeLayout();
     }
 
     // EFFECTS: Set OnClickActivity for backActivity.
-    private void setBackRequestNewRideWhereActivity() {
-        backRequestNewRideOriginActivity = (ImageView) findViewById(R.id.ic_back_activity_request_new_ride_where_later);
-        backRequestNewRideOriginActivity.setOnClickListener(new View.OnClickListener() {
+    private void setBackRequestNewRidePassengerActivity() {
+        backRequestNewRidePassengerNumberActivity = (ImageView) findViewById(R.id.ic_back_arrow_request_new_ride_passenger_number);
+        backRequestNewRidePassengerNumberActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -42,12 +42,12 @@ public class RequestNewRideWhereLaterActivity extends AppCompatActivity {
 
     // EFFECTS: Set OnClickActivity for nextActivity
     private void setNextActivityRelativeLayout() {
-        nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_where_next);
+        nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_next_passenger_number);
         nextActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RequestNewRideWhereLaterActivity.this,
-                        RequestNewRideWhenLaterActivity.class);
+                Intent intent = new Intent(LaterPassengerNumberActivity.this,
+                        LaterFemaleOnlyActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from ()Activity to ()Activity.
@@ -55,4 +55,5 @@ public class RequestNewRideWhereLaterActivity extends AppCompatActivity {
             }
         });
     }
+
 }
