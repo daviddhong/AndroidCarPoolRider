@@ -1,11 +1,13 @@
 package android.carpoolrider.RequestRides.RequestNewRide.Later.PassengerNumber;
 
 import android.carpoolrider.R;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -30,6 +32,8 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
 
     private int counter = 0;
 
+    RelativeLayout doneImageView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,9 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
 
         // EFFECTS: Call seatSelectorHelper.
         seatSelectorHelper();
+
+        // EFFECTS: Call doneRelativeLayout.
+        doneRelativeLayout();
     }
 
     // EFFECTS: Helper for SeatSelector.
@@ -55,11 +62,6 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
         selectSeatEleven();
     }
 
-    // EFFECTS: Helper for SeatUnSelector.
-    private void seatUnSelectorHelper() {
-        unSelectSeatOne();
-    }
-
     // EFFECTS: Select seatOne.
     private void selectSeatOne() {
         numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
@@ -71,13 +73,19 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(seatOneImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                // EFFECTS: The counter can increment by one max and decrease by one max. When the
+                // the counter is decreased by one, the color of the ImageView is also changed to
+                // its default grey color.
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatOneImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
+                // EFFECTS: Sets the counter value to the TextView that show total passenger number.
                 numberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
@@ -100,6 +108,8 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatTwoImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
@@ -123,6 +133,8 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatThreeImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
@@ -146,6 +158,8 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatFourImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
@@ -169,6 +183,8 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatFiveImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
@@ -192,6 +208,8 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatSixImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
@@ -215,6 +233,8 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatSevenImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
@@ -238,6 +258,8 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatEightImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
@@ -261,6 +283,8 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatNineImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
@@ -284,6 +308,8 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatTenImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
@@ -307,12 +333,35 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
+                    ImageViewCompat.setImageTintList(seatElevenImageView,
+                            ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
                 numberOfPassengersTextView.setText(Integer.toString(counter));
+            }
+        });
+    }
+
+    // MODIFIES: this
+    // EFFECTS: doneRelativeLayout OnClickActivity when finished selecting the number of passengers. The
+    // TextView representing the number of seats selected will be passed to
+    // LaterPassengerNumberActivity, LaterConfirmActivity, and ConfirmEditPassengerNumberActivity.
+    private void doneRelativeLayout() {
+        doneImageView = (RelativeLayout) findViewById(R.id.relative_layout_done_select_pn);
+        doneImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectPassengerNumberActivity.this,
+                        LaterPassengerNumberActivity.class);
+                // EFFECTS: Function to pass the value of the counter. The first value of .putExtra
+                // is the key and the second value is the object.
+                intent.putExtra("passenger_number", numberOfPassengersTextView.getText().toString());
+                startActivity(intent);
+                // EFFECTS: Animation from Activity.this to Activity.class.
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
     }

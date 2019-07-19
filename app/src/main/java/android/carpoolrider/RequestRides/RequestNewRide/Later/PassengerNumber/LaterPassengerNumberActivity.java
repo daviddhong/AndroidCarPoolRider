@@ -14,7 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.w3c.dom.Text;
 
-public class LaterPassengerNumberActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class LaterPassengerNumberActivity extends AppCompatActivity implements Serializable {
 
     ImageView backRequestNewRidePassengerNumberActivity;
 
@@ -60,11 +62,14 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
                         SelectPassengerNumberActivity.class);
                 startActivity(intent);
 
-                // EFFECTS: Animation from ()Activity to ()Activity.
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                // EFFECTS: Animation from Activity.this to Activity.class.
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         });
 
+        Intent selectorIntent = getIntent();
+        String selected = selectorIntent.getStringExtra("passenger_number");
+        passengerNumber.setText(selected);
     }
 
     // EFFECTS: Set OnClickActivity for nextActivity
