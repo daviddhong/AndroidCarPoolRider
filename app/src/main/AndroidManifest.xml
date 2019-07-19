@@ -20,12 +20,13 @@
         <activity android:name=".Profile.ProfileActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.RequestNewRideActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.LaterWhenActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.LaterPassengerNumberActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.Later.PassengerNumber.LaterPassengerNumberActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.LaterFemaleOnlyActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.LaterConfirmActivity"/>
         <activity android:name=".Profile.EditProfileActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.ConfirmEditWhenActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.ConfirmEditPassengerNumberActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.Later.PassengerNumber.SelectPassengerNumberActivity" />
     </application>
 
 </manifest>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_header_select_pn"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/relative_layout_done_select_pn"
+            android:layout_below="@+id/relative_layout_header_select_pn"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:id="@+id/text_view_select_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please select the number"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#0077B5"/>
+
+            <TextView
+                android:id="@+id/text_view_select_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_view_select_one"
+                android:layout_alignParentRight="true"
+                android:text="of seats you need."
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#0077B5"/>
+
+            <RelativeLayout
+                android:id="@+id/number_of_seats_visual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_view_select_two"
+                android:layout_marginTop="38dp"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/seat_one"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+                <ImageView
+                    android:id="@+id/seat_two"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/seat_one"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+                <ImageView
+                    android:id="@+id/seat_three"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/seat_two"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+                <ImageView
+                    android:id="@+id/seat_four"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/seat_three"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+                <ImageView
+                    android:id="@+id/seat_five"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/seat_one"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+                <ImageView
+                    android:id="@+id/seat_six"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/seat_two"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/seat_five"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+                <ImageView
+                    android:id="@+id/seat_seven"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/seat_three"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/seat_six"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+                <ImageView
+                    android:id="@+id/seat_eight"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/seat_four"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/seat_seven"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+                <ImageView
+                    android:id="@+id/seat_nine"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/seat_five"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+                <ImageView
+                    android:id="@+id/seat_ten"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/seat_six"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/seat_nine"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+                <ImageView
+                    android:id="@+id/seat_eleven"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_below="@id/seat_seven"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/seat_ten"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#D3D3D3"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/number_of_seats_visual"
+                android:layout_marginTop="38dp"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/image_view_seat_count"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:src="@drawable/ic_seat"
+                    android:tint="#ff9900"/>
+
+                <TextView
+                    android:id="@+id/text_view_times_seat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/image_view_seat_count"
+                    android:layout_marginLeft="15dp"
+                    android:layout_centerVertical="true"
+                    android:text="X"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#0077B5" />
+
+                <TextView
+                    android:id="@+id/text_view_total_seat_count"
+                    android:layout_width="58dp"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@id/text_view_times_seat"
+                    android:layout_marginLeft="15dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/border_rectangle_unfilled"
+                    android:ellipsize="start"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:textSize="20sp"
+                    android:textColor="#0077B5"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_done_select_pn"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="128dp"
+            android:background="@drawable/border_rectangle_fill_blue">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Done"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

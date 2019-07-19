@@ -3,9 +3,8 @@ package android.carpoolrider.RequestRides.RequestNewRide.Later;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.carpoolrider.R;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.PassengerNumber.LaterPassengerNumberActivity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -19,8 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
-
-import static java.lang.Boolean.FALSE;
 
 public class LaterWhenActivity extends AppCompatActivity {
 
@@ -78,7 +75,7 @@ public class LaterWhenActivity extends AppCompatActivity {
 
                 DatePickerDialog datePickerDialog =
                         new DatePickerDialog(LaterWhenActivity.this,
-                                android.R.style.Theme_Material_Light_Dialog_MinWidth,
+                                android.R.style.Theme_DeviceDefault_Dialog_MinWidth,
                                 onDateSetListener,
                                 year, month, dayOfMonth);
                 datePickerDialog.show();
@@ -92,7 +89,7 @@ public class LaterWhenActivity extends AppCompatActivity {
                 // EFFECTS: Convert int month to String monthText.
                 String monthText = new DateFormatSymbols().getShortMonths()[month];
 
-                String date = year + " " + monthText + ", " + dayOfMonth;
+                String date = monthText + " " + dayOfMonth + ", " + year;
                 editDateTextView.setText(date);
             }
         };
@@ -110,7 +107,7 @@ public class LaterWhenActivity extends AppCompatActivity {
 
                 TimePickerDialog timePickerDialog =
                         new TimePickerDialog(LaterWhenActivity.this,
-                                android.R.style.Theme_Material_Light_Dialog_MinWidth,
+                                android.R.style.Theme_DeviceDefault_Dialog_MinWidth,
                                 onTimeSetListener,
                                 hour, minutes, false);
                 timePickerDialog.show();
