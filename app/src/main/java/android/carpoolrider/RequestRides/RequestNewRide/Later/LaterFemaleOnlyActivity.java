@@ -46,15 +46,29 @@ public class LaterFemaleOnlyActivity extends AppCompatActivity {
     private void setNextActivityRelativeLayout() {
         nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_female_only_next);
         nextActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
+
+            // EFFECTS: Data retrieved from LaterPassengerNumberActivity for the number of
+            // passengers, date and time.
+            Bundle bundle = getIntent().getExtras();
+            String date = bundle.getString("DATE_VALUE");
+            String time = bundle.getString("TIME_VALUE");
+            String selected = bundle.getString("PASSENGER_NUMBER_SELECTED");
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LaterFemaleOnlyActivity.this,
                         LaterConfirmActivity.class);
+                // EFFECTS: Send the passenger number data to LaterConfirmActivity.
+                intent.putExtra("PASSENGER_NUMBER_VALUE", selected);
+                // EFFECTS: Send the date of the carpool to LaterConfirmActivity.
+                intent.putExtra("DATE_VALUE_LFO", date);
+                // EFFECTS: Send the time of the carpool to LaterConfirmActivity.
+                intent.putExtra("TIME_VALUE_LFO", time);
                 startActivity(intent);
-
                 // EFFECTS: Animation from ()Activity to ()Activity.
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
+
 }

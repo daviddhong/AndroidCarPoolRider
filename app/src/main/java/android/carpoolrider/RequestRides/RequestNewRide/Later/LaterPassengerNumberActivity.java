@@ -1,4 +1,4 @@
-package android.carpoolrider.RequestRides.RequestNewRide.Later.PassengerNumber;
+package android.carpoolrider.RequestRides.RequestNewRide.Later;
 
 import android.carpoolrider.R;
 import android.content.Intent;
@@ -14,36 +14,54 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.ImageViewCompat;
 
-public class SelectPassengerNumberActivity extends AppCompatActivity {
+public class LaterPassengerNumberActivity extends AppCompatActivity {
 
-    ImageView seatOneImageView;
-    ImageView seatTwoImageView;
-    ImageView seatThreeImageView;
-    ImageView seatFourImageView;
-    ImageView seatFiveImageView;
-    ImageView seatSixImageView;
-    ImageView seatSevenImageView;
-    ImageView seatEightImageView;
-    ImageView seatNineImageView;
-    ImageView seatTenImageView;
-    ImageView seatElevenImageView;
+    ImageView mBackRequestImageView;
 
-    TextView numberOfPassengersTextView;
+    ImageView mSeatOneImageView;
+    ImageView mSeatTwoImageView;
+    ImageView mSeatThreeImageView;
+    ImageView mSeatFourImageView;
+    ImageView mSeatFiveImageView;
+    ImageView mSeatSixImageView;
+    ImageView mSeatSevenImageView;
+    ImageView mSeatEightImageView;
+    ImageView mSeatNineImageView;
+    ImageView mSeatTenImageView;
+    ImageView mSeatElevenImageView;
+
+    TextView mNumberOfPassengersTextView;
 
     private int counter = 0;
 
-    RelativeLayout doneImageView;
+    RelativeLayout mDoneImageView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_new_ride_select_pn);
 
+        // EFFECTS: Back request.
+        setBackRequestPassengerNumber();
+
         // EFFECTS: Call seatSelectorHelper.
         seatSelectorHelper();
 
         // EFFECTS: Call doneRelativeLayout.
         doneRelativeLayout();
+    }
+
+    // EFFECTS: Set OnClickActivity for backActivity.
+    private void setBackRequestPassengerNumber() {
+        mBackRequestImageView = (ImageView) findViewById(R.id.ic_back_arrow_request_new_ride_pn);
+        mBackRequestImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                // EFFECTS: Animation from Activity.this to new Activity.
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+            }
+        });
     }
 
     // EFFECTS: Helper for SeatSelector.
@@ -64,21 +82,21 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
 
     // EFFECTS: Select seatOne.
     private void selectSeatOne() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatOneImageView = (ImageView) findViewById(R.id.seat_one);
-        seatOneImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatOneImageView = (ImageView) findViewById(R.id.seat_one);
+        mSeatOneImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatOneImageView,
+                ImageViewCompat.setImageTintList(mSeatOneImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 // EFFECTS: The counter can increment by one max and decrease by one max. When the
                 // the counter is decreased by one, the color of the ImageView is also changed to
                 // its default grey color.
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatOneImageView,
+                    ImageViewCompat.setImageTintList(mSeatOneImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
@@ -86,261 +104,257 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
                     clicked = true;
                 }
                 // EFFECTS: Sets the counter value to the TextView that show total passenger number.
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
 
-    // EFFECTS: UnSelect seatOne.
-    private void unSelectSeatOne() {
-    }
-
     // EFFECTS: Select seatTwo.
     private void selectSeatTwo() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatTwoImageView = (ImageView) findViewById(R.id.seat_two);
-        seatTwoImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatTwoImageView = (ImageView) findViewById(R.id.seat_two);
+        mSeatTwoImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatTwoImageView,
+                ImageViewCompat.setImageTintList(mSeatTwoImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatTwoImageView,
+                    ImageViewCompat.setImageTintList(mSeatTwoImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
 
     // EFFECTS: Select seatThree.
     private void selectSeatThree() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatThreeImageView = (ImageView) findViewById(R.id.seat_three);
-        seatThreeImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatThreeImageView = (ImageView) findViewById(R.id.seat_three);
+        mSeatThreeImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatThreeImageView,
+                ImageViewCompat.setImageTintList(mSeatThreeImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatThreeImageView,
+                    ImageViewCompat.setImageTintList(mSeatThreeImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
 
     // EFFECTS: Select seatFour.
     private void selectSeatFour() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatFourImageView = (ImageView) findViewById(R.id.seat_four);
-        seatFourImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatFourImageView = (ImageView) findViewById(R.id.seat_four);
+        mSeatFourImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatFourImageView,
+                ImageViewCompat.setImageTintList(mSeatFourImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatFourImageView,
+                    ImageViewCompat.setImageTintList(mSeatFourImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
 
     // EFFECTS: Select seatFive.
     private void selectSeatFive() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatFiveImageView = (ImageView) findViewById(R.id.seat_five);
-        seatFiveImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatFiveImageView = (ImageView) findViewById(R.id.seat_five);
+        mSeatFiveImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatFiveImageView,
+                ImageViewCompat.setImageTintList(mSeatFiveImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatFiveImageView,
+                    ImageViewCompat.setImageTintList(mSeatFiveImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
 
     // EFFECTS: Select seatSix.
     private void selectSeatSix() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatSixImageView = (ImageView) findViewById(R.id.seat_six);
-        seatSixImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatSixImageView = (ImageView) findViewById(R.id.seat_six);
+        mSeatSixImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatSixImageView,
+                ImageViewCompat.setImageTintList(mSeatSixImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatSixImageView,
+                    ImageViewCompat.setImageTintList(mSeatSixImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
 
     // EFFECTS: Select seatSeven.
     private void selectSeatSeven() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatSevenImageView = (ImageView) findViewById(R.id.seat_seven);
-        seatSevenImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatSevenImageView = (ImageView) findViewById(R.id.seat_seven);
+        mSeatSevenImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatSevenImageView,
+                ImageViewCompat.setImageTintList(mSeatSevenImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatSevenImageView,
+                    ImageViewCompat.setImageTintList(mSeatSevenImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
 
     // EFFECTS: Select seatEight.
     private void selectSeatEight() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatEightImageView = (ImageView) findViewById(R.id.seat_eight);
-        seatEightImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatEightImageView = (ImageView) findViewById(R.id.seat_eight);
+        mSeatEightImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatEightImageView,
+                ImageViewCompat.setImageTintList(mSeatEightImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatEightImageView,
+                    ImageViewCompat.setImageTintList(mSeatEightImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
 
     // EFFECTS: Select seatNine.
     private void selectSeatNine() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatNineImageView = (ImageView) findViewById(R.id.seat_nine);
-        seatNineImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatNineImageView = (ImageView) findViewById(R.id.seat_nine);
+        mSeatNineImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatNineImageView,
+                ImageViewCompat.setImageTintList(mSeatNineImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatNineImageView,
+                    ImageViewCompat.setImageTintList(mSeatNineImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
 
     // EFFECTS: Select seatTen.
     private void selectSeatTen() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatTenImageView = (ImageView) findViewById(R.id.seat_ten);
-        seatTenImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatTenImageView = (ImageView) findViewById(R.id.seat_ten);
+        mSeatTenImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatTenImageView,
+                ImageViewCompat.setImageTintList(mSeatTenImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatTenImageView,
+                    ImageViewCompat.setImageTintList(mSeatTenImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
 
     // EFFECTS: Select seatEleven.
     private void selectSeatEleven() {
-        numberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
-        seatElevenImageView = (ImageView) findViewById(R.id.seat_eleven);
-        seatElevenImageView.setOnClickListener(new View.OnClickListener() {
+        mNumberOfPassengersTextView = (TextView) findViewById(R.id.text_view_total_seat_count);
+        mSeatElevenImageView = (ImageView) findViewById(R.id.seat_eleven);
+        mSeatElevenImageView.setOnClickListener(new View.OnClickListener() {
             boolean clicked;
 
             @Override
             public void onClick(View v) {
-                ImageViewCompat.setImageTintList(seatElevenImageView,
+                ImageViewCompat.setImageTintList(mSeatElevenImageView,
                         ColorStateList.valueOf(Color.parseColor("#ff9900")));
                 if (clicked) {
                     counter--;
-                    ImageViewCompat.setImageTintList(seatElevenImageView,
+                    ImageViewCompat.setImageTintList(mSeatElevenImageView,
                             ColorStateList.valueOf(Color.parseColor("#D3D3D3")));
                     clicked = false;
                 } else {
                     counter++;
                     clicked = true;
                 }
-                numberOfPassengersTextView.setText(Integer.toString(counter));
+                mNumberOfPassengersTextView.setText(Integer.toString(counter));
             }
         });
     }
@@ -350,15 +364,27 @@ public class SelectPassengerNumberActivity extends AppCompatActivity {
     // TextView representing the number of seats selected will be passed to
     // LaterPassengerNumberActivity, LaterConfirmActivity, and ConfirmEditPassengerNumberActivity.
     private void doneRelativeLayout() {
-        doneImageView = (RelativeLayout) findViewById(R.id.relative_layout_done_select_pn);
-        doneImageView.setOnClickListener(new View.OnClickListener() {
+        mDoneImageView = (RelativeLayout) findViewById(R.id.relative_layout_done_select_pn);
+        mDoneImageView.setOnClickListener(new View.OnClickListener() {
+
+            // EFFECTS: Data retrieved from LaterWhenActivity for date and time of the carpool.
+            Bundle bundle = getIntent().getExtras();
+            String date = bundle.getString("DATE");
+            String time = bundle.getString("TIME");
+
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelectPassengerNumberActivity.this,
-                        LaterPassengerNumberActivity.class);
+                Intent intent = new Intent(LaterPassengerNumberActivity.this,
+                        LaterFemaleOnlyActivity.class);
                 // EFFECTS: Function to pass the value of the counter. The first value of .putExtra
                 // is the key and the second value is the object.
-                intent.putExtra("passenger_number", numberOfPassengersTextView.getText().toString());
+                intent.putExtra("PASSENGER_NUMBER_SELECTED", mNumberOfPassengersTextView.getText().toString());
+
+                // EFFECTS: Send the date of the carpool value.
+                intent.putExtra("DATE_VALUE", date);
+                // EFFECTS: Send the time of the carpool value.
+                intent.putExtra("TIME_VALUE", time);
+
                 startActivity(intent);
                 // EFFECTS: Animation from Activity.this to Activity.class.
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);

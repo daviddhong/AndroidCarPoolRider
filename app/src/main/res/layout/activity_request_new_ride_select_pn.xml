@@ -13,6 +13,16 @@
             android:layout_width="match_parent"
             android:layout_height="70dp">
 
+            <ImageView
+                android:id="@+id/ic_back_arrow_request_new_ride_pn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="#0077B5" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -54,15 +64,15 @@
 
                 <ImageView
                     android:id="@+id/seat_one"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/ic_seat"
                     android:tint="#D3D3D3"/>
 
                 <ImageView
                     android:id="@+id/seat_two"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginLeft="15dp"
                     android:layout_toRightOf="@id/seat_one"
                     android:src="@drawable/ic_seat"
@@ -70,8 +80,8 @@
 
                 <ImageView
                     android:id="@+id/seat_three"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginLeft="15dp"
                     android:layout_toRightOf="@id/seat_two"
                     android:src="@drawable/ic_seat"
@@ -79,8 +89,8 @@
 
                 <ImageView
                     android:id="@+id/seat_four"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginLeft="15dp"
                     android:layout_toRightOf="@id/seat_three"
                     android:src="@drawable/ic_seat"
@@ -88,8 +98,8 @@
 
                 <ImageView
                     android:id="@+id/seat_five"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/seat_one"
                     android:layout_marginTop="15dp"
                     android:src="@drawable/ic_seat"
@@ -97,8 +107,8 @@
 
                 <ImageView
                     android:id="@+id/seat_six"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/seat_two"
                     android:layout_marginTop="15dp"
                     android:layout_toRightOf="@id/seat_five"
@@ -108,8 +118,8 @@
 
                 <ImageView
                     android:id="@+id/seat_seven"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/seat_three"
                     android:layout_marginTop="15dp"
                     android:layout_toRightOf="@id/seat_six"
@@ -119,8 +129,8 @@
 
                 <ImageView
                     android:id="@+id/seat_eight"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/seat_four"
                     android:layout_marginTop="15dp"
                     android:layout_toRightOf="@id/seat_seven"
@@ -130,8 +140,8 @@
 
                 <ImageView
                     android:id="@+id/seat_nine"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/seat_five"
                     android:layout_marginTop="15dp"
                     android:src="@drawable/ic_seat"
@@ -139,8 +149,8 @@
 
                 <ImageView
                     android:id="@+id/seat_ten"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/seat_six"
                     android:layout_marginTop="15dp"
                     android:layout_toRightOf="@id/seat_nine"
@@ -150,8 +160,8 @@
 
                 <ImageView
                     android:id="@+id/seat_eleven"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_below="@id/seat_seven"
                     android:layout_marginTop="15dp"
                     android:layout_toRightOf="@id/seat_ten"
@@ -165,7 +175,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/number_of_seats_visual"
-                android:layout_marginTop="38dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="78dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I need"
+                    android:textSize="25sp"
+                    android:textColor="#ff9900"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/number_of_seats_visual"
+                android:layout_marginTop="58dp"
                 android:layout_centerHorizontal="true">
 
                 <ImageView
@@ -194,7 +220,7 @@
                     android:layout_toRightOf="@id/text_view_times_seat"
                     android:layout_marginLeft="15dp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/border_rectangle_unfilled"
+                    android:background="@drawable/border_blue_rectangle_unfilled"
                     android:ellipsize="start"
                     android:gravity="center"
                     android:hint="0"
@@ -217,10 +243,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Done"
+                android:text="Next"
                 android:textColor="#ffffff"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="28dp"
+                android:src="@drawable/ic_arrow_forward"
+                android:tint="#ffffff" />
 
         </RelativeLayout>
 

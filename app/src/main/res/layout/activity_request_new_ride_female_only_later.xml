@@ -49,6 +49,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/driver_to_be_female"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/relative_layout_text_view_female_only">
@@ -61,6 +62,46 @@
                     android:textColor="#ff3399"
                     android:textSize="25sp"
                     android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_yes"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:layout_below="@id/driver_to_be_female"
+                android:layout_marginTop="118dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/border_pink_rectangle_unfilled">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Yes"
+                    android:textSize="20sp"
+                    android:textColor="#ff3399"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_layout_no"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:layout_below="@id/relative_layout_yes"
+                android:layout_marginTop="38dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/border_pink_rectangle_unfilled">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="No"
+                    android:textSize="20sp"
+                    android:textColor="#ff3399"
+                    android:textStyle="bold"/>
+
             </RelativeLayout>
 
 

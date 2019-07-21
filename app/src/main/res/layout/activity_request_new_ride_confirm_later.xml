@@ -70,7 +70,7 @@
                 android:layout_height="188dp"
                 android:layout_below="@+id/relative_layout_text_view_two"
                 android:layout_marginTop="78dp"
-                android:background="@drawable/border_rectangle_unfilled">
+                android:background="@drawable/border_blue_rectangle_unfilled">
 
                 <RelativeLayout
                     android:id="@+id/information_side"
@@ -83,7 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp">
+                        android:layout_marginTop="38dp">
 
                         <ImageView
                             android:layout_width="30dp"
@@ -93,12 +93,13 @@
                             android:tint="#ffffff" />
 
                         <TextView
+                            android:id="@+id/text_view_passenger_number_confirm"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_marginLeft="57dp"
-                            android:text="0"
+                            android:text="N"
                             android:textColor="#ffffff"
-                            android:textSize="20sp" />
+                            android:textSize="20sp"/>
 
                     </RelativeLayout>
 
@@ -111,24 +112,13 @@
                         android:layout_marginTop="5dp">
 
                         <TextView
-                            android:id="@+id/time_number"
+                            android:id="@+id/time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="6:45"
+                            android:text="Time"
                             android:textColor="#ffffff"
                             android:textSize="32sp"
                             android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/time_am_or_pm"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/time_number"
-                            android:layout_centerHorizontal="true"
-                            android:text="AM"
-                            android:textColor="#ffffff"
-                            android:textSize="17sp"
-                            android:textStyle="bold"/>
 
                     </RelativeLayout>
 
@@ -141,35 +131,13 @@
                         android:layout_marginTop="5dp">
 
                         <TextView
-                            android:id="@+id/year"
+                            android:id="@+id/date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2019"
+                            android:text="Date"
                             android:textColor="#ffffff"
                             android:textSize="17sp"
                             android:textStyle="bold"/>
-
-                        <TextView
-                            android:id="@+id/month"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="7dp"
-                            android:layout_toRightOf="@+id/year"
-                            android:text="Feb"
-                            android:textColor="#ffffff"
-                            android:textSize="17sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/day"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="7dp"
-                            android:layout_toRightOf="@+id/month"
-                            android:text="01"
-                            android:textColor="#ffffff"
-                            android:textSize="17sp"
-                            android:textStyle="bold" />
 
                     </RelativeLayout>
 
@@ -314,7 +282,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="88dp"
-            android:background="@drawable/border_rectangle_unfilled">
+            android:background="@drawable/border_blue_rectangle_unfilled">
 
             <TextView
                 android:layout_width="wrap_content"

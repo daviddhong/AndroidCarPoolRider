@@ -3,7 +3,6 @@ package android.carpoolrider.RequestRides.RequestNewRide.Later;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.carpoolrider.R;
-import android.carpoolrider.RequestRides.RequestNewRide.Later.PassengerNumber.LaterPassengerNumberActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -128,7 +127,7 @@ public class LaterWhenActivity extends AppCompatActivity {
                         hour = hourOfDay - 12;
                     }
                 }
-                String time = hour + " : " + minute + " " + period;
+                String time = hour + ":" + minute + " " + period;
                 editTimeTextView.setText(time);
             }
         };
@@ -138,10 +137,13 @@ public class LaterWhenActivity extends AppCompatActivity {
     private void setNextActivityRelativeLayout() {
         nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_when_next);
         nextActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LaterWhenActivity.this,
                         LaterPassengerNumberActivity.class);
+                intent.putExtra("DATE", editDateTextView.getText());
+                intent.putExtra("TIME", editTimeTextView.getText());
                 startActivity(intent);
 
                 // EFFECTS: Animation from ()Activity to ()Activity.
