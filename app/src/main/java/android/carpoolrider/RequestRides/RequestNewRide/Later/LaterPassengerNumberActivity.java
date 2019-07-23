@@ -362,7 +362,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
     // MODIFIES: this
     // EFFECTS: doneRelativeLayout OnClickActivity when finished selecting the number of passengers. The
     // TextView representing the number of seats selected will be passed to
-    // LaterPassengerNumberActivity, LaterConfirmActivity, and ConfirmEditPassengerNumberActivity.
+    // LaterPassengerNumberActivity, LaterConfirmActivity, and ConfirmPassengerNumberActivity.
     private void doneRelativeLayout() {
         mDoneImageView = (RelativeLayout) findViewById(R.id.relative_layout_done_select_pn);
         mDoneImageView.setOnClickListener(new View.OnClickListener() {

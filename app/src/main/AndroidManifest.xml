@@ -23,8 +23,8 @@
         <activity android:name=".RequestRides.RequestNewRide.Later.LaterFemaleOnlyActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.LaterConfirmActivity"/>
         <activity android:name=".Profile.EditProfileActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.ConfirmEditWhenActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.ConfirmEditPassengerNumberActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.ConfirmWhenActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.ConfirmPassengerNumberActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.LaterPassengerNumberActivity" />
     </application>
 

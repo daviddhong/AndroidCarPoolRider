@@ -70,7 +70,7 @@ public class LaterConfirmActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LaterConfirmActivity.this,
-                        ConfirmEditPassengerNumberActivity.class);
+                        ConfirmPassengerNumberActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from Activity.this to Activity.class.
@@ -94,7 +94,7 @@ public class LaterConfirmActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LaterConfirmActivity.this,
-                        ConfirmEditWhenActivity.class);
+                        ConfirmWhenActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from Activity.this to Activity.class.
@@ -118,7 +118,7 @@ public class LaterConfirmActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LaterConfirmActivity.this,
-                        ConfirmEditWhenActivity.class);
+                        ConfirmWhenActivity.class);
                 startActivity(intent);
 
                 // EFFECTS: Animation from Activity.this to Activity.class.
