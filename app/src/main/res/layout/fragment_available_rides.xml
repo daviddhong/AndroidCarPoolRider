@@ -12,7 +12,8 @@
         <RelativeLayout
             android:id="@+id/relative_layout_header_available_rides"
             android:layout_width="match_parent"
-            android:layout_height="56dp">
+            android:layout_height="70dp"
+            android:background="@drawable/border_bottom">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -21,7 +22,7 @@
                 android:layout_marginLeft="15dp"
                 android:text="Rides Available"
                 android:textSize="20sp"
-                android:textColor="#0077B5"
+                android:textColor="#4264fb"
                 android:textStyle="bold"/>
 
             <ImageView
@@ -32,7 +33,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/ic_account_circle"
-                android:tint="#0077B5" />
+                android:tint="#4264fb" />
         </RelativeLayout>
 
     </RelativeLayout>

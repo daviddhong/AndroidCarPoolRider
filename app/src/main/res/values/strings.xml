@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CarPoolRider</string>
-
+    <string name="mapbox_access_token">pk.eyJ1IjoiZWtoayIsImEiOiJjanljdmdnZ2YwYjhvM2JvNG5rcmY2aG9iIn0.TRqcor1U_ylcri7lkmh5bA</string>
     <string-array name="passenger_number">
         <item>1</item>
         <item>2</item>

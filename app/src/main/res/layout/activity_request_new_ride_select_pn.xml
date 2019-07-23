@@ -21,7 +21,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_arrow_back"
-                android:tint="#0077B5" />
+                android:tint="#4264fb" />
 
         </RelativeLayout>
 
@@ -41,7 +41,7 @@
                 android:text="Please select the number"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:textColor="#0077B5"/>
+                android:textColor="#4264fb"/>
 
             <TextView
                 android:id="@+id/text_view_select_two"
@@ -52,7 +52,7 @@
                 android:text="of seats you need."
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:textColor="#0077B5"/>
+                android:textColor="#4264fb"/>
 
             <RelativeLayout
                 android:id="@+id/number_of_seats_visual"
@@ -183,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:text="I need"
                     android:textSize="25sp"
-                    android:textColor="#ff9900"
+                    android:textColor="#4264fb"
                     android:textStyle="bold"/>
             </RelativeLayout>
 
@@ -199,7 +199,7 @@
                     android:layout_width="38dp"
                     android:layout_height="38dp"
                     android:src="@drawable/ic_seat"
-                    android:tint="#ff9900"/>
+                    android:tint="#4264fb"/>
 
                 <TextView
                     android:id="@+id/text_view_times_seat"
@@ -211,7 +211,7 @@
                     android:text="X"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="#0077B5" />
+                    android:textColor="#4264fb" />
 
                 <TextView
                     android:id="@+id/text_view_total_seat_count"
@@ -225,7 +225,7 @@
                     android:gravity="center"
                     android:hint="0"
                     android:textSize="20sp"
-                    android:textColor="#0077B5"/>
+                    android:textColor="#4264fb"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -237,7 +237,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="128dp"
-            android:background="@drawable/border_rectangle_fill_blue">
+            android:background="#4264fb">
 
             <TextView
                 android:layout_width="wrap_content"

@@ -90,7 +90,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatOneImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 // EFFECTS: The counter can increment by one max and decrease by one max. When the
                 // the counter is decreased by one, the color of the ImageView is also changed to
                 // its default grey color.
@@ -119,7 +119,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatTwoImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 if (clicked) {
                     counter--;
                     ImageViewCompat.setImageTintList(mSeatTwoImageView,
@@ -144,7 +144,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatThreeImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 if (clicked) {
                     counter--;
                     ImageViewCompat.setImageTintList(mSeatThreeImageView,
@@ -169,7 +169,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatFourImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 if (clicked) {
                     counter--;
                     ImageViewCompat.setImageTintList(mSeatFourImageView,
@@ -194,7 +194,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatFiveImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 if (clicked) {
                     counter--;
                     ImageViewCompat.setImageTintList(mSeatFiveImageView,
@@ -219,7 +219,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatSixImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 if (clicked) {
                     counter--;
                     ImageViewCompat.setImageTintList(mSeatSixImageView,
@@ -244,7 +244,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatSevenImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 if (clicked) {
                     counter--;
                     ImageViewCompat.setImageTintList(mSeatSevenImageView,
@@ -269,7 +269,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatEightImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 if (clicked) {
                     counter--;
                     ImageViewCompat.setImageTintList(mSeatEightImageView,
@@ -294,7 +294,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatNineImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 if (clicked) {
                     counter--;
                     ImageViewCompat.setImageTintList(mSeatNineImageView,
@@ -319,7 +319,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatTenImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 if (clicked) {
                     counter--;
                     ImageViewCompat.setImageTintList(mSeatTenImageView,
@@ -344,7 +344,7 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ImageViewCompat.setImageTintList(mSeatElevenImageView,
-                        ColorStateList.valueOf(Color.parseColor("#ff9900")));
+                        ColorStateList.valueOf(Color.parseColor("#4264fb")));
                 if (clicked) {
                     counter--;
                     ImageViewCompat.setImageTintList(mSeatElevenImageView,

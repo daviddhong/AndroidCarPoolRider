@@ -34,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Edit the number of"
-                    android:textColor="#0077B5"
+                    android:textColor="#4264fb"
                     android:textSize="25sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="150dp"
                     android:text="seats you need."
-                    android:textColor="#0077B5"
+                    android:textColor="#4264fb"
                     android:textSize="25sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -64,7 +64,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="170dp"
-            android:background="@drawable/border_rectangle_fill_blue">
+            android:background="#4264fb">
 
             <TextView
                 android:layout_width="wrap_content"
