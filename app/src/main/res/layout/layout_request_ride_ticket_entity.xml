@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="178dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/border_blue_rectangle_unfilled">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/origin_ticket"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/ic_trip_origin"
+                android:tint="#4264fb" />
+
+            <ImageView
+                android:id="@+id/vert_two_ticket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="43dp"
+                android:src="@drawable/ic_more_vert"
+                android:tint="#4264fb" />
+
+            <ImageView
+                android:id="@+id/destination"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_below="@id/vert_two_ticket"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/border_oval_fill" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_request_new_ride_origin"
+            android:layout_marginLeft="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/border_blue_rectangle_unfilled" >
+
+            <TextView
+                android:id="@+id/text_origin"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:text="Origin"
+                android:textColor="#4264fb"
+                android:gravity="center|left"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_request_new_ride_destination"
+            android:layout_marginLeft="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/relative_layout_request_new_ride_origin"
+            android:background="@drawable/border_blue_rectangle_unfilled" >
+
+            <TextView
+                android:id="@+id/text_destination"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:text="Destination"
+                android:textColor="#4264fb"
+                android:gravity="center|left"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp">
+
+            <ImageView
+                android:id="@+id/expand_ticket"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_add_box"
+                android:tint="#4264fb" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@+id/relative_layout_request_new_ride_destination"
+            android:layout_marginTop="15dp"
+            android:text="Aug 3, 2019"
+            android:textColor="#4264fb"
+            android:layout_marginLeft="82dp"/>
+
+        <TextView
+            android:id="@+id/text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@+id/text_date"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="82dp"
+            android:text="7:29 PM"
+            android:textColor="#4264fb"/>
+
+        <ImageView
+            android:id="@+id/passenger_number_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_people"
+            android:tint="#4264fb"
+            android:layout_below="@id/relative_layout_request_new_ride_destination"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/text_date"
+            android:layout_marginLeft="38dp" />
+
+        <TextView
+            android:id="@+id/text_passenger_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/passenger_number_image"
+            android:layout_below="@id/relative_layout_request_new_ride_destination"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:text="1"
+            android:textColor="#4264fb"
+            android:textSize="15sp"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

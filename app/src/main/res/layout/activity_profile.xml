@@ -31,20 +31,14 @@
                 android:textColor="#4264fb"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/relative_layout_header_profile"
-            android:layout_marginTop="10dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp">
 
             <ImageView
                 android:id="@+id/image_view_edit_profile"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
                 android:src="@drawable/ic_edit"
                 android:tint="#4264fb"/>
         </RelativeLayout>

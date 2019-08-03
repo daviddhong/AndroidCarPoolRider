@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="android.carpoolrider">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,16 +15,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RequestRides.RequestNewRide.Later.LaterWhereActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.Later.LaterOriginActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.Later.LaterDestinationActivity"/>
         <activity android:name=".Profile.ProfileActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.RequestNewRideActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.LaterWhenActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.LaterFemaleOnlyActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.LaterConfirmActivity"/>
         <activity android:name=".Profile.EditProfileActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.ConfirmWhenActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.ConfirmPassengerNumberActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.LaterPassengerNumberActivity" />
     </application>
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>

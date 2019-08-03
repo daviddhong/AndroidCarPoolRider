@@ -67,16 +67,18 @@
             <RelativeLayout
                 android:id="@+id/relative_layout_information"
                 android:layout_width="match_parent"
-                android:layout_height="188dp"
+                android:layout_height="170dp"
                 android:layout_below="@+id/relative_layout_text_view_two"
                 android:layout_marginTop="78dp"
                 android:background="@drawable/border_blue_rectangle_unfilled">
 
                 <RelativeLayout
                     android:id="@+id/information_side_left"
-                    android:layout_width="138dp"
-                    android:layout_height="match_parent"
-                    android:background="#4264fb">
+                    android:layout_width="135dp"
+                    android:layout_height="187dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/blue_rectangle_filled_rounded_one_side">
 
                     <RelativeLayout
                         android:id="@+id/passenger_number"
@@ -99,7 +101,7 @@
                             android:layout_marginLeft="57dp"
                             android:text="N"
                             android:textColor="#ffffff"
-                            android:textSize="20sp"/>
+                            android:textSize="20sp" />
 
                     </RelativeLayout>
 
@@ -137,7 +139,7 @@
                             android:text="Date"
                             android:textColor="#ffffff"
                             android:textSize="17sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                     </RelativeLayout>
 
@@ -155,48 +157,79 @@
 
                         <ImageView
                             android:id="@+id/origin"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_marginTop="28dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="28dp"
                             android:src="@drawable/ic_trip_origin"
-                            android:tint="#4264fb"/>
+                            android:tint="#4264fb" />
 
                         <ImageView
-                            android:id="@+id/more_vert_one"
+                            android:id="@+id/more_vert"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/origin"
                             android:layout_centerHorizontal="true"
+                            android:layout_marginTop="3dp"
                             android:src="@drawable/ic_more_vert"
-                            android:tint="#4264fb"/>
-
-                        <ImageView
-                            android:id="@+id/more_vert_two"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="77dp"
-                            android:layout_centerHorizontal="true"
-                            android:src="@drawable/ic_more_vert"
-                            android:tint="#4264fb"/>
+                            android:tint="#4264fb" />
 
                         <ImageView
                             android:id="@+id/destination"
-                            android:layout_width="15dp"
-                            android:layout_height="15dp"
-                            android:layout_below="@id/more_vert_two"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_below="@id/more_vert"
                             android:layout_centerHorizontal="true"
+                            android:layout_marginTop="3dp"
                             android:src="@drawable/border_oval_fill" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="23dp"
+                        android:layout_toRightOf="@+id/relative_layout_origin_destination"
+                        android:background="@drawable/border_blue_rectangle_unfilled">
+
+                        <TextView
+                            android:id="@+id/text_view_confirm_origin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:text="Origin"
+                            android:textColor="#4264fb"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="67dp"
+                        android:layout_toRightOf="@+id/relative_layout_origin_destination"
+                        android:background="@drawable/border_blue_rectangle_unfilled">
+
+                        <TextView
+                            android:id="@+id/text_view_confirm_destination"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
+                            android:text="Destination"
+                            android:textColor="#4264fb"
+                            android:textSize="12sp" />
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/relative_layout_origin_destination"
-                        android:layout_marginTop="28dp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginLeft="10dp"
-                        android:layout_centerHorizontal="true">
+                        android:layout_marginTop="28dp">
 
                         <ImageView
                             android:id="@+id/ic_monetization"
@@ -204,20 +237,20 @@
                             android:layout_height="20dp"
                             android:layout_centerVertical="true"
                             android:src="@drawable/ic_monetization_on"
-                            android:tint="#4264fb"/>
+                            android:tint="#4264fb" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/ic_monetization"
-                            android:layout_toEndOf="@id/ic_monetization"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginStart="8dp"
                             android:layout_centerVertical="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toEndOf="@id/ic_monetization"
+                            android:layout_toRightOf="@id/ic_monetization"
                             android:text="Cost"
-                            android:textStyle="bold"
+                            android:textColor="#4264fb"
                             android:textSize="20sp"
-                            android:textColor="#4264fb"/>
+                            android:textStyle="bold" />
 
                     </RelativeLayout>
 
@@ -226,9 +259,9 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_below="@id/relative_layout_information"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/relative_layout_information"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp">
 
@@ -237,19 +270,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Click on the information"
+                    android:textColor="#4264fb"
                     android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:textColor="#4264fb"/>
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_below="@+id/text_view_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_view_one"
                     android:layout_marginLeft="87dp"
                     android:text="you would like to edit"
+                    android:textColor="#4264fb"
                     android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:textColor="#4264fb"/>
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 

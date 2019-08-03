@@ -138,12 +138,19 @@ public class LaterWhenActivity extends AppCompatActivity {
         nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_when_next);
         nextActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
 
+            Bundle bundle = getIntent().getExtras();
+            String origin = bundle.getString("ORIGIN");
+            String destination = bundle.getString("DESTINATION");
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LaterWhenActivity.this,
                         LaterPassengerNumberActivity.class);
                 intent.putExtra("DATE", editDateTextView.getText());
                 intent.putExtra("TIME", editTimeTextView.getText());
+                intent.putExtra("ORIGIN", origin);
+                intent.putExtra("DESTINATION", destination);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
 
                 // EFFECTS: Animation from ()Activity to ()Activity.

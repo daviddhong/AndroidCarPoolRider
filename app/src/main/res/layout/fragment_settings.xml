@@ -16,7 +16,7 @@
             <RelativeLayout
                 android:id="@+id/relative_layout_header_settings"
                 android:layout_width="match_parent"
-                android:layout_height="70dp">
+                android:layout_height="?attr/actionBarSize">
 
                 <TextView
                     android:layout_width="wrap_content"

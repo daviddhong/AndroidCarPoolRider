@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -16,7 +17,7 @@
             <RelativeLayout
                 android:id="@+id/relative_layout_header_rides_requested"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="?attr/actionBarSize"
                 android:layout_alignParentTop="true"
                 android:background="@drawable/border_bottom">
 
@@ -46,19 +47,20 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/relative_layout_header_rides_requested"
                 android:layout_above="@+id/relative_layout_request_new_ride"
-                android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp">
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rides_requested_recycler_view"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/layout_request_ride_ticket_entity">
 
                 </androidx.recyclerview.widget.RecyclerView>
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/relative_layout_request_new_ride"
-                android:layout_width="300dp"
+                android:layout_width="355dp"
                 android:layout_height="55dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
@@ -81,4 +83,4 @@
 
     </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

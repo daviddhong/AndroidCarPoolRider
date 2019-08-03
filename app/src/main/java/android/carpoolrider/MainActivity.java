@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         // EFFECTS: Call bottomNavigationView.
         bottomNavigationView();
-
     }
 
     // EFFECTS: Replace MainActivity with AvailableRidesFragment.

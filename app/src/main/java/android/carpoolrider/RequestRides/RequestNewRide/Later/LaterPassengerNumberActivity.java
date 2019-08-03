@@ -1,6 +1,7 @@
 package android.carpoolrider.RequestRides.RequestNewRide.Later;
 
 import android.carpoolrider.R;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm.LaterConfirmActivity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -371,11 +372,13 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
             Bundle bundle = getIntent().getExtras();
             String date = bundle.getString("DATE");
             String time = bundle.getString("TIME");
+            String origin = bundle.getString("ORIGIN");
+            String destination = bundle.getString("DESTINATION");
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LaterPassengerNumberActivity.this,
-                        LaterFemaleOnlyActivity.class);
+                        LaterConfirmActivity.class);
                 // EFFECTS: Function to pass the value of the counter. The first value of .putExtra
                 // is the key and the second value is the object.
                 intent.putExtra("PASSENGER_NUMBER_SELECTED", mNumberOfPassengersTextView.getText().toString());
@@ -384,6 +387,11 @@ public class LaterPassengerNumberActivity extends AppCompatActivity {
                 intent.putExtra("DATE_VALUE", date);
                 // EFFECTS: Send the time of the carpool value.
                 intent.putExtra("TIME_VALUE", time);
+
+                intent.putExtra("ORIGIN", origin);
+                intent.putExtra("DESTINATION", destination);
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                 startActivity(intent);
                 // EFFECTS: Animation from Activity.this to Activity.class.

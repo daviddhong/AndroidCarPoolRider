@@ -1,6 +1,9 @@
 package android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm;
 
+import android.carpoolrider.MainActivity;
 import android.carpoolrider.R;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.LaterPassengerNumberActivity;
+import android.carpoolrider.RequestRides.RequestRidesFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +27,8 @@ public class LaterConfirmActivity extends AppCompatActivity {
     TextView mPassengerNumberConfirm;
     TextView mTimeConfirm;
     TextView mDateConfirm;
+    TextView mOrigin;
+    TextView mDestination;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +46,12 @@ public class LaterConfirmActivity extends AppCompatActivity {
 
         // EFFECTS: Call setEditDate.
         setEditDate();
+
+        // EFFECTS: Call setEditOrigin.
+        setEditOrigin();
+
+        // EFFECTS: Call setEditDestination.
+        setEditDestination();
 
         // EFFECTS: Call setConfirmActivityRelativeLayout.
         setConfirmActivityRelativeLayout();
@@ -78,11 +89,10 @@ public class LaterConfirmActivity extends AppCompatActivity {
             }
         });
 
-        // EFFECTS: Retrieve data from LaterFemaleOnlyActivity, which got the data from
-        // LaterPassengerNumberActivity.
+        // EFFECTS: Retrieve data from LaterPassengerNumberActivity.
         mPassengerNumberConfirm = (TextView) findViewById(R.id.text_view_passenger_number_confirm);
         Bundle bundle = getIntent().getExtras();
-        String passengerNumber = bundle.getString("PASSENGER_NUMBER_VALUE");
+        String passengerNumber = bundle.getString("PASSENGER_NUMBER_SELECTED");
         mPassengerNumberConfirm.setText(passengerNumber);
     }
 
@@ -102,11 +112,11 @@ public class LaterConfirmActivity extends AppCompatActivity {
             }
         });
 
-        // EFFECTS: Retrieve the data from LaterFemaleOnlyActivity, which got the data from
-        // LaterPassengerNumberActivity, which got the data from LaterWhenActivity.
+        // EFFECTS: Retrieve the data LaterPassengerNumberActivity, which got the data from
+        // LaterWhenActivity.
         mTimeConfirm = (TextView) findViewById(R.id.time);
         Bundle bundle = getIntent().getExtras();
-        String time = bundle.getString("TIME_VALUE_LFO");
+        String time = bundle.getString("TIME_VALUE");
         mTimeConfirm.setText(time);
     }
 
@@ -126,21 +136,43 @@ public class LaterConfirmActivity extends AppCompatActivity {
             }
         });
 
-        // EFFECTS: Retrieve the data from LaterFemaleOnlyActivity, which got the data from
-        // LaterPassengerNumberActivity, which got the data rom LaterWhenActivity.
+        // EFFECTS: Retrieve the data from LaterPassengerNumberActivity, which got the data rom
+        // LaterWhenActivity.
         mDateConfirm = (TextView) findViewById(R.id.date);
         Bundle bundle = getIntent().getExtras();
-        String date = bundle.getString("DATE_VALUE_LFO");
+        String date = bundle.getString("DATE_VALUE");
         mDateConfirm.setText(date);
+    }
+
+    private void setEditOrigin() {
+        mOrigin = (TextView) findViewById(R.id.text_view_confirm_origin);
+        Bundle bundle = getIntent().getExtras();
+        String origin = bundle.getString("ORIGIN");
+        mOrigin.setText(origin);
+    }
+
+    private void setEditDestination() {
+        mDestination = (TextView) findViewById(R.id.text_view_confirm_destination);
+        Bundle bundle = getIntent().getExtras();
+        String destination = bundle.getString("DESTINATION");
+        mDestination.setText(destination);
     }
 
     // EFFECTS: Set ConfirmNewRideRequest.
     private void setConfirmActivityRelativeLayout() {
         mConfirmActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_confirm_later);
         mConfirmActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
+
+            Bundle bundle = getIntent().getExtras();
+            String origin = bundle.getString("ORIGIN");
+            String destination = bundle.getString("DESTINATION");
+            String date = bundle.getString("DATE_VALUE");
+            String time = bundle.getString("TIME_VALUE");
+            String passengerNumber = bundle.getString("PASSENGER_NUMBER_SELECTED");
+
             @Override
             public void onClick(View v) {
-
+                finish();
             }
         });
     }
@@ -155,5 +187,7 @@ public class LaterConfirmActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 }

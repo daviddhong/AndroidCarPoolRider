@@ -12,7 +12,7 @@
         <RelativeLayout
             android:id="@+id/relative_layout_header_available_rides"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="?attr/actionBarSize"
             android:background="@drawable/border_bottom">
 
             <TextView
