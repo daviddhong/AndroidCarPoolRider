@@ -74,7 +74,7 @@ public class LaterOriginActivity extends AppCompatActivity implements OnMapReady
         super.onCreate(savedInstanceState);
         // EFFECTS: Mapbox access token is configured here. This needs to nbe called either in your
         // application object or in the same activity which contains the mapview.
-        Mapbox.getInstance(this, );
+        Mapbox.getInstance(this, "");
         setContentView(R.layout.activity_request_new_ride_origin_later);
 
         // EFFECTS: Initialize MapView.
@@ -108,7 +108,7 @@ public class LaterOriginActivity extends AppCompatActivity implements OnMapReady
             @Override
             public void onClick(View v) {
                 Intent intent = new PlaceAutocomplete.IntentBuilder()
-                        .accessToken()
+                        .accessToken("")
                         .placeOptions(PlaceOptions.builder()
                                 .backgroundColor(Color.parseColor("#EEEEEE"))
                                 .build(PlaceOptions.MODE_CARDS))
