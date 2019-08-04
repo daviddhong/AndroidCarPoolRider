@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="#4264fb"
+            android:textSize="25sp"
+            android:id="@+id/textView_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Welcome CarPool Rider" />
+
+        <EditText
+            android:background="@drawable/border_blue_rectangle_unfilled"
+            android:textColor="#0077B5"
+            android:textSize="20sp"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:paddingLeft="15dp"
+
+            android:id="@+id/editText_email_login"
+            android:layout_gravity="center"
+            android:layout_marginTop="90dp"
+            android:ems="10"
+            android:gravity="center"
+            android:drawableStart="@drawable/ic_email_24dp"
+
+            android:hint="Enter in your email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:background="@drawable/border_blue_rectangle_unfilled"
+            android:textColor="#0077B5"
+            android:textSize="20sp"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:paddingLeft="15dp"
+
+            android:id="@+id/editText_password_login"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:gravity="center"
+            android:drawableStart="@drawable/ic_lock_24dp"
+            android:hint="Enter in your password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:background="@drawable/border_rectangle_fill_blue"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+            android:id="@+id/button_login"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="90dp"
+            android:gravity="center"
+            android:text="Log In" />
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="#4264fb"
+
+            android:id="@+id/textView_makeaccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Make an Account"
+            android:textSize="20sp" />
+
+        <TextView
+            android:textStyle="bold"
+            android:textColor="#4264fb"
+
+            android:id="@+id/textView_forgotpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Forgot password?"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

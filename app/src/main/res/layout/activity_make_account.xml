@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Let's make an account!"
+            android:textColor="#4264fb"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editText_firstname_make"
+                android:layout_width="300dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/border_blue_rectangle_unfilled"
+
+                android:ems="10"
+                android:gravity="center"
+                android:hint="First Name"
+                android:inputType="textPersonName"
+                android:textColor="#0077B5"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editText_lastname_make"
+                android:layout_width="300dp"
+                android:layout_height="0dp"
+
+                android:layout_weight="1"
+                android:background="@drawable/border_blue_rectangle_unfilled"
+                android:ems="10"
+                android:gravity="center"
+
+                android:hint="Last Name"
+                android:inputType="textPersonName"
+                android:textColor="#0077B5"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editText_email_make"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/border_blue_rectangle_unfilled"
+
+
+            android:drawableStart="@drawable/ic_email_24dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Enter your Email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            android:textColor="#0077B5"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editText_confirmemail_make"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:background="@drawable/border_blue_rectangle_unfilled"
+            android:ems="10"
+
+            android:gravity="center"
+            android:hint="Confirm your Email"
+            android:inputType="textEmailAddress"
+            android:textColor="#0077B5"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editText_pw_make"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/border_blue_rectangle_unfilled"
+
+
+            android:drawableStart="@drawable/ic_lock_24dp"
+
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Enter your Password"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:textColor="#0077B5"
+            android:textSize="20sp" />
+
+        <EditText
+
+            android:id="@+id/editText_confirmpw_make"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+
+            android:background="@drawable/border_blue_rectangle_unfilled"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Confirm your Password"
+            android:inputType="textPassword"
+            android:textColor="#0077B5"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/button_confirm_make"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+
+
+            android:background="@drawable/border_rectangle_fill_blue"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+
+
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="Confirm "
+            />
+    </LinearLayout>
+</RelativeLayout>
