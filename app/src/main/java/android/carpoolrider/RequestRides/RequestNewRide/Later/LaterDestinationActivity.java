@@ -44,7 +44,7 @@ public class LaterDestinationActivity extends AppCompatActivity implements OnMap
     private MapboxMap mapboxMap;
     private String geoJsonSourceLayerIDDestination = "geoJsonSourceLayerIDDestination";
     private Point destination;
-
+    private String APIKEY;
     TextView textViewDestination;
 
     RelativeLayout nextActivityRelativeLayout;
@@ -53,9 +53,11 @@ public class LaterDestinationActivity extends AppCompatActivity implements OnMap
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        APIKEY  = getString(R.string.API_KEY);
+
         // EFFECTS: Mapbox access token is configured here. This needs to nbe called either in your
         // application object or in the same activity which contains the mapview.
-        Mapbox.getInstance(this, "");
+        Mapbox.getInstance(this, "" + APIKEY);
         setContentView(R.layout.activity_request_new_ride_destination_later);
 
         // EFFECTS: Initialize MapView.
@@ -87,7 +89,7 @@ public class LaterDestinationActivity extends AppCompatActivity implements OnMap
             @Override
             public void onClick(View v) {
                 Intent intent = new PlaceAutocomplete.IntentBuilder()
-                        .accessToken("")
+                        .accessToken("" + APIKEY)
                         .placeOptions(PlaceOptions.builder()
                                 .backgroundColor(Color.parseColor("#EEEEEE"))
                                 .build(PlaceOptions.MODE_CARDS))
