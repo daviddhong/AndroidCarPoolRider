@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "android.carpoolrider"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -52,4 +52,10 @@ dependencies {
     def room_version = "2.2.0-alpha01"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+
+
+    // Added for Firebase
+    implementation 'com.google.firebase:firebase-core:17.0.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

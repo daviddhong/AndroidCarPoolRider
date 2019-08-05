@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "159815696014",
+    "firebase_url": "https://androidcarpoolrider.firebaseio.com",
+    "project_id": "androidcarpoolrider",
+    "storage_bucket": "androidcarpoolrider.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159815696014:android:12b4aadf172c0661",
+        "android_client_info": {
+          "package_name": "android.carpoolrider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159815696014-vt79gto3n4gefmtdq080kmsdscncnced.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "android.carpoolrider",
+            "certificate_hash": "38a9c3388fc568c44db4a3171bdba762349b7732"
+          }
+        },
+        {
+          "client_id": "159815696014-8g5p2v8mm36084f74ac5tv8p2qjk8jb2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkh9Eg4GEnxVG_56sXjn400FtTRgDqvxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "159815696014-8g5p2v8mm36084f74ac5tv8p2qjk8jb2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
