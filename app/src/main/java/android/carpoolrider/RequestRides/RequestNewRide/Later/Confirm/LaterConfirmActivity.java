@@ -2,6 +2,8 @@ package android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm;
 
 import android.carpoolrider.MainActivity;
 import android.carpoolrider.R;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.LaterDestinationActivity;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.LaterOriginActivity;
 import android.carpoolrider.RequestRides.RequestNewRide.Later.LaterPassengerNumberActivity;
 import android.carpoolrider.RequestRides.RequestRidesFragment;
 import android.content.Intent;
@@ -172,7 +174,12 @@ public class LaterConfirmActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                finish();
+
+                Intent intent = new Intent(LaterConfirmActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                // EFFECTS: Animation from ()Activity to ()Activity.
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }

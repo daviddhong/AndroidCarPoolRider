@@ -119,7 +119,7 @@
                             android:layout_height="wrap_content"
                             android:text="Time"
                             android:textColor="#ffffff"
-                            android:textSize="32sp"
+                            android:textSize="22sp"
                             android:textStyle="bold" />
 
                     </RelativeLayout>
