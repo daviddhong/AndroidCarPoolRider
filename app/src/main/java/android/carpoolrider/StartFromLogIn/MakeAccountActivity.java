@@ -8,14 +8,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MakeAccountActivity extends AppCompatActivity {
 
     private Button confirmAccountInformationButton;
     private EditText makeEmail, makePassword, firstName, lastName;
-//    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
 //    private DatabaseReference RootRef;
 
 
@@ -29,7 +35,7 @@ public class MakeAccountActivity extends AppCompatActivity {
 
     // initialize the fields at the beginning
     private void initializeFields() {
-//        mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 //        RootRef = FirebaseDatabase.getInstance().getReference();
         makeEmail = (EditText) findViewById(R.id.editText_email_make);
         makePassword = (EditText) findViewById(R.id.editText_pw_make);
@@ -56,19 +62,20 @@ public class MakeAccountActivity extends AppCompatActivity {
                 } else if (password.isEmpty()) {
                     Toast.makeText(MakeAccountActivity.this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
                 } else {
-//                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<AuthResult> task) {
-//                            if (task.isSuccessful()) {
+                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(MakeAccountActivity.this, "account successfully made", Toast.LENGTH_LONG).show();
 //                                CollectFirstLastNameIntoRealTimeDatabase(firstN, lastN);
-                    SendVerificationEmail();
+                                SendVerificationEmail();
 //
-//                            } else {
-//                                // if account is not made
-//                                Toast.makeText(MakeAccountActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
-//                            }
-//                        }
-//                    });
+                            } else {
+                                // if account is not made
+                                Toast.makeText(MakeAccountActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
 
                 }
             }
