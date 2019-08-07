@@ -23,10 +23,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LogInActivity extends AppCompatActivity {
     private Button loginButton;
-    private TextView MakeAccountPage;
+    private TextView MakeAccountPage, ForgotPassword, ResendVerificationEmail;
     private EditText loginEmail, loginPassword;
     private FirebaseAuth mAuth;
-//    private FirebaseUser currentUser;
+    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,15 +35,18 @@ public class LogInActivity extends AppCompatActivity {
         initializeFields();
         logInWithEmailAndPassword();
         goToMakeAccountPage();
+        forgotpasswordORresendemail();
     }
 
     private void initializeFields() {
         mAuth = FirebaseAuth.getInstance();
-//        currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
         MakeAccountPage = findViewById(R.id.textView_makeaccount);
         loginButton = findViewById(R.id.button_login);
         loginEmail = findViewById(R.id.editText_email_login);
         loginPassword = findViewById(R.id.editText_password_login);
+        ResendVerificationEmail = findViewById(R.id.textView_resend_verification_email);
+        ForgotPassword = findViewById(R.id.textView_forgotpassword);
     }
 
     // Log In when login button is pressed
@@ -63,12 +66,20 @@ public class LogInActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                SendToMainActivity();
+                                if (mAuth.getCurrentUser().isEmailVerified()) {
+                                    SendToMainActivity();
+                                } else {
+                                    Toast.makeText(LogInActivity.this, "please verify email", Toast.LENGTH_LONG).show();
+                                    ResendVerificationEmail.setVisibility(View.VISIBLE);
+                                }
+
                             } else {
                                 Toast.makeText(LogInActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
                             }
                         }
                     });
+
+
                 }
             }
         });
@@ -107,14 +118,40 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+        ResendVerificationEmail.setVisibility(View.INVISIBLE);
         // Check if user is signed in (non-null) and update UI accordingly.
         AutomaticLoginFunctionIfUserIsAlreadySignedIn();
     }
 
+    // Must check if email is also verified && is logged in already.
     private void AutomaticLoginFunctionIfUserIsAlreadySignedIn() {
-        FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-//            SendToMainActivity();
+            boolean emailVerified = currentUser.isEmailVerified();
+            if (emailVerified) {
+                SendToMainActivity();
+            }
+
         }
     }
+
+    private void forgotpasswordORresendemail() {
+        //  to do forgot password reset sent to email
+        ForgotPassword.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // if email field empty toast message
+                Toast.makeText(LogInActivity.this, "todo need to send email to reset PW", Toast.LENGTH_LONG).show();
+            }
+        }));
+
+        // to do resend email verification
+        ResendVerificationEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // if email field empty toast message
+                Toast.makeText(LogInActivity.this, "todo need to resend email", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 }
+

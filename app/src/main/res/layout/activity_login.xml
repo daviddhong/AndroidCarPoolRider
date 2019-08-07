@@ -94,6 +94,18 @@
             android:gravity="center"
             android:text="Forgot password?"
             android:textSize="20sp" />
+        <TextView
+            android:textStyle="bold"
+            android:textColor="#4264fb"
+            android:id="@+id/textView_resend_verification_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:text="Resend Verification Email"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

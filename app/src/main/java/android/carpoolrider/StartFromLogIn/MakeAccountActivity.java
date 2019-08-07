@@ -16,12 +16,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MakeAccountActivity extends AppCompatActivity {
 
     private Button confirmAccountInformationButton;
     private EditText makeEmail, makePassword, firstName, lastName;
     private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
 //    private DatabaseReference RootRef;
 
 
@@ -41,6 +43,7 @@ public class MakeAccountActivity extends AppCompatActivity {
         makePassword = (EditText) findViewById(R.id.editText_pw_make);
         firstName = (EditText) findViewById(R.id.editText_firstname_make);
         lastName = (EditText) findViewById(R.id.editText_lastname_make);
+        currentUser = mAuth.getCurrentUser();
     }
 
     //make account with name email and password. Then goes to verify phone number page
@@ -53,6 +56,7 @@ public class MakeAccountActivity extends AppCompatActivity {
                 String password = makePassword.getText().toString();
                 String firstN = firstName.getText().toString();
                 String lastN = lastName.getText().toString();
+
                 if (firstN.isEmpty()) {
                     Toast.makeText(MakeAccountActivity.this, "Please Enter Your First Name", Toast.LENGTH_LONG).show();
                 } else if (lastN.isEmpty()) {
@@ -62,11 +66,12 @@ public class MakeAccountActivity extends AppCompatActivity {
                 } else if (password.isEmpty()) {
                     Toast.makeText(MakeAccountActivity.this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
                 } else {
+
+
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(MakeAccountActivity.this, "account successfully made", Toast.LENGTH_LONG).show();
 //                                CollectFirstLastNameIntoRealTimeDatabase(firstN, lastN);
                                 SendVerificationEmail();
 //
@@ -92,13 +97,31 @@ public class MakeAccountActivity extends AppCompatActivity {
 //        RootRef.child("Users").child(currentUserID).setValue(profileMap);
     }
 
+
     // send to phone number activity
     private void SendVerificationEmail() {
-        Intent intent = new Intent(MakeAccountActivity.this, LogInActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        // EFFECTS: Animation from MakeAccountActivity to PhoneNumberActivity.
-        MakeAccountActivity.this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+        currentUser.sendEmailVerification()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(MakeAccountActivity.this, "Verification email sent!!", Toast.LENGTH_LONG).show();
+
+                            Intent intent = new Intent(MakeAccountActivity.this, LogInActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            // EFFECTS: Animation from MakeAccountActivity to PhoneNumberActivity.
+                            MakeAccountActivity.this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+                        } else {
+                            Toast.makeText(MakeAccountActivity.this,
+                                    "NOT sent!!" + task.getException().toString(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+
     }
 
 }

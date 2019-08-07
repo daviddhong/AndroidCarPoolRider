@@ -307,6 +307,18 @@
                 android:layout_below="@+id/relative_layout_terms_and_policies"
                 android:background="#F0F0F0">
 
+                <TextView
+                    android:id="@+id/SignOutOfApp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/blue_rectangle_filled"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Sign Out"
+                    android:textColor="@color/mapbox_plugins_white"
+                    android:textSize="15sp" />
+
             </RelativeLayout>
 
         </RelativeLayout>
