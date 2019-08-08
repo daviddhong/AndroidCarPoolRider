@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MakeAccountActivity extends AppCompatActivity {
 
     private Button confirmAccountInformationButton;
-    private EditText makeEmail, makePassword, firstName, lastName;
+    private EditText makeEmail, makePassword, firstName, lastName, confirmEmail, confirmPassword;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 //    private DatabaseReference RootRef;
@@ -44,6 +44,8 @@ public class MakeAccountActivity extends AppCompatActivity {
         firstName = (EditText) findViewById(R.id.editText_firstname_make);
         lastName = (EditText) findViewById(R.id.editText_lastname_make);
         currentUser = mAuth.getCurrentUser();
+        confirmEmail = (EditText) findViewById(R.id.editText_confirmemail_make);
+        confirmPassword = (EditText) findViewById(R.id.editText_confirmpw_make);
     }
 
     //make account with name email and password. Then goes to verify phone number page
@@ -56,6 +58,8 @@ public class MakeAccountActivity extends AppCompatActivity {
                 String password = makePassword.getText().toString();
                 String firstN = firstName.getText().toString();
                 String lastN = lastName.getText().toString();
+                String confirmemail = confirmEmail.getText().toString();
+                String confirmpassword = confirmPassword.getText().toString();
 
                 if (firstN.isEmpty()) {
                     Toast.makeText(MakeAccountActivity.this, "Please Enter Your First Name", Toast.LENGTH_LONG).show();
@@ -65,6 +69,14 @@ public class MakeAccountActivity extends AppCompatActivity {
                     Toast.makeText(MakeAccountActivity.this, "Please Enter Your Email", Toast.LENGTH_LONG).show();
                 } else if (password.isEmpty()) {
                     Toast.makeText(MakeAccountActivity.this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
+                } else if (confirmemail.isEmpty()) {
+                    Toast.makeText(MakeAccountActivity.this, "Please Confirm Your Email", Toast.LENGTH_LONG).show();
+                } else if (confirmpassword.isEmpty()) {
+                    Toast.makeText(MakeAccountActivity.this, "Please Confirm Your Password", Toast.LENGTH_LONG).show();
+                } else if ((!(confirmemail.isEmpty())) && (!(confirmemail.equals(email)))) {
+                    Toast.makeText(MakeAccountActivity.this, "Emails do not match", Toast.LENGTH_LONG).show();
+                } else if ((!(confirmpassword.isEmpty())) && (!(confirmpassword.equals(password)))) {
+                    Toast.makeText(MakeAccountActivity.this, "Passwords  do not match", Toast.LENGTH_LONG).show();
                 } else {
 
 
@@ -120,7 +132,6 @@ public class MakeAccountActivity extends AppCompatActivity {
                         }
                     }
                 });
-
 
     }
 
