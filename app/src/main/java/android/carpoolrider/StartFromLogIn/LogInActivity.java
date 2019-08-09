@@ -21,10 +21,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import javax.security.auth.login.LoginException;
+
 public class LogInActivity extends AppCompatActivity {
     private Button loginButton;
     private TextView MakeAccountPage, ForgotPassword, ResendVerificationEmail;
-    private EditText loginEmail, loginPassword;
+    private EditText loginEmail, loginPassword, test;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
@@ -35,8 +37,10 @@ public class LogInActivity extends AppCompatActivity {
         initializeFields();
         logInWithEmailAndPassword();
         goToMakeAccountPage();
-        forgotpasswordORresendemail();
+        forgotPassword();
+        resendVerificationEmail();
     }
+
 
     private void initializeFields() {
         mAuth = FirebaseAuth.getInstance();
@@ -47,6 +51,7 @@ public class LogInActivity extends AppCompatActivity {
         loginPassword = findViewById(R.id.editText_password_login);
         ResendVerificationEmail = findViewById(R.id.textView_resend_verification_email);
         ForgotPassword = findViewById(R.id.textView_forgotpassword);
+
     }
 
     // Log In when login button is pressed
@@ -134,24 +139,30 @@ public class LogInActivity extends AppCompatActivity {
         }
     }
 
-    private void forgotpasswordORresendemail() {
-        //  to do forgot password reset sent to email
+    private void forgotPassword() {
         ForgotPassword.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // if email field empty toast message
-                Toast.makeText(LogInActivity.this, "todo need to send email to reset PW", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(LogInActivity.this, ForgotPasswordActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                // EFFECTS: Animation from LogInActivity to MainActivity.
+                LogInActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         }));
+    }
 
-        // to do resend email verification
+
+    private void resendVerificationEmail() {
         ResendVerificationEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // if email field empty toast message
-                Toast.makeText(LogInActivity.this, "todo need to resend email", Toast.LENGTH_LONG).show();
+                Toast.makeText(LogInActivity.this,
+                        "TODO resend verification email", Toast.LENGTH_LONG).show();
             }
         });
+
     }
 }
+
 

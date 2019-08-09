@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
+        <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.LaterOriginActivity"/>
         <activity android:name=".RequestRides.RequestNewRide.Later.LaterDestinationActivity"/>

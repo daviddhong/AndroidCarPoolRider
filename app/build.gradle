@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "android.carpoolrider"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -59,6 +59,9 @@ dependencies {
 
     // Added for Firebase email auth
     implementation 'com.google.firebase:firebase-auth:18.1.0'
+
+    // Added for Firebase Realtime Database
+    implementation 'com.google.firebase:firebase-database:18.0.1'
 
 }
 
