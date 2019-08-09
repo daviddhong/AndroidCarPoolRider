@@ -23,7 +23,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private EditText Email;
     private FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         Email = findViewById(R.id.textview_emailreset);
 
         forgotpassword();
-
     }
 
 
@@ -43,7 +41,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         sendResetPasswordEmailButton.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 mAuth.sendPasswordResetEmail(Email.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override

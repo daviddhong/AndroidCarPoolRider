@@ -1,4 +1,4 @@
-package android.carpoolrider.More;
+package android.carpoolrider.Settings;
 
 import android.os.Bundle;
 

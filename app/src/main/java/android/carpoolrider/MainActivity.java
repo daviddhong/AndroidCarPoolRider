@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.carpoolrider.AvaliableRides.AvailableRidesFragment;
-import android.carpoolrider.More.MoreFragment;
+import android.carpoolrider.Settings.SettingsFragment;
 import android.carpoolrider.RateDrivers.RateDriversFragment;
 import android.carpoolrider.RequestRides.RequestRidesFragment;
 import android.carpoolrider.ReservedRides.ReservedRidesFragment;
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new RateDriversFragment();
                     break;
                 case R.id.more:
-                    fragment = new MoreFragment();
+                    fragment = new SettingsFragment();
                     break;
             }
             getSupportFragmentManager().beginTransaction()

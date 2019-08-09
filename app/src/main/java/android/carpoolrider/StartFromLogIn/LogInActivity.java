@@ -21,12 +21,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import javax.security.auth.login.LoginException;
-
 public class LogInActivity extends AppCompatActivity {
     private Button loginButton;
     private TextView MakeAccountPage, ForgotPassword, ResendVerificationEmail;
-    private EditText loginEmail, loginPassword, test;
+    private EditText loginEmail, loginPassword;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
@@ -51,7 +49,6 @@ public class LogInActivity extends AppCompatActivity {
         loginPassword = findViewById(R.id.editText_password_login);
         ResendVerificationEmail = findViewById(R.id.textView_resend_verification_email);
         ForgotPassword = findViewById(R.id.textView_forgotpassword);
-
     }
 
     // Log In when login button is pressed
@@ -77,14 +74,11 @@ public class LogInActivity extends AppCompatActivity {
                                     Toast.makeText(LogInActivity.this, "please verify email", Toast.LENGTH_LONG).show();
                                     ResendVerificationEmail.setVisibility(View.VISIBLE);
                                 }
-
                             } else {
                                 Toast.makeText(LogInActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
                             }
                         }
                     });
-
-
                 }
             }
         });
@@ -135,7 +129,6 @@ public class LogInActivity extends AppCompatActivity {
             if (emailVerified) {
                 SendToMainActivity();
             }
-
         }
     }
 
@@ -144,7 +137,6 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LogInActivity.this, ForgotPasswordActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 // EFFECTS: Animation from LogInActivity to MainActivity.
                 LogInActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
@@ -161,7 +153,6 @@ public class LogInActivity extends AppCompatActivity {
                         "TODO resend verification email", Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }
 

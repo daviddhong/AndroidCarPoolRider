@@ -1,4 +1,4 @@
-package android.carpoolrider.More;
+package android.carpoolrider.Settings;
 
 import android.carpoolrider.R;
 import android.carpoolrider.StartFromLogIn.LogInActivity;
@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MoreFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
     private View moreView;
     private FirebaseAuth mAuth;
