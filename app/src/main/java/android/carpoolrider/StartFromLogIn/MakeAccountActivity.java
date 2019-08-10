@@ -3,6 +3,7 @@ package android.carpoolrider.StartFromLogIn;
 import android.carpoolrider.R;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +30,7 @@ public class MakeAccountActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private DatabaseReference RootRef;
+    private static final String TAG = MakeAccountActivity.class.getName();
 
 
     @Override
@@ -93,7 +95,9 @@ public class MakeAccountActivity extends AppCompatActivity {
 //
                             } else {
                                 // if account is not made
-                                Toast.makeText(MakeAccountActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(MakeAccountActivity.this,
+                                        task.getException().toString(), Toast.LENGTH_LONG).show();
+                                Log.i(TAG,"ACCOUNT NOT MADE");
                             }
                         }
                     });
@@ -112,6 +116,8 @@ public class MakeAccountActivity extends AppCompatActivity {
         profileMap.put("lastname", lastN);
         profileMap.put("email", email);
         RootRef.child("Users").child(currentUserID).setValue(profileMap);
+        Log.i(TAG,"SHOULD STORE TO REALTIME DATABASE");
+
     }
 
 
@@ -123,15 +129,20 @@ public class MakeAccountActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MakeAccountActivity.this, "Verification email sent!!", Toast.LENGTH_LONG).show();
+                            Log.i(TAG,"SHOULD HAVE SENT EMAIL VERI");
 
                             Intent intent = new Intent(MakeAccountActivity.this, LogInActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                             // EFFECTS: Animation from MakeAccountActivity to PhoneNumberActivity.
                             MakeAccountActivity.this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
+                            Toast.makeText(MakeAccountActivity.this,
+                                    "Verification email sent!!", Toast.LENGTH_LONG).show();
+
                         } else {
+                            Log.i(TAG,"EMAIL VERI NOT SENT");
+
                             Toast.makeText(MakeAccountActivity.this,
                                     "NOT sent!!" + task.getException().toString(), Toast.LENGTH_LONG).show();
                         }
