@@ -17,6 +17,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class MakeAccountActivity extends AppCompatActivity {
 
@@ -24,7 +28,7 @@ public class MakeAccountActivity extends AppCompatActivity {
     private EditText makeEmail, makePassword, firstName, lastName, confirmEmail, confirmPassword;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
-//    private DatabaseReference RootRef;
+    private DatabaseReference RootRef;
 
 
     @Override
@@ -38,7 +42,7 @@ public class MakeAccountActivity extends AppCompatActivity {
     // initialize the fields at the beginning
     private void initializeFields() {
         mAuth = FirebaseAuth.getInstance();
-//        RootRef = FirebaseDatabase.getInstance().getReference();
+        RootRef = FirebaseDatabase.getInstance().getReference();
         makeEmail = (EditText) findViewById(R.id.editText_email_make);
         makePassword = (EditText) findViewById(R.id.editText_pw_make);
         firstName = (EditText) findViewById(R.id.editText_firstname_make);
@@ -84,7 +88,7 @@ public class MakeAccountActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-//                                CollectFirstLastNameIntoRealTimeDatabase(firstN, lastN);
+                                CollectFirstLastNameEmailIntoRealTimeDatabase(firstN, lastN, email);
                                 SendVerificationEmail();
 //
                             } else {
@@ -100,13 +104,14 @@ public class MakeAccountActivity extends AppCompatActivity {
     }
 
     // add first last name to realtime database
-    private void CollectFirstLastNameIntoRealTimeDatabase(String firstN, String lastN) {
-//        String currentUserID = mAuth.getCurrentUser().getUid();
-//        HashMap<String, String> profileMap = new HashMap<>();
-//        profileMap.put("uid", currentUserID);
-//        profileMap.put("firstname", firstN);
-//        profileMap.put("lastname", lastN);
-//        RootRef.child("Users").child(currentUserID).setValue(profileMap);
+    private void CollectFirstLastNameEmailIntoRealTimeDatabase(String firstN, String lastN, String email) {
+        String currentUserID = mAuth.getCurrentUser().getUid();
+        HashMap<String, String> profileMap = new HashMap<>();
+        profileMap.put("uid", currentUserID);
+        profileMap.put("firstname", firstN);
+        profileMap.put("lastname", lastN);
+        profileMap.put("email", email);
+        RootRef.child("Users").child(currentUserID).setValue(profileMap);
     }
 
 
