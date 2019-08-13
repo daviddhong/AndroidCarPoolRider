@@ -14,12 +14,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SettingsFragment extends Fragment {
 
     private View moreView;
+    private TextView signout, firstN, lastN, emaiL;
+    private String currentUID, retrievefirstname, retrievelastname, retrieveemail;
+
     private FirebaseAuth mAuth;
-    private TextView signout;
+    private DatabaseReference RootRef;
 
     @Nullable
     @Override
@@ -27,7 +35,13 @@ public class SettingsFragment extends Fragment {
         moreView = inflater.inflate(R.layout.fragment_settings, container, false);
 
         mAuth = FirebaseAuth.getInstance();
+        currentUID = mAuth.getCurrentUser().getUid();
+        firstN = moreView.findViewById(R.id.text_view_profile_name_more_first);
+        lastN = moreView.findViewById(R.id.text_view_profile_name_more_last);
+        emaiL = moreView.findViewById(R.id.User_email);
+
         signout = moreView.findViewById(R.id.SignOutOfApp);
+
         signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +51,23 @@ public class SettingsFragment extends Fragment {
                 startActivity(intent);
                 // EFFECTS: Animation from SettingsActivity to EditProfileActivity.
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
+        RootRef = FirebaseDatabase.getInstance().getReference();
+
+        RootRef.child("Users").child(currentUID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                retrievefirstname = dataSnapshot.child("firstname").getValue().toString();
+                retrievelastname = dataSnapshot.child("lastname").getValue().toString();
+                retrieveemail = dataSnapshot.child("email").getValue().toString();
+                firstN.setText(retrievefirstname);
+                lastN.setText(retrievelastname);
+                emaiL.setText(retrieveemail);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
         return moreView;

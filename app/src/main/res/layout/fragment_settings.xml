@@ -11,8 +11,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:id="@+id/relative_layout_header_settings"
@@ -52,13 +51,29 @@
                     android:layout_marginLeft="28dp"
                     android:layout_toRightOf="@+id/image_view_profile_more">
 
-                    <TextView
+                    <LinearLayout
                         android:id="@+id/text_view_profile_name_more"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:text="Samuel Smith"
-                        android:textSize="15sp" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_view_profile_name_more_first"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:text="FirstName"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/text_view_profile_name_more_last"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:text="LastName"
+                            android:textSize="15sp" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/text_view_profile_phone_number_more"
@@ -70,6 +85,7 @@
                         android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/User_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/text_view_profile_phone_number_more"

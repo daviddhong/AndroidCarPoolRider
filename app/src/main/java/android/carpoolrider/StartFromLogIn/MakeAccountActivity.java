@@ -117,7 +117,6 @@ public class MakeAccountActivity extends AppCompatActivity {
         profileMap.put("email", email);
         RootRef.child("Users").child(currentUserID).setValue(profileMap);
         Log.i(TAG,"SHOULD STORE TO REALTIME DATABASE");
-
     }
 
 
@@ -130,7 +129,6 @@ public class MakeAccountActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Log.i(TAG,"SHOULD HAVE SENT EMAIL VERI");
-
                             Intent intent = new Intent(MakeAccountActivity.this, LogInActivity.class);
 //                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
@@ -148,9 +146,7 @@ public class MakeAccountActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
-
 }
 
 
