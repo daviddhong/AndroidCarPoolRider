@@ -1,7 +1,7 @@
 <resources>
 
     <!--PLUG IN MAPBOX API KEY HERE-->
-    <string name="API_KEY"></string>
+    <string name="API_KEY">pk.eyJ1IjoiYW5kcm9pZHN0dWRpbyIsImEiOiJjanl3YnRzdGUwbDF1M21taXI2eWx5eWp1In0.GLs2qBI8biIe7nyjX1GReA</string>
 
 
 

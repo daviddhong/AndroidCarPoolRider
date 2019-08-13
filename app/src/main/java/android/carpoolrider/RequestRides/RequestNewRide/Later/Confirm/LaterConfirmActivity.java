@@ -8,6 +8,7 @@ import android.carpoolrider.RequestRides.RequestNewRide.Later.LaterPassengerNumb
 import android.carpoolrider.RequestRides.RequestRidesFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -15,6 +16,13 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class LaterConfirmActivity extends AppCompatActivity {
 
@@ -32,10 +40,19 @@ public class LaterConfirmActivity extends AppCompatActivity {
     TextView mOrigin;
     TextView mDestination;
 
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    private DatabaseReference RootRef;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_new_ride_confirm_later);
+
+        mAuth = FirebaseAuth.getInstance();
+        RootRef = FirebaseDatabase.getInstance().getReference();
+        currentUser = mAuth.getCurrentUser();
+
 
         // EFFECTS: Call setBackRequestNewRideConfirmActivity.
         setBackRequestNewRideConfirmActivity();
@@ -165,15 +182,18 @@ public class LaterConfirmActivity extends AppCompatActivity {
         mConfirmActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_confirm_later);
         mConfirmActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
 
-            Bundle bundle = getIntent().getExtras();
-            String origin = bundle.getString("ORIGIN");
-            String destination = bundle.getString("DESTINATION");
-            String date = bundle.getString("DATE_VALUE");
-            String time = bundle.getString("TIME_VALUE");
-            String passengerNumber = bundle.getString("PASSENGER_NUMBER_SELECTED");
+//            Bundle bundle = getIntent().getExtras();
+//            String origin = bundle.getString("ORIGIN");
+//            String destination = bundle.getString("DESTINATION");
+//            String date = bundle.getString("DATE_VALUE");
+//            String time = bundle.getString("TIME_VALUE");
+//            String passengerNumber = bundle.getString("PASSENGER_NUMBER_SELECTED");
 
             @Override
             public void onClick(View v) {
+                //save to realtime database
+
+                savetorealtimedatabase();
 
                 Intent intent = new Intent(LaterConfirmActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -182,6 +202,18 @@ public class LaterConfirmActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
+    }
+
+    private void savetorealtimedatabase() {
+        String currentUserID = mAuth.getCurrentUser().getUid();
+        HashMap<String, String> profileMap = new HashMap<>();
+        profileMap.put("uid", currentUserID);
+        profileMap.put("From", "from");
+        profileMap.put("To", "to");
+        profileMap.put("NumberOfSeats", "seat#");
+        profileMap.put("Price", "$9");
+        profileMap.put("Date", "Jan/02/20");
+        RootRef.child("RiderTickets").child(currentUserID).setValue(profileMap);
     }
 
     // EFFECTS: Set CancelNewRideRequest.
