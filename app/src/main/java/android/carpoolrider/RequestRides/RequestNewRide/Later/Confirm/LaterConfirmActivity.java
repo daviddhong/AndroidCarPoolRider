@@ -40,9 +40,11 @@ public class LaterConfirmActivity extends AppCompatActivity {
     TextView mOrigin;
     TextView mDestination;
 
+    String currentUserName;
+
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
-    private DatabaseReference RootRef;
+    private DatabaseReference RootRef, RootKeyRef;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,9 +52,9 @@ public class LaterConfirmActivity extends AppCompatActivity {
         setContentView(R.layout.activity_request_new_ride_confirm_later);
 
         mAuth = FirebaseAuth.getInstance();
-        RootRef = FirebaseDatabase.getInstance().getReference();
         currentUser = mAuth.getCurrentUser();
-
+        currentUserName = currentUser.getUid();
+        RootRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets").child(currentUserName);
 
         // EFFECTS: Call setBackRequestNewRideConfirmActivity.
         setBackRequestNewRideConfirmActivity();
@@ -205,15 +207,21 @@ public class LaterConfirmActivity extends AppCompatActivity {
     }
 
     private void savetorealtimedatabase() {
+        String messageKey = RootRef.push().getKey();
+        HashMap<String, Object> riderTicketKey = new HashMap<>();
+        RootRef.updateChildren(riderTicketKey);
+
+        RootKeyRef = RootRef.child(messageKey);
+
         String currentUserID = mAuth.getCurrentUser().getUid();
-        HashMap<String, String> profileMap = new HashMap<>();
+        HashMap<String, Object> profileMap = new HashMap<>();
         profileMap.put("uid", currentUserID);
         profileMap.put("From", "from");
         profileMap.put("To", "to");
         profileMap.put("NumberOfSeats", "seat#");
         profileMap.put("Price", "$9");
         profileMap.put("Date", "Jan/02/20");
-        RootRef.child("RiderTickets").child(currentUserID).setValue(profileMap);
+        RootKeyRef.updateChildren(profileMap);
     }
 
     // EFFECTS: Set CancelNewRideRequest.
