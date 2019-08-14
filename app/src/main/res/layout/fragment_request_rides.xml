@@ -51,9 +51,9 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rides_requested_recycler_view"
+                    tools:listitem="@layout/layout_request_ride_ticket_entity"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:listitem="@layout/layout_request_ride_ticket_entity">
+                    android:layout_height="match_parent">
 
                 </androidx.recyclerview.widget.RecyclerView>
             </RelativeLayout>

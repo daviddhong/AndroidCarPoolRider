@@ -63,6 +63,9 @@ dependencies {
     // Added for Firebase Realtime Database
     implementation 'com.google.firebase:firebase-database:18.0.1'
 
+    // add for firebase recycler view
+    implementation 'com.firebaseui:firebase-ui-database:5.0.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
