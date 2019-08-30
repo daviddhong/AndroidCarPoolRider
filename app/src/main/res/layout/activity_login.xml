@@ -9,19 +9,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:textStyle="bold"
-            android:textColor="#4264fb"
-            android:textSize="25sp"
-            android:id="@+id/textView_welcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:text="Welcome CarPool Rider" />
-
         <EditText
-            android:background="@drawable/border_blue_rectangle_unfilled"
+            android:background="@drawable/border_rectangle_unfilled"
             android:textColor="#0077B5"
             android:textSize="20sp"
             android:layout_width="300dp"
@@ -39,7 +28,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:background="@drawable/border_blue_rectangle_unfilled"
+            android:background="@drawable/border_rectangle_unfilled"
             android:textColor="#0077B5"
             android:textSize="20sp"
             android:layout_width="300dp"
@@ -57,7 +46,7 @@
 
 
         <Button
-            android:background="@drawable/border_rectangle_fill_blue"
+            android:background="@drawable/border_rectangle_fill"
             android:textColor="#ffffff"
             android:textSize="20sp"
             android:textStyle="bold"

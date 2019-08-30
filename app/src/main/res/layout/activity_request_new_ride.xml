@@ -116,7 +116,7 @@
             android:layout_below="@+id/relative_layout_now"
             android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/border_blue_rectangle_unfilled">
+            android:background="@drawable/border_rectangle_unfilled">
 
             <TextView
                 android:layout_width="wrap_content"

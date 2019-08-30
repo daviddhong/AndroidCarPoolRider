@@ -35,7 +35,7 @@
                 android:layout_width="300dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/border_blue_rectangle_unfilled"
+                android:background="@drawable/border_rectangle_unfilled"
 
                 android:ems="10"
                 android:gravity="center"
@@ -50,7 +50,7 @@
                 android:layout_height="0dp"
 
                 android:layout_weight="1"
-                android:background="@drawable/border_blue_rectangle_unfilled"
+                android:background="@drawable/border_rectangle_unfilled"
                 android:ems="10"
                 android:gravity="center"
 
@@ -68,7 +68,7 @@
             android:layout_height="55dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:background="@drawable/border_blue_rectangle_unfilled"
+            android:background="@drawable/border_rectangle_unfilled"
 
 
             android:drawableStart="@drawable/ic_email_24dp"
@@ -85,7 +85,7 @@
             android:layout_width="300dp"
             android:layout_height="55dp"
             android:layout_gravity="center"
-            android:background="@drawable/border_blue_rectangle_unfilled"
+            android:background="@drawable/border_rectangle_unfilled"
             android:ems="10"
 
             android:gravity="center"
@@ -100,7 +100,7 @@
             android:layout_height="55dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:background="@drawable/border_blue_rectangle_unfilled"
+            android:background="@drawable/border_rectangle_unfilled"
 
 
             android:drawableStart="@drawable/ic_lock_24dp"
@@ -120,7 +120,7 @@
             android:layout_height="55dp"
             android:layout_gravity="center"
 
-            android:background="@drawable/border_blue_rectangle_unfilled"
+            android:background="@drawable/border_rectangle_unfilled"
             android:ems="10"
             android:gravity="center"
             android:hint="Confirm your Password"
@@ -134,7 +134,7 @@
             android:layout_height="wrap_content"
 
 
-            android:background="@drawable/border_rectangle_fill_blue"
+            android:background="@drawable/border_rectangle_fill"
             android:textColor="#ffffff"
             android:textSize="20sp"
             android:textStyle="bold"

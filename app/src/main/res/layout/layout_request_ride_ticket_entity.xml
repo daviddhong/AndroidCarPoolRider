@@ -10,7 +10,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="178dp"
-        android:background="@drawable/border_blue_rectangle_unfilled">
+        android:background="@drawable/border_rectangle_unfilled">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:background="@drawable/border_blue_rectangle_unfilled" >
+            android:background="@drawable/border_rectangle_unfilled" >
 
             <TextView
                 android:id="@+id/text_origin"
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_below="@id/relative_layout_request_new_ride_origin"
-            android:background="@drawable/border_blue_rectangle_unfilled" >
+            android:background="@drawable/border_rectangle_unfilled" >
 
             <TextView
                 android:id="@+id/text_destination"

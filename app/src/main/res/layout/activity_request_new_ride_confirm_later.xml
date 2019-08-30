@@ -70,7 +70,7 @@
                 android:layout_height="170dp"
                 android:layout_below="@+id/relative_layout_text_view_two"
                 android:layout_marginTop="78dp"
-                android:background="@drawable/border_blue_rectangle_unfilled">
+                android:background="@drawable/border_rectangle_unfilled">
 
                 <RelativeLayout
                     android:id="@+id/information_side_left"
@@ -190,7 +190,7 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="23dp"
                         android:layout_toRightOf="@+id/relative_layout_origin_destination"
-                        android:background="@drawable/border_blue_rectangle_unfilled">
+                        android:background="@drawable/border_rectangle_unfilled">
 
                         <TextView
                             android:id="@+id/text_view_confirm_origin"
@@ -209,7 +209,7 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="67dp"
                         android:layout_toRightOf="@+id/relative_layout_origin_destination"
-                        android:background="@drawable/border_blue_rectangle_unfilled">
+                        android:background="@drawable/border_rectangle_unfilled">
 
                         <TextView
                             android:id="@+id/text_view_confirm_destination"
@@ -316,7 +316,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="88dp"
-            android:background="@drawable/border_blue_rectangle_unfilled">
+            android:background="@drawable/border_rectangle_unfilled">
 
             <TextView
                 android:layout_width="wrap_content"

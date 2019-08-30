@@ -220,7 +220,7 @@
                     android:layout_toRightOf="@id/text_view_times_seat"
                     android:layout_marginLeft="15dp"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/border_blue_rectangle_unfilled"
+                    android:background="@drawable/border_rectangle_unfilled"
                     android:ellipsize="start"
                     android:gravity="center"
                     android:hint="0"

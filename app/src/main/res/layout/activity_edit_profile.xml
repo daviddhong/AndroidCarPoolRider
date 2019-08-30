@@ -11,24 +11,23 @@
         <RelativeLayout
             android:id="@+id/relative_layout_header_edit_profile"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@drawable/border_bottom">
+            android:layout_height="70dp">
 
             <ImageView
                 android:id="@+id/edit_profile_back_image_view"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_arrow_back"
-                android:tint="#4264fb" />
+                android:tint="#0A1C2A" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Edit Profile"
-                android:textColor="#4264fb"
+                android:textColor="#0A1C2A"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </RelativeLayout>
