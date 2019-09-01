@@ -78,7 +78,7 @@
                     android:layout_height="187dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
-                    android:background="@drawable/blue_rectangle_filled_rounded_one_side">
+                    android:background="@drawable/background_rectangle_filled_rounded_one_side">
 
                     <RelativeLayout
                         android:id="@+id/passenger_number"

@@ -23,7 +23,6 @@ public class ProfileActivity extends AppCompatActivity {
         setFinishProfileActivity();
 
         // EFFECTS: Call setEditProfileActivity.
-        setEditProfileActivity();
     }
 
     // EFFECTS: Set OnClickActivity for finish activity.
@@ -38,21 +37,4 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-
-    // MODIFIES: this
-    // EFFECTS: Set OnClickActivity for editProfile Activity.
-    private void setEditProfileActivity() {
-        editProfileImageView = (ImageView) findViewById(R.id.image_view_edit_profile);
-        editProfileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
-                startActivity(intent);
-
-                // EFFECTS: Animation from ()Activity to ()Activity.
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
-        });
-    }
-
 }

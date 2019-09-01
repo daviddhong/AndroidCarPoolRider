@@ -18,8 +18,7 @@
                 android:id="@+id/relative_layout_header_rides_requested"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/border_bottom">
+                android:layout_alignParentTop="true">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -27,7 +26,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
                     android:text="Rides Requested"
-                    android:textColor="#4264fb"
+                    android:textColor="#0A1C2A"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
@@ -37,9 +36,9 @@
                     android:layout_height="25dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginRight="25dp"
                     android:src="@drawable/ic_account_circle"
-                    android:tint="#4264fb" />
+                    android:tint="#0A1C2A" />
             </RelativeLayout>
 
             <RelativeLayout

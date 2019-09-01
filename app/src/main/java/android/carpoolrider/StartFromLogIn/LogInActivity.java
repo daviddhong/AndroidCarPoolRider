@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LogInActivity extends AppCompatActivity {
     private Button loginButton;
-    private TextView MakeAccountPage, ForgotPassword, ResendVerificationEmail;
+    private RelativeLayout makeAccountPage;
+    private TextView ForgotPassword, ResendVerificationEmail;
     private EditText loginEmail, loginPassword;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
@@ -43,7 +45,7 @@ public class LogInActivity extends AppCompatActivity {
     private void initializeFields() {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
-        MakeAccountPage = findViewById(R.id.textView_makeaccount);
+        makeAccountPage = findViewById(R.id.rl_create_account);
         loginButton = findViewById(R.id.button_login);
         loginEmail = findViewById(R.id.editText_email_login);
         loginPassword = findViewById(R.id.editText_password_login);
@@ -97,7 +99,7 @@ public class LogInActivity extends AppCompatActivity {
 
     // Make account to use to log in
     private void goToMakeAccountPage() {
-        MakeAccountPage.setOnClickListener(new View.OnClickListener() {
+        makeAccountPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SendToMakeAccountActivity();

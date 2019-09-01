@@ -1,7 +1,6 @@
 package android.carpoolrider.RequestRides.RequestNewRide.Later;
 
 import android.carpoolrider.R;
-import android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm.LaterConfirmActivity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;

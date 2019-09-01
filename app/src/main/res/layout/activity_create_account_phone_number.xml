@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_back_create_account_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="#0A1C2A" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/text_what_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/rl_back_create_account_phone_number"
+            android:layout_marginTop="128dp">
+
+            <TextView
+                android:id="@+id/text_row_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What is your "
+                android:textSize="25sp"
+                android:textColor="#0A1C2A"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_row_one"
+                android:layout_marginTop="10dp"
+                android:textSize="25sp"
+                android:text="phone number?"
+                android:textColor="#0A1C2A"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/text_provide_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_what_phone_number"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@+id/rl_back_create_account_phone_number"
+            android:layout_marginTop="28dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#05D686"
+                android:text="The rider will communicate with you through phone."
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_provide_phone"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/rl_back_create_account_phone_number"
+            android:layout_marginRight="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#78849E"
+                android:text="Note that your phone number will be available to the riders."
+                android:textSize="15sp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_rectangle_unfilled">
+
+            <ImageView
+                android:id="@+id/image_phone_number"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_phone"
+                android:tint="#05D686"/>
+
+            <EditText
+                android:id="@+id/editText_password_sign_up"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/image_phone_number"
+                android:background="@android:color/transparent"
+                android:hint="Enter phone number"
+                android:inputType="phone"
+                android:textColor="#454F63"
+                android:textSize="15sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/continue_sign_up_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="188dp"
+            android:layout_marginRight="58dp"
+            android:layout_marginLeft="58dp"
+            android:background="@drawable/border_rectangle_fill">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_centerInParent="true"
+                android:text="Continue"
+                android:textColor="#FFF"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

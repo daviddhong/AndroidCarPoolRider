@@ -21,7 +21,7 @@ public class RateDriversFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rateDriversView = inflater.inflate(R.layout.fragment_rate_drivers, container, false);
+        rateDriversView = inflater.inflate(R.layout.fragment_chat, container, false);
 
         // EFFECTS: Call setProfileImageView.
         setProfileImageView();

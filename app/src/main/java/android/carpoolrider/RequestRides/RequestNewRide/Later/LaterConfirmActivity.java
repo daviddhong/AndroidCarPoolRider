@@ -1,14 +1,11 @@
-package android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm;
+package android.carpoolrider.RequestRides.RequestNewRide.Later;
 
 import android.carpoolrider.MainActivity;
 import android.carpoolrider.R;
-import android.carpoolrider.RequestRides.RequestNewRide.Later.LaterDestinationActivity;
-import android.carpoolrider.RequestRides.RequestNewRide.Later.LaterOriginActivity;
-import android.carpoolrider.RequestRides.RequestNewRide.Later.LaterPassengerNumberActivity;
-import android.carpoolrider.RequestRides.RequestRidesFragment;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm.ConfirmPassengerNumberActivity;
+import android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm.ConfirmWhenActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;

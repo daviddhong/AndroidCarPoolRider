@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -10,37 +10,132 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/relative_layout_header_profile"
-            android:layout_width="match_parent"
-            android:layout_height="70dp">
+            android:id="@+id/close_button_profile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/border_oval_fill">
 
             <ImageView
-                android:id="@+id/profile_close_image_view"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
                 android:src="@drawable/ic_close"
-                android:tint="#4264fb" />
+                android:tint="#FFF" />
 
-            <TextView
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_pic_rl"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:layout_width="128dp"
+            android:layout_height="128dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/profile_picture"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FFF"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/camera"
+            android:background="@drawable/border_oval_outline"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/profile_camera"
+                android:src="@drawable/ic_camera"
+                android:tint="#05D686"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_name_rl"
+            android:layout_below="@+id/profile_pic_rl"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/border_rectangle_unfilled">
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Profile"
-                android:textColor="#4264fb"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true">
 
-            <ImageView
-                android:id="@+id/image_view_edit_profile"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:src="@drawable/ic_edit"
-                android:tint="#4264fb"/>
+                <TextView
+                    android:id="@+id/name_stable_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="#05D686"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/name_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/name_stable_profile"
+                    android:layout_marginTop="7dp"
+                    android:textColor="#2A2E43"
+                    android:textSize="15sp"
+                    android:hint="Name"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/profile_phone_number_rl"
+            android:layout_below="@+id/profile_name_rl"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/border_rectangle_unfilled">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/stable_phone_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone number"
+                    android:textColor="#05D686"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/phone_number_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/stable_phone_number"
+                    android:layout_marginTop="7dp"
+                    android:textColor="#2A2E43"
+                    android:textSize="15sp"
+                    android:hint="Phone number"/>
+            </RelativeLayout>
+
         </RelativeLayout>
 
     </RelativeLayout>

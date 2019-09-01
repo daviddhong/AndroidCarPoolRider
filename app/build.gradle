@@ -66,6 +66,12 @@ dependencies {
     // add for firebase recycler view
     implementation 'com.firebaseui:firebase-ui-database:5.0.0'
 
+    // EFFECTS: ScrollView SDK.
+    implementation 'com.shawnlin:number-picker:2.4.8'
+
+    // EFFECTS: Circular Image View Library.
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
