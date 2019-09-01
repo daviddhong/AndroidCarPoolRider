@@ -1,9 +1,7 @@
-package android.carpoolrider.RequestRides.RequestNewRide.Later;
+package android.carpoolrider.RequestRides.RequestNewRide;
 
 import android.carpoolrider.MainActivity;
 import android.carpoolrider.R;
-import android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm.ConfirmPassengerNumberActivity;
-import android.carpoolrider.RequestRides.RequestNewRide.Later.Confirm.ConfirmWhenActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class LaterConfirmActivity extends AppCompatActivity {
+public class ConfirmActivity extends AppCompatActivity {
 
     ImageView mBackRequestNewRideConfirmActivity;
 
@@ -46,7 +44,7 @@ public class LaterConfirmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_new_ride_confirm_later);
+        setContentView(R.layout.activity_request_new_ride_confirm);
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
@@ -94,20 +92,8 @@ public class LaterConfirmActivity extends AppCompatActivity {
     // MODIFIES: this
     // EFFECTS: Set EditPassengerNumber.
     private void setEditPassengerNumber() {
-        mEditPassengerNumber = (RelativeLayout) findViewById(R.id.passenger_number);
-        mEditPassengerNumber.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LaterConfirmActivity.this,
-                        ConfirmPassengerNumberActivity.class);
-                startActivity(intent);
 
-                // EFFECTS: Animation from Activity.this to Activity.class.
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            }
-        });
-
-        // EFFECTS: Retrieve data from LaterPassengerNumberActivity.
+        // EFFECTS: Retrieve data from PassengerNumberActivity.
         mPassengerNumberConfirm = (TextView) findViewById(R.id.text_view_passenger_number_confirm);
         Bundle bundle = getIntent().getExtras();
         String passengerNumber = bundle.getString("PASSENGER_NUMBER_SELECTED");
@@ -117,20 +103,7 @@ public class LaterConfirmActivity extends AppCompatActivity {
     // MODIFIES: this
     // EFFECTS: Set EditTime.
     private void setEditTime() {
-        mEditTime = (RelativeLayout) findViewById(R.id.time_confirm);
-        mEditTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LaterConfirmActivity.this,
-                        ConfirmWhenActivity.class);
-                startActivity(intent);
-
-                // EFFECTS: Animation from Activity.this to Activity.class.
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            }
-        });
-
-        // EFFECTS: Retrieve the data LaterPassengerNumberActivity, which got the data from
+        // EFFECTS: Retrieve the data PassengerNumberActivity, which got the data from
         // LaterWhenActivity.
         mTimeConfirm = (TextView) findViewById(R.id.time);
         Bundle bundle = getIntent().getExtras();
@@ -141,20 +114,8 @@ public class LaterConfirmActivity extends AppCompatActivity {
     // MODIFIES: this
     // EFFECTS: Set EditDate.
     private void setEditDate() {
-        mEditDate = (RelativeLayout) findViewById(R.id.date_confirm);
-        mEditDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LaterConfirmActivity.this,
-                        ConfirmWhenActivity.class);
-                startActivity(intent);
 
-                // EFFECTS: Animation from Activity.this to Activity.class.
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            }
-        });
-
-        // EFFECTS: Retrieve the data from LaterPassengerNumberActivity, which got the data rom
+        // EFFECTS: Retrieve the data from PassengerNumberActivity, which got the data rom
         // LaterWhenActivity.
         mDateConfirm = (TextView) findViewById(R.id.date);
         Bundle bundle = getIntent().getExtras();
@@ -194,7 +155,7 @@ public class LaterConfirmActivity extends AppCompatActivity {
 
                 savetorealtimedatabase();
 
-                Intent intent = new Intent(LaterConfirmActivity.this, MainActivity.class);
+                Intent intent = new Intent(ConfirmActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 // EFFECTS: Animation from ()Activity to ()Activity.

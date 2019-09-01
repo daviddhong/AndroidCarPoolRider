@@ -1,4 +1,4 @@
-package android.carpoolrider.RequestRides.RequestNewRide.Later;
+package android.carpoolrider.RequestRides.RequestNewRide;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -33,7 +33,7 @@ public class LaterWhenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_new_ride_when_later);
+        setContentView(R.layout.activity_request_new_ride_date);
 
         // EFFECTS: Call setBackRequestNewRideWhenActivity.
         setBackRequestNewRideWhenActivity();
@@ -145,7 +145,7 @@ public class LaterWhenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LaterWhenActivity.this,
-                        LaterPassengerNumberActivity.class);
+                        PassengerNumberActivity.class);
                 intent.putExtra("DATE", editDateTextView.getText());
                 intent.putExtra("TIME", editTimeTextView.getText());
                 intent.putExtra("ORIGIN", origin);

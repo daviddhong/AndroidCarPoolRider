@@ -18,15 +18,11 @@
         <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
         <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.LaterOriginActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.LaterDestinationActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.RouteActivity"/>
         <activity android:name=".Profile.ProfileActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.RequestNewRideActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.LaterWhenActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.LaterConfirmActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.ConfirmWhenActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.Confirm.ConfirmPassengerNumberActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.Later.LaterPassengerNumberActivity" />
+        <activity android:name=".RequestRides.RequestNewRide.LaterWhenActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.ConfirmActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.PassengerNumberActivity" />
     </application>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>

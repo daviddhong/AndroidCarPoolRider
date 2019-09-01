@@ -2,8 +2,7 @@ package android.carpoolrider.RequestRides;
 
 import android.carpoolrider.Profile.ProfileActivity;
 import android.carpoolrider.R;
-import android.carpoolrider.RequestRides.RequestNewRide.AndroidArchitectureRequestNewRide.TicketViewModel;
-import android.carpoolrider.RequestRides.RequestNewRide.RequestNewRideActivity;
+import android.carpoolrider.RequestRides.RequestNewRide.RouteActivity;
 import android.carpoolrider.RequestRides.RequestNewRide.RiderRequestTicket;
 import android.content.Intent;
 import android.os.Bundle;
@@ -154,13 +153,13 @@ public class RequestRidesFragment extends Fragment {
         });
     }
 
-    // EFFECTS: Set OnClickActivity for LaterOriginActivity.
+    // EFFECTS: Set OnClickActivity for RouteActivity.
     private void setRequestNewRideRelativeLayout() {
         requestNewRideRelativeLayout = (RelativeLayout) requestRidesView.findViewById(R.id.relative_layout_request_new_ride);
         requestNewRideRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), RequestNewRideActivity.class);
+                Intent intent = new Intent(getActivity(), RouteActivity.class);
                 startActivityForResult(intent, ADD_TICKET_REQUEST);
 
                 // EFFECTS: Animation to Profile Activity
