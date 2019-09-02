@@ -56,7 +56,7 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineColor;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineJoin;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineWidth;
 
-public class RouteActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class RequestRouteActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final int REQUEST_CODE_AUTOCOMPLETE_ORIGIN = 1;
     private static final int REQUEST_CODE_AUTOCOMPLETE_DESTINATION = 2;
@@ -172,7 +172,7 @@ public class RouteActivity extends AppCompatActivity implements OnMapReadyCallba
                         .placeOptions(PlaceOptions.builder()
                                 .backgroundColor(Color.parseColor("#EEEEEE"))
                                 .build(PlaceOptions.MODE_CARDS))
-                        .build(RouteActivity.this);
+                        .build(RequestRouteActivity.this);
 
                 startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE_ORIGIN);
             }
@@ -194,7 +194,7 @@ public class RouteActivity extends AppCompatActivity implements OnMapReadyCallba
                         .placeOptions(PlaceOptions.builder()
                                 .backgroundColor(Color.parseColor("#EEEEEE"))
                                 .build(PlaceOptions.MODE_CARDS))
-                        .build(RouteActivity.this);
+                        .build(RequestRouteActivity.this);
 
                 startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE_DESTINATION);
             }
@@ -531,8 +531,8 @@ public class RouteActivity extends AppCompatActivity implements OnMapReadyCallba
         nextRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RouteActivity.this,
-                        PassengerNumberActivity.class);
+                Intent intent = new Intent(RequestRouteActivity.this,
+                        RequestPassengerNumberActivity.class);
 
                 intent.putExtra("ORIGIN_LOCATION_STRING_KEY", textViewOrigin.getText());
                 intent.putExtra("ORIGIN_LATITUDE_KEY", originLatitudeData);

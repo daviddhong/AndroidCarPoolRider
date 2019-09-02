@@ -1,9 +1,9 @@
 package android.carpoolrider.RequestRides;
 
-import android.carpoolrider.Profile.ProfileActivity;
+import android.carpoolrider.RequestRides.RequestNewRide.RequestRouteActivity;
+import android.carpoolrider.Settings.ProfileActivity;
 import android.carpoolrider.R;
-import android.carpoolrider.RequestRides.RequestNewRide.RouteActivity;
-import android.carpoolrider.RequestRides.RequestNewRide.RiderRequestTicket;
+import android.carpoolrider.RequestRides.RequestNewRide.RequestRiderRequestTicket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,7 +33,6 @@ public class RequestRidesFragment extends Fragment {
     private View requestRidesView;
     private ImageView profileImageView;
     private RelativeLayout requestNewRideRelativeLayout;
-    private TicketViewModel ticketViewModel;
 
     private RecyclerView FriendRecyclerView;
     private DatabaseReference RiderTicketsRef, UsersRef;
@@ -75,14 +74,14 @@ public class RequestRidesFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<RiderRequestTicket>()
-                .setQuery(RiderTicketsRef, RiderRequestTicket.class)
+        FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<RequestRiderRequestTicket>()
+                .setQuery(RiderTicketsRef, RequestRiderRequestTicket.class)
                 .build();
 
-        final FirebaseRecyclerAdapter<RiderRequestTicket, riderTicketHolder> adapter
-                = new FirebaseRecyclerAdapter<RiderRequestTicket, riderTicketHolder>(options) {
+        final FirebaseRecyclerAdapter<RequestRiderRequestTicket, riderTicketHolder> adapter
+                = new FirebaseRecyclerAdapter<RequestRiderRequestTicket, riderTicketHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder, int i, @NonNull RiderRequestTicket riderReqTickets) {
+            protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder, int i, @NonNull RequestRiderRequestTicket riderReqTickets) {
                 String usersIDS = getRef(i).getKey();
                 UsersRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
                     @Override
@@ -153,13 +152,13 @@ public class RequestRidesFragment extends Fragment {
         });
     }
 
-    // EFFECTS: Set OnClickActivity for RouteActivity.
+    // EFFECTS: Set OnClickActivity for RequestRouteActivity.
     private void setRequestNewRideRelativeLayout() {
         requestNewRideRelativeLayout = (RelativeLayout) requestRidesView.findViewById(R.id.relative_layout_request_new_ride);
         requestNewRideRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), RouteActivity.class);
+                Intent intent = new Intent(getActivity(), RequestRouteActivity.class);
                 startActivityForResult(intent, ADD_TICKET_REQUEST);
 
                 // EFFECTS: Animation to Profile Activity

@@ -45,8 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/relative_layout_header_rides_requested"
-                android:layout_above="@+id/relative_layout_request_new_ride"
-                android:layout_marginBottom="15dp">
+                android:layout_marginTop="15dp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rides_requested_recycler_view"
@@ -58,25 +57,66 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/relative_layout_request_new_ride"
-                android:layout_width="355dp"
-                android:layout_height="55dp"
+                android:id="@+id/relative_layout_request_new_carpool"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="30dp"
-                android:background="#4264fb">
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/background_rectangle_filled">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:id="@+id/relative_layout_request_new_ride"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/border_rectangle_unfilled">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:text="Post new carpool"
+                        android:textColor="#78849E"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_navigate_next"
+                        android:tint="#0A1C2A"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_centerVertical="true"
-                    android:text="Request New Ride"
-                    android:textColor="#ffffff"
-                    android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:layout_below="@+id/relative_layout_request_new_ride"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Post a carpool route that you will be driving. If matched with a
+rider, you can earn back an amount that do not exceed the cost of gas for the route."
+                        android:textColor="#FFF"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
 
             </RelativeLayout>
+
 
         </RelativeLayout>
 

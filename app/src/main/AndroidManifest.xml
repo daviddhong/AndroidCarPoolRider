@@ -18,11 +18,18 @@
         <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
         <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.RouteActivity"/>
-        <activity android:name=".Profile.ProfileActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.DateActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.ConfirmActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.PassengerNumberActivity" />
+        <activity android:name=".RequestRides.RequestNewRide.RequestRouteActivity"/>
+        <activity android:name=".Settings.ProfileActivity"/>
+        <activity android:name=".Settings.Password.SettingsCurrentPasswordActivity"/>
+        <activity android:name=".Settings.Password.SettingsNewPasswordActivity"/>
+        <activity android:name=".Settings.SettingsEmailActivity"/>
+        <activity android:name=".CreateAccount.CreateAccountEmail"/>
+        <activity android:name=".CreateAccount.CreateAccountName"/>
+        <activity android:name=".CreateAccount.CreateAccountPassword"/>
+        <activity android:name=".CreateAccount.CreateAccountPhoneNumber"/>
+        <activity android:name=".RequestRides.RequestNewRide.RequestDateActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.RequestConfirmActivity"/>
+        <activity android:name=".RequestRides.RequestNewRide.RequestPassengerNumberActivity" />
     </application>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>
