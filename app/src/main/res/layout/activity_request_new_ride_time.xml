@@ -1,6 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF">
+
+        <RelativeLayout
+            android:id="@+id/rl_back_button_post_new_carpool_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="#0A1C2A" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="128dp"
+            android:layout_toRightOf="@+id/rl_back_button_post_new_carpool_time">
+
+            <TextView
+                android:id="@+id/text_row_one_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What time of the day do"
+                android:textColor="#0A1C2A"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_row_one_time"
+                android:layout_marginTop="10dp"
+                android:text="you want to carpool?"
+                android:textColor="#0A1C2A"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_picker_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/dots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/rl_picker_hour">
+
+                    <ImageView
+                        android:id="@+id/dot_one"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/border_oval_fill"
+                        android:tint="#0A1C2A"/>
+
+                    <ImageView
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_below="@id/dot_one"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="18dp"
+                        android:src="@drawable/border_oval_fill"
+                        android:tint="#0A1C2A"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_picker_hour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/hour_picker"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        app:np_dividerColor="#0A1C2A"
+                        app:np_dividerDistance="58dp"
+                        app:np_selectedTextColor="#0A1C2A"
+                        app:np_selectedTextSize="17sp"
+                        app:np_textColor="#0A1C2A"
+                        app:np_textSize="17sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_picker_minute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/dots">
+
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/minute_picker"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        app:np_dividerColor="#0A1C2A"
+                        app:np_dividerDistance="58dp"
+                        app:np_selectedTextColor="#0A1C2A"
+                        app:np_selectedTextSize="17sp"
+                        app:np_textColor="#0A1C2A"
+                        app:np_textSize="17sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_picker_am_pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/rl_picker_minute">
+
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/am_pm_picker"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        app:np_dividerColor="#0A1C2A"
+                        app:np_dividerDistance="58dp"
+                        app:np_selectedTextColor="#0A1C2A"
+                        app:np_selectedTextSize="17sp"
+                        app:np_textColor="#0A1C2A"
+                        app:np_textSize="17sp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/next_carpool_time_post"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="158dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="58dp"
+            android:layout_marginLeft="58dp"
+            android:background="@drawable/background_rectangle_filled">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_centerInParent="true"
+                android:text="Continue"
+                android:textColor="#FFF"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -7,157 +7,152 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFF">
 
         <RelativeLayout
-            android:id="@+id/relative_layout_ic_back_activity_request_new_ride_when"
-            android:layout_width="match_parent"
-            android:layout_height="70dp">
+            android:id="@+id/rl_back_button_request_new_carpool_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp">
 
             <ImageView
-                android:id="@+id/ic_back_arrow_request_new_ride_when"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
                 android:src="@drawable/ic_arrow_back"
-                android:tint="#4264fb" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/relative_layout_when_next"
-            android:layout_below="@+id/relative_layout_ic_back_activity_request_new_ride_when"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp">
-
-            <RelativeLayout
-                android:id="@+id/relative_layout_when_one"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="When do you need"
-                    android:textColor="#4264fb"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/relative_layout_when_two"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/relative_layout_when_one">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="150dp"
-                    android:text="the carpool?"
-                    android:textColor="#4264fb"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/relative_layout_select_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/relative_layout_when_two"
-                android:layout_marginTop="68dp"
-                android:layout_centerHorizontal="true">
-
-                <TextView
-                    android:id="@+id/select_the_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:text="Select the date!"
-                    android:textColor="#4264fb"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/edit_text_date"
-                    android:layout_width="300dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/select_the_date"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/border_rectangle_unfilled"
-                    android:ellipsize="start"
-                    android:gravity="center"
-                    android:hint="Click to insert date"
-                    android:textColor="#4264fb"
-                    android:textSize="20sp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/relative_layout_select_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/relative_layout_select_date"
-                android:layout_marginTop="38dp"
-                android:layout_centerHorizontal="true">
-
-                <TextView
-                    android:id="@+id/select_the_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:text="Select the time!"
-                    android:textColor="#4264fb"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/edit_text_time"
-                    android:layout_width="300dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/select_the_time"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/border_rectangle_unfilled"
-                    android:ellipsize="start"
-                    android:gravity="center"
-                    android:hint="Click to insert time"
-                    android:textColor="#4264fb"
-                    android:textSize="20sp"/>
-
-            </RelativeLayout>
+                android:tint="#0A1C2A" />
 
         </RelativeLayout>
 
+
         <RelativeLayout
-            android:id="@+id/relative_layout_when_next"
-            android:layout_width="300dp"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="170dp"
-            android:background="#4264fb">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="128dp"
+            android:layout_toRightOf="@+id/rl_back_button_request_new_carpool_date">
+
+            <TextView
+                android:id="@+id/text_row_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What day would you"
+                android:textColor="#0A1C2A"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Next"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
+                android:layout_below="@id/text_row_one"
+                android:layout_marginTop="10dp"
+                android:text="like to carpool?"
+                android:textColor="#0A1C2A"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="28dp"
-                android:src="@drawable/ic_arrow_forward"
-                android:tint="#ffffff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_picker_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_picker_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.shawnlin.numberpicker.NumberPicker
+                    android:id="@+id/month_picker"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    app:np_dividerColor="#0A1C2A"
+                    app:np_dividerDistance="58dp"
+                    app:np_height="180dp"
+                    app:np_selectedTextColor="#0A1C2A"
+                    app:np_selectedTextSize="17sp"
+                    app:np_textColor="#0A1C2A"
+                    app:np_textSize="17sp"
+                    app:np_width="64dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_picker_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/rl_picker_month">
+
+                <com.shawnlin.numberpicker.NumberPicker
+                    android:id="@+id/day_picker"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    app:np_dividerColor="#0A1C2A"
+                    app:np_dividerDistance="58dp"
+                    app:np_selectedTextColor="#0A1C2A"
+                    app:np_selectedTextSize="17sp"
+                    app:np_textColor="#0A1C2A"
+                    app:np_textSize="17sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/rl_picker_day">
+
+                <com.shawnlin.numberpicker.NumberPicker
+                    android:id="@+id/year_picker"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    app:np_dividerColor="#0A1C2A"
+                    app:np_dividerDistance="58dp"
+                    app:np_selectedTextColor="#0A1C2A"
+                    app:np_selectedTextSize="17sp"
+                    app:np_textColor="#0A1C2A"
+                    app:np_textSize="17sp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/next_carpool_date_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="158dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="58dp"
+            android:layout_marginLeft="58dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:background="@drawable/background_rectangle_filled">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:layout_centerInParent="true"
+                    android:text="Continue"
+                    android:textColor="#FFF"
+                    android:textStyle="bold"/>
+
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

@@ -21,11 +21,7 @@ import java.util.HashMap;
 
 public class ConfirmActivity extends AppCompatActivity {
 
-    ImageView mBackRequestNewRideConfirmActivity;
-
-    RelativeLayout mEditPassengerNumber;
-    RelativeLayout mEditTime;
-    RelativeLayout mEditDate;
+    RelativeLayout mBackRequestNewRideConfirmActivity;
     RelativeLayout mConfirmActivityRelativeLayout;
     RelativeLayout mCancelActivityRelativeLayout;
 
@@ -78,7 +74,7 @@ public class ConfirmActivity extends AppCompatActivity {
 
     // EFFECTS: Set OnClickActivity for backActivity.
     private void setBackRequestNewRideConfirmActivity() {
-        mBackRequestNewRideConfirmActivity = (ImageView) findViewById(R.id.ic_back_activity_request_new_ride_later_confirm);
+        mBackRequestNewRideConfirmActivity = (RelativeLayout) findViewById(R.id.relative_layout_ic_back_activity_confirm);
         mBackRequestNewRideConfirmActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +100,7 @@ public class ConfirmActivity extends AppCompatActivity {
     // EFFECTS: Set EditTime.
     private void setEditTime() {
         // EFFECTS: Retrieve the data PassengerNumberActivity, which got the data from
-        // LaterWhenActivity.
+        // DateActivity.
         mTimeConfirm = (TextView) findViewById(R.id.time);
         Bundle bundle = getIntent().getExtras();
         String time = bundle.getString("TIME_VALUE");
@@ -116,7 +112,7 @@ public class ConfirmActivity extends AppCompatActivity {
     private void setEditDate() {
 
         // EFFECTS: Retrieve the data from PassengerNumberActivity, which got the data rom
-        // LaterWhenActivity.
+        // DateActivity.
         mDateConfirm = (TextView) findViewById(R.id.date);
         Bundle bundle = getIntent().getExtras();
         String date = bundle.getString("DATE_VALUE");
@@ -139,7 +135,7 @@ public class ConfirmActivity extends AppCompatActivity {
 
     // EFFECTS: Set ConfirmNewRideRequest.
     private void setConfirmActivityRelativeLayout() {
-        mConfirmActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_confirm_later);
+        mConfirmActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_confirm);
         mConfirmActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
 
 //            Bundle bundle = getIntent().getExtras();
@@ -184,7 +180,7 @@ public class ConfirmActivity extends AppCompatActivity {
 
     // EFFECTS: Set CancelNewRideRequest.
     private void setCancelActivityRelativeLayout() {
-        mCancelActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_cancel_later);
+        mCancelActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_cancel);
         mCancelActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

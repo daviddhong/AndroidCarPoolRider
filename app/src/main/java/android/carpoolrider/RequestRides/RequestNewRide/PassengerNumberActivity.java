@@ -18,24 +18,6 @@ public class PassengerNumberActivity extends AppCompatActivity {
 
     ImageView mBackRequestImageView;
 
-    ImageView mSeatOneImageView;
-    ImageView mSeatTwoImageView;
-    ImageView mSeatThreeImageView;
-    ImageView mSeatFourImageView;
-    ImageView mSeatFiveImageView;
-    ImageView mSeatSixImageView;
-    ImageView mSeatSevenImageView;
-    ImageView mSeatEightImageView;
-    ImageView mSeatNineImageView;
-    ImageView mSeatTenImageView;
-    ImageView mSeatElevenImageView;
-
-    TextView mNumberOfPassengersTextView;
-
-    private int counter = 0;
-
-    RelativeLayout mDoneImageView;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

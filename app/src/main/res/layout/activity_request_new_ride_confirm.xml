@@ -9,280 +9,282 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/relative_layout_ic_back_activity_later_confirm"
+            android:id="@+id/relative_layout_ic_back_activity_confirm"
             android:layout_width="match_parent"
             android:layout_height="70dp">
 
-            <ImageView
-                android:id="@+id/ic_back_activity_request_new_ride_later_confirm"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/ic_arrow_back"
-                android:tint="#4264fb" />
+            <RelativeLayout
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_oval_fill">
+
+                <ImageView
+                    android:id="@+id/back_confirm"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_arrow_back"
+                    android:tint="#FFF" />
+
+            </RelativeLayout>
+
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/relative_layout_body_later_confirm"
+            android:id="@+id/relative_layout_confirm_body"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/relative_layout_confirm_later"
-            android:layout_below="@id/relative_layout_ic_back_activity_later_confirm"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp">
+            android:layout_above="@id/confirm_footer"
+            android:layout_below="@id/relative_layout_ic_back_activity_confirm"
+            android:layout_marginLeft="39dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="39dp"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/border_rectangle_unfilled">
 
             <RelativeLayout
-                android:id="@+id/relative_layout_text_view_confirm_later"
+                android:id="@+id/rl_header_ticket"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="50dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Please confirm your"
-                    android:textColor="#4264fb"
-                    android:textSize="25sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:text="Carpool Posting"
+                    android:textColor="#0A1C2A"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
+
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/relative_layout_text_view_two"
-                android:layout_width="match_parent"
+                android:id="@+id/route"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/relative_layout_text_view_confirm_later">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="118dp"
-                    android:text="carpool information."
-                    android:textColor="#4264fb"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/relative_layout_information"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_below="@+id/relative_layout_text_view_two"
-                android:layout_marginTop="78dp"
-                android:background="@drawable/border_rectangle_unfilled">
+                android:layout_below="@id/rl_header_ticket">
 
                 <RelativeLayout
-                    android:id="@+id/information_side_left"
-                    android:layout_width="135dp"
-                    android:layout_height="187dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:background="@drawable/background_rectangle_filled_rounded_one_side">
+                    android:id="@+id/locations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:id="@+id/from"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_trip_origin" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_below="@id/path"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_solid_to" />
 
                     <RelativeLayout
-                        android:id="@+id/passenger_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="38dp">
-
-                        <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="20dp"
-                            android:src="@drawable/ic_person"
-                            android:tint="#ffffff" />
-
-                        <TextView
-                            android:id="@+id/text_view_passenger_number_confirm"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginLeft="57dp"
-                            android:text="N"
-                            android:textColor="#ffffff"
-                            android:textSize="20sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/time_confirm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/passenger_number"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="5dp">
-
-                        <TextView
-                            android:id="@+id/time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Time"
-                            android:textColor="#ffffff"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/date_confirm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/time_confirm"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="5dp">
-
-                        <TextView
-                            android:id="@+id/date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Date"
-                            android:textColor="#ffffff"
-                            android:textSize="17sp"
-                            android:textStyle="bold" />
+                        android:id="@+id/path"
+                        android:layout_width="2dp"
+                        android:layout_height="38dp"
+                        android:layout_below="@id/from"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/path_solid">
 
                     </RelativeLayout>
 
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toRightOf="@id/information_side_left">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_toRightOf="@id/locations">
 
                     <RelativeLayout
-                        android:id="@+id/relative_layout_origin_destination"
+                        android:id="@+id/from_rl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/origin"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="28dp"
-                            android:src="@drawable/ic_trip_origin"
-                            android:tint="#4264fb" />
-
-                        <ImageView
-                            android:id="@+id/more_vert"
+                        <TextView
+                            android:id="@+id/origin_location_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/origin"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="3dp"
-                            android:src="@drawable/ic_more_vert"
-                            android:tint="#4264fb" />
-
-                        <ImageView
-                            android:id="@+id/destination"
-                            android:layout_width="10dp"
-                            android:layout_height="10dp"
-                            android:layout_below="@id/more_vert"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="3dp"
-                            android:src="@drawable/border_oval_fill" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="200dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="23dp"
-                        android:layout_toRightOf="@+id/relative_layout_origin_destination"
-                        android:background="@drawable/border_rectangle_unfilled">
+                            android:text="Pickup location"
+                            android:textColor="#05D686"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/text_view_confirm_origin"
-                            android:layout_width="wrap_content"
+                            android:layout_width="250dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="5dp"
-                            android:text="Origin"
-                            android:textColor="#4264fb"
+                            android:layout_below="@id/origin_location_text"
+                            android:hint="Pickup Location Name"
+                            android:textColor="#78849E"
+                            android:textColorHint="#78849E"
                             android:textSize="12sp" />
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="200dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="67dp"
-                        android:layout_toRightOf="@+id/relative_layout_origin_destination"
-                        android:background="@drawable/border_rectangle_unfilled">
+                        android:id="@+id/to_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/from_rl"
+                        android:layout_marginTop="17dp">
+
+                        <TextView
+                            android:id="@+id/destination_location_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Destination location"
+                            android:textColor="#05D686"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/text_view_confirm_destination"
-                            android:layout_width="wrap_content"
+                            android:layout_width="250dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="5dp"
-                            android:text="Destination"
-                            android:textColor="#4264fb"
+                            android:layout_below="@id/destination_location_text"
+                            android:hint="Destination Location Name"
+                            android:textColor="#78849E"
+                            android:textColorHint="#78849E"
                             android:textSize="12sp" />
                     </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/relative_layout_origin_destination"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="28dp">
-
-                        <ImageView
-                            android:id="@+id/ic_monetization"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/ic_monetization_on"
-                            android:tint="#4264fb" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_toEndOf="@id/ic_monetization"
-                            android:layout_toRightOf="@id/ic_monetization"
-                            android:text="Cost"
-                            android:textColor="#4264fb"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                    </RelativeLayout>
-
                 </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/pn"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/route"
+                android:layout_marginLeft="58dp"
+                android:layout_marginTop="18dp">
+
+                <ImageView
+                    android:id="@+id/image_seat"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_person"
+                    android:tint="#0A1C2A" />
+
+                <TextView
+                    android:id="@+id/text_view_passenger_number_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/image_seat"
+                    android:hint="#"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pn"
+                android:layout_marginLeft="58dp"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:id="@+id/image_calendar"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_calendar"
+                    android:tint="#0A1C2A" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/image_calendar"
+                    android:hint="Date of carpool"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/calendar"
+                android:layout_marginLeft="58dp"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:id="@+id/image_time"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_time"
+                    android:tint="#0A1C2A" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/image_time"
+                    android:hint="Time of carpool"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="12sp" />
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/relative_layout_information"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp">
+                android:layout_below="@id/rl_time"
+                android:layout_marginLeft="58dp"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:id="@+id/image_monetization"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_monetization_on"
+                    android:tint="#05D686" />
 
                 <TextView
-                    android:id="@+id/text_view_one"
+                    android:id="@+id/earnings_text_confirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Click on the information"
-                    android:textColor="#4264fb"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/image_monetization"
+                    android:hint="Estimated earnings"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_view_one"
-                    android:layout_marginLeft="87dp"
-                    android:text="you would like to edit"
-                    android:textColor="#4264fb"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/earnings_text_confirm"
+                    android:text="(CAD)"
+                    android:textColor="#05D686"
+                    android:textSize="12sp" />
+
 
             </RelativeLayout>
 
@@ -290,42 +292,53 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/relative_layout_confirm_later"
-            android:layout_width="300dp"
-            android:layout_height="55dp"
+            android:id="@+id/confirm_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="170dp"
-            android:background="#4264fb">
+            android:layout_marginBottom="178dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Confirm"
-                android:textColor="#ffffff"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <RelativeLayout
+                android:id="@+id/relative_layout_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginLeft="39dp"
+                android:layout_marginRight="39dp"
+                android:background="@drawable/background_rectangle_filled">
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/confirm_carpool_button_word"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Post Carpool"
+                    android:textColor="#FFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
-        <RelativeLayout
-            android:id="@+id/relative_layout_cancel_later"
-            android:layout_width="300dp"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="88dp"
-            android:background="@drawable/border_rectangle_unfilled">
+            </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Cancel"
-                android:textColor="#4264fb"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <RelativeLayout
+                android:id="@+id/relative_layout_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_below="@id/relative_layout_confirm"
+                android:layout_marginLeft="39dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="39dp"
+                android:background="@drawable/border_rectangle_unfilled">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Cancel"
+                    android:textColor="#2A2E43"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
         </RelativeLayout>
 
     </RelativeLayout>
