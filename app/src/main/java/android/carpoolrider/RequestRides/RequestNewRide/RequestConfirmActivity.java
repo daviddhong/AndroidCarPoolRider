@@ -5,7 +5,6 @@ import android.carpoolrider.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class ConfirmActivity extends AppCompatActivity {
+public class RequestConfirmActivity extends AppCompatActivity {
 
     RelativeLayout mBackRequestNewRideConfirmActivity;
     RelativeLayout mConfirmActivityRelativeLayout;
@@ -89,7 +88,7 @@ public class ConfirmActivity extends AppCompatActivity {
     // EFFECTS: Set EditPassengerNumber.
     private void setEditPassengerNumber() {
 
-        // EFFECTS: Retrieve data from PassengerNumberActivity.
+        // EFFECTS: Retrieve data from RequestPassengerNumberActivity.
         mPassengerNumberConfirm = (TextView) findViewById(R.id.text_view_passenger_number_confirm);
         Bundle bundle = getIntent().getExtras();
         String passengerNumber = bundle.getString("PASSENGER_NUMBER_SELECTED");
@@ -99,8 +98,8 @@ public class ConfirmActivity extends AppCompatActivity {
     // MODIFIES: this
     // EFFECTS: Set EditTime.
     private void setEditTime() {
-        // EFFECTS: Retrieve the data PassengerNumberActivity, which got the data from
-        // DateActivity.
+        // EFFECTS: Retrieve the data RequestPassengerNumberActivity, which got the data from
+        // RequestDateActivity.
         mTimeConfirm = (TextView) findViewById(R.id.time);
         Bundle bundle = getIntent().getExtras();
         String time = bundle.getString("TIME_VALUE");
@@ -111,8 +110,8 @@ public class ConfirmActivity extends AppCompatActivity {
     // EFFECTS: Set EditDate.
     private void setEditDate() {
 
-        // EFFECTS: Retrieve the data from PassengerNumberActivity, which got the data rom
-        // DateActivity.
+        // EFFECTS: Retrieve the data from RequestPassengerNumberActivity, which got the data rom
+        // RequestDateActivity.
         mDateConfirm = (TextView) findViewById(R.id.date);
         Bundle bundle = getIntent().getExtras();
         String date = bundle.getString("DATE_VALUE");
@@ -151,7 +150,7 @@ public class ConfirmActivity extends AppCompatActivity {
 
                 savetorealtimedatabase();
 
-                Intent intent = new Intent(ConfirmActivity.this, MainActivity.class);
+                Intent intent = new Intent(RequestConfirmActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 // EFFECTS: Animation from ()Activity to ()Activity.

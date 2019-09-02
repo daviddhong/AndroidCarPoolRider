@@ -1,6 +1,6 @@
 package android.carpoolrider.ReservedRides;
 
-import android.carpoolrider.Profile.ProfileActivity;
+import android.carpoolrider.Settings.ProfileActivity;
 import android.carpoolrider.R;
 import android.content.Intent;
 import android.os.Bundle;

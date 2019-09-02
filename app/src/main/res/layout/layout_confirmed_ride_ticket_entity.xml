@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/border_rectangle_unfilled">
+        android:background="@drawable/border_rectangle_unfilled_light">
 
         <RelativeLayout
             android:id="@+id/rl_date_time"
@@ -250,7 +250,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_close"
+                android:src="@drawable/ic_more_vert"
                 android:tint="#0A1C2A"/>
 
 

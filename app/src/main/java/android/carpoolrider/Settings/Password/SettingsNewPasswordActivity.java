@@ -1,4 +1,4 @@
-package android.carpoolrider.RequestRides.RequestNewRide;
+package android.carpoolrider.Settings.Password;
 
 import android.carpoolrider.R;
 import android.os.Bundle;
@@ -6,11 +6,12 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class TimeActivity extends AppCompatActivity {
+public class SettingsNewPasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_new_ride_time);
+        setContentView(R.layout.activity_settings_enter_new_password);
     }
+
 }
