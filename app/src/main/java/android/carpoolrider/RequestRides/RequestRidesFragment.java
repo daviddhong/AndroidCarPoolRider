@@ -3,7 +3,6 @@ package android.carpoolrider.RequestRides;
 import android.carpoolrider.Profile.ProfileActivity;
 import android.carpoolrider.R;
 import android.carpoolrider.RequestRides.RequestNewRide.RouteActivity;
-import android.carpoolrider.RequestRides.RequestNewRide.RiderRequestTicket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,7 +32,7 @@ public class RequestRidesFragment extends Fragment {
     private View requestRidesView;
     private ImageView profileImageView;
     private RelativeLayout requestNewRideRelativeLayout;
-    private TicketViewModel ticketViewModel;
+//    private TicketViewModel ticketViewModel;
 
     private RecyclerView FriendRecyclerView;
     private DatabaseReference RiderTicketsRef, UsersRef;
