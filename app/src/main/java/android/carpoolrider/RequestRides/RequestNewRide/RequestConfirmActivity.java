@@ -44,7 +44,7 @@ public class RequestConfirmActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
         currentUserName = currentUser.getUid();
-        RootRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets").child(currentUserName);
+        RootRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
 
         // EFFECTS: Call setBackRequestNewRideConfirmActivity.
         setBackRequestNewRideConfirmActivity();
