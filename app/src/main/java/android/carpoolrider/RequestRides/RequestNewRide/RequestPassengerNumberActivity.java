@@ -29,6 +29,8 @@ public class RequestPassengerNumberActivity extends AppCompatActivity {
         // EFFECTS: Back request.
         initBack();
 
+        initNext();
+
     }
 
     // EFFECTS: Initialize the number picker for the number of seats.

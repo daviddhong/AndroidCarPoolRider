@@ -87,26 +87,26 @@ public class RequestTimeActivity extends AppCompatActivity {
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.next_carpool_time_post);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
 
-            Bundle bundle = getIntent().getExtras();
-            String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
-            String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
-            String earnings = bundle.getString("EARNINGS_STRING_KEY");
-            String seats = bundle.getString("SEATS_STRING");
-            String month = bundle.getString("MONTH_STRING");
-            String day = bundle.getString("DAY_STRING");
-            String year = bundle.getString("YEAR_STRING");
+//            Bundle bundle = getIntent().getExtras();
+//            String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
+//            String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
+//            String earnings = bundle.getString("EARNINGS_STRING_KEY");
+//            String seats = bundle.getString("SEATS_STRING");
+//            String month = bundle.getString("MONTH_STRING");
+//            String day = bundle.getString("DAY_STRING");
+//            String year = bundle.getString("YEAR_STRING");
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RequestTimeActivity.this, RequestConfirmActivity.class);
 
-                intent.putExtra("ORIGIN_LOCATION_STRING_KEY", origin);
-                intent.putExtra("DESTINATION_LOCATION_STRING_KEY", destination);
-                intent.putExtra("EARNINGS_STRING_KEY", earnings);
-                intent.putExtra("SEATS_STRING", seats);
-                intent.putExtra("MONTH_STRING", month);
-                intent.putExtra("DAY_STRING", day);
-                intent.putExtra("YEAR_STRING", year);
+//                intent.putExtra("ORIGIN_LOCATION_STRING_KEY", origin);
+//                intent.putExtra("DESTINATION_LOCATION_STRING_KEY", destination);
+//                intent.putExtra("EARNINGS_STRING_KEY", earnings);
+//                intent.putExtra("SEATS_STRING", seats);
+//                intent.putExtra("MONTH_STRING", month);
+//                intent.putExtra("DAY_STRING", day);
+//                intent.putExtra("YEAR_STRING", year);
                 intent.putExtra("HOUR_STRING", hourString);
                 intent.putExtra("MINUTES_STRING", minutesString);
                 intent.putExtra("PERIOD_STRING", periodString);
