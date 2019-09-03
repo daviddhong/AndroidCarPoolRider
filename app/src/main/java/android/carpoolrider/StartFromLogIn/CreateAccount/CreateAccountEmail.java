@@ -1,4 +1,4 @@
-package android.carpoolrider.CreateAccount;
+package android.carpoolrider.StartFromLogIn.CreateAccount;
 
 import android.carpoolrider.R;
 import android.content.Intent;
@@ -9,31 +9,31 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreateAccountPassword extends AppCompatActivity {
+public class CreateAccountEmail extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account_password);
+        setContentView(R.layout.activity_create_account_email);
 
         initContinue();
-        initBack();
+        backButton();
     }
 
     private void initContinue() {
-        RelativeLayout continueActivity = (RelativeLayout) findViewById(R.id.continue_sign_up_password);
+        RelativeLayout continueActivity = (RelativeLayout) findViewById(R.id.continue_sign_up_email);
         continueActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateAccountPassword.this, CreateAccountPhoneNumber.class);
+                Intent intent = new Intent(CreateAccountEmail.this, CreateAccountPassword.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void initBack() {
-        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_settings_password);
-        back.setOnClickListener(new View.OnClickListener() {
+    private void backButton() {
+        RelativeLayout backRelativeLayout = (RelativeLayout) findViewById(R.id.rl_back_create_account_email);
+        backRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

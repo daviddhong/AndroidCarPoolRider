@@ -1,7 +1,10 @@
-package android.carpoolrider.Settings;
+package android.carpoolrider;
 
-import android.carpoolrider.R;
-import android.carpoolrider.Settings.Password.SettingsCurrentPasswordActivity;
+import android.carpoolrider.Settings.Password.CurrentPasswordActivity;
+import android.carpoolrider.Settings.ProfileActivity;
+import android.carpoolrider.Settings.EmailActivity;
+import android.carpoolrider.Settings.PhoneActivity;
+import android.carpoolrider.StartFromLogIn.LogInActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,22 +16,42 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SettingsFragment extends Fragment {
 
     private View moreView;
+    FirebaseAuth mAuth;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         moreView = inflater.inflate(R.layout.fragment_settings, container, false);
-
+        mAuth = FirebaseAuth.getInstance();
         initProfile();
         initEmail();
         initPhone();
         initPassword();
+        signout();
 
         return moreView;
     }
+
+    private void signout() {
+        RelativeLayout profile = (RelativeLayout) moreView.findViewById(R.id.sign_out_rider);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                Intent intent = new Intent(getActivity(), LogInActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                // EFFECTS: Animation from SettingsActivity to EditProfileActivity.
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+    }
+
 
     private void initProfile() {
         RelativeLayout profile = (RelativeLayout) moreView.findViewById(R.id.settings_profile);
@@ -46,7 +69,7 @@ public class SettingsFragment extends Fragment {
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SettingsEmailActivity.class);
+                Intent intent = new Intent(getActivity(), EmailActivity.class);
                 startActivity(intent);
             }
         });
@@ -57,7 +80,7 @@ public class SettingsFragment extends Fragment {
         phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SettingsPhoneActivity.class);
+                Intent intent = new Intent(getActivity(), PhoneActivity.class);
                 startActivity(intent);
             }
         });
@@ -68,7 +91,7 @@ public class SettingsFragment extends Fragment {
         password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SettingsCurrentPasswordActivity.class);
+                Intent intent = new Intent(getActivity(), CurrentPasswordActivity.class);
                 startActivity(intent);
             }
         });

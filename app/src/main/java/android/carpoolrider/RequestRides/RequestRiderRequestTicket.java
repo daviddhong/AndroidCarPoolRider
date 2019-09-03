@@ -1,4 +1,4 @@
-package android.carpoolrider.RequestRides.RequestNewRide;
+package android.carpoolrider.RequestRides;
 
 public class RequestRiderRequestTicket {
 

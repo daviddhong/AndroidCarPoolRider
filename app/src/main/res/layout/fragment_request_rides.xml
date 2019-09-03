@@ -25,7 +25,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
-                    android:text="Rides Requested"
+                    android:text="Request Rides"
                     android:textColor="#0A1C2A"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
@@ -81,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="20dp"
-                        android:text="Post new carpool"
+                        android:text="Post a new carpool request"
                         android:textColor="#78849E"
                         android:textSize="20sp" />
 
@@ -108,8 +108,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Post a carpool route that you will be driving. If matched with a
-rider, you can earn back an amount that do not exceed the cost of gas for the route."
+                        android:text="Post a carpool route that you want to take. If matched with a
+driver, contact the driver to confirm the carpool ride and specify details of pickup location."
                         android:textColor="#FFF"
                         android:textSize="15sp" />
 

@@ -1,18 +1,13 @@
-package android.carpoolrider.RequestRides.RequestNewRide;
+package android.carpoolrider.RequestRides;
 
 import android.carpoolrider.R;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.ImageViewCompat;
 
 import com.shawnlin.numberpicker.NumberPicker;
 

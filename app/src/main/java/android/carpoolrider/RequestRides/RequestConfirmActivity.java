@@ -1,6 +1,6 @@
-package android.carpoolrider.RequestRides.RequestNewRide;
+package android.carpoolrider.RequestRides;
 
-import android.carpoolrider.MainActivity;
+import android.carpoolrider.BottomNavigationMainActivity;
 import android.carpoolrider.R;
 import android.content.Intent;
 import android.os.Bundle;
@@ -160,7 +160,7 @@ public class RequestConfirmActivity extends AppCompatActivity {
 
                 saveToRealTimeDatabase();
 
-                Intent intent = new Intent(RequestConfirmActivity.this, MainActivity.class);
+                Intent intent = new Intent(RequestConfirmActivity.this, BottomNavigationMainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 // EFFECTS: Animation from ()Activity to ()Activity.

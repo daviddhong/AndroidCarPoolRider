@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:text="Your Reserved Rides"
+                android:text="Confirmed Rides"
                 android:textSize="20sp"
                 android:textColor="#0A1C2A"
                 android:textStyle="bold"/>

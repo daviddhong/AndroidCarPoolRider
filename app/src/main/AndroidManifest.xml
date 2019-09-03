@@ -17,20 +17,20 @@
         </activity>
         <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
         <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.RequestRouteActivity"/>
+        <activity android:name=".BottomNavigationMainActivity"/>
+        <activity android:name=".RequestRides.RequestRouteActivity"/>
         <activity android:name=".Settings.ProfileActivity"/>
-        <activity android:name=".Settings.Password.SettingsCurrentPasswordActivity"/>
-        <activity android:name=".Settings.Password.SettingsNewPasswordActivity"/>
-        <activity android:name=".Settings.SettingsEmailActivity"/>
-        <activity android:name=".CreateAccount.CreateAccountEmail"/>
-        <activity android:name=".CreateAccount.CreateAccountName"/>
-        <activity android:name=".CreateAccount.CreateAccountPassword"/>
-        <activity android:name=".CreateAccount.CreateAccountPhoneNumber"/>
-        <activity android:name=".RequestRides.RequestNewRide.RequestDateActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.RequestConfirmActivity"/>
-        <activity android:name=".RequestRides.RequestNewRide.RequestPassengerNumberActivity" />
-        <activity android:name=".RequestRides.RequestNewRide.RequestTimeActivity"/>
+        <activity android:name=".Settings.Password.CurrentPasswordActivity"/>
+        <activity android:name=".Settings.Password.NewPasswordActivity"/>
+        <activity android:name=".Settings.EmailActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumber"/>
+        <activity android:name=".RequestRides.RequestDateActivity"/>
+        <activity android:name=".RequestRides.RequestConfirmActivity"/>
+        <activity android:name=".RequestRides.RequestPassengerNumberActivity" />
+        <activity android:name=".RequestRides.RequestTimeActivity"/>
     </application>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>

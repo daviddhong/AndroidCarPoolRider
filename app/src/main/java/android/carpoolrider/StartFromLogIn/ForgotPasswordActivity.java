@@ -1,6 +1,5 @@
 package android.carpoolrider.StartFromLogIn;
 
-import android.carpoolrider.MainActivity;
 import android.carpoolrider.R;
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,7 +48,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                                     Intent intent = new Intent(ForgotPasswordActivity.this, LogInActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
-                                    // EFFECTS: Animation from LogInActivity to MainActivity.
+                                    // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
                                     ForgotPasswordActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                                     Toast.makeText(ForgotPasswordActivity.this,
                                             "sent email to reset PW", Toast.LENGTH_LONG).show();

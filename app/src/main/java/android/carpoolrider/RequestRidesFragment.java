@@ -1,9 +1,8 @@
-package android.carpoolrider.RequestRides;
+package android.carpoolrider;
 
-import android.carpoolrider.RequestRides.RequestNewRide.RequestRouteActivity;
+import android.carpoolrider.RequestRides.RequestRouteActivity;
 import android.carpoolrider.Settings.ProfileActivity;
-import android.carpoolrider.R;
-import android.carpoolrider.RequestRides.RequestNewRide.RequestRiderRequestTicket;
+import android.carpoolrider.RequestRides.RequestRiderRequestTicket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package android.carpoolrider.RequestRides.RequestNewRide;
+package android.carpoolrider.RequestRides;
 
 import android.carpoolrider.R;
 import android.content.Intent;

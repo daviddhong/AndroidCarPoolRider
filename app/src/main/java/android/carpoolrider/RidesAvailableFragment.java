@@ -1,4 +1,4 @@
-package android.carpoolrider.ReservedRides;
+package android.carpoolrider;
 
 import android.carpoolrider.Settings.ProfileActivity;
 import android.carpoolrider.R;
@@ -13,25 +13,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class ReservedRidesFragment extends Fragment {
+public class RidesAvailableFragment extends Fragment {
 
-    View reservedRidesView;
+    View availableRidesView;
     ImageView profileImageView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        reservedRidesView = inflater.inflate(R.layout.fragment_reserved_rides, container, false);
+        availableRidesView = inflater.inflate(R.layout.fragment_available_rides, container, false);
 
         // EFFECTS: Call setProfileImageView.
         setProfileImageView();
 
-        return reservedRidesView;
+        return availableRidesView;
     }
 
     // EFFECTS: Set OnClickActivity for ProfileActivity.
     private void setProfileImageView() {
-        profileImageView = (ImageView) reservedRidesView.findViewById(R.id.reserved_rides_profile);
+        profileImageView = (ImageView) availableRidesView.findViewById(R.id.available_rides_profile);
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

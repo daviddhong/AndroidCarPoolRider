@@ -1,4 +1,4 @@
-package android.carpoolrider.CreateAccount;
+package android.carpoolrider.StartFromLogIn.CreateAccount;
 
 import android.carpoolrider.R;
 import android.content.Intent;
