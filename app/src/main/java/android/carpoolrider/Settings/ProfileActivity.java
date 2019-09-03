@@ -27,6 +27,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     // EFFECTS: Set OnClickActivity for finish activity.
     private void setFinishProfileActivity() {
+//        profileBackImageView = (ImageView) findViewById(R.id.profile_picture);
+//        profileBackImageView.setOnClickListener(new View.OnClickListener() {
+
         profileCloseImageView = (RelativeLayout) findViewById(R.id.close_button_profile);
         profileCloseImageView.setOnClickListener(new View.OnClickListener() {
             @Override

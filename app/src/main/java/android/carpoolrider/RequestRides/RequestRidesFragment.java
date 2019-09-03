@@ -33,6 +33,7 @@ public class RequestRidesFragment extends Fragment {
     private View requestRidesView;
     private ImageView profileImageView;
     private RelativeLayout requestNewRideRelativeLayout;
+//    private TicketViewModel ticketViewModel;
 
     private RecyclerView FriendRecyclerView;
     private DatabaseReference RiderTicketsRef, UsersRef;
@@ -64,7 +65,7 @@ public class RequestRidesFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
-        RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets").child(currentUserID);
+        RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
     }
 
@@ -120,7 +121,6 @@ public class RequestRidesFragment extends Fragment {
     }
 
 
-
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
         TextView riderTo, riderFrom;
         public riderTicketHolder(@NonNull View itemView) {
@@ -129,12 +129,6 @@ public class RequestRidesFragment extends Fragment {
             riderTo = itemView.findViewById(R.id.text_destination);
         }
     }
-
-
-
-
-
-
 
 
     // EFFECTS: Set OnClickActivity for ProfileActivity.
