@@ -26,6 +26,8 @@ public class RequestPassengerNumberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_new_ride_select_pn);
 
+        initSeatNumberPicker();
+
         // EFFECTS: Back request.
         initBack();
 
@@ -43,6 +45,21 @@ public class RequestPassengerNumberActivity extends AppCompatActivity {
         seats.setFadingEdgeEnabled(false);
 
         seatsString = String.valueOf(seats.getValue());
+
+        seats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        seats.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                seats.setValue(newVal);
+                seatsString = String.valueOf(seats.getValue());
+            }
+        });
 
     }
 

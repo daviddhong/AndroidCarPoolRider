@@ -270,7 +270,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/image_monetization"
-                    android:hint="Estimated earnings"
+                    android:hint="$"
                     android:textColor="#78849E"
                     android:textColorHint="#78849E"
                     android:textSize="12sp" />

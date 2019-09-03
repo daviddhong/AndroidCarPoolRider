@@ -29,6 +29,7 @@ public class RequestConfirmActivity extends AppCompatActivity {
     TextView mDateConfirm;
     TextView mOrigin;
     TextView mDestination;
+    TextView mCosts;
 
     String currentUserName;
 
@@ -49,20 +50,23 @@ public class RequestConfirmActivity extends AppCompatActivity {
         // EFFECTS: Call setBackRequestNewRideConfirmActivity.
         setBackRequestNewRideConfirmActivity();
 
-        // EFFECTS: Call setEditPassengerNumber.
-        setEditPassengerNumber();
+        // EFFECTS: Call setPassengerNumber.
+        setPassengerNumber();
 
-        // EFFECTS: Call setEditTime.
-        setEditTime();
+        // EFFECTS: Call setTime.
+        setTime();
 
-        // EFFECTS: Call setEditDate.
-        setEditDate();
+        // EFFECTS: Call setDate.
+        setDate();
 
-        // EFFECTS: Call setEditOrigin.
-        setEditOrigin();
+        // EFFECTS: Call setOrigin.
+        setOrigin();
 
-        // EFFECTS: Call setEditDestination.
-        setEditDestination();
+        // EFFECTS: Call setDestination.
+        setDestination();
+
+        // EFFECTS: Call setCosts.
+        setCost();
 
         // EFFECTS: Call setConfirmActivityRelativeLayout.
         setConfirmActivityRelativeLayout();
@@ -86,50 +90,63 @@ public class RequestConfirmActivity extends AppCompatActivity {
 
     // MODIFIES: this
     // EFFECTS: Set EditPassengerNumber.
-    private void setEditPassengerNumber() {
+    private void setPassengerNumber() {
 
         // EFFECTS: Retrieve data from RequestPassengerNumberActivity.
         mPassengerNumberConfirm = (TextView) findViewById(R.id.text_view_passenger_number_confirm);
         Bundle bundle = getIntent().getExtras();
-        String passengerNumber = bundle.getString("PASSENGER_NUMBER_SELECTED");
+        String passengerNumber = bundle.getString("SEATS_STRING");
         mPassengerNumberConfirm.setText(passengerNumber);
     }
 
     // MODIFIES: this
     // EFFECTS: Set EditTime.
-    private void setEditTime() {
+    private void setTime() {
         // EFFECTS: Retrieve the data RequestPassengerNumberActivity, which got the data from
         // RequestDateActivity.
         mTimeConfirm = (TextView) findViewById(R.id.time);
         Bundle bundle = getIntent().getExtras();
-        String time = bundle.getString("TIME_VALUE");
+        String hour = bundle.getString("HOUR_STRING");
+        String minutes = bundle.getString("MINUTES_STRING");
+        String period = bundle.getString("PERIOD_STRING");
+        String time = hour + " " + ":" + " " + minutes + " " + period;
         mTimeConfirm.setText(time);
     }
 
     // MODIFIES: this
     // EFFECTS: Set EditDate.
-    private void setEditDate() {
+    private void setDate() {
 
         // EFFECTS: Retrieve the data from RequestPassengerNumberActivity, which got the data rom
         // RequestDateActivity.
         mDateConfirm = (TextView) findViewById(R.id.date);
         Bundle bundle = getIntent().getExtras();
-        String date = bundle.getString("DATE_VALUE");
+        String month = bundle.getString("MONTH_STRING");
+        String day = bundle.getString("DAY_STRING");
+        String year = bundle.getString("YEAR_STRING");
+        String date = month + " " + day + ", " + year;
         mDateConfirm.setText(date);
     }
 
-    private void setEditOrigin() {
+    private void setOrigin() {
         mOrigin = (TextView) findViewById(R.id.text_view_confirm_origin);
         Bundle bundle = getIntent().getExtras();
-        String origin = bundle.getString("ORIGIN");
+        String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
         mOrigin.setText(origin);
     }
 
-    private void setEditDestination() {
+    private void setDestination() {
         mDestination = (TextView) findViewById(R.id.text_view_confirm_destination);
         Bundle bundle = getIntent().getExtras();
-        String destination = bundle.getString("DESTINATION");
+        String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
         mDestination.setText(destination);
+    }
+
+    private void setCost() {
+        Bundle bundle = getIntent().getExtras();
+        String earnings = bundle.getString("EARNINGS_STRING_KEY");
+        mCosts = (TextView) findViewById(R.id.earnings_text_confirm);
+        mCosts.setText(earnings);
     }
 
     // EFFECTS: Set ConfirmNewRideRequest.
@@ -137,18 +154,11 @@ public class RequestConfirmActivity extends AppCompatActivity {
         mConfirmActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_confirm);
         mConfirmActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
 
-//            Bundle bundle = getIntent().getExtras();
-//            String origin = bundle.getString("ORIGIN");
-//            String destination = bundle.getString("DESTINATION");
-//            String date = bundle.getString("DATE_VALUE");
-//            String time = bundle.getString("TIME_VALUE");
-//            String passengerNumber = bundle.getString("PASSENGER_NUMBER_SELECTED");
-
             @Override
             public void onClick(View v) {
                 //save to realtime database
 
-                savetorealtimedatabase();
+                saveToRealTimeDatabase();
 
                 Intent intent = new Intent(RequestConfirmActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -159,7 +169,7 @@ public class RequestConfirmActivity extends AppCompatActivity {
         });
     }
 
-    private void savetorealtimedatabase() {
+    private void saveToRealTimeDatabase() {
         String messageKey = RootRef.push().getKey();
         HashMap<String, Object> riderTicketKey = new HashMap<>();
         RootRef.updateChildren(riderTicketKey);

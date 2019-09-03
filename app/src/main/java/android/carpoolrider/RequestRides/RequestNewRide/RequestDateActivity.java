@@ -74,7 +74,45 @@ public class RequestDateActivity extends AppCompatActivity {
         month.setDisplayedValues(data);
         month.setFadingEdgeEnabled(false);
 
-        monthString = String.valueOf(month.getValue());
+        if (month.getValue() == 1) {
+            monthString = "Jan";
+        }
+
+        month.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        month.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                if (newVal == 2) {
+                    monthString = "Feb";
+                } else if (newVal == 3) {
+                    monthString = "Mar";
+                } else if (newVal == 4) {
+                    monthString = "Apr";
+                } else if (newVal == 5) {
+                    monthString = "May";
+                } else if (newVal == 6) {
+                    monthString = "Jun";
+                } else if (newVal == 7) {
+                    monthString = "Jul";
+                } else if (newVal == 8) {
+                    monthString = "Aug";
+                } else if (newVal == 9) {
+                    monthString = "Sept";
+                } else if (newVal == 10) {
+                    monthString = "Oct";
+                } else if (newVal == 11) {
+                    monthString = "Nov";
+                } else if (newVal == 12) {
+                    monthString = "Dec";
+                }
+            }
+        });
     }
 
     // EFFECTS: Initialize the day number picker.
@@ -88,7 +126,42 @@ public class RequestDateActivity extends AppCompatActivity {
         day.setDisplayedValues(data);
         day.setFadingEdgeEnabled(false);
 
-        dayString = String.valueOf(day.getValue());
+        if (day.getValue() == 1) {
+            dayString = "01";
+        }
+
+        day.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        day.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                if (newVal == 2) {
+                    dayString = "02";
+                } else if (newVal == 3) {
+                    dayString = "03";
+                } else if (newVal == 4) {
+                    dayString = "04";
+                } else if (newVal == 5) {
+                    dayString = "05";
+                } else if (newVal == 6) {
+                    dayString = "06";
+                } else if (newVal == 7) {
+                    dayString = "07";
+                } else if (newVal == 8) {
+                    dayString = "08";
+                } else if (newVal == 9) {
+                    dayString = "09";
+                } else {
+                    day.setValue(newVal);
+                    dayString = String.valueOf(day.getValue());
+                }
+            }
+        });
     }
 
     // EFFECTS: Initialize the year number picker.
@@ -97,15 +170,33 @@ public class RequestDateActivity extends AppCompatActivity {
         Calendar yearCalendar = Calendar.getInstance();
         int yearInt = yearCalendar.get(Calendar.YEAR);
         int yearIntTwo = yearCalendar.get(Calendar.YEAR) + 1;
-        String yearString = String.valueOf(yearInt);
+        String yearStringOne = String.valueOf(yearInt);
         String yearStringTwo = String.valueOf(yearIntTwo);
-        String[] data = {yearString, yearStringTwo};
+        String[] data = {yearStringOne, yearStringTwo};
         year.setMinValue(1);
         year.setMaxValue(data.length);
         year.setDisplayedValues(data);
         year.setFadingEdgeEnabled(false);
 
-        yearString = String.valueOf(year.getValue());
+        if (year.getValue() == 1) {
+            yearString = yearStringOne;
+        }
+
+        year.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        year.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                if (newVal == 2) {
+                    yearString = yearStringTwo;
+                }
+            }
+        });
     }
 
     // EFFECTS: Set OnClickActivity for nextActivity.
@@ -113,10 +204,25 @@ public class RequestDateActivity extends AppCompatActivity {
         nextActivityRelativeLayout = (RelativeLayout) findViewById(R.id.next_carpool_date_request);
         nextActivityRelativeLayout.setOnClickListener(new View.OnClickListener() {
 
+            Bundle bundle = getIntent().getExtras();
+            String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
+            String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
+            String earnings = bundle.getString("EARNINGS_STRING_KEY");
+            String seats = bundle.getString("SEATS_STRING");
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RequestDateActivity.this,
                         RequestTimeActivity.class);
+
+                intent.putExtra("ORIGIN_LOCATION_STRING_KEY", origin);
+                intent.putExtra("DESTINATION_LOCATION_STRING_KEY", destination);
+                intent.putExtra("EARNINGS_STRING_KEY", earnings);
+                intent.putExtra("SEATS_STRING", seats);
+                intent.putExtra("MONTH_STRING", monthString);
+                intent.putExtra("DAY_STRING", dayString);
+                intent.putExtra("YEAR_STRING", yearString);
+
                 startActivity(intent);
 
                 // EFFECTS: Animation from ()Activity to ()Activity.

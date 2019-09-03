@@ -50,7 +50,42 @@ public class RequestTimeActivity extends AppCompatActivity {
         hour.setDisplayedValues(data);
         hour.setFadingEdgeEnabled(false);
 
-        hourString = String.valueOf(hour.getValue());
+        if (hour.getValue() == 1) {
+            hourString = "01";
+        }
+
+        hour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        hour.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                if (newVal == 2) {
+                    hourString = "02";
+                } else if (newVal == 3) {
+                    hourString = "03";
+                } else if (newVal == 4) {
+                    hourString = "04";
+                } else if (newVal == 5) {
+                    hourString = "05";
+                } else if (newVal == 6) {
+                    hourString = "06";
+                } else if (newVal == 7) {
+                    hourString = "07";
+                } else if (newVal == 8) {
+                    hourString = "08";
+                } else if (newVal == 9) {
+                    hourString = "09";
+                } else {
+                    hour.setValue(newVal);
+                    hourString = String.valueOf(hour.getValue());
+                }
+            }
+        });;
 
     }
 
@@ -67,7 +102,44 @@ public class RequestTimeActivity extends AppCompatActivity {
         minutes.setDisplayedValues(data);
         minutes.setFadingEdgeEnabled(false);
 
-        minutesString = String.valueOf(minutes.getValue());
+        if (minutes.getValue() == 1) {
+            minutesString = "00";
+        }
+
+        minutes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        minutes.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                if (newVal == 2) {
+                    minutesString = "01";
+                } else if (newVal == 3) {
+                    minutesString = "02";
+                } else if (newVal == 4) {
+                    minutesString = "03";
+                } else if (newVal == 5) {
+                    minutesString = "04";
+                } else if (newVal == 6) {
+                    minutesString = "05";
+                } else if (newVal == 7) {
+                    minutesString = "06";
+                } else if (newVal == 8) {
+                    minutesString = "07";
+                } else if (newVal == 9) {
+                    minutesString = "08";
+                } else if (newVal == 10) {
+                    minutesString = "09";
+                } else {
+                    minutes.setValue(newVal);
+                    minutesString = String.valueOf(minutes.getValue() - 1);
+                }
+            }
+        });
     }
 
     // EFFECTS: Initialize the period number picker.
@@ -79,7 +151,25 @@ public class RequestTimeActivity extends AppCompatActivity {
         period.setDisplayedValues(data);
         period.setFadingEdgeEnabled(false);
 
-        periodString = String.valueOf(period.getValue());
+        if (period.getValue() == 1) {
+            periodString = "AM";
+        }
+
+        period.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        period.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                if (newVal == 2) {
+                    periodString = "PM";
+                }
+            }
+        });
     }
 
     // EFFECTS: Initialize the next activity.
@@ -87,26 +177,26 @@ public class RequestTimeActivity extends AppCompatActivity {
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.next_carpool_time_post);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
 
-//            Bundle bundle = getIntent().getExtras();
-//            String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
-//            String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
-//            String earnings = bundle.getString("EARNINGS_STRING_KEY");
-//            String seats = bundle.getString("SEATS_STRING");
-//            String month = bundle.getString("MONTH_STRING");
-//            String day = bundle.getString("DAY_STRING");
-//            String year = bundle.getString("YEAR_STRING");
+            Bundle bundle = getIntent().getExtras();
+            String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
+            String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
+            String earnings = bundle.getString("EARNINGS_STRING_KEY");
+            String seats = bundle.getString("SEATS_STRING");
+            String month = bundle.getString("MONTH_STRING");
+            String day = bundle.getString("DAY_STRING");
+            String year = bundle.getString("YEAR_STRING");
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RequestTimeActivity.this, RequestConfirmActivity.class);
 
-//                intent.putExtra("ORIGIN_LOCATION_STRING_KEY", origin);
-//                intent.putExtra("DESTINATION_LOCATION_STRING_KEY", destination);
-//                intent.putExtra("EARNINGS_STRING_KEY", earnings);
-//                intent.putExtra("SEATS_STRING", seats);
-//                intent.putExtra("MONTH_STRING", month);
-//                intent.putExtra("DAY_STRING", day);
-//                intent.putExtra("YEAR_STRING", year);
+                intent.putExtra("ORIGIN_LOCATION_STRING_KEY", origin);
+                intent.putExtra("DESTINATION_LOCATION_STRING_KEY", destination);
+                intent.putExtra("EARNINGS_STRING_KEY", earnings);
+                intent.putExtra("SEATS_STRING", seats);
+                intent.putExtra("MONTH_STRING", month);
+                intent.putExtra("DAY_STRING", day);
+                intent.putExtra("YEAR_STRING", year);
                 intent.putExtra("HOUR_STRING", hourString);
                 intent.putExtra("MINUTES_STRING", minutesString);
                 intent.putExtra("PERIOD_STRING", periodString);
