@@ -30,7 +30,7 @@ public class RequestConfirmActivity extends AppCompatActivity {
     TextView mOrigin;
     TextView mDestination;
     TextView mCosts;
-
+    String messageKey;
     String currentUserName;
 
     private FirebaseAuth mAuth;
@@ -73,6 +73,24 @@ public class RequestConfirmActivity extends AppCompatActivity {
 
         // EFFECTS: Call setCancelActivityRelativeLayout.
         setCancelActivityRelativeLayout();
+    }
+
+    private void saveToRealTimeDatabase() {
+        messageKey = RootRef.push().getKey();
+        HashMap<String, Object> riderTicketKey = new HashMap<>();
+        RootRef.updateChildren(riderTicketKey);
+
+        RootKeyRef = RootRef.child(messageKey);
+
+        String currentUserID = mAuth.getCurrentUser().getUid();
+        HashMap<String, Object> profileMap = new HashMap<>();
+        profileMap.put("uid", currentUserID);
+        profileMap.put("From", "from");
+        profileMap.put("To", "to");
+        profileMap.put("NumberOfSeats", "seat#");
+        profileMap.put("Price", "$9");
+        profileMap.put("Date", "Jan/02/20");
+        RootKeyRef.updateChildren(profileMap);
     }
 
     // EFFECTS: Set OnClickActivity for backActivity.
@@ -169,23 +187,7 @@ public class RequestConfirmActivity extends AppCompatActivity {
         });
     }
 
-    private void saveToRealTimeDatabase() {
-        String messageKey = RootRef.push().getKey();
-        HashMap<String, Object> riderTicketKey = new HashMap<>();
-        RootRef.updateChildren(riderTicketKey);
 
-        RootKeyRef = RootRef.child(messageKey);
-
-        String currentUserID = mAuth.getCurrentUser().getUid();
-        HashMap<String, Object> profileMap = new HashMap<>();
-        profileMap.put("uid", currentUserID);
-        profileMap.put("From", "from");
-        profileMap.put("To", "to");
-        profileMap.put("NumberOfSeats", "seat#");
-        profileMap.put("Price", "$9");
-        profileMap.put("Date", "Jan/02/20");
-        RootKeyRef.updateChildren(profileMap);
-    }
 
     // EFFECTS: Set CancelNewRideRequest.
     private void setCancelActivityRelativeLayout() {

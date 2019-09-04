@@ -25,6 +25,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class RequestRidesFragment extends Fragment {
@@ -35,10 +36,11 @@ public class RequestRidesFragment extends Fragment {
 //    private TicketViewModel ticketViewModel;
 
     private RecyclerView FriendRecyclerView;
-    private DatabaseReference RiderTicketsRef, UsersRef;
+    private DatabaseReference RiderTicketsRef, UsersRef, gettingkeyRef;
     private FirebaseAuth mAuth;
     private String currentUserID;
-
+    private String uniquekey;
+    private String usersIDS;
     public static final int ADD_TICKET_REQUEST = 1;
 
     @Nullable
@@ -65,6 +67,7 @@ public class RequestRidesFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
+        gettingkeyRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
     }
 
@@ -74,30 +77,54 @@ public class RequestRidesFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+        Query riderQuery = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .orderByChild("uid")
+                .equalTo(currentUserID);
+//                .child("RiderTickets")
+//                .child(currentUserID)
+//                .child("-LntmTHgjwt2m5fV020x")
+//                .child("uid")
+//                .equalTo(currentUserID.toString());
+        Query receiveriderQuery = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child("RiderTickets")
+                .orderByChild("uid")
+                .equalTo(currentUserID);
+
         FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<RequestRiderRequestTicket>()
-                .setQuery(RiderTicketsRef, RequestRiderRequestTicket.class)
+                .setQuery(receiveriderQuery, RequestRiderRequestTicket.class)
                 .build();
 
         final FirebaseRecyclerAdapter<RequestRiderRequestTicket, riderTicketHolder> adapter
                 = new FirebaseRecyclerAdapter<RequestRiderRequestTicket, riderTicketHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder, int i, @NonNull RequestRiderRequestTicket riderReqTickets) {
-                String usersIDS = getRef(i).getKey();
-                UsersRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
+            protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder,
+                                            int i, @NonNull RequestRiderRequestTicket riderReqTickets) {
+                usersIDS = getRef(i).getKey();
+                RiderTicketsRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                            uniquekey = childSnapshot.getKey();
+                            if (dataSnapshot.exists()) {
+                                String type = dataSnapshot.child(uniquekey).child("uid").getValue().toString();
+                                if (!(type.equals(currentUserID))) {
+                                    String riderTo = dataSnapshot.child(uniquekey).child("To").getValue().toString();
+                                    String riderFrom = dataSnapshot.child(uniquekey).child("From").getValue().toString();
+                                    riderticketholder.riderTo.setText(riderTo);
+                                    riderticketholder.riderFrom.setText(riderFrom);
 
-                        if (dataSnapshot.exists()) {
-                            final String riderTo = dataSnapshot.child("To").getValue().toString();
-                            final String riderFrom = dataSnapshot.child("From").getValue().toString();
-                            riderticketholder.riderTo.setText(riderTo);
-                            riderticketholder.riderFrom.setText(riderFrom);
-                            riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    // does nothing when clicked yet (probably want to delete it)
+                                    riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            // does nothing when clicked yet (probably want to delete it)
+                                        }
+                                    });
                                 }
-                            });
+                            }
                         }
                     }
 
@@ -122,6 +149,7 @@ public class RequestRidesFragment extends Fragment {
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
         TextView riderTo, riderFrom;
+
         public riderTicketHolder(@NonNull View itemView) {
             super(itemView);
             riderFrom = itemView.findViewById(R.id.text_origin);
