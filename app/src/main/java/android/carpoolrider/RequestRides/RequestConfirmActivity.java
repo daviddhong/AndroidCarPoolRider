@@ -36,6 +36,7 @@ public class RequestConfirmActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private DatabaseReference RootRef, RootKeyRef;
+    private String passengerNumber, time, date, origin, destination, earnings;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,11 +86,12 @@ public class RequestConfirmActivity extends AppCompatActivity {
         String currentUserID = mAuth.getCurrentUser().getUid();
         HashMap<String, Object> profileMap = new HashMap<>();
         profileMap.put("uid", currentUserID);
-        profileMap.put("From", "from");
-        profileMap.put("To", "to");
-        profileMap.put("NumberOfSeats", "seat#");
-        profileMap.put("Price", "$9");
-        profileMap.put("Date", "Jan/02/20");
+        profileMap.put("From", origin);
+        profileMap.put("To", destination);
+        profileMap.put("NumberOfSeats", passengerNumber);
+        profileMap.put("Price", earnings);
+        profileMap.put("Date", date);
+        profileMap.put("Time", time);
         RootKeyRef.updateChildren(profileMap);
     }
 
@@ -113,7 +115,7 @@ public class RequestConfirmActivity extends AppCompatActivity {
         // EFFECTS: Retrieve data from RequestPassengerNumberActivity.
         mPassengerNumberConfirm = (TextView) findViewById(R.id.text_view_passenger_number_confirm);
         Bundle bundle = getIntent().getExtras();
-        String passengerNumber = bundle.getString("SEATS_STRING");
+        passengerNumber = bundle.getString("SEATS_STRING");
         mPassengerNumberConfirm.setText(passengerNumber);
     }
 
@@ -127,7 +129,7 @@ public class RequestConfirmActivity extends AppCompatActivity {
         String hour = bundle.getString("HOUR_STRING");
         String minutes = bundle.getString("MINUTES_STRING");
         String period = bundle.getString("PERIOD_STRING");
-        String time = hour + " " + ":" + " " + minutes + " " + period;
+        time = hour + " " + ":" + " " + minutes + " " + period;
         mTimeConfirm.setText(time);
     }
 
@@ -142,27 +144,27 @@ public class RequestConfirmActivity extends AppCompatActivity {
         String month = bundle.getString("MONTH_STRING");
         String day = bundle.getString("DAY_STRING");
         String year = bundle.getString("YEAR_STRING");
-        String date = month + " " + day + ", " + year;
+        date = month + " " + day + ", " + year;
         mDateConfirm.setText(date);
     }
 
     private void setOrigin() {
         mOrigin = (TextView) findViewById(R.id.text_view_confirm_origin);
         Bundle bundle = getIntent().getExtras();
-        String origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
+        origin = bundle.getString("ORIGIN_LOCATION_STRING_KEY");
         mOrigin.setText(origin);
     }
 
     private void setDestination() {
         mDestination = (TextView) findViewById(R.id.text_view_confirm_destination);
         Bundle bundle = getIntent().getExtras();
-        String destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
+        destination = bundle.getString("DESTINATION_LOCATION_STRING_KEY");
         mDestination.setText(destination);
     }
 
     private void setCost() {
         Bundle bundle = getIntent().getExtras();
-        String earnings = bundle.getString("EARNINGS_STRING_KEY");
+        earnings = bundle.getString("EARNINGS_STRING_KEY");
         mCosts = (TextView) findViewById(R.id.earnings_text_confirm);
         mCosts.setText(earnings);
     }
@@ -188,7 +190,6 @@ public class RequestConfirmActivity extends AppCompatActivity {
     }
 
 
-
     // EFFECTS: Set CancelNewRideRequest.
     private void setCancelActivityRelativeLayout() {
         mCancelActivityRelativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_cancel);
@@ -199,7 +200,6 @@ public class RequestConfirmActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
 }

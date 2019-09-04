@@ -15,7 +15,7 @@
         android:background="@drawable/border_rectangle_unfilled_light">
 
         <RelativeLayout
-            android:id="@+id/rl_date_time"
+            android:id="@+id/c_rl_date_time"
             android:layout_width="108dp"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
@@ -27,12 +27,12 @@
                 android:layout_centerInParent="true">
 
                 <RelativeLayout
-                    android:id="@+id/date_entity"
+                    android:id="@+id/c_date_entity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/text_date"
+                        android:id="@+id/c_text_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Date"
@@ -43,15 +43,15 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/time_entity"
-                    android:layout_below="@id/date_entity"
+                    android:id="@+id/c_time_entity"
+                    android:layout_below="@id/c_date_entity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_centerHorizontal="true">
 
                     <TextView
-                        android:id="@+id/text_time"
+                        android:id="@+id/c_text_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Time"
@@ -61,27 +61,27 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/pn_entity"
-                    android:layout_below="@id/time_entity"
+                    android:id="@+id/c_pn_entity"
+                    android:layout_below="@id/c_time_entity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp">
 
                     <ImageView
-                        android:id="@+id/passenger_number_image"
+                        android:id="@+id/c_passenger_number_image"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
                         android:src="@drawable/ic_person"
                         android:tint="#FFF"/>
 
                     <TextView
-                        android:id="@+id/text_passenger_number"
+                        android:id="@+id/c_text_passenger_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_centerVertical="true"
-                        android:layout_toRightOf="@+id/passenger_number_image"
+                        android:layout_toRightOf="@+id/c_passenger_number_image"
                         android:hint="#"
                         android:textColor="#FFF"
                         android:textColorHint="#FFF"
@@ -93,55 +93,55 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/origin_destination_rl"
+            android:id="@+id/c_origin_destination_rl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/rl_date_time">
+            android:layout_toRightOf="@+id/c_rl_date_time">
 
             <RelativeLayout
-                android:id="@+id/image_to_from"
+                android:id="@+id/c_image_to_from"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true">
 
                 <ImageView
-                    android:id="@+id/origin_ticket"
+                    android:id="@+id/c_origin_ticket"
                     android:layout_width="7dp"
                     android:layout_height="7dp"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/border_oval_fill" />
 
                 <RelativeLayout
-                    android:id="@+id/vert_two_ticket"
+                    android:id="@+id/c_vert_two_ticket"
                     android:layout_width="3dp"
                     android:layout_height="58dp"
-                    android:layout_below="@id/origin_ticket"
+                    android:layout_below="@id/c_origin_ticket"
                     android:layout_centerInParent="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="2dp"
                     android:background="@drawable/path_solid" />
 
                 <ImageView
-                    android:id="@+id/destination"
+                    android:id="@+id/c_destination"
                     android:layout_width="7dp"
                     android:layout_height="7dp"
-                    android:layout_below="@id/vert_two_ticket"
+                    android:layout_below="@id/c_vert_two_ticket"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="2dp"
                     android:src="@drawable/border_oval_fill" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/relative_layout_request_new_ride_origin"
+                android:id="@+id/c_relative_layout_request_new_ride_origin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="8dp"
-                android:layout_toRightOf="@id/image_to_from">
+                android:layout_toRightOf="@id/c_image_to_from">
 
                 <TextView
-                    android:id="@+id/text_pickup_stable"
+                    android:id="@+id/c_text_pickup_stable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pickup location"
@@ -149,10 +149,10 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/text_origin"
+                    android:id="@+id/c_text_origin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/text_pickup_stable"
+                    android:layout_below="@+id/c_text_pickup_stable"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="5dp"
@@ -163,17 +163,17 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/relative_layout_request_new_ride_destination"
+                android:id="@+id/c_relative_layout_request_new_ride_destination"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/relative_layout_request_new_ride_origin"
+                android:layout_below="@id/c_relative_layout_request_new_ride_origin"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginBottom="8dp"
-                android:layout_toRightOf="@id/image_to_from">
+                android:layout_toRightOf="@id/c_image_to_from">
 
                 <TextView
-                    android:id="@+id/text_destination_stable"
+                    android:id="@+id/c_text_destination_stable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Destination location"
@@ -181,10 +181,10 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/text_destination"
+                    android:id="@+id/c_text_destination"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/text_destination_stable"
+                    android:layout_below="@id/c_text_destination_stable"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="5dp"
@@ -199,8 +199,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/origin_destination_rl"
-            android:layout_toRightOf="@+id/rl_date_time">
+            android:layout_below="@id/c_origin_destination_rl"
+            android:layout_toRightOf="@+id/c_rl_date_time">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -208,15 +208,15 @@
                 android:layout_centerHorizontal="true">
 
                 <ImageView
-                    android:id="@+id/image_earnings_entity"
+                    android:id="@+id/c_image_earnings_entity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_monetization_on"
                     android:tint="#05D686"/>
 
                 <TextView
-                    android:layout_toRightOf="@+id/image_earnings_entity"
-                    android:id="@+id/text_earnings_entity"
+                    android:layout_toRightOf="@+id/c_image_earnings_entity"
+                    android:id="@+id/c_text_earnings_entity"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
@@ -229,7 +229,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/text_earnings_entity"
+                    android:layout_toRightOf="@id/c_text_earnings_entity"
                     android:text="(CAD)"
                     android:layout_marginLeft="10dp"
                     android:textSize="15sp"
@@ -240,7 +240,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/more_information_entity_request"
+            android:id="@+id/c_more_information_entity_request"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
