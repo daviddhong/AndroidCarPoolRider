@@ -10,8 +10,10 @@ public class RequestRiderRequestTicket {
 
     public RequestRiderRequestTicket(String tickfrom, String tickto,
                                      String ticknum, String tickprice,
-                                     String tickdate, String ticktime,
-                                     String tickuid) {
+                                     //        String tickuid
+                                     String tickdate, String ticktime)
+    {
+
         this.From = tickfrom;
         this.To = tickto;
         this.NumberOfSeats = ticknum;
