@@ -386,10 +386,11 @@
                 android:background="@drawable/border_rectangle_unfilled">
 
                 <TextView
+                    android:id="@+id/cancel_request_text_view_carpool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Cancel request for carpool"
+                    android:text="Message the driver"
                     android:textColor="#2A2E43"
                     android:textSize="17sp"
                     android:textStyle="bold" />
