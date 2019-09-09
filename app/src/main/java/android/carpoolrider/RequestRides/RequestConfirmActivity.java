@@ -80,9 +80,7 @@ public class RequestConfirmActivity extends AppCompatActivity {
         messageKey = RootRef.push().getKey();
         HashMap<String, Object> riderTicketKey = new HashMap<>();
         RootRef.updateChildren(riderTicketKey);
-
         RootKeyRef = RootRef.child(messageKey);
-
         String currentUserID = mAuth.getCurrentUser().getUid();
         HashMap<String, Object> profileMap = new HashMap<>();
         profileMap.put("uid", currentUserID);

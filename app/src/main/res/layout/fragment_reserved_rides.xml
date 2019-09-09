@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -34,6 +35,23 @@
                 android:src="@drawable/ic_account_circle"
                 android:tint="#0A1C2A" />
         </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relative_layout_header_reserved_rides"
+            android:layout_marginTop="0dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/driver_rides_available_recycler_view"
+                tools:listitem="@layout/layout_confirmed_ride_ticket_entity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+
 
     </RelativeLayout>
 

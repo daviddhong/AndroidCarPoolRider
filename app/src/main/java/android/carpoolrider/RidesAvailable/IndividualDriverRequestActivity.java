@@ -21,11 +21,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class IndividualDriverRequestActivity extends AppCompatActivity {
 
-    private String receiveUserID, senderUserID, current_state;
+    private String receiverKeyID, senderUID, current_state, receiverUID;
     private TextView ticketID, confirm_carpool_button_word;
     private RelativeLayout confirmButton;
     private FirebaseAuth mAuth;
-    private DatabaseReference UserRef, PickUpRequestRef, ConfirmedMatchRef;
+    private DatabaseReference UserRef, RiderRequestingDriverRef, ConfirmedMatchRef, reff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +36,35 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         confirmButton = findViewById(R.id.confirm_carpool);
         mAuth = FirebaseAuth.getInstance();
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
-        PickUpRequestRef = FirebaseDatabase.getInstance().getReference().child("PickUpRequest");
+        RiderRequestingDriverRef = FirebaseDatabase.getInstance().getReference().child("RiderRequestingDriver");
         ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
         current_state = "new_dontknoweachother";
-        receiveUserID = getIntent().getExtras().get("clicked_user_id").toString();
-        senderUserID = mAuth.getCurrentUser().getUid();
+        receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
+        senderUID = mAuth.getCurrentUser().getUid();
+
+
+
+        reff = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
+//         asd  = reff.child("RiderTicekts").child(receiverKeyID).child("uid");
+        reff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String receiveruID = dataSnapshot
+                        .child(receiverKeyID).child("uid").getValue().toString();
+                receiverUID = receiveruID;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+
+
+
         RetrieveUserInformation();
     }
     private void RetrieveUserInformation() {
-        UserRef.child(receiveUserID).addValueEventListener(new ValueEventListener() {
+        UserRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                if (dataSnapshot.exists()) {
@@ -61,12 +81,12 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         });
     }
     private void ManageCarpoolRequest() {
-        PickUpRequestRef.child(senderUserID)
+        RiderRequestingDriverRef.child(senderUID)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChild(receiveUserID)) {
-                            String requestStatus = dataSnapshot.child(receiveUserID).child("requeststatus").getValue().toString();
+                        if (dataSnapshot.hasChild(receiverKeyID)) {
+                            String requestStatus = dataSnapshot.child(receiverKeyID).child("requeststatus").getValue().toString();
 
                             if (requestStatus.equals("sent")) {
                                 current_state = "requestissent";
@@ -90,11 +110,11 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
 //
 //                            }
                         } else {
-                            ConfirmedMatchRef.child(senderUserID)
+                            ConfirmedMatchRef.child(senderUID)
                                     .addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                            if (dataSnapshot.hasChild(receiveUserID)) {
+                                            if (dataSnapshot.hasChild(receiverKeyID)) {
                                                 current_state = "friendstatus";
                                                 confirm_carpool_button_word.setText("Remove Friend from Contacts");
 //                                                sendfriendrequest.setText("Remove Friend from Contacts");
@@ -118,8 +138,8 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                 });
 
 
-        // double check for senderUserID.equals(receiveUserID) should be differnt!!
-        if (!senderUserID.equals(receiveUserID)) {
+        // double check for senderUID.equals(receiverKeyID) should be differnt!!
+        if (!senderUID.equals(receiverUID)) {
             confirmButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -149,13 +169,13 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
 
 
     private void RemoveSpecificContact() {
-        ConfirmedMatchRef.child(senderUserID).child(receiveUserID)
+        ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            ConfirmedMatchRef.child(receiveUserID).child(senderUserID)
+                            ConfirmedMatchRef.child(receiverKeyID).child(senderUID)
                                     .removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
@@ -178,13 +198,13 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
 
     private void ConfirmCarpoolRequest() {
 
-        ConfirmedMatchRef.child(senderUserID).child(receiveUserID)
+        ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
                 .child("Friends").setValue("Saved")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            ConfirmedMatchRef.child(receiveUserID).child(senderUserID)
+                            ConfirmedMatchRef.child(receiverKeyID).child(senderUID)
                                     .child("Friends").setValue("Saved")
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
@@ -192,13 +212,13 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                                             if (task.isSuccessful()) {
 
                                                 // remove chat requests
-                                                PickUpRequestRef.child(senderUserID).child(receiveUserID)
+                                                RiderRequestingDriverRef.child(senderUID).child(receiverKeyID)
                                                         .removeValue()
                                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                             @Override
                                                             public void onComplete(@NonNull Task<Void> task) {
                                                                 if (task.isSuccessful()) {
-                                                                    PickUpRequestRef.child(receiveUserID).child(senderUserID)
+                                                                    RiderRequestingDriverRef.child(receiverKeyID).child(senderUID)
                                                                             .removeValue()
                                                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                                 @Override
@@ -226,13 +246,13 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
     }
 
     private void CancelCarpoolRequest() {
-        PickUpRequestRef.child(senderUserID).child(receiveUserID)
+        RiderRequestingDriverRef.child(senderUID).child(receiverKeyID)
                 .removeValue()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            PickUpRequestRef.child(receiveUserID).child(senderUserID)
+                            RiderRequestingDriverRef.child(receiverKeyID).child(senderUID)
                                     .removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
@@ -256,13 +276,13 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
     }
 
     private void SendRequestToPickUpRider() {
-        PickUpRequestRef.child(senderUserID).child(receiveUserID)
+        RiderRequestingDriverRef.child(senderUID).child(receiverKeyID)
                 .child("requeststatus").setValue("sent")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            PickUpRequestRef.child(receiveUserID).child(senderUserID)
+                            RiderRequestingDriverRef.child(receiverKeyID).child(senderUID)
                                     .child("requeststatus").setValue("received")
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

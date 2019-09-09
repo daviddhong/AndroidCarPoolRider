@@ -42,12 +42,22 @@
                 android:textColor="#0A1C2A"
                 android:textSize="17sp" />
             <TextView
-                android:id="@+id/firstnameofuser"
+                android:id="@+id/rideridentity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/welcometext"
-                android:paddingLeft="10dp"
+                android:paddingLeft="7dp"
+                android:text="rider"
+                android:textColor="#0A1C2A"
+                android:textSize="17sp" />
+            <TextView
+                android:id="@+id/firstnameofuser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/rideridentity"
+                android:paddingLeft="7dp"
                 android:text="First name"
                 android:textColor="#0A1C2A"
                 android:textSize="17sp" />
@@ -57,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/firstnameofuser"
-                android:paddingLeft="10dp"
+                android:paddingLeft="7dp"
                 android:text="lastname"
                 android:textColor="#0A1C2A"
                 android:textSize="17sp" />

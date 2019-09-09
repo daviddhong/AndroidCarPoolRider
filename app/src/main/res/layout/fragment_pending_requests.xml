@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -33,6 +34,41 @@
                 android:layout_marginRight="25dp"
                 android:src="@drawable/ic_account_circle"
                 android:tint="#0A1C2A" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relative_layout_header_rate_drivers"
+            android:layout_marginTop="0dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/driver_offering_rides_ticekts_recycler_view"
+                tools:listitem="@layout/layout_my_request_ride_ticket_entity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="38dp"
+            android:layout_marginRight="38dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/background_rectangle_filled">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:layout_centerInParent="true"
+                android:text="My Pending Carpool Requests"
+                android:textColor="#FFF"
+                android:textStyle="bold"/>
+
         </RelativeLayout>
 
     </RelativeLayout>

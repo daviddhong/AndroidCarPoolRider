@@ -1,9 +1,11 @@
 package android.carpoolrider;
 
+import android.app.AlertDialog;
 import android.carpoolrider.RequestRides.RequestRiderRequestTicket;
 import android.carpoolrider.RequestRides.RequestRouteActivity;
 import android.carpoolrider.Settings.ProfileActivity;
 import android.carpoolrider.RequestRides.RequestDriverRequestTicket;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -108,11 +113,11 @@ public class RequestRidesFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder,
                                             int i, @NonNull RequestRiderRequestTicket riderReqTickets) {
-                usersIDS = getRef(i).getKey();
+//                usersIDS = getRef(i).getKey();
                 RiderTicketsRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
+//                        if (dataSnapshot.exists()) {
 //                            for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
 //                                uniquekey = childSnapshot.getKey();
 //                                String type = dataSnapshot.child(uniquekey).child("uid").getValue().toString();
@@ -142,7 +147,7 @@ public class RequestRidesFragment extends Fragment {
 
 
                                 }
-                            }
+//                            }
 
 
 //                        }
@@ -154,6 +159,15 @@ public class RequestRidesFragment extends Fragment {
                 });
 
             }
+
+
+
+
+
+
+
+
+
 
 
             @NonNull
