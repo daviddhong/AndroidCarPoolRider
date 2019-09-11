@@ -43,7 +43,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         senderUID = mAuth.getCurrentUser().getUid();
 
 
-
         reff = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
 //         asd  = reff.child("RiderTicekts").child(receiverKeyID).child("uid");
         reff.addValueEventListener(new ValueEventListener() {
@@ -60,9 +59,9 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         });
 
 
-
         RetrieveUserInformation();
     }
+
     private void RetrieveUserInformation() {
         UserRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
             @Override
@@ -75,11 +74,13 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                 ManageCarpoolRequest();
 //                }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
+
     private void ManageCarpoolRequest() {
         RiderRequestingDriverRef.child(senderUID)
                 .addValueEventListener(new ValueEventListener() {
@@ -118,7 +119,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                                                 current_state = "friendstatus";
                                                 confirm_carpool_button_word.setText("Remove Friend from Contacts");
 //                                                sendfriendrequest.setText("Remove Friend from Contacts");
-
                                             }
                                         }
 
@@ -129,14 +129,10 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                         }
                     }
 
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-
                     }
-
                 });
-
 
         // double check for senderUID.equals(receiverKeyID) should be differnt!!
         if (!senderUID.equals(receiverUID)) {
@@ -163,10 +159,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
             confirm_carpool_button_word.setText("My own ride request... cannot request!");
             confirmButton.setEnabled(false);
         }
-
-
     }
-
 
     private void RemoveSpecificContact() {
         ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
