@@ -84,8 +84,6 @@ public class PendingRequestFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-
-
         uniquekey = DriverRequestingRiderRef.child(currentUserID).getKey();
 
         Query receiveriderQuery = FirebaseDatabase
