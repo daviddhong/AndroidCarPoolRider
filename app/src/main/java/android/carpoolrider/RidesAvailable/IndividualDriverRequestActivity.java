@@ -33,6 +33,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_posted_ride_ticket_expand_entity);
+
         // initialize fields
         confirm_carpool_button_word = findViewById(R.id.confirm_carpool_button_word);
         confirmButton = findViewById(R.id.confirm_carpool);
@@ -43,7 +44,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         current_state = "new_dontknoweachother";
         receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
         senderUID = mAuth.getCurrentUser().getUid();
-
 
         reff = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
         reff.child(receiverKeyID).child("uid").addValueEventListener(new ValueEventListener() {
@@ -68,15 +68,8 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         UserRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists()) {
-//                    String userFirstN = dataSnapshot.child("firstname").getValue().toString();
-//                    String userLastN = dataSnapshot.child("lastname").getValue().toString();
-//                    FirstName.setText(userFirstN);
-//                    LastName.setText(userLastN);
                 ManageCarpoolRequest();
-//                }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
@@ -92,28 +85,11 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                             String requestStatus = dataSnapshot
                                     .child(receiverKeyID)
                                     .child("requeststatus").getValue().toString();
-
                             if (requestStatus.equals("sent")) {
                                 current_state = "requestissent";
                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
                                 confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
                             }
-                            // might not need this one because different layout will be for received possible
-//                            } else if (requestStatus.equals("received")) {
-//                                current_state = "requestisreceived";
-//                                confirm_carpool_button_word.setText("You have request! Confirm!");
-//                                sendfriendrequest.setText("Accept Friend Request");
-////
-//                                DeclineFriendRequestButton.setVisibility(View.VISIBLE);
-//                                DeclineFriendRequestButton.setEnabled(true);
-//                                DeclineFriendRequestButton.setOnClickListener(new View.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(View v) {
-//                                        CancelCarpoolRequest();
-//                                    }
-//                                });
-//
-//                            }
                         } else {
                             ConfirmedMatchRef.child(senderUID)
                                     .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -125,14 +101,12 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
 //                                                sendfriendrequest.setText("Remove Friend from Contacts");
                                             }
                                         }
-
                                         @Override
                                         public void onCancelled(@NonNull DatabaseError databaseError) {
                                         }
                                     });
                         }
                     }
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }
@@ -182,7 +156,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                                                 current_state = "new_dontknoweachother";
                                                 confirm_carpool_button_word.setText("Send a request");
 //                                                sendfriendrequest.setText("Send a Friend Request");
-//
 //                                                DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
 //                                                DeclineFriendRequestButton.setEnabled(false);
                                             }
