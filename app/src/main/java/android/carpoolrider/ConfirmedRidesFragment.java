@@ -1,5 +1,6 @@
 package android.carpoolrider;
 
+import android.carpoolrider.ConfirmedRides.IndividualConfirmedTicketRiderDriverActivity;
 import android.carpoolrider.RequestRides.RequestDriverRequestTicket;
 import android.carpoolrider.RidesAvailable.IndividualDriverRequestActivity;
 import android.carpoolrider.Settings.ProfileActivity;
@@ -88,7 +89,7 @@ public class ConfirmedRidesFragment extends Fragment {
                                 @Override
                                 public void onClick(View v) {
                                     final String usersIDS = getRef(i).getKey();
-                                    Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
+                                    Intent intent = new Intent(getActivity(), IndividualConfirmedTicketRiderDriverActivity.class);
                                     intent.putExtra("clicked_user_id", usersIDS);
                                     startActivity(intent);
                                 }

@@ -368,7 +368,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Request for carpool"
+                    android:text="Request for Carpool"
                     android:textColor="#FFF"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -386,11 +386,13 @@
                 android:background="@drawable/border_rectangle_unfilled">
 
                 <TextView
-                    android:id="@+id/cancel_request_text_view_carpool"
+                    android:id="@+id/tcancel_request_text_view_carpool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="Message the driver"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="17dp"
+                    android:text="Message the Driver"
                     android:textColor="#2A2E43"
                     android:textSize="17sp"
                     android:textStyle="bold" />

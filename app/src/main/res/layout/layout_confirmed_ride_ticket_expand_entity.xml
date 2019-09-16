@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/relative_layout_ic_back_activity_posted_expand"
+            android:id="@+id/t_confirmed_relative_layout_ic_back_activity_posted_expand"
             android:layout_width="match_parent"
             android:layout_height="70dp">
 
@@ -21,7 +21,7 @@
                 android:layout_marginTop="20dp">
 
                 <ImageView
-                    android:id="@+id/back_confirm"
+                    android:id="@+id/t_confirmed_back_confirm"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_centerInParent="true"
@@ -33,10 +33,10 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/relative_layout_posted_expand_body"
+            android:id="@+id/t_confirmed_relative_layout_posted_expand_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/relative_layout_ic_back_activity_posted_expand"
+            android:layout_below="@id/t_confirmed_relative_layout_ic_back_activity_posted_expand"
             android:layout_marginLeft="38dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="38dp"
@@ -44,7 +44,7 @@
             android:background="@drawable/border_rectangle_unfilled">
 
             <RelativeLayout
-                android:id="@+id/rl_header_ticket"
+                android:id="@+id/t_confirmed_rl_header_ticket"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
 
@@ -61,13 +61,13 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/route"
+                android:id="@+id/t_confirmed_route"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/rl_header_ticket">
+                android:layout_below="@id/t_confirmed_rl_header_ticket">
 
                 <RelativeLayout
-                    android:id="@+id/locations"
+                    android:id="@+id/t_confirmed_locations"
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,17 +75,17 @@
                     android:layout_marginTop="30dp">
 
                     <ImageView
-                        android:id="@+id/from"
+                        android:id="@+id/t_confirmed_from"
                         android:layout_width="12dp"
                         android:layout_height="12dp"
                         android:layout_centerHorizontal="true"
                         android:src="@drawable/ic_trip_origin" />
 
                     <RelativeLayout
-                        android:id="@+id/path"
+                        android:id="@+id/t_confirmed_path"
                         android:layout_width="2dp"
                         android:layout_height="38dp"
-                        android:layout_below="@id/from"
+                        android:layout_below="@id/t_confirmed_from"
                         android:layout_centerInParent="true"
                         android:background="@drawable/path_solid">
 
@@ -94,7 +94,7 @@
                     <ImageView
                         android:layout_width="10dp"
                         android:layout_height="10dp"
-                        android:layout_below="@id/path"
+                        android:layout_below="@id/t_confirmed_path"
                         android:layout_centerHorizontal="true"
                         android:src="@drawable/ic_solid_to" />
 
@@ -103,17 +103,17 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/locations"
+                    android:layout_toRightOf="@id/t_confirmed_locations"
                     android:layout_marginLeft="18dp"
                     android:layout_centerVertical="true">
 
                     <RelativeLayout
-                        android:id="@+id/from_rl"
+                        android:id="@+id/t_confirmed_from_rl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/origin_location_text"
+                            android:id="@+id/t_confirmed_origin_location_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Pickup location"
@@ -121,10 +121,10 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/origin_data"
+                            android:id="@+id/t_confirmed_origin_data"
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/origin_location_text"
+                            android:layout_below="@id/t_confirmed_origin_location_text"
                             android:hint="Pickup Location Name"
                             android:textColor="#78849E"
                             android:textColorHint="#78849E"
@@ -132,14 +132,14 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:id="@+id/to_rl"
+                        android:id="@+id/t_confirmed_to_rl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/from_rl"
+                        android:layout_below="@id/t_confirmed_from_rl"
                         android:layout_marginTop="17dp">
 
                         <TextView
-                            android:id="@+id/destination_location_text"
+                            android:id="@+id/t_confirmed_destination_location_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Destination location"
@@ -147,10 +147,10 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/destination_data"
+                            android:id="@+id/t_confirmed_destination_data"
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/destination_location_text"
+                            android:layout_below="@id/t_confirmed_destination_location_text"
                             android:hint="Destination Location Name"
                             android:textColor="#78849E"
                             android:textColorHint="#78849E"
@@ -161,16 +161,16 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/pn"
+                android:id="@+id/t_confirmed_pn"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/route"
+                android:layout_below="@+id/t_confirmed_route"
                 android:layout_marginLeft="58dp"
                 android:layout_marginTop="18dp">
 
                 <ImageView
-                    android:id="@+id/image_seat"
+                    android:id="@+id/t_confirmed_image_seat"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_person"
@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/image_seat"
+                    android:layout_toRightOf="@id/t_confirmed_image_seat"
                     android:hint="#"
                     android:textColor="#78849E"
                     android:textColorHint="#78849E"
@@ -190,15 +190,15 @@
 
 
             <RelativeLayout
-                android:id="@+id/calendar"
+                android:id="@+id/t_confirmed_calendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/pn"
+                android:layout_below="@id/t_confirmed_pn"
                 android:layout_marginLeft="58dp"
                 android:layout_marginTop="15dp">
 
                 <ImageView
-                    android:id="@+id/image_calendar"
+                    android:id="@+id/t_confirmed_image_calendar"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_calendar"
@@ -209,7 +209,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/image_calendar"
+                    android:layout_toRightOf="@id/t_confirmed_image_calendar"
                     android:hint="Date of carpool"
                     android:textColor="#78849E"
                     android:textColorHint="#78849E"
@@ -218,15 +218,15 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/time"
+                android:id="@+id/t_confirmed_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/calendar"
+                android:layout_below="@id/t_confirmed_calendar"
                 android:layout_marginLeft="58dp"
                 android:layout_marginTop="15dp">
 
                 <ImageView
-                    android:id="@+id/image_time"
+                    android:id="@+id/t_confirmed_image_time"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_time"
@@ -237,7 +237,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/image_time"
+                    android:layout_toRightOf="@id/t_confirmed_image_time"
                     android:hint="Time of carpool"
                     android:textColor="#78849E"
                     android:textColorHint="#78849E"
@@ -248,25 +248,25 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/time"
+                android:layout_below="@id/t_confirmed_time"
                 android:layout_marginLeft="58dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="25dp">
 
                 <ImageView
-                    android:id="@+id/image_monetization"
+                    android:id="@+id/t_confirmed_image_monetization"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_monetization_on"
                     android:tint="#05D686"/>
 
                 <TextView
-                    android:id="@+id/earnings_text_confirm"
+                    android:id="@+id/t_confirmed_earnings_text_confirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/image_monetization"
+                    android:layout_toRightOf="@id/t_confirmed_image_monetization"
                     android:hint="Estimated earnings"
                     android:textColor="#78849E"
                     android:textColorHint="#78849E"
@@ -276,7 +276,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/earnings_text_confirm"
+                    android:layout_toRightOf="@id/t_confirmed_earnings_text_confirm"
                     android:layout_marginLeft="10dp"
                     android:text="(CAD)"
                     android:textColor="#05D686"
@@ -289,16 +289,16 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rider_profile"
+            android:id="@+id/t_confirmed_rider_profile"
             android:layout_width="match_parent"
             android:layout_height="108dp"
-            android:layout_below="@id/relative_layout_posted_expand_body"
+            android:layout_below="@id/t_confirmed_relative_layout_posted_expand_body"
             android:layout_marginLeft="38dp"
             android:layout_marginRight="38dp"
             android:background="@drawable/border_rectangle_unfilled">
 
             <RelativeLayout
-                android:id="@+id/profile_picture_request_ride_ticket_expand"
+                android:id="@+id/t_confirmed_profile_picture_request_ride_ticket_expand"
                 android:layout_width="78dp"
                 android:layout_height="78dp"
                 android:layout_centerVertical="true"
@@ -307,7 +307,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/profile_image"
+                    android:id="@+id/t_confirmed_profile_image"
                     app:civ_border_width="1dp"
                     app:civ_border_color="#FFF"/>
 
@@ -317,11 +317,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_toRightOf="@+id/profile_picture_request_ride_ticket_expand"
+                android:layout_toRightOf="@+id/t_confirmed_profile_picture_request_ride_ticket_expand"
                 android:layout_marginLeft="15dp">
 
                 <TextView
-                    android:id="@+id/profile_name"
+                    android:id="@+id/t_confirmed_profile_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Name"
@@ -348,15 +348,15 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/confirm_footer"
+            android:id="@+id/t_confirmed_confirm_footer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_below="@id/rider_profile"
+            android:layout_below="@id/t_confirmed_rider_profile"
             android:layout_marginTop="25dp">
 
             <RelativeLayout
-                android:id="@+id/cancel_carpool"
+                android:id="@+id/t_confirmed_cancel_carpool"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="39dp"
                 android:layout_marginRight="39dp"
@@ -365,10 +365,11 @@
                 android:background="@drawable/border_rectangle_fill">
 
                 <TextView
+                    android:id="@+id/delete_text_button_matched_carpool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Cancel carpool"
+                    android:text="Delete Matched Carpool"
                     android:textColor="#FFF"
                     android:textSize="17sp"
                     android:textStyle="bold" />
