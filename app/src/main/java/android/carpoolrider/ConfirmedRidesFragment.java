@@ -2,7 +2,6 @@ package android.carpoolrider;
 
 import android.carpoolrider.ConfirmedRides.IndividualConfirmedTicketRiderDriverActivity;
 import android.carpoolrider.RequestRides.RequestDriverRequestTicket;
-import android.carpoolrider.RidesAvailable.IndividualDriverRequestActivity;
 import android.carpoolrider.Settings.ProfileActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,14 +36,12 @@ public class ConfirmedRidesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         reservedRidesView = inflater.inflate(R.layout.fragment_reserved_rides, container, false);
-        // EFFECTS: click profile button to go to profile
+        initializeFields();
         goToMyProfileFromProfileImageView();
-        //use recycler view and friend list adapter to display list of friends
-        displayConfirmedMatchListWithRecyclerView();
         return reservedRidesView;
     }
 
-    private void displayConfirmedMatchListWithRecyclerView() {
+    private void initializeFields() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         String currentUserID = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");

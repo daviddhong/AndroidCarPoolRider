@@ -32,9 +32,13 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_posted_ride_ticket_expand_entity);
+        initializeFields();
+        extractReceiverUID();
+        RetrieveTicketStatusInformation();
+    }
 
+    private void initializeFields() {
         // initialize fields
-
         current_state = "new_dontknoweachother";
         receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -45,7 +49,9 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         confirmButton = findViewById(R.id.confirm_carpool);
         message_driver_button_word = findViewById(R.id.tcancel_request_text_view_carpool);
         confirm_carpool_button_word = findViewById(R.id.confirm_carpool_button_word);
+    }
 
+    private void extractReceiverUID() {
         DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
         DriverTicketsRef.child(receiverKeyID).child("uid").addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,7 +65,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-        RetrieveTicketStatusInformation();
     }
 
     private void RetrieveTicketStatusInformation() {
@@ -89,34 +94,12 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                             String requestStatus = dataSnapshot
                                     .child(receiverKeyID)
                                     .child("requeststatus").getValue().toString();
-//                            if (requestStatus.equals("sent")) {
-                            current_state = "requestissent";
-                            confirm_carpool_button_word.setText("Cancel Carpool Request");
-                            confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
+                            if (requestStatus.equals("sent")) {
+                                current_state = "requestissent";
+                                confirm_carpool_button_word.setText("Cancel Carpool Request");
+                                confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
+                            }
                         }
-//                        }
-//                        } else {
-//
-//                            // todo this called from the confirmed match fragment
-//                            ConfirmedMatchRef.child(senderUID)
-//                                    .addListenerForSingleValueEvent(new ValueEventListener() {
-//                                        @Override
-//                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                                            //todo should be receiverUID?
-//
-//                                            if (dataSnapshot.hasChild(receiverKeyID)) {
-//                                                current_state = "ConfirmedMatchedCarpool";
-//                                                // todo maybe don't have this feature??? but have for now
-//                                                confirm_carpool_button_word.setText("Delete Matched Carpool");
-////                                                message_driver_button_word.setText("To Delete, Contact Driver");
-//                                            }
-//                                        }
-//                                        @Override
-//                                        public void onCancelled(@NonNull DatabaseError databaseError) {
-//                                        }
-//                                    });
-//                        }
                     }
 
                     @Override
@@ -136,14 +119,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                     if (current_state.equals("requestissent")) {
                         CancelCarpoolRequest();
                     }
-                    //todo should not call the last two for the Rides Available fragment
-//                    if (current_state.equals("requestisreceived")) {
-//                        ConfirmCarpoolRequest();
-//                    }
-//                    //todo only called in confirmed ride fragment
-//                    if (current_state.equals("ConfirmedMatchedCarpool")) {
-//                        RemoveSpecificContact();
-//                    }
                 }
             });
         } else {
@@ -153,86 +128,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
             confirmButton.setEnabled(false);
         }
     }
-
-//    // todo fix this so database removes the matchedRides realtime.
-//    private void RemoveSpecificContact() {
-//        ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
-//                .removeValue()
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//
-//                            ConfirmedMatchRef.child(receiverKeyID).child(senderUID)
-//                                    .removeValue()
-//                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                        @Override
-//                                        public void onComplete(@NonNull Task<Void> task) {
-//                                            if (task.isSuccessful()) {
-//                                                confirmButton.setEnabled(true);
-//                                                current_state = "new_dontknoweachother";
-//                                                confirm_carpool_button_word.setText("Send a request");
-//                                                message_driver_button_word.setText("Message the Driver");
-//                                                finish();
-////                                                sendfriendrequest.setText("Send a Friend Request");
-////                                                DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
-////                                                DeclineFriendRequestButton.setEnabled(false);
-//                                            }
-//                                        }
-//                                    });
-//                        }
-//                    }
-//                });
-//    }
-
-//    private void ConfirmCarpoolRequest() {
-//
-//        ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
-//                .child("Friends").setValue("Saved")
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            ConfirmedMatchRef.child(receiverKeyID).child(senderUID)
-//                                    .child("Friends").setValue("Saved")
-//                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                        @Override
-//                                        public void onComplete(@NonNull Task<Void> task) {
-//                                            if (task.isSuccessful()) {
-//
-//                                                // remove chat requests
-//                                                RiderRequestingDriverRef.child(senderUID).child(receiverKeyID)
-//                                                        .removeValue()
-//                                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                                            @Override
-//                                                            public void onComplete(@NonNull Task<Void> task) {
-//                                                                if (task.isSuccessful()) {
-//                                                                    RiderRequestingDriverRef.child(receiverKeyID).child(senderUID)
-//                                                                            .removeValue()
-//                                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                                                                @Override
-//                                                                                public void onComplete(@NonNull Task<Void> task) {
-//                                                                                    if (task.isSuccessful()) {
-//                                                                                        confirmButton.setEnabled(true);
-//                                                                                        current_state = "ConfirmedMatchedCarpool";
-//                                                                                        confirm_carpool_button_word.setText("Remove Friend from Contacts");
-////                                                                                        sendfriendrequest.setText("Remove Friend from Contacts");
-////                                                                                        DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
-////                                                                                        DeclineFriendRequestButton.setEnabled(false);
-//                                                                                    }
-//                                                                                }
-//                                                                            });
-//                                                                }
-//                                                            }
-//                                                        });
-//
-//                                            }
-//                                        }
-//                                    });
-//                        }
-//                    }
-//                });
-//    }
 
     private void CancelCarpoolRequest() {
         RiderRequestingDriverRef.child(senderUID).child(receiverKeyID)
@@ -252,10 +147,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                                                 current_state = "new_dontknoweachother";
                                                 confirm_carpool_button_word.setText("Request to Pickup Rider");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
-
-//                                                sendfriendrequest.setText("Send a Friend Request");
-//                                                DeclineFriendRequestButton.setVisibility(View.INVISIBLE);
-//                                                DeclineFriendRequestButton.setEnabled(false);
                                             }
                                         }
                                     });

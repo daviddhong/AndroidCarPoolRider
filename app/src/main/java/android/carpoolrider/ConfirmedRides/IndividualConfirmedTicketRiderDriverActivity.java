@@ -20,7 +20,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActivity {
 
-
     private String receiverKeyID, senderUID, current_state, receiverUID;
     private TextView confirm_carpool_button_word;
     private RelativeLayout confirmButton;
@@ -30,9 +29,13 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_confirmed_ride_ticket_expand_entity);
+        initializeFields();
+        extractReceiverUID();
+        RetrieveTicketStatusInformation();
+    }
 
+    private void initializeFields() {
         // initialize fields
-
         current_state = "new_dontknoweachother";
         receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -41,9 +44,10 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
         RiderRequestingDriverRef = FirebaseDatabase.getInstance().getReference().child("RiderRequestingDriver");
         ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
         confirmButton = findViewById(R.id.t_confirmed_cancel_carpool);
-//        message_driver_button_word = findViewById(R.id.tcancel_request_text_view_carpool);
         confirm_carpool_button_word = findViewById(R.id.delete_text_button_matched_carpool);
+    }
 
+    private void extractReceiverUID() {
         DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
         DriverTicketsRef.child(receiverKeyID).child("uid").addValueEventListener(new ValueEventListener() {
             @Override
@@ -57,13 +61,10 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-        RetrieveTicketStatusInformation();
     }
 
     private void RetrieveTicketStatusInformation() {
-
         //todo should be recievrUID?
-
         UserRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -77,26 +78,21 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
     }
 
     private void ManageCarpoolRequest() {
-
         //todo this is called from rides available fragment
         RiderRequestingDriverRef.child(senderUID)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
                         // todo this called from the confirmed match fragment
                         ConfirmedMatchRef.child(senderUID)
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                                         //todo should be receiverUID?
-
                                         if (dataSnapshot.hasChild(receiverKeyID)) {
                                             current_state = "ConfirmedMatchedCarpool";
                                             // todo maybe don't have this feature??? but have for now
                                             confirm_carpool_button_word.setText("Delete Matched Carpool");
-//                                                message_driver_button_word.setText("To Delete, Contact Driver");
                                         }
                                     }
 
@@ -117,15 +113,12 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
                 @Override
                 public void onClick(View v) {
                     confirmButton.setEnabled(false);
-
                     if (current_state.equals("ConfirmedMatchedCarpool")) {
                         RemoveSpecificContact();
                     }
                 }
             });
         } else {
-//            confirmButton.setVisibility(View.INVISIBLE);
-
             //todo should not call this, filter out from querying
             confirm_carpool_button_word.setText("My own ride request... cannot request!");
             confirmButton.setEnabled(false);
@@ -149,8 +142,6 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
                                             if (task.isSuccessful()) {
                                                 confirmButton.setEnabled(true);
                                                 current_state = "new_dontknoweachother";
-                                                confirm_carpool_button_word.setText("Send a request");
-//                                                message_driver_button_word.setText("Message the Driver");
                                                 finish();
                                             }
                                         }
