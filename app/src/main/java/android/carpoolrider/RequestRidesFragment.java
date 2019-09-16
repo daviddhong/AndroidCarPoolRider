@@ -1,11 +1,8 @@
 package android.carpoolrider;
 
-import android.app.AlertDialog;
 import android.carpoolrider.RequestRides.RequestRiderRequestTicket;
 import android.carpoolrider.RequestRides.RequestRouteActivity;
 import android.carpoolrider.Settings.ProfileActivity;
-import android.carpoolrider.RequestRides.RequestDriverRequestTicket;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,8 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,75 +31,45 @@ import com.google.firebase.database.ValueEventListener;
 public class RequestRidesFragment extends Fragment {
 
     private View requestRidesView;
-    private ImageView profileImageView;
-    private RelativeLayout requestNewRideRelativeLayout;
-//    private TicketViewModel ticketViewModel;
-
     private RecyclerView FriendRecyclerView;
-    private DatabaseReference RiderTicketsRef, UsersRef, gettingkeyRef;
-    private FirebaseAuth mAuth;
+    private DatabaseReference RiderTicketsRef;
     private String currentUserID;
-    private String uniquekey;
-    private String usersIDS;
-    public static final int ADD_TICKET_REQUEST = 1;
+    private static final int ADD_TICKET_REQUEST = 1;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         requestRidesView = inflater.inflate(R.layout.fragment_request_rides, container, false);
-
-        displaysFriendsListbyRecyclerView();
-
-        // EFFECTS: Call setProfileImageView.
-        setProfileImageView();
-
-        // EFFECTS: Call setRequestNewRideRelativeLayout.
-        setRequestNewRideRelativeLayout();
-
+        initializeFields();
+        goToMyProfileByProfileImageView();
+        postNewRideRequestTicket();
         return requestRidesView;
     }
 
-    //use recycler view and friend list adapter to display list of friends
-    private void displaysFriendsListbyRecyclerView() {
+    private void initializeFields() {
+        //initialize RecyclerView
         FriendRecyclerView = (RecyclerView) requestRidesView.findViewById(R.id.rides_requested_recycler_view);
         FriendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        mAuth = FirebaseAuth.getInstance();
+        //initialize FireBase
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
-        gettingkeyRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
-        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
     }
 
-
-    // create firebase recycler
+    // Display the list of my ride request postings with FireBase recycler
     @Override
     public void onStart() {
         super.onStart();
 
-//        Query riderQuery = FirebaseDatabase
-//                .getInstance()
-//                .getReference()
-//                .orderByChild("uid")
-//                .equalTo(currentUserID);
-//                .child("RiderTickets")
-//                .child(currentUserID)
-//                .child("-LntmTHgjwt2m5fV020x")
-//                .child("uid")
-//                .equalTo(currentUserID.toString());
-
-        Query receiveriderQuery = FirebaseDatabase
+        Query myPostedRideTicketsQuery = FirebaseDatabase
                 .getInstance()
                 .getReference()
                 .child("RiderTickets")
-//                .child(uniquekey)
                 .orderByChild("uid")
                 .equalTo(currentUserID);
 
-
-
         FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<RequestRiderRequestTicket>()
-                .setQuery(receiveriderQuery, RequestRiderRequestTicket.class)
+                .setQuery(myPostedRideTicketsQuery, RequestRiderRequestTicket.class)
                 .build();
 
         final FirebaseRecyclerAdapter<RequestRiderRequestTicket, riderTicketHolder> adapter
@@ -113,63 +77,27 @@ public class RequestRidesFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder,
                                             int i, @NonNull RequestRiderRequestTicket riderReqTickets) {
-//                usersIDS = getRef(i).getKey();
                 RiderTicketsRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                        if (dataSnapshot.exists()) {
-//                            for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-//                                uniquekey = childSnapshot.getKey();
-//                                String type = dataSnapshot.child(uniquekey).child("uid").getValue().toString();
-//
-//                                if (type.equals(currentUserID)) {
-
-//                                    final String datariderTo = dataSnapshot.child("To").getValue().toString();
-//                                    final String datariderFrom = dataSnapshot.child(uniquekey).child("From").getValue().toString();
-//                                    final String datariderDate = dataSnapshot.child(uniquekey).child("Date").getValue().toString();
-//                                    final String datariderTime = dataSnapshot.child(uniquekey).child("Time").getValue().toString();
-//                                    final String datariderPrice = dataSnapshot.child(uniquekey).child("Price").getValue().toString();
-//                                    final String datariderNumber = dataSnapshot.child(uniquekey).child("NumberOfSeats").getValue().toString();
-
                                     riderticketholder.riderTo.setText(riderReqTickets.getticketto());
                                     riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
                                     riderticketholder.riderDate.setText(riderReqTickets.getticketdate());
                                     riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
                                     riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
                                     riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
-
                                     riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
                                             // does nothing when clicked yet (probably want to delete it)
                                         }
                                     });
-
-
                                 }
-//                            }
-
-
-//                        }
-//                    }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
                 });
-
             }
-
-
-
-
-
-
-
-
-
-
-
             @NonNull
             @Override
             public riderTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -181,7 +109,6 @@ public class RequestRidesFragment extends Fragment {
         FriendRecyclerView.setAdapter(adapter);
         adapter.startListening();
     }
-
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
         TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
@@ -195,28 +122,23 @@ public class RequestRidesFragment extends Fragment {
             riderNumberOfSeats = itemView.findViewById(R.id.text_passenger_number);
             riderPrice = itemView.findViewById(R.id.text_earnings_entity);
         }
-
     }
 
-
-    // EFFECTS: Set OnClickActivity for ProfileActivity.
-    private void setProfileImageView() {
-        profileImageView = (ImageView) requestRidesView.findViewById(R.id.request_rides_profile);
+    private void goToMyProfileByProfileImageView() {
+        ImageView profileImageView = (ImageView) requestRidesView.findViewById(R.id.request_rides_profile);
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
-
                 // EFFECTS: Animation to Profile Activity
                 getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
             }
         });
     }
 
-    // EFFECTS: Set OnClickActivity for RequestRouteActivity.
-    private void setRequestNewRideRelativeLayout() {
-        requestNewRideRelativeLayout = (RelativeLayout) requestRidesView.findViewById(R.id.relative_layout_request_new_ride);
+    private void postNewRideRequestTicket() {
+        RelativeLayout requestNewRideRelativeLayout = (RelativeLayout) requestRidesView.findViewById(R.id.relative_layout_request_new_ride);
         requestNewRideRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

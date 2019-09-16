@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="158dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/border_rectangle_unfilled">
+
+        <RelativeLayout
+            android:id="@+id/ad_ride_rl_date_time"
+            android:layout_width="108dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@drawable/background_rectangle_filled_rounded_one_side">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <RelativeLayout
+                    android:id="@+id/ad_ride_date_entity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/ad_ride_text_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Date"
+                        android:textStyle="bold"
+                        android:textColor="#FFF"
+                        android:textColorHint="#FFF"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/ad_ride_time_entity"
+                    android:layout_below="@id/ad_ride_date_entity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true">
+
+                    <TextView
+                        android:id="@+id/ad_ride_text_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Time"
+                        android:textColor="#FFF"
+                        android:textColorHint="#FFF"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/ad_ride_pn_entity"
+                    android:layout_width="22dp"
+                    android:layout_height="14dp"
+                    android:layout_below="@id/ad_ride_time_entity"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp">
+
+                    <ImageView
+                        android:id="@+id/ad_ride_passenger_number_image"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_person"
+                        android:tint="#FFF" />
+
+                    <TextView
+                        android:id="@+id/ad_ride_text_passenger_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/ad_ride_passenger_number_image"
+                        android:hint="#"
+                        android:textColor="#FFF"
+                        android:textColorHint="#FFF"
+                        android:textSize="10sp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ad_ride_origin_destination_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ad_ride_rl_date_time">
+
+            <RelativeLayout
+                android:id="@+id/ad_ride_image_to_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:id="@+id/ad_ride_origin_ticket"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/border_oval_fill" />
+
+                <RelativeLayout
+                    android:id="@+id/ad_ride_vert_two_ticket"
+                    android:layout_width="3dp"
+                    android:layout_height="58dp"
+                    android:layout_below="@id/ad_ride_origin_ticket"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/path_solid" />
+
+                <ImageView
+                    android:id="@+id/ad_ride_destination"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_below="@id/ad_ride_vert_two_ticket"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/border_oval_fill" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ad_ride_relative_layout_request_new_ride_origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@id/ad_ride_image_to_from">
+
+                <TextView
+                    android:id="@+id/ad_ride_text_pickup_stable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pickup location"
+                    android:textColor="#05D686"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/ad_ride_text_origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ad_ride_text_pickup_stable"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Pickup Location Name"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ad_ride_relative_layout_request_new_ride_destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ad_ride_relative_layout_request_new_ride_origin"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="8dp"
+                android:layout_toRightOf="@id/ad_ride_image_to_from">
+
+                <TextView
+                    android:id="@+id/ad_ride_text_destination_stable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Destination location"
+                    android:textColor="#05D686"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/ad_ride_text_destination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ad_ride_text_destination_stable"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="5dp"
+                    android:hint="Destination Location Name"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ad_ride_origin_destination_rl"
+            android:layout_toRightOf="@+id/ad_ride_rl_date_time">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/ad_ride_image_earnings_entity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_monetization_on"
+                    android:tint="#05D686"/>
+
+                <TextView
+                    android:layout_toRightOf="@+id/ad_ride_image_earnings_entity"
+                    android:id="@+id/ad_ride_text_earnings_entity"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Cost"
+                    android:textSize="15sp"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/ad_ride_text_earnings_entity"
+                    android:text="(CAD)"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
+                    android:layout_centerVertical="true"
+                    android:textColor="#05D686"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ad_ride_more_information_entity_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_close"
+                android:tint="#0A1C2A"/>
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

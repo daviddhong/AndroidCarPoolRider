@@ -15,10 +15,8 @@ public class BottomNavigationMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // EFFECTS: Call initFragment.
         initFragment();
-
         // EFFECTS: Call bottomNavigationView.
         bottomNavigationView();
     }
@@ -41,7 +39,6 @@ public class BottomNavigationMainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment = null;
-
             switch (item.getItemId()) {
                 case R.id.available_rides:
                     fragment = new RidesAvailableFragment();

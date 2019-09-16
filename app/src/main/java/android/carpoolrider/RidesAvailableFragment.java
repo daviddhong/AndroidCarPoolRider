@@ -19,52 +19,36 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RidesAvailableFragment extends Fragment {
-
     private View availableRidesView;
-    private ImageView profileImageView;
     private RecyclerView DriverRecyclerView;
-    private DatabaseReference DriverTicketsRef, UsersRef;
-    private FirebaseAuth mAuth;
-    private String currentUserID;
+    private DatabaseReference DriverTicketsRef;
+    private String usersIDS;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         availableRidesView = inflater.inflate(R.layout.fragment_available_rides, container, false);
-
-        // EFFECTS: Call setProfileImageView.
-        setProfileImageView();
-
-        displaysFriendsListbyRecyclerView();
-
+        initializeFields();
+        goToMyProfileByProfileImageView();
         return availableRidesView;
     }
 
-
-    //use recycler view and friend list adapter to display list of friends
-    private void displaysFriendsListbyRecyclerView() {
-
-        mAuth = FirebaseAuth.getInstance();
-        currentUserID = mAuth.getCurrentUser().getUid();
-
-        // todo check to get all rider tickets
+    private void initializeFields() {
+        // initialize FireBase
         DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
-        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
+        // initialize recyclerView
         DriverRecyclerView = (RecyclerView) availableRidesView.findViewById(R.id.driver_rides_available_recycler_view);
         DriverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
-    // create firebase recycler
+    // Display the list of all driver tickets with FireBase recycler
     @Override
     public void onStart() {
         super.onStart();
-
         FirebaseRecyclerOptions<RequestDriverRequestTicket> options
                 = new FirebaseRecyclerOptions.Builder<RequestDriverRequestTicket>()
                 .setQuery(DriverTicketsRef, RequestDriverRequestTicket.class)
@@ -74,40 +58,22 @@ public class RidesAvailableFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull driverTicketHolder driverticketholder,
                                             int i, @NonNull RequestDriverRequestTicket driverReqTickets) {
-
-//                String usersIDS = getRef(i).getKey();
-//                UsersRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                        if (dataSnapshot.exists()) {
-//                            final String riderTo = dataSnapshot.child("To").getValue().toString();
-//                            final String riderFrom = dataSnapshot.child("From").getValue().toString();
-
                 driverticketholder.riderTo.setText(driverReqTickets.getticketto());
                 driverticketholder.riderFrom.setText(driverReqTickets.getticketfrom());
                 driverticketholder.riderDate.setText(driverReqTickets.getticketdate());
                 driverticketholder.riderTime.setText(driverReqTickets.gettickettime());
                 driverticketholder.riderPrice.setText(driverReqTickets.getticketprice());
                 driverticketholder.riderNumberOfSeats.setText(driverReqTickets.getticketnumberofseats());
-
-
                 driverticketholder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        String clicked_user_id = getRef(i).getParent().getKey();
-                        String usersIDS = getRef(i).getKey();
+                        usersIDS = getRef(i).getKey();
                         Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
                         intent.putExtra("clicked_user_id", usersIDS);
                         startActivity(intent);
                     }
                 });
             }
-//                    }
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError databaseError) {
-//                    }
-//                });
-//            }
 
             @NonNull
             @Override
@@ -120,7 +86,6 @@ public class RidesAvailableFragment extends Fragment {
         DriverRecyclerView.setAdapter(adapter);
         adapter.startListening();
     }
-
 
     public static class driverTicketHolder extends RecyclerView.ViewHolder {
         TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
@@ -136,20 +101,18 @@ public class RidesAvailableFragment extends Fragment {
         }
     }
 
-
-
-    // EFFECTS: Set OnClickActivity for ProfileActivity.
-    private void setProfileImageView() {
-        profileImageView = (ImageView) availableRidesView.findViewById(R.id.available_rides_profile);
+    private void goToMyProfileByProfileImageView() {
+        ImageView profileImageView = (ImageView) availableRidesView.findViewById(R.id.available_rides_profile);
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
-
                 // EFFECTS: Animation to Profile Activity
                 getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
             }
         });
     }
+
+
 }

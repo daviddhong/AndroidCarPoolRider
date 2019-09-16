@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:text="Pending Requests"
+                android:text="Sent Carpool Requests"
                 android:textSize="20sp"
                 android:textColor="#0A1C2A"
                 android:textStyle="bold"/>
@@ -52,6 +52,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/gotRequestlayoutbutton"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_alignParentBottom="true"
@@ -65,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="17sp"
                 android:layout_centerInParent="true"
-                android:text="My Pending Carpool Requests"
+                android:text="Received Carpool Requests"
                 android:textColor="#FFF"
                 android:textStyle="bold"/>
 

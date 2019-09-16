@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/ad_relative_layout_ic_back_activity_posted_expand"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <RelativeLayout
+                android:id="@+id/back_accept_decline_button_RelativeLayout"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:id="@+id/ad_back_confirm"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_arrow_back"
+                    android:tint="#0A1C2A" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ad_relative_layout_posted_expand_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ad_relative_layout_ic_back_activity_posted_expand"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="38dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/border_rectangle_unfilled">
+
+            <RelativeLayout
+                android:id="@+id/ad_rl_header_ticket"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:text="Carpool Posting"
+                    android:textColor="#0A1C2A"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ad_route"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ad_rl_header_ticket">
+
+                <RelativeLayout
+                    android:id="@+id/ad_locations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:id="@+id/ad_from"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_trip_origin" />
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_below="@id/ad_path"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_solid_to" />
+
+                    <RelativeLayout
+                        android:id="@+id/ad_path"
+                        android:layout_width="2dp"
+                        android:layout_height="38dp"
+                        android:layout_below="@id/ad_from"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/path_solid">
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_toRightOf="@id/ad_locations">
+
+                    <RelativeLayout
+                        android:id="@+id/ad_from_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/ad_origin_location_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pickup location"
+                            android:textColor="#05D686"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/ad_origin_data"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ad_origin_location_text"
+                            android:hint="Pickup Location Name"
+                            android:textColor="#78849E"
+                            android:textColorHint="#78849E"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/ad_to_rl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ad_from_rl"
+                        android:layout_marginTop="17dp">
+
+                        <TextView
+                            android:id="@+id/ad_destination_location_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Destination location"
+                            android:textColor="#05D686"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/ad_destination_data"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ad_destination_location_text"
+                            android:hint="Destination Location Name"
+                            android:textColor="#78849E"
+                            android:textColorHint="#78849E"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ad_pn"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ad_route"
+                android:layout_marginLeft="58dp"
+                android:layout_marginTop="18dp">
+
+                <ImageView
+                    android:id="@+id/ad_image_seat"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_person"
+                    android:tint="#0A1C2A" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/ad_image_seat"
+                    android:hint="#"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/ad_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ad_pn"
+                android:layout_marginLeft="58dp"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:id="@+id/ad_image_calendar"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_calendar"
+                    android:tint="#0A1C2A" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/ad_image_calendar"
+                    android:hint="Date of carpool"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ad_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ad_calendar"
+                android:layout_marginLeft="58dp"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:id="@+id/ad_image_time"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_time"
+                    android:tint="#0A1C2A" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/ad_image_time"
+                    android:hint="Time of carpool"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ad_time"
+                android:layout_marginLeft="58dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp">
+
+                <ImageView
+                    android:id="@+id/ad_image_monetization"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_monetization_on"
+                    android:tint="#05D686" />
+
+                <TextView
+                    android:id="@+id/ad_earnings_text_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/ad_image_monetization"
+                    android:hint="Estimated earnings"
+                    android:textColor="#78849E"
+                    android:textColorHint="#78849E"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/ad_earnings_text_confirm"
+                    android:text="(CAD)"
+                    android:textColor="#05D686"
+                    android:textSize="12sp" />
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ad_rider_profile"
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:layout_below="@id/ad_relative_layout_posted_expand_body"
+            android:layout_marginLeft="38dp"
+            android:layout_marginRight="38dp"
+            android:background="@drawable/border_rectangle_unfilled">
+
+            <RelativeLayout
+                android:id="@+id/ad_profile_picture_request_ride_ticket_expand"
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    app:civ_border_color="#FFF"
+                    app:civ_border_width="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/ad_profile_picture_request_ride_ticket_expand">
+
+                <TextView
+                    android:id="@+id/ad_profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:textColor="#2A2E43"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="25dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_chat"
+                    android:tint="#05D686" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ad_confirm_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ad_rider_profile"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="25dp">
+
+            <RelativeLayout
+                android:id="@+id/ad_confirm_carpool"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginLeft="39dp"
+                android:layout_marginRight="39dp"
+                android:background="@drawable/background_rectangle_green_filled">
+
+                <TextView
+                    android:id="@+id/ad_confirm_carpool_button_word"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Confirm Carpool"
+                    android:textColor="#FFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ad_cancel_carpool"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_below="@id/ad_confirm_carpool"
+                android:layout_marginLeft="39dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="39dp"
+                android:background="@drawable/border_rectangle_red_filled">
+
+                <TextView
+                    android:id="@+id/ad_cancel_request_text_view_carpool"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Decline Carpool"
+                    android:textColor="#2A2E43"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+

@@ -19,6 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class IndividualDriverRequestActivity extends AppCompatActivity {
 
     private String receiverKeyID, senderUID, current_state, receiverUID;
@@ -44,15 +46,15 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
 
 
         reff = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
-//         asd  = reff.child("RiderTicekts").child(receiverKeyID).child("uid");
-        reff.addValueEventListener(new ValueEventListener() {
+        reff.child(receiverKeyID).child("uid").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String receiveruID = dataSnapshot
-                        .child(receiverKeyID).child("uid").getValue().toString();
-                receiverUID = receiveruID;
+                if (dataSnapshot.exists()) {
+                    String receiveruID = dataSnapshot
+                            .getValue().toString();
+                    receiverUID = receiveruID;
+                }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
@@ -87,7 +89,9 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChild(receiverKeyID)) {
-                            String requestStatus = dataSnapshot.child(receiverKeyID).child("requeststatus").getValue().toString();
+                            String requestStatus = dataSnapshot
+                                    .child(receiverKeyID)
+                                    .child("requeststatus").getValue().toString();
 
                             if (requestStatus.equals("sent")) {
                                 current_state = "requestissent";
@@ -275,12 +279,29 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            RiderRequestingDriverRef.child(receiverKeyID).child(senderUID)
+
+                            //putting the receivers uid
+                            HashMap<String, Object> ticketuserMap = new HashMap<>();
+                            ticketuserMap.put("receiverUID",receiverUID);
+                            RiderRequestingDriverRef.child(senderUID)
+                                    .child(receiverKeyID).updateChildren(ticketuserMap);
+
+
+
+                            RiderRequestingDriverRef.child(receiverUID).child(receiverKeyID)
                                     .child("requeststatus").setValue("received")
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
+
+                                                //putting the sender uid
+                                                HashMap<String, Object> ticketuserMap = new HashMap<>();
+                                                ticketuserMap.put("senderUID",senderUID);
+                                                RiderRequestingDriverRef.child(receiverUID)
+                                                        .child(receiverKeyID).updateChildren(ticketuserMap);
+
+
                                                 confirmButton.setEnabled(true);
                                                 current_state = "requestissent";
                                                 confirm_carpool_button_word.setText("Cancel Carpool Request");

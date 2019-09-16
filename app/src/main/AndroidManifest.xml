@@ -32,6 +32,9 @@
         <activity android:name=".RequestRides.RequestPassengerNumberActivity" />
         <activity android:name=".RequestRides.RequestTimeActivity"/>
         <activity android:name=".RidesAvailable.IndividualDriverRequestActivity"/>
+        <activity android:name=".PendingRequests.AcceptRequestActivity"/>
+        <activity android:name=".PendingRequests.IndividualAcceptDeclineRequestActivity"/>
+
 
     </application>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
