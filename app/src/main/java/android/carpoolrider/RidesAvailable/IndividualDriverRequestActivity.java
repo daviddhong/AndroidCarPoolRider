@@ -33,8 +33,10 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_posted_ride_ticket_expand_entity);
         initializeFields();
+
         extractReceiverUID();
         fillTicketInformationFromDatabase();
+
         RetrieveTicketStatusInformation();
     }
 

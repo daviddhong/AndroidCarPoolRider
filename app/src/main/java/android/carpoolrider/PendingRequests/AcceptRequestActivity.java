@@ -40,19 +40,16 @@ public class AcceptRequestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_received_pending_request);
 
+        initiateFields();
+        initBack();
+    }
+
+    private void initiateFields() {
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
-
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
-//        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
-//        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
-//        ConfirmedCarpoolFriends = FirebaseDatabase.getInstance().getReference().child("Friends");
-//        DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
-
         FriendRecyclerView = (RecyclerView) findViewById(R.id.acceptrrides_requested_recycler_view);
         FriendRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        initBack();
     }
 
     @Override
@@ -161,6 +158,12 @@ public class AcceptRequestActivity extends AppCompatActivity {
             riderPrice = itemView.findViewById(R.id.ad_ride_text_earnings_entity);
         }
     }
+
+
+
+
+
+
 
     private void initBack() {
         RelativeLayout back = (RelativeLayout) findViewById(R.id.acceptr_back_pending_requests);
