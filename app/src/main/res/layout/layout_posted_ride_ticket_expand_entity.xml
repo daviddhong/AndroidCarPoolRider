@@ -177,6 +177,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
+                    android:id="@+id/passengernum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -205,6 +206,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
+                    android:id="@+id/dateofcarpool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -233,6 +235,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
+                    android:id="@+id/time_of_carpool"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"

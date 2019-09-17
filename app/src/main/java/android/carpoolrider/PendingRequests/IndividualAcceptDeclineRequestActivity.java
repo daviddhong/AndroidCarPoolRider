@@ -4,6 +4,7 @@ import android.carpoolrider.R;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,8 @@ public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
 
     private String receiverKeyID, senderUIDme, receiverUID;
     private DatabaseReference ConfirmedMatchRef, DriverRequestingRiderRef;
+    private TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,14 @@ public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
         receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
         senderUIDme = mAuth.getCurrentUser().getUid();
         DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
+
+        riderFrom = findViewById(R.id.ad_origin_data);
+        riderTo = findViewById(R.id.ad_destination_data);
+        riderDate = findViewById(R.id.ad_date_of_carpool);
+        riderTime = findViewById(R.id.ad_time_of_carpool);
+        riderNumberOfSeats = findViewById(R.id.passengernum);
+        riderPrice = findViewById(R.id.ad_earnings_text_confirm);
+        riderName = findViewById(R.id.profile_name);
     }
 
     private void onCarPoolConfirmedButtonClicked() {

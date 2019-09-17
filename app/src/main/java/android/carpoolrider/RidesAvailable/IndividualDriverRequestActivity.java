@@ -24,9 +24,9 @@ import java.util.HashMap;
 public class IndividualDriverRequestActivity extends AppCompatActivity {
 
     private String receiverKeyID, senderUID, current_state, receiverUID;
-    private TextView confirm_carpool_button_word, message_driver_button_word;
     private RelativeLayout confirmButton;
-    private DatabaseReference UserRef, RiderRequestingDriverRef, ConfirmedMatchRef, DriverTicketsRef;
+    private DatabaseReference UserRef, RiderRequestingDriverRef, DriverTicketsRef;
+    private TextView confirm_carpool_button_word, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         setContentView(R.layout.layout_posted_ride_ticket_expand_entity);
         initializeFields();
         extractReceiverUID();
+        fillTicketInformationFromDatabase();
         RetrieveTicketStatusInformation();
     }
 
@@ -44,20 +45,42 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         senderUID = mAuth.getCurrentUser().getUid();
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
         RiderRequestingDriverRef = FirebaseDatabase.getInstance().getReference().child("RiderRequestingDriver");
-        ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
-        confirmButton = findViewById(R.id.confirm_carpool);
-        message_driver_button_word = findViewById(R.id.tcancel_request_text_view_carpool);
         confirm_carpool_button_word = findViewById(R.id.confirm_carpool_button_word);
+        confirmButton = findViewById(R.id.confirm_carpool);
+
+        riderFrom = findViewById(R.id.origin_data);
+        riderTo = findViewById(R.id.destination_data);
+        riderDate = findViewById(R.id.dateofcarpool);
+        riderTime = findViewById(R.id.time_of_carpool);
+        riderNumberOfSeats = findViewById(R.id.ad_passenger_number_text);
+        riderPrice = findViewById(R.id.earnings_text_confirm);
+        riderName = findViewById(R.id.ad_profile_name);
     }
 
     private void extractReceiverUID() {
-        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
+
         DriverTicketsRef.child(receiverKeyID).child("uid").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     receiverUID = dataSnapshot.getValue().toString();
+
+                    // setting name in ticket
+                    UserRef.child(receiverUID).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            final String ticketname = dataSnapshot.child("firstname").getValue().toString();
+                            riderName.setText(ticketname);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
                 }
             }
 
@@ -65,6 +88,33 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+    }
+
+    private void fillTicketInformationFromDatabase() {
+        DriverTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+
+                riderTo.setText(ticketTo);
+                riderFrom.setText(ticketFrom);
+                riderDate.setText(ticketDate);
+                riderTime.setText(ticketTime);
+                riderPrice.setText(ticketPrice);
+                riderNumberOfSeats.setText(ticketNumberOfSeats);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     private void RetrieveTicketStatusInformation() {
