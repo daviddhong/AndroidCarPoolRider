@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
 
     private String receiverKeyID, senderUIDme, receiverUID;
-    private DatabaseReference ConfirmedMatchRef, DriverRequestingRiderRef, RiderTicketsRef;
+    private DatabaseReference ConfirmedMatchRef, DriverRequestingRiderRef, RiderTicketsRef, UserRef;
     private TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
 
 
@@ -39,7 +39,34 @@ public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
     }
 
     private void getNameOfTicket() {
-        
+        DriverRequestingRiderRef.child(senderUIDme).child(receiverKeyID).child("senderUID").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    receiverUID = dataSnapshot.getValue().toString();
+
+                    UserRef.child(receiverUID).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()){
+                                final String ticketname = dataSnapshot.child("firstname").getValue().toString();
+                                riderName.setText(ticketname);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void getOtherInformationOfTicket() {
@@ -92,6 +119,7 @@ public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
         ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
         receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
         senderUIDme = mAuth.getCurrentUser().getUid();
+        UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
         DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
 

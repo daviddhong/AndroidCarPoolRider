@@ -54,9 +54,9 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         riderTo = findViewById(R.id.destination_data);
         riderDate = findViewById(R.id.dateofcarpool);
         riderTime = findViewById(R.id.time_of_carpool);
-        riderNumberOfSeats = findViewById(R.id.ad_passenger_number_text);
+        riderNumberOfSeats = findViewById(R.id.passengernum);
         riderPrice = findViewById(R.id.earnings_text_confirm);
-        riderName = findViewById(R.id.ad_profile_name);
+        riderName = findViewById(R.id.profile_name);
     }
 
     private void extractReceiverUID() {
