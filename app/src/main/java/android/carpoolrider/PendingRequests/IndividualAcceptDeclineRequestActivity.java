@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
 
     private String receiverKeyID, senderUIDme, receiverUID;
-    private DatabaseReference ConfirmedMatchRef, DriverRequestingRiderRef;
+    private DatabaseReference ConfirmedMatchRef, DriverRequestingRiderRef, RiderTicketsRef;
     private TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
 
 
@@ -34,9 +34,43 @@ public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
         gettingReceiverUidFromDataSnapShot();
         onCarPoolConfirmedButtonClicked();
         onCarPoolDeclineButtonclicked();
+        getNameOfTicket();
+        getOtherInformationOfTicket();
     }
 
-    private void gettingReceiverUidFromDataSnapShot() {
+    private void getNameOfTicket() {
+        
+    }
+
+    private void getOtherInformationOfTicket() {
+        RiderTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                    final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                    final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                    final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                    final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                    final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+                    riderTo.setText(ticketTo);
+                    riderFrom.setText(ticketFrom);
+                    riderDate.setText(ticketDate);
+                    riderTime.setText(ticketTime);
+                    riderPrice.setText(ticketPrice);
+                    riderNumberOfSeats.setText(ticketNumberOfSeats);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+        private void gettingReceiverUidFromDataSnapShot() {
         DriverRequestingRiderRef.child(senderUIDme)
                 .child(receiverKeyID).child("senderUID")
                 .addValueEventListener(new ValueEventListener() {
@@ -58,15 +92,16 @@ public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
         ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
         receiverKeyID = getIntent().getExtras().get("clicked_user_id").toString();
         senderUIDme = mAuth.getCurrentUser().getUid();
+        RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
         DriverRequestingRiderRef = FirebaseDatabase.getInstance().getReference().child("DriverRequestingRider");
 
         riderFrom = findViewById(R.id.ad_origin_data);
         riderTo = findViewById(R.id.ad_destination_data);
         riderDate = findViewById(R.id.ad_date_of_carpool);
         riderTime = findViewById(R.id.ad_time_of_carpool);
-        riderNumberOfSeats = findViewById(R.id.passengernum);
+        riderNumberOfSeats = findViewById(R.id.ad_passenger_number_text);
         riderPrice = findViewById(R.id.ad_earnings_text_confirm);
-        riderName = findViewById(R.id.profile_name);
+        riderName = findViewById(R.id.ad_profile_name);
     }
 
     private void onCarPoolConfirmedButtonClicked() {
