@@ -25,7 +25,7 @@
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="#0A1C2A" />
+                    android:tint="#262626" />
 
             </RelativeLayout>
 
@@ -36,7 +36,8 @@
                 android:layout_centerInParent="true"
                 android:textSize="17sp"
                 android:textStyle="bold"
-                android:textColor="#0A1C2A" />
+                android:textColor="#262626"
+                android:fontFamily="@font/roboto_bold" />
 
             <RelativeLayout
                 android:id="@+id/rl_settings_save_phone_number"
@@ -51,7 +52,8 @@
                     android:layout_height="wrap_content"
                     android:text="Save"
                     android:textSize="17sp"
-                    android:textColor="#05D686" />
+                    android:textColor="#2B4F81"
+                    android:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
 
@@ -60,7 +62,7 @@
         <RelativeLayout
             android:id="@+id/edit_phone_number"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="58dp"
             android:background="@drawable/border_rectangle_unfilled"
             android:layout_marginTop="88dp"
             android:layout_marginLeft="15dp"
@@ -73,7 +75,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_phone"
-                android:tint="#05D686"/>
+                android:tint="#262626"/>
 
             <EditText
                 android:id="@+id/editText_phone_number_change_settings"
@@ -84,8 +86,9 @@
                 android:background="@android:color/transparent"
                 android:hint="Phone number"
                 android:inputType="phone"
-                android:textColor="#0A1C2A"
-                android:textSize="15sp" />
+                android:textColor="#555B5B"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto"/>
         </RelativeLayout>
 
 

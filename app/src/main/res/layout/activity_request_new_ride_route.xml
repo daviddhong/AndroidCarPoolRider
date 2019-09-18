@@ -45,9 +45,10 @@
         <RelativeLayout
             android:id="@+id/relative_layout_route"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="58dp"
             android:layout_below="@id/close_button_request_new_carpool_one"
-            android:background="@drawable/border_rectangle_unfilled">
+            android:background="@drawable/border_rectangle_unfilled_light"
+            android:elevation="25dp">
 
             <ImageView
                 android:id="@+id/image_view_arrow"
@@ -55,7 +56,7 @@
                 android:layout_height="25dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_arrow_forward"
-                android:tint="#0A1C2A"/>
+                android:tint="#262626"/>
 
             <RelativeLayout
                 android:id="@+id/origin_request_new_carpool_one"
@@ -73,8 +74,9 @@
                     android:ellipsize="start"
                     android:gravity="center"
                     android:hint="Origin"
-                    android:textColor="#454F63"
-                    android:textSize="15sp" />
+                    android:textColor="#555B5B"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
 
@@ -94,8 +96,9 @@
                     android:ellipsize="start"
                     android:gravity="center"
                     android:hint="Destination"
-                    android:textColor="#454F63"
-                    android:textSize="15sp" />
+                    android:textColor="#555B5B"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/roboto"/>
 
             </RelativeLayout>
 
@@ -115,9 +118,10 @@
         <RelativeLayout
             android:id="@+id/relative_layout_price"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="58dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/border_rectangle_unfilled">
+            android:background="@drawable/border_rectangle_unfilled_light"
+            android:elevation="25dp">
 
             <ImageView
                 android:layout_width="20dp"
@@ -125,7 +129,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/ic_monetization_on"
-                android:tint="#05D686"/>
+                android:tint="#262626"/>
 
             <TextView
                 android:id="@+id/text_view_cost"
@@ -136,8 +140,9 @@
                 android:ellipsize="start"
                 android:gravity="center|left"
                 android:hint="Price"
-                android:textColor="#454F63"
-                android:textSize="15sp" />
+                android:textColor="#555B5B"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto"/>
 
             <RelativeLayout
                 android:id="@+id/relative_layout_next"
@@ -150,7 +155,7 @@
                     android:layout_height="25dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_forward"
-                    android:tint="#0A1C2A"/>
+                    android:tint="#262626"/>
 
             </RelativeLayout>
 

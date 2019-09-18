@@ -26,9 +26,10 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
                     android:text="Post New Ride Requests"
-                    android:textColor="#0A1C2A"
+                    android:textColor="#262626"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_bold"/>
 
                 <ImageView
                     android:id="@+id/request_rides_profile"
@@ -38,14 +39,13 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="25dp"
                     android:src="@drawable/ic_account_circle"
-                    android:tint="#0A1C2A" />
+                    android:tint="#262626" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/relative_layout_header_rides_requested"
-                android:layout_marginTop="15dp">
+                android:layout_below="@+id/relative_layout_request_new_carpool">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rides_requested_recycler_view"
@@ -59,19 +59,19 @@
             <RelativeLayout
                 android:id="@+id/relative_layout_request_new_carpool"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="35dp"
-                android:background="@drawable/background_rectangle_filled">
+                android:layout_height="188dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_below="@id/relative_layout_header_rides_requested"
+                android:background="@drawable/background_rectangle_filled"
+                android:elevation="25dp">
 
                 <RelativeLayout
                     android:id="@+id/relative_layout_request_new_ride"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="58dp"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="18dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/border_rectangle_unfilled">
 
@@ -81,9 +81,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="20dp"
-                        android:text="Post a new carpool request"
-                        android:textColor="#78849E"
-                        android:textSize="20sp" />
+                        android:text="Request new carpool"
+                        android:textColor="#555B5B"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/roboto"/>
 
                     <ImageView
                         android:layout_width="25dp"
@@ -92,7 +93,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
                         android:src="@drawable/ic_navigate_next"
-                        android:tint="#0A1C2A"/>
+                        android:tint="#555B5B"/>
 
                 </RelativeLayout>
 
@@ -108,10 +109,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Post a carpool route that you want to take. If matched with a
+                        android:text="Request a carpool route that you want to take. If matched with a
 driver, contact the driver to confirm the carpool ride and specify details of pickup location."
                         android:textColor="#FFF"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:fontFamily="@font/roboto"/>
 
                 </RelativeLayout>
 

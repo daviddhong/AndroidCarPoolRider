@@ -28,7 +28,7 @@
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="#0A1C2A" />
+                    android:tint="#262626" />
 
             </RelativeLayout>
 
@@ -37,10 +37,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="Received Carpool Requests"
-                android:textColor="#0A1C2A"
+                android:layout_centerHorizontal="true"
+                android:text="Accepted Carpool Requests"
+                android:textColor="#262626"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"/>
 
             <ImageView
                 android:id="@+id/acceptrprofile_carpool_requests"

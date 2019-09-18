@@ -23,7 +23,7 @@
                 android:layout_height="25dp"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_arrow_back"
-                android:tint="#0A1C2A" />
+                android:tint="#262626" />
 
         </RelativeLayout>
 
@@ -39,8 +39,9 @@
                 android:layout_height="wrap_content"
                 android:text="How many people do you"
                 android:textSize="25sp"
-                android:textColor="#0A1C2A"
-                android:textStyle="bold"/>
+                android:textColor="#262626"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"/>
 
 
             <TextView
@@ -50,8 +51,9 @@
                 android:layout_marginTop="10dp"
                 android:textSize="25sp"
                 android:text="want to carpool?"
-                android:textColor="#0A1C2A"
-                android:textStyle="bold"/>
+                android:textColor="#262626"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 
@@ -66,15 +68,15 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                app:np_dividerColor="#0A1C2A"
+                app:np_dividerColor="#262626"
                 app:np_dividerDistance="58dp"
                 app:np_height="180dp"
                 app:np_width="64dp"
                 app:np_max="11"
                 app:np_min="1"
-                app:np_selectedTextColor="#0A1C2A"
+                app:np_selectedTextColor="#262626"
                 app:np_selectedTextSize="17sp"
-                app:np_textColor="#0A1C2A"
+                app:np_textColor="#262626"
                 app:np_textSize="17sp"
                 app:np_value="1" />
 
@@ -87,8 +89,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="158dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginRight="58dp"
-            android:layout_marginLeft="58dp">
+            android:layout_marginRight="38dp"
+            android:layout_marginLeft="38dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -103,7 +105,8 @@
                     android:layout_centerInParent="true"
                     android:text="Continue"
                     android:textColor="#FFF"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_bold"/>
 
 
             </RelativeLayout>

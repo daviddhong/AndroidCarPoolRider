@@ -20,7 +20,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_close"
-                android:tint="#2A2E43"/>
+                android:tint="#262626"/>
 
         </RelativeLayout>
 
@@ -36,7 +36,7 @@
             <RelativeLayout
                 android:id="@+id/enter_email"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="58dp"
                 android:background="@drawable/border_rectangle_unfilled">
 
                 <ImageView
@@ -46,7 +46,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
                     android:src="@drawable/ic_email_24dp"
-                    android:tint="#05D686"/>
+                    android:tint="#262626"/>
 
                 <EditText
                     android:id="@+id/editText_email_login"
@@ -57,13 +57,14 @@
                     android:background="@android:color/transparent"
                     android:hint="Enter email"
                     android:inputType="textEmailAddress"
-                    android:textColor="#454F63"
-                    android:textSize="15sp" />
+                    android:textColor="#555B5B"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/roboto"/>
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="58dp"
                 android:layout_below="@id/enter_email"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/border_rectangle_unfilled">
@@ -75,7 +76,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
                     android:src="@drawable/ic_lock_24dp"
-                    android:tint="#05D686"/>
+                    android:tint="#262626"/>
 
                 <EditText
                     android:id="@+id/editText_password_login"
@@ -86,8 +87,9 @@
                     android:background="@android:color/transparent"
                     android:hint="Enter password"
                     android:inputType="textPassword"
-                    android:textColor="#454F63"
-                    android:textSize="15sp" />
+                    android:textColor="#555B5B"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/roboto"/>
 
 
             </RelativeLayout>
@@ -110,7 +112,8 @@
             android:gravity="center"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
-            android:text="Sign in" />
+            android:text="Sign in"
+            android:fontFamily="@font/roboto_bold"/>
 
         <RelativeLayout
             android:id="@+id/rl_create_account"
@@ -124,19 +127,20 @@
 
             <TextView
                 android:textStyle="bold"
-                android:textColor="#2A2E43"
+                android:textColor="#262626"
                 android:id="@+id/textView_makeaccount"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Make an Account"
-                android:textSize="15sp" />
+                android:text="Sign up"
+                android:textSize="17sp"
+                android:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 
         <TextView
             android:textStyle="bold"
-            android:textColor="#2A2E43"
+            android:textColor="#262626"
             android:id="@+id/textView_forgotpassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -145,11 +149,12 @@
             android:layout_marginLeft="15dp"
             android:gravity="center"
             android:text="Forgot password?"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:fontFamily="@font/roboto_bold"/>
 
         <TextView
             android:textStyle="bold"
-            android:textColor="#2A2E43"
+            android:textColor="#262626"
             android:id="@+id/textView_resend_verification_email"
             android:layout_width="wrap_content"
             android:layout_alignParentRight="true"
@@ -159,7 +164,8 @@
             android:layout_marginRight="15dp"
             android:visibility="invisible"
             android:text="Resend Verification Email"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:fontFamily="@font/roboto_bold"/>
 
     </RelativeLayout>
 

@@ -23,7 +23,7 @@
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_arrow_back"
-                android:tint="#0A1C2A" />
+                android:tint="#262626" />
 
         </RelativeLayout>
 
@@ -39,9 +39,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="What time of the day do"
-                android:textColor="#0A1C2A"
+                android:textColor="#262626"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"/>
 
 
             <TextView
@@ -50,9 +51,10 @@
                 android:layout_below="@id/text_row_one_time"
                 android:layout_marginTop="10dp"
                 android:text="you want to carpool?"
-                android:textColor="#0A1C2A"
+                android:textColor="#262626"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 
@@ -102,11 +104,11 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        app:np_dividerColor="#0A1C2A"
+                        app:np_dividerColor="#262626"
                         app:np_dividerDistance="58dp"
-                        app:np_selectedTextColor="#0A1C2A"
+                        app:np_selectedTextColor="#262626"
                         app:np_selectedTextSize="17sp"
-                        app:np_textColor="#0A1C2A"
+                        app:np_textColor="#262626"
                         app:np_textSize="17sp" />
 
                 </RelativeLayout>
@@ -122,11 +124,11 @@
                         android:id="@+id/minute_picker"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        app:np_dividerColor="#0A1C2A"
+                        app:np_dividerColor="#262626"
                         app:np_dividerDistance="58dp"
-                        app:np_selectedTextColor="#0A1C2A"
+                        app:np_selectedTextColor="#262626"
                         app:np_selectedTextSize="17sp"
-                        app:np_textColor="#0A1C2A"
+                        app:np_textColor="#262626"
                         app:np_textSize="17sp" />
 
                 </RelativeLayout>
@@ -142,11 +144,11 @@
                         android:id="@+id/am_pm_picker"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        app:np_dividerColor="#0A1C2A"
+                        app:np_dividerColor="#262626"
                         app:np_dividerDistance="58dp"
-                        app:np_selectedTextColor="#0A1C2A"
+                        app:np_selectedTextColor="#262626"
                         app:np_selectedTextSize="17sp"
-                        app:np_textColor="#0A1C2A"
+                        app:np_textColor="#262626"
                         app:np_textSize="17sp" />
 
                 </RelativeLayout>
@@ -162,8 +164,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="158dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginRight="58dp"
-            android:layout_marginLeft="58dp"
+            android:layout_marginRight="38dp"
+            android:layout_marginLeft="38dp"
             android:background="@drawable/background_rectangle_filled">
 
             <TextView
@@ -173,7 +175,8 @@
                 android:layout_centerInParent="true"
                 android:text="Continue"
                 android:textColor="#FFF"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"/>
 
 
         </RelativeLayout>

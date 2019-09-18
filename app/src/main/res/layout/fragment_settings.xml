@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -11,7 +12,7 @@
         <RelativeLayout
             android:id="@+id/toolbar_settings"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:background="#FFF">
 
             <TextView
@@ -20,47 +21,41 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:text="Settings"
-                android:textColor="#0A1C2A"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textColor="#262626"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/welcomeuser"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@id/toolbar_settings"
-            android:background="@drawable/border_bottom">
+            android:background="#FFF">
             <TextView
                 android:id="@+id/welcometext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="55dp"
-                android:text="Welcome"
-                android:textColor="#0A1C2A"
-                android:textSize="17sp" />
-            <TextView
-                android:id="@+id/rideridentity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/welcometext"
-                android:paddingLeft="7dp"
-                android:text="rider"
-                android:textColor="#0A1C2A"
-                android:textSize="17sp" />
+                android:layout_marginLeft="15dp"
+                android:text="Hi"
+                android:textColor="#262626"
+                android:textSize="28sp"
+                android:fontFamily="@font/roboto_bold"/>
+
             <TextView
                 android:id="@+id/firstnameofuser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/rideridentity"
+                android:layout_toRightOf="@id/welcometext"
                 android:paddingLeft="7dp"
-                android:text="First name"
-                android:textColor="#0A1C2A"
-                android:textSize="17sp" />
+                android:text="F"
+                android:textColor="#262626"
+                android:textSize="28sp"
+                android:fontFamily="@font/roboto_bold"/>
             <TextView
                 android:id="@+id/lastnameofuser"
                 android:layout_width="wrap_content"
@@ -68,16 +63,17 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/firstnameofuser"
                 android:paddingLeft="7dp"
-                android:text="lastname"
-                android:textColor="#0A1C2A"
-                android:textSize="17sp" />
+                android:text="L"
+                android:textColor="#262626"
+                android:textSize="28sp"
+                android:fontFamily="@font/roboto_bold"/>
         </RelativeLayout>
 
 
         <RelativeLayout
             android:id="@+id/settings_profile"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@id/welcomeuser">
 
             <RelativeLayout
@@ -87,31 +83,23 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_profile"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_account_circle"
-                    android:tint="#0A1C2A" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/image_profile"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
                     android:text="Profile"
-                    android:textSize="17sp"
-                    android:textColor="#0A1C2A" />
+                    android:textSize="20sp"
+                    android:textColor="#555B5B"
+                    android:fontFamily="@font/roboto_bold" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_navigate_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#555B5B" />
 
             </RelativeLayout>
 
@@ -120,7 +108,7 @@
         <RelativeLayout
             android:id="@+id/settings_email"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@id/settings_profile">
 
             <RelativeLayout
@@ -130,31 +118,22 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_email"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_email_24dp"
-                    android:tint="#0A1C2A"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/image_email"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
                     android:text="Email"
-                    android:textSize="17sp"
-                    android:textColor="#0A1C2A" />
+                    android:textSize="20sp"
+                    android:textColor="#555B5B"
+                    android:fontFamily="@font/roboto_bold" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_navigate_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#555B5B" />
 
             </RelativeLayout>
 
@@ -163,7 +142,7 @@
         <RelativeLayout
             android:id="@+id/settings_phone"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@id/settings_email">
 
             <RelativeLayout
@@ -173,31 +152,23 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_phone"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_phone"
-                    android:tint="#0A1C2A"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/image_phone"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
                     android:text="Phone number"
-                    android:textSize="17sp"
-                    android:textColor="#0A1C2A" />
+                    android:textSize="20sp"
+                    android:textColor="#555B5B"
+                    android:fontFamily="@font/roboto_bold" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_navigate_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#555B5B" />
 
             </RelativeLayout>
         </RelativeLayout>
@@ -205,7 +176,7 @@
         <RelativeLayout
             android:id="@+id/settings_password"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@+id/settings_phone">
 
             <RelativeLayout
@@ -215,31 +186,23 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_password"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_lock_24dp"
-                    android:tint="#0A1C2A"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/image_password"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
                     android:text="Account password"
-                    android:textSize="17sp"
-                    android:textColor="#0A1C2A" />
+                    android:textSize="20sp"
+                    android:textColor="#555B5B"
+                    android:fontFamily="@font/roboto_bold" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_navigate_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#555B5B" />
             </RelativeLayout>
 
         </RelativeLayout>
@@ -248,7 +211,7 @@
         <RelativeLayout
             android:id="@+id/settings_payment"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@+id/settings_password">
 
             <RelativeLayout
@@ -258,31 +221,23 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_payment"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_credit_card"
-                    android:tint="#0A1C2A"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/image_payment"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
                     android:text="Payment"
-                    android:textSize="17sp"
-                    android:textColor="#0A1C2A" />
+                    android:textSize="20sp"
+                    android:textColor="#555B5B"
+                    android:fontFamily="@font/roboto_bold"/>
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_navigate_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#555B5B" />
 
             </RelativeLayout>
 
@@ -292,7 +247,7 @@
         <RelativeLayout
             android:id="@+id/settings_help"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@+id/settings_payment">
 
             <RelativeLayout
@@ -302,31 +257,22 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_help"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_help"
-                    android:tint="#0A1C2A"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/image_help"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
                     android:text="Help"
-                    android:textSize="17sp"
-                    android:textColor="#0A1C2A" />
+                    android:textSize="20sp"
+                    android:textColor="#555B5B"
+                    android:fontFamily="@font/roboto_bold" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_navigate_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#555B5B" />
 
             </RelativeLayout>
 
@@ -336,7 +282,7 @@
         <RelativeLayout
             android:id="@+id/settings_open_source"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@+id/settings_help">
 
             <RelativeLayout
@@ -346,31 +292,22 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_license"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_open_source"
-                    android:tint="#0A1C2A"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/image_license"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
                     android:text="Open source license"
-                    android:textSize="17sp"
-                    android:textColor="#0A1C2A" />
+                    android:textSize="20sp"
+                    android:textColor="#555B5B"
+                    android:fontFamily="@font/roboto_bold" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_navigate_next"
-                    android:tint="#0A1C2A" />
+                    android:tint="#555B5B" />
 
             </RelativeLayout>
 
@@ -380,7 +317,7 @@
         <RelativeLayout
             android:id="@+id/settings_terms"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="70dp"
             android:layout_below="@+id/settings_open_source">
 
             <RelativeLayout
@@ -390,91 +327,40 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/border_bottom">
 
-                <ImageView
-                    android:id="@+id/image_terms"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_terms"
-                    android:tint="#0A1C2A"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/image_terms"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
                     android:text="Terms and policies"
-                    android:textSize="17sp"
-                    android:textColor="#0A1C2A" />
+                    android:textSize="20sp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="#555B5B" />
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_navigate_next"
-                    android:tint="#0A1C2A" />
+                    android:textColor="#555B5B"
+                    android:fontFamily="@font/roboto" />
 
             </RelativeLayout>
 
 
         </RelativeLayout>
 
-
-        <RelativeLayout
-            android:id="@+id/settings_legal"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_below="@+id/settings_terms">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/border_bottom">
-
-                <ImageView
-                    android:id="@+id/image_legal"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_legal"
-                    android:tint="#0A1C2A"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/image_legal"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="25dp"
-                    android:text="Legal"
-                    android:textSize="17sp"
-                    android:textColor="#0A1C2A" />
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_navigate_next"
-                    android:tint="#0A1C2A" />
-
-            </RelativeLayout>
-
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/sign_out_rider"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="58dp"
+            android:layout_height="58dp"
+            android:layout_below="@+id/settings_terms"
             android:layout_marginLeft="58dp"
             android:layout_marginRight="58dp"
-            android:background="@drawable/border_rectangle_unfilled_clova">
+            android:layout_marginBottom="28dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/border_rectangle_unfilled">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -483,10 +369,11 @@
                 android:text="Sign out"
                 android:textStyle="bold"
                 android:textSize="17sp"
-                android:textColor="#05D686"/>
+                android:textColor="#262626"
+                android:fontFamily="@font/roboto_bold"/>
 
         </RelativeLayout>
 
     </RelativeLayout>
 
-</LinearLayout>
+</ScrollView>

@@ -22,8 +22,9 @@
                 android:layout_marginLeft="15dp"
                 android:text="Confirmed Rides"
                 android:textSize="20sp"
-                android:textColor="#0A1C2A"
-                android:textStyle="bold"/>
+                android:textColor="#262626"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"/>
 
             <ImageView
                 android:id="@+id/reserved_rides_profile"
@@ -33,7 +34,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="25dp"
                 android:src="@drawable/ic_account_circle"
-                android:tint="#0A1C2A" />
+                android:tint="#262626" />
         </RelativeLayout>
 
         <RelativeLayout

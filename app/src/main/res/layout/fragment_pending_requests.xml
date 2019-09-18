@@ -20,10 +20,11 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
-                android:text="Sent Carpool Requests"
+                android:text="My Carpool Requests"
                 android:textSize="20sp"
-                android:textColor="#0A1C2A"
-                android:textStyle="bold"/>
+                android:textColor="#262626"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_bold"/>
 
             <ImageView
                 android:id="@+id/rate_drivers_profile"
@@ -33,12 +34,14 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="25dp"
                 android:src="@drawable/ic_account_circle"
-                android:tint="#0A1C2A" />
+                android:tint="#262626" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@+id/gotRequestlayoutbutton"
+            android:layout_marginBottom="10dp"
             android:layout_below="@+id/relative_layout_header_rate_drivers"
             android:layout_marginTop="0dp">
 
@@ -54,21 +57,45 @@
         <RelativeLayout
             android:id="@+id/gotRequestlayoutbutton"
             android:layout_width="match_parent"
-            android:layout_height="58dp"
+            android:layout_height="188dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="38dp"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/background_rectangle_filled">
+            android:background="@drawable/border_top">
 
             <TextView
+                android:id="@+id/text_accept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:text="For the list of and to accept or decline your carpool requests that have been accepted by a driver."
                 android:textSize="17sp"
-                android:layout_centerInParent="true"
-                android:text="Received Carpool Requests"
-                android:textColor="#FFF"
-                android:textStyle="bold"/>
+                android:textColor="#262626"
+                android:fontFamily="@font/roboto"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_below="@+id/text_accept"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/background_rectangle_filled"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="#FFF"
+                    android:textSize="17sp"
+                    android:text="Click here"
+                    android:fontFamily="@font/roboto_bold"/>
+            </RelativeLayout>
+
+
 
         </RelativeLayout>
 

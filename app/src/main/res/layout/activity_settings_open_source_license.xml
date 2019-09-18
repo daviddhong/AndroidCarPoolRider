@@ -27,7 +27,7 @@
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/ic_arrow_back"
-                    android:tint="#0A1C2A" />
+                    android:tint="#262626" />
 
             </RelativeLayout>
 
@@ -42,8 +42,9 @@
                     android:layout_height="wrap_content"
                     android:text="Open Source License"
                     android:textSize="20sp"
-                    android:textColor="#0A1C2A"
-                    android:textStyle="bold"/>
+                    android:textColor="#262626"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_bold"/>
             </RelativeLayout>
 
         </RelativeLayout>
@@ -54,14 +55,17 @@
             android:layout_width="match_parent"
             android:layout_height="77dp"
             android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/border_bottom">
 
             <TextView
                 android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="The following sets forth attribution and for third party software that are contained in this application"/>
+                android:text="The following sets forth attribution and for third party software that are contained in this application"
+                android:fontFamily="@font/roboto"
+                android:textColor="#555B5B"/>
 
         </RelativeLayout>
 
@@ -75,7 +79,9 @@
                 android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Icon made by"/>
+                android:text="Icon made by"
+                android:fontFamily="@font/roboto"
+                android:textColor="#555B5B"/>
         </RelativeLayout>
 
     </RelativeLayout>
