@@ -21,7 +21,7 @@
                 android:layout_marginTop="20dp">
 
                 <ImageView
-                    android:id="@+id/back_confirm"
+                    android:id="@+id/back_my"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_centerInParent="true"
@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
-                    android:text="Carpool Posting"
+                    android:text="My Carpool Request"
                     android:textColor="#262626"
                     android:textSize="17sp"
                     android:textStyle="bold"
@@ -109,12 +109,12 @@
                     android:layout_centerVertical="true">
 
                     <RelativeLayout
-                        android:id="@+id/from_rl"
+                        android:id="@+id/from_rl_my"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/origin_location_text"
+                            android:id="@+id/origin_location_text_my"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Pickup location"
@@ -124,10 +124,10 @@
                             app:fontFamily="@font/roboto_bold" />
 
                         <TextView
-                            android:id="@+id/origin_data"
+                            android:id="@+id/origin_data_my"
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/origin_location_text"
+                            android:layout_below="@id/origin_location_text_my"
                             android:hint="Pickup Location Name"
                             android:textColor="#555B5B"
                             android:textSize="12sp"
@@ -138,11 +138,11 @@
                         android:id="@+id/to_rl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/from_rl"
+                        android:layout_below="@id/from_rl_my"
                         android:layout_marginTop="17dp">
 
                         <TextView
-                            android:id="@+id/destination_location_text"
+                            android:id="@+id/destination_location_text_my"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Destination location"
@@ -152,10 +152,10 @@
                             app:fontFamily="@font/roboto_bold" />
 
                         <TextView
-                            android:id="@+id/destination_data"
+                            android:id="@+id/destination_data_my"
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/destination_location_text"
+                            android:layout_below="@id/destination_location_text_my"
                             android:hint="Destination Location Name"
                             android:textColor="#555B5B"
                             android:textSize="12sp"
@@ -182,7 +182,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
-                    android:id="@+id/passengernum"
+                    android:id="@+id/passengernum_my"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -211,7 +211,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
-                    android:id="@+id/dateofcarpool"
+                    android:id="@+id/dateofcarpool_my"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -240,7 +240,7 @@
                     android:tint="#0A1C2A"/>
 
                 <TextView
-                    android:id="@+id/time_of_carpool"
+                    android:id="@+id/time_of_carpool_my"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -269,7 +269,7 @@
                     android:tint="#262626"/>
 
                 <TextView
-                    android:id="@+id/earnings_text_confirm"
+                    android:id="@+id/earnings_text_my"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -284,7 +284,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/earnings_text_confirm"
+                    android:layout_toRightOf="@id/earnings_text_my"
                     android:layout_marginLeft="10dp"
                     android:text="(CAD)"
                     android:textColor="#555B5B"
@@ -294,67 +294,17 @@
 
             </RelativeLayout>
 
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rider_profile"
-            android:layout_width="match_parent"
-            android:layout_height="77dp"
-            android:layout_below="@id/relative_layout_posted_expand_body"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="38dp"
-            android:background="@drawable/border_rectangle_unfilled">
-
-            <RelativeLayout
-                android:id="@+id/expand_name_two"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp">
-
-                <TextView
-                    android:id="@+id/profile_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Name"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:textColor="#555B5B"
-                    app:fontFamily="@font/roboto_bold"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="178dp"
-                android:layout_height="27dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:layout_toRightOf="@+id/expand_name_two"
-                android:background="@drawable/background_rectangle_circular_border">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:hint="Phone number"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"/>
-
-            </RelativeLayout>
-
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/confirm_footer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@id/rider_profile"
+            android:layout_below="@+id/relative_layout_posted_expand_body"
             android:layout_marginTop="25dp">
 
             <RelativeLayout
-                android:id="@+id/confirm_carpool"
+                android:id="@+id/cancel_request"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:layout_marginLeft="39dp"
@@ -366,7 +316,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Request for Carpool"
+                    android:text="Delete"
                     android:textColor="#FFF"
                     android:textSize="17sp"
                     android:textStyle="bold"
