@@ -26,7 +26,6 @@ public class RidesAvailableFragment extends Fragment {
     private View availableRidesView;
     private RecyclerView DriverRecyclerView;
     private DatabaseReference DriverTicketsRef;
-    private String usersIDS;
 
     @Nullable
     @Override
@@ -67,9 +66,9 @@ public class RidesAvailableFragment extends Fragment {
                 driverticketholder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        usersIDS = getRef(i).getKey();
+                        String clickedUserKeyID = getRef(i).getKey();
                         Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
-                        intent.putExtra("clicked_user_id", usersIDS);
+                        intent.putExtra("clicked_user_id", clickedUserKeyID);
                         startActivity(intent);
                     }
                 });

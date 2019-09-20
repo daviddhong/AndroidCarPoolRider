@@ -15,6 +15,7 @@
             android:layout_height="70dp">
 
             <RelativeLayout
+                android:id="@+id/back_button_for_i_ticket"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="10dp"

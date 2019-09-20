@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class IndividualDriverRequestActivity extends AppCompatActivity {
 
     private String receiverKeyID, senderUID, current_state, receiverUID;
-    private RelativeLayout confirmButton;
+    private RelativeLayout confirmButton, backButton;
     private DatabaseReference UserRef, RiderRequestingDriverRef, DriverTicketsRef;
     private TextView confirm_carpool_button_word, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
 
@@ -33,11 +33,19 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_posted_ride_ticket_expand_entity);
         initializeFields();
-
+        backButtonFunction();
         extractReceiverUID();
         fillTicketInformationFromDatabase();
-
         RetrieveTicketStatusInformation();
+    }
+
+    private void backButtonFunction() {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void initializeFields() {
@@ -51,6 +59,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         RiderRequestingDriverRef = FirebaseDatabase.getInstance().getReference().child("RiderRequestingDriver");
         confirm_carpool_button_word = findViewById(R.id.confirm_carpool_button_word);
         confirmButton = findViewById(R.id.confirm_carpool);
+        backButton = findViewById(R.id.back_button_for_i_ticket);
 
         riderFrom = findViewById(R.id.origin_data);
         riderTo = findViewById(R.id.destination_data);
@@ -73,8 +82,10 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                     UserRef.child(receiverUID).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            final String ticketname = dataSnapshot.child("firstname").getValue().toString();
-                            riderName.setText(ticketname);
+                            if(dataSnapshot.exists()) {
+                                final String ticketname = dataSnapshot.child("firstname").getValue().toString();
+                                riderName.setText(ticketname);
+                            }
                         }
 
                         @Override
@@ -189,7 +200,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
 
-                            RiderRequestingDriverRef.child(receiverKeyID).child(senderUID)
+                            RiderRequestingDriverRef.child(receiverUID).child(receiverKeyID)
                                     .removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

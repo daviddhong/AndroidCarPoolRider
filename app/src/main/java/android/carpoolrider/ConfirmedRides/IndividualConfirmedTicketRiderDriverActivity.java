@@ -235,7 +235,7 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
 
-                            ConfirmedMatchRef.child(receiverKeyID).child(senderUID)
+                            ConfirmedMatchRef.child(receiverUID).child(receiverKeyID)
                                     .removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
