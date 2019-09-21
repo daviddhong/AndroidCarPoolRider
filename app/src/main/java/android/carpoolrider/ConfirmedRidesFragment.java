@@ -30,7 +30,7 @@ public class ConfirmedRidesFragment extends Fragment {
 
     private View reservedRidesView;
     private RecyclerView DriverRecyclerView;
-    private DatabaseReference ConfirmedTicketsRef, RiderTicketsRef,DriverTicketsRef;
+    private DatabaseReference ConfirmedTicketsRef, RiderTicketsRef, DriverTicketsRef;
 
     @Nullable
     @Override

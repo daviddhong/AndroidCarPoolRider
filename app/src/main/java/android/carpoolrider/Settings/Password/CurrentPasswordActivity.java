@@ -1,23 +1,79 @@
 package android.carpoolrider.Settings.Password;
 
 import android.carpoolrider.R;
+import android.carpoolrider.StartFromLogIn.ForgotPasswordActivity;
+import android.carpoolrider.StartFromLogIn.LogInActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class CurrentPasswordActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private DatabaseReference UsersRef;
+    private String userUID, EMAIL;
+    private TextView typedemail;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_enter_current_password);
 
+        mAuth = FirebaseAuth.getInstance();
+        userUID = mAuth.getCurrentUser().getUid();
+
+        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
         initBack();
-        initContinue();
+//        initContinue();
+        resetpassword();
+    }
+
+    private void resetpassword() {
+        RelativeLayout continueButton = (RelativeLayout) findViewById(R.id.continue_change_password);
+        continueButton.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                typedemail = findViewById(R.id.editText_password_current_settings);
+                EMAIL = typedemail.getText().toString();
+
+
+                mAuth.sendPasswordResetEmail(EMAIL)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Intent intent = new Intent(CurrentPasswordActivity.this, LogInActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                    // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
+                                    CurrentPasswordActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                                    Toast.makeText(CurrentPasswordActivity.this,
+                                            "sent email to reset PW", Toast.LENGTH_LONG).show();
+                                } else {
+                                    Toast.makeText(CurrentPasswordActivity.this,
+                                            task.getException().toString(), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+            }
+        }));
     }
 
     private void initBack() {

@@ -26,7 +26,7 @@ import java.util.HashMap;
 public class MakeAccountActivity extends AppCompatActivity {
 
     private Button confirmAccountInformationButton;
-    private EditText makeEmail, makePassword, firstName, lastName, confirmEmail, confirmPassword;
+    private EditText makeEmail, makePassword, firstName, lastName, confirmEmail, confirmPassword, phoneNumber, confirmPhone;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private DatabaseReference RootRef;
@@ -51,6 +51,8 @@ public class MakeAccountActivity extends AppCompatActivity {
         lastName = (EditText) findViewById(R.id.editText_lastname_make);
         currentUser = mAuth.getCurrentUser();
         confirmEmail = (EditText) findViewById(R.id.editText_confirmemail_make);
+        phoneNumber = (EditText) findViewById(R.id.editText_phone);
+        confirmPhone = (EditText) findViewById(R.id.editText_confirm_phone);
         confirmPassword = (EditText) findViewById(R.id.editText_confirmpw_make);
     }
 
@@ -66,6 +68,9 @@ public class MakeAccountActivity extends AppCompatActivity {
                 String lastN = lastName.getText().toString();
                 String confirmemail = confirmEmail.getText().toString();
                 String confirmpassword = confirmPassword.getText().toString();
+                String phonenumber = phoneNumber.getText().toString();
+                String confirmphonenumber = confirmPhone.getText().toString();
+
 
                 if (firstN.isEmpty()) {
                     Toast.makeText(MakeAccountActivity.this, "Please Enter Your First Name", Toast.LENGTH_LONG).show();
@@ -79,25 +84,30 @@ public class MakeAccountActivity extends AppCompatActivity {
                     Toast.makeText(MakeAccountActivity.this, "Please Confirm Your Email", Toast.LENGTH_LONG).show();
                 } else if (confirmpassword.isEmpty()) {
                     Toast.makeText(MakeAccountActivity.this, "Please Confirm Your Password", Toast.LENGTH_LONG).show();
+                } else if (phonenumber.isEmpty()) {
+                    Toast.makeText(MakeAccountActivity.this, "Please Enter Your Phone Number", Toast.LENGTH_LONG).show();
+                } else if (confirmphonenumber.isEmpty()) {
+                    Toast.makeText(MakeAccountActivity.this, "Please Confirm Your Phone Number", Toast.LENGTH_LONG).show();
+                } else if ((!(phonenumber.isEmpty())) && (!(confirmphonenumber.equals(email)))) {
+                    Toast.makeText(MakeAccountActivity.this, "Phone Numbers do not match", Toast.LENGTH_LONG).show();
                 } else if ((!(confirmemail.isEmpty())) && (!(confirmemail.equals(email)))) {
                     Toast.makeText(MakeAccountActivity.this, "Emails do not match", Toast.LENGTH_LONG).show();
                 } else if ((!(confirmpassword.isEmpty())) && (!(confirmpassword.equals(password)))) {
                     Toast.makeText(MakeAccountActivity.this, "Passwords  do not match", Toast.LENGTH_LONG).show();
                 } else {
 
-
                     mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                CollectFirstLastNameEmailIntoRealTimeDatabase(firstN, lastN, email);
+                                CollectFirstLastNameEmailIntoRealTimeDatabase(firstN, lastN, email, phonenumber);
                                 SendVerificationEmail();
 //
                             } else {
                                 // if account is not made
                                 Toast.makeText(MakeAccountActivity.this,
                                         task.getException().toString(), Toast.LENGTH_LONG).show();
-                                Log.i(TAG,"ACCOUNT NOT MADE");
+//                                Log.i(TAG, "ACCOUNT NOT MADE");
                             }
                         }
                     });
@@ -108,41 +118,37 @@ public class MakeAccountActivity extends AppCompatActivity {
     }
 
     // add first last name to realtime database
-    private void CollectFirstLastNameEmailIntoRealTimeDatabase(String firstN, String lastN, String email) {
+    private void CollectFirstLastNameEmailIntoRealTimeDatabase(String firstN, String lastN, String email, String phonenumber) {
         String currentUserID = mAuth.getCurrentUser().getUid();
         HashMap<String, String> profileMap = new HashMap<>();
         profileMap.put("uid", currentUserID);
         profileMap.put("firstname", firstN);
         profileMap.put("lastname", lastN);
         profileMap.put("email", email);
+        profileMap.put("phonenumber", phonenumber);
         RootRef.child("Users").child(currentUserID).setValue(profileMap);
-        Log.i(TAG,"SHOULD STORE TO REALTIME DATABASE");
     }
 
 
     // send to phone number activity
     private void SendVerificationEmail() {
-
         currentUser.sendEmailVerification()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.i(TAG,"SHOULD HAVE SENT EMAIL VERI");
                             Intent intent = new Intent(MakeAccountActivity.this, LogInActivity.class);
 //                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
-                            // EFFECTS: Animation from MakeAccountActivity to PhoneNumberActivity.
                             MakeAccountActivity.this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
                             Toast.makeText(MakeAccountActivity.this,
                                     "Verification email sent!!", Toast.LENGTH_LONG).show();
+                            // Log.i(TAG, "SHOULD HAVE SENT EMAIL VERI");
 
                         } else {
-                            Log.i(TAG,"EMAIL VERI NOT SENT");
-
                             Toast.makeText(MakeAccountActivity.this,
                                     "NOT sent!!" + task.getException().toString(), Toast.LENGTH_LONG).show();
+                            // Log.i(TAG, "EMAIL VERI NOT SENT");
                         }
                     }
                 });

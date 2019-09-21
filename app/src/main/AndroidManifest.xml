@@ -23,6 +23,7 @@
         <activity android:name=".Settings.Password.CurrentPasswordActivity"/>
         <activity android:name=".Settings.Password.NewPasswordActivity"/>
         <activity android:name=".Settings.EmailActivity"/>
+        <activity android:name=".Settings.PhoneActivity"/>
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>

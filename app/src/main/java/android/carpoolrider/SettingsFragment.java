@@ -91,7 +91,7 @@ public class SettingsFragment extends Fragment {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                Intent intent = new Intent(getContext(), ProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -102,7 +102,7 @@ public class SettingsFragment extends Fragment {
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), EmailActivity.class);
+                Intent intent = new Intent(getContext(), EmailActivity.class);
                 startActivity(intent);
             }
         });
@@ -113,7 +113,7 @@ public class SettingsFragment extends Fragment {
         phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PhoneActivity.class);
+                Intent intent = new Intent(getContext(), PhoneActivity.class);
                 startActivity(intent);
             }
         });
@@ -124,7 +124,7 @@ public class SettingsFragment extends Fragment {
         password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CurrentPasswordActivity.class);
+                Intent intent = new Intent(getContext(), CurrentPasswordActivity.class);
                 startActivity(intent);
             }
         });

@@ -23,10 +23,10 @@ import java.util.HashMap;
 
 public class IndividualDriverRequestActivity extends AppCompatActivity {
 
-    private String receiverKeyID, senderUID, current_state, receiverUID;
+    private String receiverKeyID, senderUID, current_state, receiverUID, phonenumba;
     private RelativeLayout confirmButton, backButton;
     private DatabaseReference UserRef, RiderRequestingDriverRef, DriverTicketsRef;
-    private TextView confirm_carpool_button_word, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
+    private TextView confirm_carpool_button_word, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName, phoneNumb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,22 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         extractReceiverUID();
         fillTicketInformationFromDatabase();
         RetrieveTicketStatusInformation();
+//        RetrievePhoneNumberInformation();
     }
+
+//    private void RetrievePhoneNumberInformation() {
+//        UserRef.child(senderUID).child("phonenumber").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                phonenumba = dataSnapshot.child("PhoneNumber").getValue().toString();
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 
     private void backButtonFunction() {
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +83,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         riderNumberOfSeats = findViewById(R.id.passengernum);
         riderPrice = findViewById(R.id.earnings_text_confirm);
         riderName = findViewById(R.id.profile_name);
+        phoneNumb = findViewById(R.id.phonenumberofthedriverticket);
     }
 
     private void extractReceiverUID() {
@@ -82,7 +98,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                     UserRef.child(receiverUID).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if(dataSnapshot.exists()) {
+                            if (dataSnapshot.exists()) {
                                 final String ticketname = dataSnapshot.child("firstname").getValue().toString();
                                 riderName.setText(ticketname);
                             }
@@ -114,6 +130,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                 final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
                 final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
 
+//                riderPhone.setText(phonenumba);
                 riderTo.setText(ticketTo);
                 riderFrom.setText(ticketFrom);
                 riderDate.setText(ticketDate);
