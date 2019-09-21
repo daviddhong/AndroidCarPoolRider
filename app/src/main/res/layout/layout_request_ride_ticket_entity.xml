@@ -251,7 +251,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/more_information_entity_request"
+            android:id="@+id/delete_my_ticket_information_entity_request"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

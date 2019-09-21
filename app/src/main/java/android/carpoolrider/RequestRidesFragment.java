@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -77,27 +80,37 @@ public class RequestRidesFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull riderTicketHolder riderticketholder,
                                             int i, @NonNull RequestRiderRequestTicket riderReqTickets) {
+                String ticketID = getRef(i).getKey();
                 RiderTicketsRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    riderticketholder.riderTo.setText(riderReqTickets.getticketto());
-                                    riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
-                                    riderticketholder.riderDate.setText(riderReqTickets.getticketdate());
-                                    riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
-                                    riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
-                                    riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
-                                    riderticketholder.itemView.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            // does nothing when clicked yet (probably want to delete it)
-                                        }
-                                    });
-                                }
+                        riderticketholder.riderTo.setText(riderReqTickets.getticketto());
+                        riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
+                        riderticketholder.riderDate.setText(riderReqTickets.getticketdate());
+                        riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
+                        riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
+                        riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
+                        riderticketholder.deleteTicketButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                // does nothing when clicked yet (probably want to delete it)
+                                RiderTicketsRef.child(ticketID).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Toast.makeText(getContext(), "Ticket Deleted", Toast.LENGTH_LONG).show();
+                                    }
+                                });
+
+                            }
+                        });
+                    }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
                 });
             }
+
             @NonNull
             @Override
             public riderTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -112,6 +125,7 @@ public class RequestRidesFragment extends Fragment {
 
     public static class riderTicketHolder extends RecyclerView.ViewHolder {
         TextView riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice;
+        RelativeLayout deleteTicketButton;
 
         public riderTicketHolder(@NonNull View itemView) {
             super(itemView);
@@ -121,6 +135,7 @@ public class RequestRidesFragment extends Fragment {
             riderTime = itemView.findViewById(R.id.text_time);
             riderNumberOfSeats = itemView.findViewById(R.id.text_passenger_number);
             riderPrice = itemView.findViewById(R.id.text_earnings_entity);
+            deleteTicketButton = itemView.findViewById(R.id.delete_my_ticket_information_entity_request);
         }
     }
 
