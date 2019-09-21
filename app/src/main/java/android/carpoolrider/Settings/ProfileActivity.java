@@ -35,6 +35,14 @@ public class ProfileActivity extends AppCompatActivity {
         setFinishProfileActivity();
     }
 
+    private void initFields() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        userUID = mAuth.getCurrentUser().getUid();
+        Name = findViewById(R.id.name_profile);
+        PhoneNumber = findViewById(R.id.phone_number_profile);
+        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
+    }
+
     private void setFields() {
         UsersRef.child(userUID).addValueEventListener(new ValueEventListener() {
             @Override
@@ -52,13 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    private void initFields() {
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        userUID = mAuth.getCurrentUser().getUid();
-        Name = findViewById(R.id.name_profile);
-        PhoneNumber = findViewById(R.id.phone_number_profile);
-        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
-    }
+
 
     private void setFinishProfileActivity() {
         profileCloseImageView = (RelativeLayout) findViewById(R.id.close_button_profile);

@@ -33,6 +33,14 @@ public class EmailActivity extends AppCompatActivity {
         setFields();
     }
 
+    private void initFields() {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        userUID = mAuth.getCurrentUser().getUid();
+        Email = findViewById(R.id.editText_email_change_settings);
+        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
+    }
+
+
     private void setFields() {
         UsersRef.child(userUID).addValueEventListener(new ValueEventListener() {
             @Override
@@ -50,12 +58,7 @@ public class EmailActivity extends AppCompatActivity {
 
     }
 
-    private void initFields() {
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        userUID = mAuth.getCurrentUser().getUid();
-        Email = findViewById(R.id.editText_email_change_settings);
-        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
-    }
+
 
 
     private void initBack() {

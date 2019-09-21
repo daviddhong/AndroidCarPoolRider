@@ -35,14 +35,19 @@ public class CurrentPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_enter_current_password);
 
-        mAuth = FirebaseAuth.getInstance();
-        userUID = mAuth.getCurrentUser().getUid();
 
-        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
         initBack();
 //        initContinue();
+
+        initFields();
         resetpassword();
+    }
+
+    private void initFields() {
+        mAuth = FirebaseAuth.getInstance();
+        userUID = mAuth.getCurrentUser().getUid();
+        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
     }
 
     private void resetpassword() {
@@ -59,11 +64,11 @@ public class CurrentPasswordActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Intent intent = new Intent(CurrentPasswordActivity.this, LogInActivity.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
+//                                    Intent intent = new Intent(CurrentPasswordActivity.this, LogInActivity.class);
+//                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                    startActivity(intent);
                                     // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
-                                    CurrentPasswordActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+//                                    CurrentPasswordActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                                     Toast.makeText(CurrentPasswordActivity.this,
                                             "sent email to reset PW", Toast.LENGTH_LONG).show();
                                 } else {
