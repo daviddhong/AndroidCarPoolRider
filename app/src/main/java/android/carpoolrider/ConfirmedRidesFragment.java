@@ -30,7 +30,7 @@ public class ConfirmedRidesFragment extends Fragment {
 
     private View reservedRidesView;
     private RecyclerView DriverRecyclerView;
-    private DatabaseReference ConfirmedTicketsRef, RiderTicketsRef;
+    private DatabaseReference ConfirmedTicketsRef, RiderTicketsRef,DriverTicketsRef;
 
     @Nullable
     @Override
@@ -45,6 +45,8 @@ public class ConfirmedRidesFragment extends Fragment {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         String currentUserID = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
+        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
+
         ConfirmedTicketsRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch").child(currentUserID);
         DriverRecyclerView = (RecyclerView) reservedRidesView.findViewById(R.id.confirmed_rides_driver_rides_available_recycler_view);
         DriverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -85,10 +87,43 @@ public class ConfirmedRidesFragment extends Fragment {
                             driverticketholder.itemView.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    final String usersIDS = getRef(i).getKey();
+//                                    final String usersIDS = getRef(i).getKey();
                                     Intent intent = new Intent(getActivity(), IndividualConfirmedTicketRiderDriverActivity.class);
                                     intent.putExtra("clicked_user_id", usersIDS);
                                     startActivity(intent);
+                                }
+                            });
+                        } else {
+                            DriverTicketsRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                                    final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                                    final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                                    final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                                    final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                                    final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+
+                                    driverticketholder.riderTo.setText(ticketTo);
+                                    driverticketholder.riderFrom.setText(ticketFrom);
+                                    driverticketholder.riderDate.setText(ticketDate);
+                                    driverticketholder.riderTime.setText(ticketTime);
+                                    driverticketholder.riderPrice.setText(ticketPrice);
+                                    driverticketholder.riderNumberOfSeats.setText(ticketNumberOfSeats);
+                                    driverticketholder.itemView.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+//                                            final String usersIDS = getRef(i).getKey();
+                                            Intent intent = new Intent(getActivity(), IndividualConfirmedTicketRiderDriverActivity.class);
+                                            intent.putExtra("clicked_user_id", usersIDS);
+                                            startActivity(intent);
+                                        }
+                                    });
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
                                 }
                             });
                         }
