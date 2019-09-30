@@ -97,28 +97,30 @@ public class ConfirmedRidesFragment extends Fragment {
                             DriverTicketsRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    final String ticketTo = dataSnapshot.child("To").getValue().toString();
-                                    final String ticketFrom = dataSnapshot.child("From").getValue().toString();
-                                    final String ticketDate = dataSnapshot.child("Date").getValue().toString();
-                                    final String ticketTime = dataSnapshot.child("Time").getValue().toString();
-                                    final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
-                                    final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+                                    if (dataSnapshot.exists()) {
+                                        final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                                        final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                                        final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                                        final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                                        final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                                        final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
 
-                                    driverticketholder.riderTo.setText(ticketTo);
-                                    driverticketholder.riderFrom.setText(ticketFrom);
-                                    driverticketholder.riderDate.setText(ticketDate);
-                                    driverticketholder.riderTime.setText(ticketTime);
-                                    driverticketholder.riderPrice.setText(ticketPrice);
-                                    driverticketholder.riderNumberOfSeats.setText(ticketNumberOfSeats);
-                                    driverticketholder.itemView.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
+                                        driverticketholder.riderTo.setText(ticketTo);
+                                        driverticketholder.riderFrom.setText(ticketFrom);
+                                        driverticketholder.riderDate.setText(ticketDate);
+                                        driverticketholder.riderTime.setText(ticketTime);
+                                        driverticketholder.riderPrice.setText(ticketPrice);
+                                        driverticketholder.riderNumberOfSeats.setText(ticketNumberOfSeats);
+                                        driverticketholder.itemView.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
 //                                            final String usersIDS = getRef(i).getKey();
-                                            Intent intent = new Intent(getActivity(), IndividualConfirmedTicketRiderDriverActivity.class);
-                                            intent.putExtra("clicked_user_id", usersIDS);
-                                            startActivity(intent);
-                                        }
-                                    });
+                                                Intent intent = new Intent(getActivity(), IndividualConfirmedTicketRiderDriverActivity.class);
+                                                intent.putExtra("clicked_user_id", usersIDS);
+                                                startActivity(intent);
+                                            }
+                                        });
+                                    }
                                 }
 
                                 @Override

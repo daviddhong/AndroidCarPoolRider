@@ -88,8 +88,9 @@ public class AcceptRequestActivity extends AppCompatActivity {
                                 RiderTicketsRef.child(list_user_id).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
+                                        if (dataSnapshot.exists()){
 
-                                        final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                                            final String ticketTo = dataSnapshot.child("To").getValue().toString();
                                         final String ticketFrom = dataSnapshot.child("From").getValue().toString();
                                         final String ticketDate = dataSnapshot.child("Date").getValue().toString();
                                         final String ticketTime = dataSnapshot.child("Time").getValue().toString();
@@ -113,6 +114,7 @@ public class AcceptRequestActivity extends AppCompatActivity {
                                             }
                                         });
                                     }
+                                }
 
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {

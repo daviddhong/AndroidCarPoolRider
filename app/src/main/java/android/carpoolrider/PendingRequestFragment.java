@@ -117,27 +117,29 @@ public class PendingRequestFragment extends Fragment {
                                 DriverTicketsRef.child(list_user_id).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
-                                        final String ticketTo = dataSnapshot.child("To").getValue().toString();
-                                        final String ticketFrom = dataSnapshot.child("From").getValue().toString();
-                                        final String ticketDate = dataSnapshot.child("Date").getValue().toString();
-                                        final String ticketTime = dataSnapshot.child("Time").getValue().toString();
-                                        final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
-                                        final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
-                                        holder.riderTo.setText(ticketTo);
-                                        holder.riderFrom.setText(ticketFrom);
-                                        holder.riderDate.setText(ticketDate);
-                                        holder.riderTime.setText(ticketTime);
-                                        holder.riderPrice.setText(ticketPrice);
-                                        holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
-                                        holder.itemView.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View view) {
-                                                clicked_user_id = getRef(i).getKey();
-                                                Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
-                                                intent.putExtra("clicked_user_id", clicked_user_id);
-                                                startActivity(intent);
-                                            }
-                                        });
+                                        if (dataSnapshot.exists()) {
+                                            final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                                            final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                                            final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                                            final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                                            final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                                            final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+                                            holder.riderTo.setText(ticketTo);
+                                            holder.riderFrom.setText(ticketFrom);
+                                            holder.riderDate.setText(ticketDate);
+                                            holder.riderTime.setText(ticketTime);
+                                            holder.riderPrice.setText(ticketPrice);
+                                            holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
+                                            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View view) {
+                                                    clicked_user_id = getRef(i).getKey();
+                                                    Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
+                                                    intent.putExtra("clicked_user_id", clicked_user_id);
+                                                    startActivity(intent);
+                                                }
+                                            });
+                                        }
                                     }
 
                                     @Override

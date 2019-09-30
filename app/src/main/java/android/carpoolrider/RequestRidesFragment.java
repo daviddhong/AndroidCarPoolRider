@@ -84,25 +84,27 @@ public class RequestRidesFragment extends Fragment {
                 RiderTicketsRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        riderticketholder.riderTo.setText(riderReqTickets.getticketto());
-                        riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
-                        riderticketholder.riderDate.setText(riderReqTickets.getticketdate());
-                        riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
-                        riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
-                        riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
-                        riderticketholder.deleteTicketButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                // does nothing when clicked yet (probably want to delete it)
-                                RiderTicketsRef.child(ticketID).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        Toast.makeText(getContext(), "Ticket Deleted", Toast.LENGTH_LONG).show();
-                                    }
-                                });
+                        if (dataSnapshot.exists()) {
+                            riderticketholder.riderTo.setText(riderReqTickets.getticketto());
+                            riderticketholder.riderFrom.setText(riderReqTickets.getticketfrom());
+                            riderticketholder.riderDate.setText(riderReqTickets.getticketdate());
+                            riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
+                            riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
+                            riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
+                            riderticketholder.deleteTicketButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    // does nothing when clicked yet (probably want to delete it)
+                                    RiderTicketsRef.child(ticketID).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(getContext(), "Ticket Deleted", Toast.LENGTH_LONG).show();
+                                        }
+                                    });
 
-                            }
-                        });
+                                }
+                            });
+                        }
                     }
 
                     @Override

@@ -123,20 +123,22 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         DriverTicketsRef.child(receiverKeyID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                final String ticketTo = dataSnapshot.child("To").getValue().toString();
-                final String ticketFrom = dataSnapshot.child("From").getValue().toString();
-                final String ticketDate = dataSnapshot.child("Date").getValue().toString();
-                final String ticketTime = dataSnapshot.child("Time").getValue().toString();
-                final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
-                final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+                if (dataSnapshot.exists()) {
+                    final String ticketTo = dataSnapshot.child("To").getValue().toString();
+                    final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                    final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                    final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                    final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                    final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
 
 //                riderPhone.setText(phonenumba);
-                riderTo.setText(ticketTo);
-                riderFrom.setText(ticketFrom);
-                riderDate.setText(ticketDate);
-                riderTime.setText(ticketTime);
-                riderPrice.setText(ticketPrice);
-                riderNumberOfSeats.setText(ticketNumberOfSeats);
+                    riderTo.setText(ticketTo);
+                    riderFrom.setText(ticketFrom);
+                    riderDate.setText(ticketDate);
+                    riderTime.setText(ticketTime);
+                    riderPrice.setText(ticketPrice);
+                    riderNumberOfSeats.setText(ticketNumberOfSeats);
+                }
             }
 
             @Override
