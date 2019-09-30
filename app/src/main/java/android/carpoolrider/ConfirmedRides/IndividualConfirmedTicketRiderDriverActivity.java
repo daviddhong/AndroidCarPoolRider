@@ -42,6 +42,8 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
         senderUID = mAuth.getCurrentUser().getUid();
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
+        DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
+
         ConfirmedMatchRef = FirebaseDatabase.getInstance().getReference().child("ConfirmedMatch");
         RiderRequestingDriverRef = FirebaseDatabase.getInstance().getReference().child("RiderRequestingDriver");
         confirm_carpool_button_word = findViewById(R.id.delete_text_button_matched_carpool);

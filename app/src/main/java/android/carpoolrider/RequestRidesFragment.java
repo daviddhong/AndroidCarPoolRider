@@ -91,6 +91,7 @@ public class RequestRidesFragment extends Fragment {
                             riderticketholder.riderTime.setText(riderReqTickets.gettickettime());
                             riderticketholder.riderPrice.setText(riderReqTickets.getticketprice());
                             riderticketholder.riderNumberOfSeats.setText(riderReqTickets.getticketnumberofseats());
+
                             riderticketholder.deleteTicketButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
