@@ -36,6 +36,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
 
     private void forgotpassword() {
+        String email = Email.getText().toString();
 
         sendResetPasswordEmailButton.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -51,10 +52,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                                     // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
                                     ForgotPasswordActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                                     Toast.makeText(ForgotPasswordActivity.this,
-                                            "sent email to reset PW", Toast.LENGTH_LONG).show();
+                                            "Reset Password Email Sent To\n" + email, Toast.LENGTH_LONG).show();
                                 } else {
                                     Toast.makeText(ForgotPasswordActivity.this,
-                                            task.getException().toString(), Toast.LENGTH_LONG).show();
+                                            "There is no account under the email:\n" + email, Toast.LENGTH_LONG).show();
                                 }
                             }
                         });

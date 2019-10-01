@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LogInActivity extends AppCompatActivity {
     private Button loginButton;
-    private RelativeLayout makeAccountPage;
+    private RelativeLayout makeAccountPage, closeactivity;
     private TextView ForgotPassword, ResendVerificationEmail;
     private EditText loginEmail, loginPassword;
     private FirebaseAuth mAuth;
@@ -36,6 +36,7 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initializeFields();
+        goback();
         logInWithEmailAndPassword();
         goToMakeAccountPage();
         forgotPassword();
@@ -43,9 +44,11 @@ public class LogInActivity extends AppCompatActivity {
     }
 
 
+
     private void initializeFields() {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
+        closeactivity = findViewById(R.id.rl_close_login);
         makeAccountPage = findViewById(R.id.rl_create_account);
         loginButton = findViewById(R.id.button_login);
         loginEmail = findViewById(R.id.editText_email_login);
@@ -53,6 +56,16 @@ public class LogInActivity extends AppCompatActivity {
         ResendVerificationEmail = findViewById(R.id.textView_resend_verification_email);
         ForgotPassword = findViewById(R.id.textView_forgotpassword);
     }
+    private void goback() {
+        closeactivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+    }
+
 
     // Log In when login button is pressed
     private void logInWithEmailAndPassword() {
