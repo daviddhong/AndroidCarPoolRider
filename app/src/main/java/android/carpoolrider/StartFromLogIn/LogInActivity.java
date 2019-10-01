@@ -76,9 +76,9 @@ public class LogInActivity extends AppCompatActivity {
                 String email = loginEmail.getText().toString();
                 String password = loginPassword.getText().toString();
                 if (email.isEmpty()) {
-                    Toast.makeText(LogInActivity.this, "Please enter Your Email", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LogInActivity.this, "Please enter your email", Toast.LENGTH_LONG).show();
                 } else if (password.isEmpty()) {
-                    Toast.makeText(LogInActivity.this, "Please enter Your Password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LogInActivity.this, "Please enter your password", Toast.LENGTH_LONG).show();
                 } else {
                     mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -87,7 +87,7 @@ public class LogInActivity extends AppCompatActivity {
                                 if (mAuth.getCurrentUser().isEmailVerified()) {
                                     SendToMainActivity();
                                 } else {
-                                    Toast.makeText(LogInActivity.this, "please verify email", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LogInActivity.this, "Please verify your email", Toast.LENGTH_LONG).show();
                                     ResendVerificationEmail.setVisibility(View.VISIBLE);
                                 }
                             } else {

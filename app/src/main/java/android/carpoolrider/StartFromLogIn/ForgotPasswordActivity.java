@@ -36,30 +36,39 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
 
     private void forgotpassword() {
-        String email = Email.getText().toString();
 
         sendResetPasswordEmailButton.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.sendPasswordResetEmail(Email.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Intent intent = new Intent(ForgotPasswordActivity.this, LogInActivity.class);
-                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
-                                    // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
-                                    ForgotPasswordActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                                    Toast.makeText(ForgotPasswordActivity.this,
-                                            "Reset Password Email Sent To\n" + email, Toast.LENGTH_LONG).show();
-                                } else {
-                                    Toast.makeText(ForgotPasswordActivity.this,
-                                            "There is no account under the email:\n" + email, Toast.LENGTH_LONG).show();
+                String email = Email.getText().toString();
+                if (!(email.isEmpty())) {
+                    mAuth.sendPasswordResetEmail(Email.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    if (task.isSuccessful()) {
+
+                                        Intent intent = new Intent(ForgotPasswordActivity.this, LogInActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent);
+                                        // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
+                                        ForgotPasswordActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                                        Toast.makeText(ForgotPasswordActivity.this,
+                                                "Reset password email sent to\n" + email, Toast.LENGTH_LONG).show();
+                                    } else {
+                                        Toast.makeText(ForgotPasswordActivity.this,
+                                                "There is no account under the email:\n" + email, Toast.LENGTH_LONG).show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                } else {
+                    Toast.makeText(ForgotPasswordActivity.this,
+                            "Email is empty", Toast.LENGTH_LONG).show();
+                }
             }
         }));
     }
+
+
 }
