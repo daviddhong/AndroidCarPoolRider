@@ -19,6 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
@@ -27,9 +28,9 @@ public class CreateAccountPassword extends AppCompatActivity {
 
     private RelativeLayout create_account_button;
     private FirebaseAuth mAuth;
-    //    private FirebaseUser currentUser;
+    private FirebaseUser currentUser;
     private DatabaseReference RootRef;
-    private String fname, lname, uemail, upw, ucar;
+    private String fname, lname, uemail;
     private EditText userpw, confirmpw;
 
     @Override
@@ -38,6 +39,9 @@ public class CreateAccountPassword extends AppCompatActivity {
         setContentView(R.layout.activity_create_account_password);
         userpw = findViewById(R.id.editText_password_sign_up);
         confirmpw = findViewById(R.id.editText_password_sign_upconfirm);
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        RootRef = FirebaseDatabase.getInstance().getReference();
 
 
         Bundle gotname = getIntent().getExtras();
@@ -77,7 +81,7 @@ public class CreateAccountPassword extends AppCompatActivity {
                             "Password must be at least 7 characters long", Toast.LENGTH_LONG).show();
                 } else {
 
-                    SendVerificationEmail();
+                    createAccount_createUser_SendVerificationEmail(upw);
 
 //                    Intent intent = new Intent(CreateAccountPassword.this, LogInActivity.class);
 //                    Bundle dataBundle = new Bundle();
@@ -94,18 +98,37 @@ public class CreateAccountPassword extends AppCompatActivity {
         });
     }
 
+    private void createAccount_createUser_SendVerificationEmail(String pw) {
+        mAuth.createUserWithEmailAndPassword(uemail, pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+
+                    CollectFirstLastNameEmailIntoRealTimeDatabase();
+                    SendVerificationEmail();
+
+
+                } else {
+                    // if account is not made
+                    Toast.makeText(CreateAccountPassword.this,
+                            task.getException().toString(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+
 
     private void SendVerificationEmail() {
 
-        try {
-            final FirebaseUser currentUser = mAuth.getCurrentUser();
+//        try {
+//            final FirebaseUser currentUser = mAuth.getCurrentUser();
             currentUser.sendEmailVerification()
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-
-                                CollectFirstLastNameEmailIntoRealTimeDatabase(fname, lname, uemail, ucar);
+//                                fname, lname, uemail, ucar
                                 Intent intent = new Intent(CreateAccountPassword.this, LogInActivity.class);
                                 startActivity(intent);
 
@@ -118,26 +141,25 @@ public class CreateAccountPassword extends AppCompatActivity {
                         }
                     });
 
-        } catch(NullPointerException e){
-            Toast.makeText(CreateAccountPassword.this,
-                    "NOT sent!!" + e.toString(), Toast.LENGTH_LONG).show();
-
-        }
+//        } catch (NullPointerException e) {
+//            Toast.makeText(CreateAccountPassword.this,
+//                    "NULL POINTER NOT SENT@@" + e.toString(), Toast.LENGTH_LONG).show();
+//        }
     }
-
-    private void CollectFirstLastNameEmailIntoRealTimeDatabase(String firstN, String lastN, String userEmail, String userCar) {
-        String currentUserID = mAuth.getCurrentUser().getUid();
+//    String firstN, String lastN, String userEmail, String userCar
+    private void CollectFirstLastNameEmailIntoRealTimeDatabase() {
+        String currentUserID = currentUser.getUid();
         HashMap<String, String> profileMap = new HashMap<>();
         profileMap.put("uid", currentUserID);
-        profileMap.put("firstname", firstN);
-        profileMap.put("lastname", lastN);
-        profileMap.put("email", userEmail);
-        profileMap.put("carModelMake", userCar);
+        profileMap.put("firstname", fname);
+        profileMap.put("lastname", lname);
+        profileMap.put("email", uemail);
+//        profileMap.put("carModelMake", ucar);
         RootRef.child("Users").child(currentUserID).setValue(profileMap);
     }
 
     private void initBack() {
-        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_settings_password);
+        RelativeLayout back = findViewById(R.id.rl_back_settings_password_account);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

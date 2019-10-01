@@ -8,7 +8,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartFromLogIn.LogInActivity">
+        <activity android:name=".StartFromLogIn.InitialScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,8 +16,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".StartFromLogIn.LogInActivity"/>
         <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
         <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumber"/>
         <activity android:name=".BottomNavigationMainActivity"/>
         <activity android:name=".RequestRides.RequestRouteActivity"/>
         <activity android:name=".Settings.ProfileActivity"/>
@@ -25,10 +30,6 @@
         <activity android:name=".Settings.Password.NewPasswordActivity"/>
         <activity android:name=".Settings.EmailActivity"/>
         <activity android:name=".Settings.PhoneActivity"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmail"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountName"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPassword"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumber"/>
         <activity android:name=".RequestRides.RequestDateActivity"/>
         <activity android:name=".RequestRides.RequestConfirmActivity"/>
         <activity android:name=".RequestRides.RequestPassengerNumberActivity" />
@@ -40,7 +41,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
 
     </application>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
