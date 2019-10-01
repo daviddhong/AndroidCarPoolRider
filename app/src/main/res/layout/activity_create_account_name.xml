@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -84,15 +85,39 @@
             android:layout_marginRight="15dp">
 
             <EditText
-                android:id="@+id/editText_email_login"
+                android:id="@+id/editText_firstname_login"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
                 android:background="@android:color/transparent"
-                android:hint="Enter name"
+                android:hint="Enter First Name"
                 android:inputType="textPersonName"
                 android:textColor="#0A1C2A"
                 android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sign_up_last_name"
+            android:layout_below="@id/sign_up_name"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/border_rectangle_unfilled_with_border"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <EditText
+                android:id="@+id/editText_last_name_create_login"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:background="@android:color/transparent"
+                android:hint="Enter Last Name"
+                android:inputType="textPersonName"
+                android:textColor="#555B5B"
+                android:textSize="15sp"
+                app:fontFamily="@font/roboto"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -101,7 +126,7 @@
             android:layout_height="58dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="188dp"
+            android:layout_marginBottom="168dp"
             android:layout_marginRight="58dp"
             android:layout_marginLeft="58dp"
             android:background="@drawable/border_rectangle_fill">
