@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
@@ -30,8 +31,19 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         sendResetPasswordEmailButton = findViewById(R.id.button_resetpassword);
         Email = findViewById(R.id.textview_emailreset);
+        backbutton();
 
         forgotpassword();
+    }
+
+    private void backbutton() {
+        RelativeLayout back = findViewById(R.id.relative_layout_ic_back_activity_rest_password);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 
