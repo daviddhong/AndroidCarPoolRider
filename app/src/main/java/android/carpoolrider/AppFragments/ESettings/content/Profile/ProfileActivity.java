@@ -1,4 +1,4 @@
-package android.carpoolrider.AppFragments.ESettings.content;
+package android.carpoolrider.AppFragments.ESettings.content.Profile;
 
 import android.carpoolrider.R;
 import android.os.Bundle;

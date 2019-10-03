@@ -1,7 +1,7 @@
 package android.carpoolrider.AppFragments.ESettings;
 
 import android.carpoolrider.AppFragments.ESettings.content.Password.CurrentPasswordActivity;
-import android.carpoolrider.AppFragments.ESettings.content.ProfileActivity;
+import android.carpoolrider.AppFragments.ESettings.content.Profile.ProfileActivity;
 import android.carpoolrider.AppFragments.ESettings.content.EmailActivity;
 import android.carpoolrider.AppFragments.ESettings.content.PhoneActivity;
 import android.carpoolrider.R;

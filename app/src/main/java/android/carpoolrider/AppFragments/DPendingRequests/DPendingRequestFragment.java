@@ -3,7 +3,7 @@ package android.carpoolrider.AppFragments.DPendingRequests;
 import android.carpoolrider.AppFragments.DPendingRequests.content.AcceptRequestActivity;
 import android.carpoolrider.AppFragments.BRequestRides.content.RequestRiderRequestTicket;
 import android.carpoolrider.AppFragments.ARidesAvailable.content.IndividualDriverRequestActivity;
-import android.carpoolrider.AppFragments.ESettings.content.ProfileActivity;
+import android.carpoolrider.AppFragments.ESettings.content.Profile.ProfileActivity;
 import android.carpoolrider.R;
 import android.content.Intent;
 import android.os.Bundle;

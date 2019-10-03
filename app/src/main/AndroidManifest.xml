@@ -25,7 +25,7 @@
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumberActivity"/>
         <activity android:name=".AppFragments.ZBottomNavigationMainActivity"/>
         <activity android:name=".AppFragments.BRequestRides.content.RequestRouteActivity"/>
-        <activity android:name=".AppFragments.ESettings.content.ProfileActivity"/>
+        <activity android:name=".AppFragments.ESettings.content.Profile.ProfileActivity"/>
         <activity android:name=".AppFragments.ESettings.content.Password.CurrentPasswordActivity"/>
         <activity android:name=".AppFragments.ESettings.content.Password.NewPasswordActivity"/>
         <activity android:name=".AppFragments.ESettings.content.EmailActivity"/>
