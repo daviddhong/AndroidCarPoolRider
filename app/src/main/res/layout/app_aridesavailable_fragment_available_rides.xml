@@ -45,7 +45,7 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/driver_rides_available_recycler_view"
-                tools:listitem="@layout/layout_posted_ride_ticket_entity"
+                tools:listitem="@layout/app_aridesavailable_layout_posted_ride_ticket_entity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 

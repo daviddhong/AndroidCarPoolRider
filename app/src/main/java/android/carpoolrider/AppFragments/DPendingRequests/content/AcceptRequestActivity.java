@@ -137,7 +137,7 @@ public class AcceptRequestActivity extends AppCompatActivity {
             @NonNull
             @Override
             public riderTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_accepted_ride_request_ride_ticket_entity, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.app_dpendingrequests_content_layout_accepted_ride_request_ride_ticket_entity, parent, false);
                 riderTicketHolder viewHolder = new riderTicketHolder(view);
                 return viewHolder;
             }

@@ -78,7 +78,7 @@ public class ARidesAvailableFragment extends Fragment {
             @NonNull
             @Override
             public driverTicketHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_posted_ride_ticket_entity, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.app_aridesavailable_layout_posted_ride_ticket_entity, parent, false);
                 driverTicketHolder viewHolder = new driverTicketHolder(view);
                 return viewHolder;
             }
