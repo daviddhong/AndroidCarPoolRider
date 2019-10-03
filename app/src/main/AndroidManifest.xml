@@ -34,7 +34,7 @@
         <activity android:name=".AppFragments.ESettings.content.EmailActivity"/>
         <activity android:name=".AppFragments.ESettings.content.OpenSourceLicenseActivity"/>
         <activity android:name=".AppFragments.ESettings.content.PhoneActivity"/>
-        <activity android:name=".AppFragments.ZBottomNavigationMainActivity"/>
+        <activity android:name=".AppFragments.BottomNavigationMainActivity"/>
 
         <activity android:name=".StartFromLogIn.CreateAccount.WhySelectiveEmail.WhySelectiveEmail"/>
         <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmailActivity"/>

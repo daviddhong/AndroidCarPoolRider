@@ -23,10 +23,10 @@ import java.util.HashMap;
 
 public class IndividualDriverRequestActivity extends AppCompatActivity {
 
-    private String receiverKeyID, senderUID, current_state, receiverUID, phonenumba;
+    private String receiverKeyID, senderUID, current_state, receiverUID;
     private RelativeLayout confirmButton, backButton;
     private DatabaseReference UserRef, RiderRequestingDriverRef, DriverTicketsRef;
-    private TextView confirm_carpool_button_word, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName, phoneNumb;
+    private TextView confirm_carpool_button_word, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +37,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         extractReceiverUID();
         fillTicketInformationFromDatabase();
         RetrieveTicketStatusInformation();
-//        RetrievePhoneNumberInformation();
     }
-
-//    private void RetrievePhoneNumberInformation() {
-//        UserRef.child(senderUID).child("phonenumber").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                phonenumba = dataSnapshot.child("PhoneNumber").getValue().toString();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
 
     private void backButtonFunction() {
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +68,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         riderNumberOfSeats = findViewById(R.id.passengernum);
         riderPrice = findViewById(R.id.earnings_text_confirm);
         riderName = findViewById(R.id.profile_name);
-        phoneNumb = findViewById(R.id.phonenumberofthedriverticket);
     }
 
     private void extractReceiverUID() {
@@ -93,7 +77,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     receiverUID = dataSnapshot.getValue().toString();
-
                     // setting name in ticket
                     UserRef.child(receiverUID).addValueEventListener(new ValueEventListener() {
                         @Override
@@ -130,8 +113,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                     final String ticketTime = dataSnapshot.child("Time").getValue().toString();
                     final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
                     final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
-
-//                riderPhone.setText(phonenumba);
                     riderTo.setText(ticketTo);
                     riderFrom.setText(ticketFrom);
                     riderDate.setText(ticketDate);
@@ -204,8 +185,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                 }
             });
         } else {
-//            confirmButton.setVisibility(View.INVISIBLE);
-            //todo should not call this, filter out from querying
+            //todo should not call this eventually, filter out from querying
             confirm_carpool_button_word.setText("My own ride request... cannot request!");
             confirmButton.setEnabled(false);
         }
@@ -268,7 +248,6 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                                                 current_state = "requestissent";
                                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
-//                                                sendfriendrequest.setText("Cancel Friend Request");
                                             }
                                         }
                                     });

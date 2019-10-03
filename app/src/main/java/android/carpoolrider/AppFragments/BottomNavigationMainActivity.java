@@ -15,7 +15,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class ZBottomNavigationMainActivity extends AppCompatActivity {
+public class BottomNavigationMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class ZBottomNavigationMainActivity extends AppCompatActivity {
         bottomNavigationView();
     }
 
-    // EFFECTS: Replace ZBottomNavigationMainActivity with ARidesAvailableFragment.
+    // EFFECTS: Replace BottomNavigationMainActivity with ARidesAvailableFragment.
     private void initFragment() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame_layout, new ARidesAvailableFragment()).commit();

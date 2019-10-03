@@ -26,25 +26,7 @@ public class PhoneActivity extends AppCompatActivity {
         initBack();
 
         initFields();
-//        setFields();
     }
-
-//    private void setFields() {
-//        UsersRef.child(userUID).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.exists()){
-//                    PhoneNumber.setText(dataSnapshot.child("phonenumber").getValue().toString());
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//
-//    }
 
     private void initFields() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();

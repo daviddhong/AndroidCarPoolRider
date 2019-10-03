@@ -73,14 +73,12 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
                                 riderName.setText(ticketname);
                             }
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
                         }
                     });
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
@@ -123,7 +121,6 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
                                 riderNumberOfSeats.setText(ticketNumberOfSeats);
                             }
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
                         }
@@ -147,7 +144,7 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
         });
     }
 
-    // todo fix this so database removes the matchedRides realtime.
+// todo fix this so database removes the matchedRides realtime. i think its fixed now double check
     private void RemoveSpecificContact() {
         ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
                 .removeValue()

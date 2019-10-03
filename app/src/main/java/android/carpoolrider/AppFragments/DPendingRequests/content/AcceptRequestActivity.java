@@ -88,33 +88,33 @@ public class AcceptRequestActivity extends AppCompatActivity {
                                 RiderTicketsRef.child(list_user_id).addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
-                                        if (dataSnapshot.exists()){
+                                        if (dataSnapshot.exists()) {
 
                                             final String ticketTo = dataSnapshot.child("To").getValue().toString();
-                                        final String ticketFrom = dataSnapshot.child("From").getValue().toString();
-                                        final String ticketDate = dataSnapshot.child("Date").getValue().toString();
-                                        final String ticketTime = dataSnapshot.child("Time").getValue().toString();
-                                        final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
-                                        final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
+                                            final String ticketFrom = dataSnapshot.child("From").getValue().toString();
+                                            final String ticketDate = dataSnapshot.child("Date").getValue().toString();
+                                            final String ticketTime = dataSnapshot.child("Time").getValue().toString();
+                                            final String ticketPrice = dataSnapshot.child("Price").getValue().toString();
+                                            final String ticketNumberOfSeats = dataSnapshot.child("NumberOfSeats").getValue().toString();
 
-                                        holder.riderTo.setText(ticketTo);
-                                        holder.riderFrom.setText(ticketFrom);
-                                        holder.riderDate.setText(ticketDate);
-                                        holder.riderTime.setText(ticketTime);
-                                        holder.riderPrice.setText(ticketPrice);
-                                        holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
+                                            holder.riderTo.setText(ticketTo);
+                                            holder.riderFrom.setText(ticketFrom);
+                                            holder.riderDate.setText(ticketDate);
+                                            holder.riderTime.setText(ticketTime);
+                                            holder.riderPrice.setText(ticketPrice);
+                                            holder.riderNumberOfSeats.setText(ticketNumberOfSeats);
 
-                                        holder.itemView.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View view) {
-                                                clicked_user_id = getRef(i).getKey();
-                                                Intent intent = new Intent(AcceptRequestActivity.this, IndividualAcceptDeclineRequestActivity.class);
-                                                intent.putExtra("clicked_user_id", clicked_user_id);
-                                                startActivity(intent);
-                                            }
-                                        });
+                                            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View view) {
+                                                    clicked_user_id = getRef(i).getKey();
+                                                    Intent intent = new Intent(AcceptRequestActivity.this, IndividualAcceptDeclineRequestActivity.class);
+                                                    intent.putExtra("clicked_user_id", clicked_user_id);
+                                                    startActivity(intent);
+                                                }
+                                            });
+                                        }
                                     }
-                                }
 
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
@@ -159,11 +159,6 @@ public class AcceptRequestActivity extends AppCompatActivity {
             riderPrice = itemView.findViewById(R.id.ad_ride_text_earnings_entity);
         }
     }
-
-
-
-
-
 
 
     private void initBack() {
