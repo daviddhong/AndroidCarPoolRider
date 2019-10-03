@@ -16,14 +16,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".StartFromLogIn.CreateAccount.WhySelectiveEmail.WhySelectiveEmail"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmailActivity"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountNameActivity"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPasswordActivity"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumberActivity"/>
-        <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
-        <activity android:name=".StartFromLogIn.LogInActivity"/>
-        <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
         <activity android:name=".AppFragments.ARidesAvailable.content.IndividualDriverRequestActivity"/>
         <activity android:name=".AppFragments.BRequestRides.content.RequestConfirmActivity"/>
         <activity android:name=".AppFragments.BRequestRides.content.RequestDateActivity"/>
@@ -43,6 +35,15 @@
         <activity android:name=".AppFragments.ESettings.content.OpenSourceLicenseActivity"/>
         <activity android:name=".AppFragments.ESettings.content.PhoneActivity"/>
         <activity android:name=".AppFragments.ZBottomNavigationMainActivity"/>
+
+        <activity android:name=".StartFromLogIn.CreateAccount.WhySelectiveEmail.WhySelectiveEmail"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmailActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountNameActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPasswordActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumberActivity"/>
+        <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
+        <activity android:name=".StartFromLogIn.LogInActivity"/>
+        <activity android:name=".StartFromLogIn.MakeAccountActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
