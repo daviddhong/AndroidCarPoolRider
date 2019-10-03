@@ -26,7 +26,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.startfromlogin_activity_forgot_password);
 
         mAuth = FirebaseAuth.getInstance();
         sendResetPasswordEmailButton = findViewById(R.id.button_resetpassword);
@@ -64,7 +64,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                                         Intent intent = new Intent(ForgotPasswordActivity.this, LogInActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);
-                                        // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
+                                        // EFFECTS: Animation from LogInActivity to ZBottomNavigationMainActivity.
                                         ForgotPasswordActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                                         Toast.makeText(ForgotPasswordActivity.this,
                                                 "Reset password email sent to\n" + email, Toast.LENGTH_LONG).show();

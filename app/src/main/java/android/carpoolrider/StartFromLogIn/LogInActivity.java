@@ -3,9 +3,9 @@ package android.carpoolrider.StartFromLogIn;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.carpoolrider.BottomNavigationMainActivity;
+import android.carpoolrider.AppFragments.ZBottomNavigationMainActivity;
 import android.carpoolrider.R;
-import android.carpoolrider.StartFromLogIn.CreateAccount.CreateAccountName;
+import android.carpoolrider.StartFromLogIn.CreateAccount.CreateAccountNameActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +34,7 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.startfromlogin_activity_login);
         initializeFields();
         goback();
         logInWithEmailAndPassword();
@@ -103,10 +103,10 @@ public class LogInActivity extends AppCompatActivity {
 
     // go to main activity
     private void SendToMainActivity() {
-        Intent intent = new Intent(LogInActivity.this, BottomNavigationMainActivity.class);
+        Intent intent = new Intent(LogInActivity.this, ZBottomNavigationMainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
+        // EFFECTS: Animation from LogInActivity to ZBottomNavigationMainActivity.
         LogInActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
     }
@@ -122,7 +122,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void SendToMakeAccountActivity() {
-        Intent intent = new Intent(LogInActivity.this, CreateAccountName.class);
+        Intent intent = new Intent(LogInActivity.this, CreateAccountNameActivity.class);
         startActivity(intent);
         // EFFECTS: Animation from LogInActivity to MakeAccountActivity.
         LogInActivity.this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -154,7 +154,7 @@ public class LogInActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LogInActivity.this, ForgotPasswordActivity.class);
                 startActivity(intent);
-                // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.
+                // EFFECTS: Animation from LogInActivity to ZBottomNavigationMainActivity.
                 LogInActivity.this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             }
         }));
