@@ -10,7 +10,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/rl_back_create_account_phone_number"
+            android:id="@+id/rl_back_create_account_phone_numbere"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -109,7 +109,7 @@
                 android:tint="#05D686"/>
 
             <EditText
-                android:id="@+id/editText_password_sign_up"
+                android:id="@+id/editText_phonenumber_sign_upp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"

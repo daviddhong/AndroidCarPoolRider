@@ -40,7 +40,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/gotRequestlayoutbutton"
             android:layout_marginBottom="10dp"
             android:layout_below="@+id/relative_layout_header_rate_drivers"
             android:layout_marginTop="0dp">
@@ -54,51 +53,12 @@
             </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/gotRequestlayoutbutton"
-            android:layout_width="match_parent"
-            android:layout_height="188dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/border_top">
-
-            <TextView
-                android:id="@+id/text_accept"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="20dp"
-                android:text="For the list of and to accept or decline your carpool requests that have been accepted by a driver."
-                android:textSize="17sp"
-                android:textColor="#262626"
-                android:fontFamily="@font/roboto"/>
-
-            <RelativeLayout
-                android:id="@+id/click_here"
-                android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:layout_below="@+id/text_accept"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/background_rectangle_filled"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:textColor="#FFF"
-                    android:textSize="17sp"
-                    android:text="Click here"
-                    android:fontFamily="@font/roboto_bold"/>
-            </RelativeLayout>
 
 
 
-        </RelativeLayout>
+
+
+
 
     </RelativeLayout>
 

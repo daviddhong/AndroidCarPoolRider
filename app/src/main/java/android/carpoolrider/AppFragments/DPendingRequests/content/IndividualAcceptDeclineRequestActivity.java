@@ -1,10 +1,13 @@
 package android.carpoolrider.AppFragments.DPendingRequests.content;
 
+import android.carpoolrider.AppFragments.ARidesAvailable.content.IndividualDriverRequestActivity;
+import android.carpoolrider.AppFragments.CConfirmedRides.content.IndividualConfirmedTicketRiderDriverActivity;
 import android.carpoolrider.R;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +20,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
 
@@ -140,6 +146,8 @@ public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
                 createCarpoolConfirmMatchNodeInFireBase();
                 //todo ask are you sure before finalizing finish
                 deletingDatabase();
+                finish();
+                Toast.makeText(IndividualAcceptDeclineRequestActivity.this, "Confirmed Request", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -152,6 +160,18 @@ public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
                 // delete and end activity
                 //todo ask are you sure before finalizing finish
                 deletingDatabase();
+
+
+                Map<String, Object> profileMap = new HashMap<>();
+                String status = "0";
+                profileMap.put("status", status);
+                profileMap.put("status_uid", status+senderUIDme);
+                RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
+
+                finish();
+                Toast.makeText(IndividualAcceptDeclineRequestActivity.this, "Declined Request", Toast.LENGTH_LONG).show();
+
             }
         });
     }
@@ -165,6 +185,7 @@ public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             ConfirmedMatchRef.child(receiverUID).child(receiverKeyID)
                                     .child("with").setValue(senderUIDme);
+
                         }
                     }
                 });
@@ -183,7 +204,6 @@ public class IndividualAcceptDeclineRequestActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                finish();
                                             }
                                         }
                                     });

@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.carpoolrider.AppFragments.BottomNavigationMainActivity;
 import android.carpoolrider.R;
-import android.carpoolrider.StartFromLogIn.CreateAccount.CreateAccountNameActivity;
+import android.carpoolrider.StartFromLogIn.CreateAccount.ACreateAccountNameActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -88,7 +88,7 @@ public class LogInActivity extends AppCompatActivity {
                                     SendToMainActivity();
                                 } else {
                                     Toast.makeText(LogInActivity.this, "Please verify your email", Toast.LENGTH_LONG).show();
-                                    ResendVerificationEmail.setVisibility(View.VISIBLE);
+//                                    ResendVerificationEmail.setVisibility(View.VISIBLE);
                                 }
                             } else {
                                 Toast.makeText(LogInActivity.this, task.getException().toString(), Toast.LENGTH_LONG).show();
@@ -122,7 +122,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void SendToMakeAccountActivity() {
-        Intent intent = new Intent(LogInActivity.this, CreateAccountNameActivity.class);
+        Intent intent = new Intent(LogInActivity.this, ACreateAccountNameActivity.class);
         startActivity(intent);
         // EFFECTS: Animation from LogInActivity to MakeAccountActivity.
         LogInActivity.this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -165,8 +165,12 @@ public class LogInActivity extends AppCompatActivity {
         ResendVerificationEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 Toast.makeText(LogInActivity.this,
-                        "TODO resend verification email", Toast.LENGTH_LONG).show();
+                        "Resent verification email", Toast.LENGTH_LONG).show();
+
+
             }
         });
     }

@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreateAccountNameActivity extends AppCompatActivity {
+public class ACreateAccountNameActivity extends AppCompatActivity {
 
     private EditText first_name, last_name;
 
@@ -36,14 +36,14 @@ public class CreateAccountNameActivity extends AppCompatActivity {
                 String lname = last_name.getText().toString();
 
                 if (!(fname.isEmpty() || lname.isEmpty())) {
-                    Intent intent = new Intent(CreateAccountNameActivity.this, CreateAccountEmailActivity.class);
+                    Intent intent = new Intent(ACreateAccountNameActivity.this, BCreateAccountEmailActivity.class);
                     Bundle dataBundle = new Bundle();
                     dataBundle.putString("first_name", fname);
                     dataBundle.putString("last_name", lname);
                     intent.putExtras(dataBundle);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(CreateAccountNameActivity.this, "Please Enter Your First and Last Name", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ACreateAccountNameActivity.this, "Please Enter Your First and Last Name", Toast.LENGTH_LONG).show();
 
                 }
             }

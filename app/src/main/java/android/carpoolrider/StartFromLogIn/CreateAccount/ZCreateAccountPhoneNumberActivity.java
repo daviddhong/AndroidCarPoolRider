@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreateAccountPhoneNumberActivity extends AppCompatActivity {
+public class ZCreateAccountPhoneNumberActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class CreateAccountPhoneNumberActivity extends AppCompatActivity {
 
 
     private void initBack() {
-        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_create_account_phone_number);
+        RelativeLayout back = (RelativeLayout) findViewById(R.id.rl_back_create_account_phone_numbere);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

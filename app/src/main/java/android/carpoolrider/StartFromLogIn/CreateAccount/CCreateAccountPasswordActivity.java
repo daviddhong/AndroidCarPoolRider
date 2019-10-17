@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class CreateAccountPasswordActivity extends AppCompatActivity {
+public class CCreateAccountPasswordActivity extends AppCompatActivity {
 
 
     private RelativeLayout create_account_button;
@@ -71,19 +71,19 @@ public class CreateAccountPasswordActivity extends AppCompatActivity {
                 //    https://stackoverflow.com/questions/3802192/regexp-java-for-password-validation
 
                 if (upw.isEmpty()) {
-                    Toast.makeText(CreateAccountPasswordActivity.this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CCreateAccountPasswordActivity.this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
                 } else if (cpw.isEmpty()) {
-                    Toast.makeText(CreateAccountPasswordActivity.this, "Please Confirm Your Password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CCreateAccountPasswordActivity.this, "Please Confirm Your Password", Toast.LENGTH_LONG).show();
                 } else if (!(upw.equals(cpw))) {
-                    Toast.makeText(CreateAccountPasswordActivity.this, "Passwords do not match", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CCreateAccountPasswordActivity.this, "Passwords do not match", Toast.LENGTH_LONG).show();
                 } else if (upw.length() < 7) {
-                    Toast.makeText(CreateAccountPasswordActivity.this,
+                    Toast.makeText(CCreateAccountPasswordActivity.this,
                             "Password must be at least 7 characters long", Toast.LENGTH_LONG).show();
                 } else {
 
                     createAccount_createUser_SendVerificationEmail(upw);
 
-//                    Intent intent = new Intent(CreateAccountPasswordActivity.this, LogInActivity.class);
+//                    Intent intent = new Intent(CCreateAccountPasswordActivity.this, LogInActivity.class);
 //                    Bundle dataBundle = new Bundle();
 //
 //                    dataBundle.putString("first_name", fname);
@@ -107,10 +107,9 @@ public class CreateAccountPasswordActivity extends AppCompatActivity {
                     CollectFirstLastNameEmailIntoRealTimeDatabase();
                     SendVerificationEmail();
 
-
                 } else {
                     // if account is not made
-                    Toast.makeText(CreateAccountPasswordActivity.this,
+                    Toast.makeText(CCreateAccountPasswordActivity.this,
                             task.getException().toString(), Toast.LENGTH_LONG).show();
                 }
             }
@@ -129,20 +128,20 @@ public class CreateAccountPasswordActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
 //                                fname, lname, uemail, ucar
-                                Intent intent = new Intent(CreateAccountPasswordActivity.this, LogInActivity.class);
+                                Intent intent = new Intent(CCreateAccountPasswordActivity.this, LogInActivity.class);
                                 startActivity(intent);
 
-                                Toast.makeText(CreateAccountPasswordActivity.this,
+                                Toast.makeText(CCreateAccountPasswordActivity.this,
                                         "Verification email sent to \n" + uemail, Toast.LENGTH_LONG).show();
                             } else {
-                                Toast.makeText(CreateAccountPasswordActivity.this,
+                                Toast.makeText(CCreateAccountPasswordActivity.this,
                                         "NOT sent!!" + task.getException().toString(), Toast.LENGTH_LONG).show();
                             }
                         }
                     });
 
 //        } catch (NullPointerException e) {
-//            Toast.makeText(CreateAccountPasswordActivity.this,
+//            Toast.makeText(CCreateAccountPasswordActivity.this,
 //                    "NULL POINTER NOT SENT@@" + e.toString(), Toast.LENGTH_LONG).show();
 //        }
     }

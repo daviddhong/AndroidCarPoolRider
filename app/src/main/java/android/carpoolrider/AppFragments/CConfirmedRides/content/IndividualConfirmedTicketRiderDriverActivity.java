@@ -1,10 +1,12 @@
 package android.carpoolrider.AppFragments.CConfirmedRides.content;
 
+import android.carpoolrider.AppFragments.ARidesAvailable.content.IndividualDriverRequestActivity;
 import android.carpoolrider.R;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActivity {
 
@@ -33,6 +38,7 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
         setName();
         setTicketInformation();
         DeleteConfirmedRide();
+        backbutton();
     }
 
     private void initializeFields() {
@@ -57,6 +63,7 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
         riderName = findViewById(R.id.t_confirmed_profile_name);
     }
 
+
     private void setName() {
         //setting name in ticket
         ConfirmedMatchRef.child(senderUID).child(receiverKeyID).child("with").addValueEventListener(new ValueEventListener() {
@@ -73,12 +80,14 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
                                 riderName.setText(ticketname);
                             }
                         }
+
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
                         }
                     });
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
@@ -121,6 +130,7 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
                                 riderNumberOfSeats.setText(ticketNumberOfSeats);
                             }
                         }
+
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
                         }
@@ -144,7 +154,7 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
         });
     }
 
-// todo fix this so database removes the matchedRides realtime. i think its fixed now double check
+    // todo fix this so database removes the matchedRides realtime. i think its fixed now double check
     private void RemoveSpecificContact() {
         ConfirmedMatchRef.child(senderUID).child(receiverKeyID)
                 .removeValue()
@@ -159,12 +169,47 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
+
+                                                RiderTicketsRef.child(receiverKeyID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                        if (dataSnapshot.exists()) {
+                                                            Map<String, Object> profileMap = new HashMap<>();
+                                                            String status = "0";
+                                                            profileMap.put("status", status);
+                                                            profileMap.put("status_uid", status + senderUID);
+                                                            RiderTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+                                                        } else {
+                                                            Map<String, Object> profileMap = new HashMap<>();
+                                                            String status = "0";
+                                                            profileMap.put("status", status);
+                                                            profileMap.put("status_uid", status + receiverUID);
+                                                            DriverTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                    }
+                                                });
                                                 finish();
+                                                Toast.makeText(IndividualConfirmedTicketRiderDriverActivity.this, "Canceled Confirmed Ticket", Toast.LENGTH_LONG).show();
+
                                             }
                                         }
                                     });
                         }
                     }
                 });
+    }
+
+    private void backbutton() {
+        RelativeLayout back = findViewById(R.id.backbuttonforconfirmedticket);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

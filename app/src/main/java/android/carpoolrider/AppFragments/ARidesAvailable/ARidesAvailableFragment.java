@@ -2,6 +2,7 @@ package android.carpoolrider.AppFragments.ARidesAvailable;
 
 import android.carpoolrider.AppFragments.BRequestRides.content.RequestDriverRequestTicket;
 import android.carpoolrider.AppFragments.ARidesAvailable.content.IndividualDriverRequestActivity;
+import android.carpoolrider.AppFragments.ARidesAvailable.contentTwo.AcceptRequestActivity;
 import android.carpoolrider.AppFragments.ESettings.content.Profile.ProfileActivity;
 import android.carpoolrider.R;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +24,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class ARidesAvailableFragment extends Fragment {
     private View availableRidesView;
@@ -33,6 +36,7 @@ public class ARidesAvailableFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         availableRidesView = inflater.inflate(R.layout.app_aridesavailable_fragment_available_rides, container, false);
         initializeFields();
+        acceptOrDeclineReceivedCarpoolRequests();
         goToMyProfileByProfileImageView();
         return availableRidesView;
     }
@@ -45,13 +49,38 @@ public class ARidesAvailableFragment extends Fragment {
         DriverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
+    // EFFECTS: Initialize the post new carpool activity.
+    private void acceptOrDeclineReceivedCarpoolRequests() {
+        RelativeLayout gotRequestRelativeLay = (RelativeLayout) availableRidesView.findViewById(R.id.gotRequestlayoutbutton);
+        gotRequestRelativeLay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AcceptRequestActivity.class);
+                startActivity(intent);
+                // EFFECTS: Animation to Profile Activity
+                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
+            }
+        });
+    }
+
+
     // Display the list of all driver tickets with FireBase recycler
     @Override
     public void onStart() {
         super.onStart();
+
+// todo query just the tickets that are not yet requested
+        Query rreceiveriderQuery = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child("DriverTickets")
+                .orderByChild("status")
+                .equalTo("0");
+
+
         FirebaseRecyclerOptions<RequestDriverRequestTicket> options
                 = new FirebaseRecyclerOptions.Builder<RequestDriverRequestTicket>()
-                .setQuery(DriverTicketsRef, RequestDriverRequestTicket.class)
+                .setQuery(rreceiveriderQuery, RequestDriverRequestTicket.class)
                 .build();
         FirebaseRecyclerAdapter<RequestDriverRequestTicket, driverTicketHolder> adapter
                 = new FirebaseRecyclerAdapter<RequestDriverRequestTicket, driverTicketHolder>(options) {

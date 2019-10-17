@@ -1,5 +1,6 @@
 package android.carpoolrider.AppFragments.BRequestRides.content;
 
+import android.carpoolrider.AppFragments.ARidesAvailable.content.IndividualDriverRequestActivity;
 import android.carpoolrider.AppFragments.BottomNavigationMainActivity;
 import android.carpoolrider.R;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -90,6 +92,8 @@ public class RequestConfirmActivity extends AppCompatActivity {
         profileMap.put("Price", earnings);
         profileMap.put("Date", date);
         profileMap.put("Time", time);
+        profileMap.put("status", "0");
+        profileMap.put("status_uid", "0"+currentUserID);
         RootKeyRef.updateChildren(profileMap);
     }
 
@@ -182,6 +186,8 @@ public class RequestConfirmActivity extends AppCompatActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 // EFFECTS: Animation from ()Activity to ()Activity.
+                Toast.makeText(RequestConfirmActivity.this, "Made Carpool Ticket", Toast.LENGTH_LONG).show();
+
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });

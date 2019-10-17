@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,12 +21,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class IndividualDriverRequestActivity extends AppCompatActivity {
 
     private String receiverKeyID, senderUID, current_state, receiverUID;
     private RelativeLayout confirmButton, backButton;
-    private DatabaseReference UserRef, RiderRequestingDriverRef, DriverTicketsRef;
+    private DatabaseReference UserRef, RiderRequestingDriverRef, DriverTicketsRef, RiderTicketsRef;
     private TextView confirm_carpool_button_word, riderTo, riderFrom, riderDate, riderTime, riderNumberOfSeats, riderPrice, riderName;
 
     @Override
@@ -56,6 +58,8 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         senderUID = mAuth.getCurrentUser().getUid();
         UserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
+        RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
+
         RiderRequestingDriverRef = FirebaseDatabase.getInstance().getReference().child("RiderRequestingDriver");
         confirm_carpool_button_word = findViewById(R.id.confirm_carpool_button_word);
         confirmButton = findViewById(R.id.confirm_carpool);
@@ -159,6 +163,13 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                                     .child("requeststatus").getValue().toString();
                             if (requestStatus.equals("sent")) {
                                 current_state = "requestissent";
+
+                                Map<String, Object> profileMap = new HashMap<>();
+                                String status = "1";
+                                profileMap.put("status", status);
+                                profileMap.put("status_uid", status+receiverUID);
+                                DriverTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
                                 confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
                             }
@@ -207,8 +218,19 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 confirmButton.setEnabled(true);
                                                 current_state = "new_dontknoweachother";
+
+                                                Map<String, Object> profileMap = new HashMap<>();
+                                                String status = "0";
+                                                profileMap.put("status", status);
+                                                profileMap.put("status_uid", status+receiverUID);
+                                                DriverTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
                                                 confirm_carpool_button_word.setText("Request to Pickup Rider");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#2A2E43"));
+                                                finish();
+                                                Toast.makeText(IndividualDriverRequestActivity.this, "Canceled Request", Toast.LENGTH_LONG).show();
+
+
                                             }
                                         }
                                     });
@@ -246,8 +268,18 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
 
                                                 confirmButton.setEnabled(true);
                                                 current_state = "requestissent";
+
+                                                Map<String, Object> profileMap = new HashMap<>();
+                                                String status = "1";
+                                                profileMap.put("status", status);
+                                                profileMap.put("status_uid", status+receiverUID);
+                                                DriverTicketsRef.child(receiverKeyID).updateChildren(profileMap);
+
                                                 confirm_carpool_button_word.setText("Cancel Carpool Request");
                                                 confirmButton.setBackgroundColor(Color.parseColor("#FF0000"));
+                                                finish();
+                                                Toast.makeText(IndividualDriverRequestActivity.this, "Sent Request", Toast.LENGTH_LONG).show();
+
                                             }
                                         }
                                     });

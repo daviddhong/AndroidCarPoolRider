@@ -65,15 +65,18 @@ public class BRequestRidesFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        Query myPostedRideTicketsQuery = FirebaseDatabase
+        String UidToString = FirebaseAuth.getInstance().getUid().toString();
+        String status_uid = "0" + UidToString;
+
+        Query receiveriderQuery = FirebaseDatabase
                 .getInstance()
                 .getReference()
                 .child("RiderTickets")
-                .orderByChild("uid")
-                .equalTo(currentUserID);
+                .orderByChild("status_uid")
+                .equalTo(status_uid);
 
         FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<RequestRiderRequestTicket>()
-                .setQuery(myPostedRideTicketsQuery, RequestRiderRequestTicket.class)
+                .setQuery(receiveriderQuery, RequestRiderRequestTicket.class)
                 .build();
 
         final FirebaseRecyclerAdapter<RequestRiderRequestTicket, riderTicketHolder> adapter

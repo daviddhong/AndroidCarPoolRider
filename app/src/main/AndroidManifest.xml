@@ -23,7 +23,7 @@
         <activity android:name=".AppFragments.BRequestRides.content.RequestRouteActivity"/>
         <activity android:name=".AppFragments.BRequestRides.content.RequestTimeActivity"/>
         <activity android:name=".AppFragments.CConfirmedRides.content.IndividualConfirmedTicketRiderDriverActivity"/>
-        <activity android:name=".AppFragments.DPendingRequests.content.AcceptRequestActivity"/>
+        <activity android:name=".AppFragments.ARidesAvailable.contentTwo.AcceptRequestActivity"/>
         <activity android:name=".AppFragments.DPendingRequests.content.IndividualAcceptDeclineRequestActivity"/>
         <activity android:name=".AppFragments.ESettings.content.Password.CurrentPasswordActivity"/>
         <activity android:name=".AppFragments.ESettings.content.Password.NewPasswordActivity"/>
@@ -37,10 +37,10 @@
         <activity android:name=".AppFragments.BottomNavigationMainActivity"/>
 
         <activity android:name=".StartFromLogIn.CreateAccount.WhySelectiveEmail.WhySelectiveEmail"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountEmailActivity"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountNameActivity"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPasswordActivity"/>
-        <activity android:name=".StartFromLogIn.CreateAccount.CreateAccountPhoneNumberActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.BCreateAccountEmailActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.ACreateAccountNameActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.CCreateAccountPasswordActivity"/>
+        <activity android:name=".StartFromLogIn.CreateAccount.ZCreateAccountPhoneNumberActivity"/>
         <activity android:name=".StartFromLogIn.ForgotPasswordActivity"/>
         <activity android:name=".StartFromLogIn.LogInActivity"/>
         <activity android:name=".StartFromLogIn.MakeAccountActivity"/>

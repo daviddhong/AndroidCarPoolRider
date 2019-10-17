@@ -21,7 +21,7 @@ import com.google.firebase.auth.SignInMethodQueryResult;
 
 import java.util.List;
 
-public class CreateAccountEmailActivity extends AppCompatActivity {
+public class BCreateAccountEmailActivity extends AppCompatActivity {
 
     private TextView personname;
     private EditText uemail;
@@ -66,7 +66,7 @@ public class CreateAccountEmailActivity extends AppCompatActivity {
                                         List<String> signInMethods = result.getSignInMethods();
 
                                         if (signInMethods.isEmpty()) {
-                                            Intent intent = new Intent(CreateAccountEmailActivity.this, CreateAccountPasswordActivity.class);
+                                            Intent intent = new Intent(BCreateAccountEmailActivity.this, CCreateAccountPasswordActivity.class);
                                             Bundle dataBundle = new Bundle();
                                             dataBundle.putString("first_name", fname);
                                             dataBundle.putString("last_name", lname);
@@ -76,20 +76,20 @@ public class CreateAccountEmailActivity extends AppCompatActivity {
 
                                         } else if (signInMethods.contains(EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD)) {
                                             // User can sign in with email/password
-                                            Toast.makeText(CreateAccountEmailActivity.this, "Email Already In Use", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(BCreateAccountEmailActivity.this, "Email Already In Use", Toast.LENGTH_SHORT).show();
 
                                         } else if (signInMethods.contains(EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD)) {
                                             // User can sign in with email/link
-                                            Toast.makeText(CreateAccountEmailActivity.this, "Email link in use", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(BCreateAccountEmailActivity.this, "Email link in use", Toast.LENGTH_SHORT).show();
 
                                         }
                                     } else {
-                                        Toast.makeText(CreateAccountEmailActivity.this, "Email Invalid", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(BCreateAccountEmailActivity.this, "Email Invalid", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
                 } else {
-                    Toast.makeText(CreateAccountEmailActivity.this, "Please Enter Your Email", Toast.LENGTH_LONG).show();
+                    Toast.makeText(BCreateAccountEmailActivity.this, "Please Enter Your Email", Toast.LENGTH_LONG).show();
                 }
             }
         });
