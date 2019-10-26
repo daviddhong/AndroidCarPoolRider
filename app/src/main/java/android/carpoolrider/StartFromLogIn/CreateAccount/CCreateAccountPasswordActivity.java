@@ -30,7 +30,7 @@ public class CCreateAccountPasswordActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private DatabaseReference RootRef;
-    private String fname, lname, uemail;
+    private String fname, lname, uemail, pnumb;
     private EditText userpw, confirmpw;
 
     @Override
@@ -48,6 +48,7 @@ public class CCreateAccountPasswordActivity extends AppCompatActivity {
         fname = gotname.getString("first_name");
         lname = gotname.getString("last_name");
         uemail = gotname.getString("user_email");
+        pnumb = gotname.getString("phone_number");
 
         initContinue();
         initBack();
@@ -115,7 +116,19 @@ public class CCreateAccountPasswordActivity extends AppCompatActivity {
             }
         });
     }
-
+    
+    //    String firstN, String lastN, String userEmail, String userCar
+    private void CollectFirstLastNameEmailIntoRealTimeDatabase() {
+        String currentUserID = currentUser.getUid();
+        HashMap<String, String> profileMap = new HashMap<>();
+        profileMap.put("uid", currentUserID);
+        profileMap.put("firstname", fname);
+        profileMap.put("lastname", lname);
+        profileMap.put("email", uemail);
+        profileMap.put("phone_number", pnumb);
+//        profileMap.put("carModelMake", ucar);
+        RootRef.child("Users").child(currentUserID).setValue(profileMap);
+    }
 
 
     private void SendVerificationEmail() {
@@ -145,17 +158,7 @@ public class CCreateAccountPasswordActivity extends AppCompatActivity {
 //                    "NULL POINTER NOT SENT@@" + e.toString(), Toast.LENGTH_LONG).show();
 //        }
     }
-//    String firstN, String lastN, String userEmail, String userCar
-    private void CollectFirstLastNameEmailIntoRealTimeDatabase() {
-        String currentUserID = currentUser.getUid();
-        HashMap<String, String> profileMap = new HashMap<>();
-        profileMap.put("uid", currentUserID);
-        profileMap.put("firstname", fname);
-        profileMap.put("lastname", lname);
-        profileMap.put("email", uemail);
-//        profileMap.put("carModelMake", ucar);
-        RootRef.child("Users").child(currentUserID).setValue(profileMap);
-    }
+
 
     private void initBack() {
         RelativeLayout back = findViewById(R.id.rl_back_settings_password_account);
