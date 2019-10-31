@@ -1,6 +1,7 @@
 package android.carpoolrider.StartFromLogIn;
 
-import android.carpoolrider.AppFragments.BottomNavigationMainActivity;
+//import android.carpoolrider.AppFragments.BottomNavigationMainActivity;
+import android.carpoolrider.NavigationDrawerMainActivity;
 import android.carpoolrider.R;
 import android.carpoolrider.StartFromLogIn.CreateAccount.ACreateAccountNameActivity;
 import android.content.Intent;
@@ -64,7 +65,7 @@ public class InitialScreenActivity extends AppCompatActivity {
     }
 
     private void SendToMainActivity() {
-        Intent intent = new Intent(InitialScreenActivity.this, BottomNavigationMainActivity.class);
+        Intent intent = new Intent(InitialScreenActivity.this, NavigationDrawerMainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.

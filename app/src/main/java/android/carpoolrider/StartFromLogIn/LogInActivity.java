@@ -3,7 +3,8 @@ package android.carpoolrider.StartFromLogIn;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.carpoolrider.AppFragments.BottomNavigationMainActivity;
+//import android.carpoolrider.AppFragments.BottomNavigationMainActivity;
+import android.carpoolrider.NavigationDrawerMainActivity;
 import android.carpoolrider.R;
 import android.carpoolrider.StartFromLogIn.CreateAccount.ACreateAccountNameActivity;
 import android.content.Intent;
@@ -103,7 +104,7 @@ public class LogInActivity extends AppCompatActivity {
 
     // go to main activity
     private void SendToMainActivity() {
-        Intent intent = new Intent(LogInActivity.this, BottomNavigationMainActivity.class);
+        Intent intent = new Intent(LogInActivity.this, NavigationDrawerMainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         // EFFECTS: Animation from LogInActivity to BottomNavigationMainActivity.

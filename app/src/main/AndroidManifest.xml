@@ -15,6 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".NavigationDrawerMainActivity"/>
 
         <activity android:name=".AppFragments.ARidesAvailable.content.IndividualDriverRequestActivity"/>
         <activity android:name=".AppFragments.BRequestRides.content.RequestConfirmActivity"/>
@@ -34,7 +35,7 @@
         <activity android:name=".AppFragments.ESettings.content.EmailActivity"/>
         <activity android:name=".AppFragments.ESettings.content.OpenSourceLicenseActivity"/>
         <activity android:name=".AppFragments.ESettings.content.PhoneActivity"/>
-        <activity android:name=".AppFragments.BottomNavigationMainActivity"/>
+<!--        <activity android:name=".AppFragments.BottomNavigationMainActivity"/>-->
 
         <activity android:name=".StartFromLogIn.CreateAccount.WhySelectiveEmail.WhySelectiveEmail"/>
         <activity android:name=".StartFromLogIn.CreateAccount.BCreateAccountEmailActivity"/>

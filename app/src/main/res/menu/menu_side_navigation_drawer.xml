@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <item
+        android:id="@+id/nav_carpool_requests"
+        android:orderInCategory="1"
+        android:title="Available Rides"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/nav_sent_carpool_requests"
+        android:orderInCategory="2"
+        android:title="Sent Requests"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/nav_post_carpool"
+        android:orderInCategory="3"
+        android:title="Post"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/nav_your_carpool"
+        android:orderInCategory="4"
+        android:title="Confirmed"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/nav_reply"
+        android:orderInCategory="5"
+        android:title="Accepted"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/nav_more"
+        android:orderInCategory="6"
+        android:title="Settings"
+        app:showAsAction="never"/>
+
+
+</menu>
