@@ -60,7 +60,7 @@ public class IndividualConfirmedTicketRiderDriverActivity extends AppCompatActiv
         riderTime = findViewById(R.id.t_carpool_time);
         riderNumberOfSeats = findViewById(R.id.t_carpool_passenger_numb);
         riderPrice = findViewById(R.id.t_confirmed_earnings_text_confirm);
-        riderName = findViewById(R.id.t_confirmed_profile_name);
+        riderName = findViewById(R.id.profile_name);
     }
 
 

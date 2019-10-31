@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -36,331 +36,443 @@
         <RelativeLayout
             android:id="@+id/t_confirmed_relative_layout_posted_expand_body"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="510dp"
             android:layout_below="@id/t_confirmed_relative_layout_ic_back_activity_posted_expand"
             android:layout_marginLeft="38dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="38dp"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/border_rectangle_unfilled">
+            android:background="@drawable/border_rectangle_unfilled_ticket"
+            android:elevation="20dp"
+            >
+
 
             <RelativeLayout
-                android:id="@+id/t_confirmed_rl_header_ticket"
+                android:id="@+id/relative_layout_confirm_body"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
-                    android:text="Confirmed Carpool"
-                    android:textColor="#262626"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/roboto_bold"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/t_confirmed_route"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/t_confirmed_rl_header_ticket">
 
                 <RelativeLayout
-                    android:id="@+id/t_confirmed_locations"
-                    android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginTop="30dp">
+                    android:id="@+id/t_confirmed_rl_header_ticket"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
 
-                    <ImageView
-                        android:id="@+id/t_confirmed_from"
-                        android:layout_width="12dp"
-                        android:layout_height="12dp"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/ic_trip_origin" />
-
-                    <RelativeLayout
-                        android:id="@+id/t_confirmed_path"
-                        android:layout_width="2dp"
-                        android:layout_height="38dp"
-                        android:layout_below="@id/t_confirmed_from"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/path_solid">
-
-                    </RelativeLayout>
-
-                    <ImageView
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_below="@id/t_confirmed_path"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/ic_solid_to" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/t_confirmed_locations"
-                    android:layout_marginLeft="18dp"
-                    android:layout_centerVertical="true">
-
-                    <RelativeLayout
-                        android:id="@+id/t_confirmed_from_rl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/t_confirmed_origin_location_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pickup location"
-                            android:textColor="#262626"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
-                            app:fontFamily="@font/roboto_bold" />
-
-                        <TextView
-                            android:id="@+id/t_confirmed_origin_data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/t_confirmed_origin_location_text"
-                            android:hint="Pickup Location Name"
-                            android:textColor="#555B5B"
-                            android:textSize="12sp"
-                            app:fontFamily="@font/roboto" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/t_confirmed_to_rl"
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/t_confirmed_from_rl"
-                        android:layout_marginTop="17dp">
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Confirmed Carpool"
+                        android:textColor="#262626"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/t_confirmed_destination_location_text"
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/t_confirmed_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/t_confirmed_rl_header_ticket">
+
+                    <RelativeLayout
+                        android:id="@+id/t_confirmed_locations"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:layout_marginTop="30dp">
+
+                        <ImageView
+                            android:id="@+id/t_confirmed_from"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/ic_trip_origin" />
+
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_below="@id/t_confirmed_path"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/ic_solid_to" />
+
+                        <RelativeLayout
+                            android:id="@+id/t_confirmed_path"
+                            android:layout_width="2dp"
+                            android:layout_height="38dp"
+                            android:layout_below="@id/t_confirmed_from"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/path_solid">
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="18dp"
+                        android:layout_toRightOf="@id/t_confirmed_locations">
+
+                        <RelativeLayout
+                            android:id="@+id/t_confirmed_from_rl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/t_confirmed_origin_location_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pickup location"
+                                android:textColor="#262626"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/roboto_bold" />
+
+                            <TextView
+                                android:id="@+id/t_confirmed_origin_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/t_confirmed_origin_location_text"
+                                android:hint="Pickup Location Name"
+                                android:textColor="#555B5B"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/roboto" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/t_confirmed_to_rl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Destination location"
-                            android:textColor="#262626"
-                            android:textStyle="bold"
-                            android:textSize="12sp"
-                            app:fontFamily="@font/roboto_bold" />
+                            android:layout_below="@id/t_confirmed_from_rl"
+                            android:layout_marginTop="17dp">
 
-                        <TextView
-                            android:id="@+id/t_confirmed_destination_data"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/t_confirmed_destination_location_text"
-                            android:hint="Destination Location Name"
-                            android:textColor="#555B5B"
-                            android:textSize="12sp"
-                            app:fontFamily="@font/roboto" />
+                            <TextView
+                                android:id="@+id/t_confirmed_destination_location_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Destination location"
+                                android:textColor="#262626"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/roboto_bold" />
+
+                            <TextView
+                                android:id="@+id/t_confirmed_destination_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/t_confirmed_destination_location_text"
+                                android:hint="Destination Location Name"
+                                android:textColor="#555B5B"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/roboto" />
+                        </RelativeLayout>
                     </RelativeLayout>
                 </RelativeLayout>
 
-            </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/t_confirmed_pn"
 
-            <RelativeLayout
-                android:id="@+id/t_confirmed_pn"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/t_confirmed_route"
-                android:layout_marginLeft="58dp"
-                android:layout_marginTop="18dp">
-
-                <ImageView
-                    android:id="@+id/t_confirmed_image_seat"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_person"
-                    android:tint="#262626"/>
-
-                <TextView
-                    android:id="@+id/t_carpool_passenger_numb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/t_confirmed_image_seat"
-                    android:hint="#"
-                    android:textColor="#555B5B"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/roboto" />
+                    android:layout_below="@+id/t_confirmed_route"
+                    android:layout_marginLeft="58dp"
+                    android:layout_marginTop="18dp">
+
+                    <ImageView
+                        android:id="@+id/t_confirmed_image_seat"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_person"
+                        android:tint="#262626" />
+
+                    <TextView
+                        android:id="@+id/t_carpool_passenger_numb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/t_confirmed_image_seat"
+                        android:hint="#"
+                        android:textColor="#555B5B"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/t_confirmed_calendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/t_confirmed_pn"
+                    android:layout_marginLeft="58dp"
+                    android:layout_marginTop="15dp">
+
+                    <ImageView
+                        android:id="@+id/t_confirmed_image_calendar"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="#262626" />
+
+                    <TextView
+                        android:id="@+id/t_carpool_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/t_confirmed_image_calendar"
+                        android:hint="Date of carpool"
+                        android:textColor="#555B5B"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/t_confirmed_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/t_confirmed_calendar"
+                    android:layout_marginLeft="58dp"
+                    android:layout_marginTop="15dp">
+
+                    <ImageView
+                        android:id="@+id/t_confirmed_image_time"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_time"
+                        android:tint="#262626" />
+
+                    <TextView
+                        android:id="@+id/t_carpool_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/t_confirmed_image_time"
+                        android:hint="Time of carpool"
+                        android:textColor="#555B5B"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/t_confirmed_time"
+                    android:layout_marginLeft="58dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="25dp">
+
+                    <ImageView
+                        android:id="@+id/t_confirmed_image_monetization"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_monetization_on"
+                        android:tint="#262626" />
+
+                    <TextView
+                        android:id="@+id/t_confirmed_earnings_text_confirm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/t_confirmed_image_monetization"
+                        android:hint="Estimated earnings"
+                        android:textColor="#555B5B"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@id/t_confirmed_earnings_text_confirm"
+                        android:text="(CAD)"
+                        android:textColor="#555B5B"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto" />
+
+
+                </RelativeLayout>
             </RelativeLayout>
 
 
-            <RelativeLayout
-                android:id="@+id/t_confirmed_calendar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/t_confirmed_pn"
-                android:layout_marginLeft="58dp"
-                android:layout_marginTop="15dp">
 
-                <ImageView
-                    android:id="@+id/t_confirmed_image_calendar"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_calendar"
-                    android:tint="#262626"/>
 
-                <TextView
-                    android:id="@+id/t_carpool_date"
-                    android:layout_width="wrap_content"
+
+
+
+
+
+
+
+
+
+                <RelativeLayout
+                    android:id="@+id/rider_profile1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/t_confirmed_image_calendar"
-                    android:hint="Date of carpool"
-                    android:textColor="#555B5B"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/roboto" />
+                    android:layout_below="@id/relative_layout_confirm_body"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:background="@drawable/border_top">
 
+                    <RelativeLayout
+                        android:id="@+id/name_expand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/contact_text_constant"
+                        android:layout_marginTop="15dp">
+
+                        <TextView
+                            android:id="@+id/profile_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="Name"
+                            android:textColor="#383838"
+                            android:textColorHint="#383838"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/roboto_bold" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/contact_text_constant"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toRightOf="@+id/name_expand">
+
+                        <TextView
+                            android:id="@+id/phone_number_data"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="123-456-7890"
+                            android:textColor="#767676"
+                            android:textSize="12sp"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_below="@id/name_expand"
+                        android:layout_marginTop="15dp">
+
+                        <RelativeLayout
+                            android:id="@+id/phone_icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_toRightOf="@id/phone_text_constant"
+                            android:background="@drawable/background_oval_filled"
+                            android:backgroundTint="#405DE6"
+                            android:onClick="callNumber">
+
+                            <ImageView
+                                android:layout_width="11dp"
+                                android:layout_height="14dp"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/ic_phone"
+                                android:tint="#FFF" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/phone_text_constant"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/roboto"
+                            android:text="Call"
+                            android:textColor="#383838"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/rl_phone"
+                        android:layout_marginTop="15dp">
+
+                        <EditText
+                            android:id="@+id/text_message"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_toRightOf="@id/message_text_constant"
+                            android:fontFamily="@font/roboto"
+                            android:hint="Enter message here"
+                            android:inputType="textMultiLine"
+                            android:textColor="#484848"
+                            android:textColorHint="#484848"
+                            android:textSize="12sp"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:id="@+id/message_icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="15dp"
+                            android:layout_toRightOf="@id/text_message"
+                            android:onClick="smsSendMessage"
+                            android:src="@drawable/ic_message"
+                            android:tint="#405DE6" />
+
+                        <TextView
+                            android:id="@+id/message_text_constant"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/roboto"
+                            android:text="or Message"
+                            android:textColor="#383838"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/contact_text_constant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Contact"
+                        android:textColor="#383838"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/roboto_bold" />
+                </RelativeLayout>
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/t_confirmed_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/t_confirmed_calendar"
-                android:layout_marginLeft="58dp"
-                android:layout_marginTop="15dp">
-
-                <ImageView
-                    android:id="@+id/t_confirmed_image_time"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_time"
-                    android:tint="#262626"/>
-
-                <TextView
-                    android:id="@+id/t_carpool_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/t_confirmed_image_time"
-                    android:hint="Time of carpool"
-                    android:textColor="#555B5B"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/roboto" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/t_confirmed_time"
-                android:layout_marginLeft="58dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="25dp">
-
-                <ImageView
-                    android:id="@+id/t_confirmed_image_monetization"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_monetization_on"
-                    android:tint="#262626"/>
-
-                <TextView
-                    android:id="@+id/t_confirmed_earnings_text_confirm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/t_confirmed_image_monetization"
-                    android:hint="Estimated earnings"
-                    android:textColor="#555B5B"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/roboto" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/t_confirmed_earnings_text_confirm"
-                    android:layout_marginLeft="10dp"
-                    android:text="(CAD)"
-                    android:textColor="#555B5B"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/roboto" />
-
-
-            </RelativeLayout>
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/t_confirmed_rider_profile"
-            android:layout_width="match_parent"
-            android:layout_height="77dp"
-            android:layout_below="@id/t_confirmed_relative_layout_posted_expand_body"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="38dp"
-            android:background="@drawable/border_rectangle_unfilled">
-
-            <RelativeLayout
-                android:id="@+id/name_confirmed_expand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp">
-
-                <TextView
-                    android:id="@+id/t_confirmed_profile_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Name"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:textColor="#555B5B"
-                    app:fontFamily="@font/roboto_bold"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="178dp"
-                android:layout_height="27dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="25dp"
-                android:layout_toRightOf="@+id/name_confirmed_expand"
-                android:background="@drawable/background_rectangle_circular_border">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:hint="Phone number"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"/>
-
-            </RelativeLayout>
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/t_confirmed_confirm_footer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/t_confirmed_relative_layout_posted_expand_body"
             android:layout_alignParentBottom="true"
-            android:layout_below="@id/t_confirmed_rider_profile"
             android:layout_marginTop="25dp">
 
             <RelativeLayout
                 android:id="@+id/t_confirmed_cancel_carpool"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="38dp"
-                android:layout_marginRight="38dp"
                 android:layout_height="58dp"
+                android:layout_marginLeft="38dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="38dp"
                 android:background="@drawable/border_rectangle_fill">
 
                 <TextView
@@ -368,11 +480,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="Cancel Confirmation"
                     android:textColor="#FFF"
                     android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/roboto_bold"/>
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
