@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -13,28 +13,44 @@
         <RelativeLayout
             android:id="@+id/relative_layout_header_reserved_rides"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="188dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:text="Confirmed Rides"
-                android:textSize="20sp"
-                android:textColor="#262626"
-                android:textStyle="bold"
-                android:fontFamily="@font/roboto_bold"/>
+                android:layout_centerVertical="true">
 
-            <ImageView
-                android:id="@+id/reserved_rides_profile"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="25dp"
-                android:src="@drawable/ic_account_circle"
-                android:tint="#262626" />
+                <TextView
+                    android:id="@+id/confirmed_ride_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Confirmed Rides"
+                    android:textColor="#383838"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/roboto_bold"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/confirmed_ride_title"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:text="The following are a list of all carpool routes confirmed with drivers. Learn more about the
+by clicking on the top right corner of the ticket."
+                    android:textColor="#405DE6"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/roboto" />
+
+            </RelativeLayout>
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -45,13 +61,12 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/confirmed_rides_driver_rides_available_recycler_view"
-                tools:listitem="@layout/app_cconfirmedrides_layout_confirmed_ride_ticket_entity"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                tools:listitem="@layout/app_cconfirmedrides_layout_confirmed_ride_ticket_entity">
 
             </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
-
 
 
     </RelativeLayout>

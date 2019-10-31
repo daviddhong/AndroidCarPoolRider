@@ -38,7 +38,7 @@ public class CConfirmedRidesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         reservedRidesView = inflater.inflate(R.layout.app_cconfirmedrides_fragment_confirmed_rides, container, false);
         initializeFields();
-        goToMyProfileFromProfileImageView();
+//        goToMyProfileFromProfileImageView();
         return reservedRidesView;
     }
 
@@ -162,17 +162,17 @@ public class CConfirmedRidesFragment extends Fragment {
             riderPrice = itemView.findViewById(R.id.cc_text_earnings_entity);
         }
     }
-
-    private void goToMyProfileFromProfileImageView() {
-        ImageView profileImageView = (ImageView) reservedRidesView.findViewById(R.id.reserved_rides_profile);
-        profileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
-                // EFFECTS: Animation to Profile Activity
-                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
-            }
-        });
-    }
+//
+//    private void goToMyProfileFromProfileImageView() {
+//        ImageView profileImageView = (ImageView) reservedRidesView.findViewById(R.id.reserved_rides_profile);
+//        profileImageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+//                startActivity(intent);
+//                // EFFECTS: Animation to Profile Activity
+//                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
+//            }
+//        });
+//    }
 }

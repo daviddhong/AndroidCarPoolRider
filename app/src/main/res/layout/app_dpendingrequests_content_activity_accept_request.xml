@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -12,47 +13,43 @@
         <RelativeLayout
             android:id="@+id/acceptrcarpool_request_header"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#FFF">
-
+            android:layout_height="188dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:background="@drawable/border_bottom">
 
             <RelativeLayout
-                android:id="@+id/acceptr_back_pending_requests"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
                 android:layout_centerVertical="true">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/ic_arrow_back"
-                    android:tint="#262626" />
+                <TextView
+                    android:id="@+id/title_carpool_requests_accepted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="#383838"
+                    android:text="Sent carpool requests"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/roboto_bold"/>
+
+
+                <TextView
+                    android:id="@+id/text_pending_request_one_accepted"
+                    app:fontFamily="@font/roboto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/title_carpool_requests_accepted"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:text="The following are a list of rider's carpool requests that you have requested that are pending approval. You can cancel your request at any time."
+                    android:textColor="#405DE6"
+                    android:textSize="15sp" />
 
             </RelativeLayout>
-
-            <TextView
-                android:layout_marginLeft="60dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:text="Accepted Carpool Requests"
-                android:textColor="#262626"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/roboto_bold"/>
-
-            <ImageView
-                android:id="@+id/acceptrprofile_carpool_requests"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="25dp"
-                android:layout_alignParentRight="true"
-                android:tint="#0A1C2A" />
-
         </RelativeLayout>
 
 

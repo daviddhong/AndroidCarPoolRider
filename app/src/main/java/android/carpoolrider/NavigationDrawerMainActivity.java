@@ -1,6 +1,7 @@
 package android.carpoolrider;
 
 import android.carpoolrider.AppFragments.ARidesAvailable.ARidesAvailableFragment;
+import android.carpoolrider.AppFragments.SendRequestFragment.SendRequestFragment;
 import android.carpoolrider.AppFragments.BRequestRides.BRequestRidesFragment;
 import android.carpoolrider.AppFragments.CConfirmedRides.CConfirmedRidesFragment;
 import android.carpoolrider.AppFragments.DPendingRequests.DPendingRequestFragment;
@@ -75,7 +76,7 @@ public class NavigationDrawerMainActivity extends AppCompatActivity implements N
                 fragment = new ARidesAvailableFragment();
                 break;
             case R.id.nav_sent_carpool_requests:
-//                fragment = new ();
+                fragment = new SendRequestFragment();
                 break;
             case R.id.nav_post_carpool:
                 fragment = new BRequestRidesFragment();

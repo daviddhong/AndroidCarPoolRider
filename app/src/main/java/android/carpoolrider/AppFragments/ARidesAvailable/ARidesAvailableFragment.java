@@ -2,7 +2,7 @@ package android.carpoolrider.AppFragments.ARidesAvailable;
 
 import android.carpoolrider.AppFragments.BRequestRides.content.RequestDriverRequestTicket;
 import android.carpoolrider.AppFragments.ARidesAvailable.content.IndividualDriverRequestActivity;
-import android.carpoolrider.AppFragments.ARidesAvailable.contentTwo.AcceptRequestActivity;
+import android.carpoolrider.AppFragments.SendRequestFragment.SendRequestFragment;
 import android.carpoolrider.AppFragments.ESettings.content.Profile.ProfileActivity;
 import android.carpoolrider.R;
 import android.content.Intent;
@@ -36,8 +36,7 @@ public class ARidesAvailableFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         availableRidesView = inflater.inflate(R.layout.app_aridesavailable_fragment_available_rides, container, false);
         initializeFields();
-        acceptOrDeclineReceivedCarpoolRequests();
-        goToMyProfileByProfileImageView();
+//        acceptOrDeclineReceivedCarpoolRequests();
         return availableRidesView;
     }
 
@@ -49,19 +48,19 @@ public class ARidesAvailableFragment extends Fragment {
         DriverRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
-    // EFFECTS: Initialize the post new carpool activity.
-    private void acceptOrDeclineReceivedCarpoolRequests() {
-        RelativeLayout gotRequestRelativeLay = (RelativeLayout) availableRidesView.findViewById(R.id.gotRequestlayoutbutton);
-        gotRequestRelativeLay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AcceptRequestActivity.class);
-                startActivity(intent);
-                // EFFECTS: Animation to Profile Activity
-                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
-            }
-        });
-    }
+//    // EFFECTS: Initialize the post new carpool activity.
+//    private void acceptOrDeclineReceivedCarpoolRequests() {
+//        RelativeLayout gotRequestRelativeLay = (RelativeLayout) availableRidesView.findViewById(R.id.gotRequestlayoutbutton);
+//        gotRequestRelativeLay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), SendRequestFragment.class);
+//                startActivity(intent);
+//                // EFFECTS: Animation to Profile Activity
+//                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
+//            }
+//        });
+//    }
 
 
     // Display the list of all driver tickets with FireBase recycler
@@ -128,19 +127,6 @@ public class ARidesAvailableFragment extends Fragment {
             riderNumberOfSeats = itemView.findViewById(R.id.driver_text_passenger_number_post);
             riderPrice = itemView.findViewById(R.id.driver_text_earnings_entity_post);
         }
-    }
-
-    private void goToMyProfileByProfileImageView() {
-        ImageView profileImageView = (ImageView) availableRidesView.findViewById(R.id.available_rides_profile);
-        profileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
-                // EFFECTS: Animation to Profile Activity
-                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
-            }
-        });
     }
 
 

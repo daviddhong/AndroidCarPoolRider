@@ -45,7 +45,7 @@ public class BRequestRidesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         requestRidesView = inflater.inflate(R.layout.app_brequestrides_fragment_request_rides, container, false);
         initializeFields();
-        goToMyProfileByProfileImageView();
+//        goToMyProfileByProfileImageView();
         postNewRideRequestTicket();
         return requestRidesView;
     }
@@ -146,18 +146,18 @@ public class BRequestRidesFragment extends Fragment {
         }
     }
 
-    private void goToMyProfileByProfileImageView() {
-        ImageView profileImageView = (ImageView) requestRidesView.findViewById(R.id.request_rides_profile);
-        profileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
-                // EFFECTS: Animation to Profile Activity
-                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
-            }
-        });
-    }
+//    private void goToMyProfileByProfileImageView() {
+//        ImageView profileImageView = (ImageView) requestRidesView.findViewById(R.id.request_rides_profile);
+//        profileImageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+//                startActivity(intent);
+//                // EFFECTS: Animation to Profile Activity
+//                getActivity().overridePendingTransition(R.anim.slide_up, R.anim.slide_vertical_null);
+//            }
+//        });
+//    }
 
     private void postNewRideRequestTicket() {
         RelativeLayout requestNewRideRelativeLayout = (RelativeLayout) requestRidesView.findViewById(R.id.relative_layout_request_new_ride);

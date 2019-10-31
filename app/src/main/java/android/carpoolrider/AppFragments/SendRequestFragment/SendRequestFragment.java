@@ -1,4 +1,4 @@
-package android.carpoolrider.AppFragments.ARidesAvailable.contentTwo;
+package android.carpoolrider.AppFragments.SendRequestFragment;
 
 import android.carpoolrider.AppFragments.ARidesAvailable.content.IndividualDriverRequestActivity;
 import android.carpoolrider.AppFragments.BRequestRides.content.RequestRiderRequestTicket;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,30 +28,31 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class AcceptRequestActivity extends AppCompatActivity {
+public class SendRequestFragment extends Fragment {
 
     RelativeLayout acceptingPendingRequestsRelativeLayout;
     private DatabaseReference UsersRef, ConfirmedCarpoolFriends, DriverRequestingRiderRef, RiderTicketsRef, DriverTicketsRef;
 //    private FirebaseAuth mAuth;
     private String currentUserID, clicked_user_id;
     private RecyclerView FriendRecyclerView;
+    private View mySentRequestView;
 
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.app_dpendingrequests_content_activity_accept_request);
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        mySentRequestView = inflater.inflate(R.layout.app_dpendingrequests_content_activity_accept_request, container, false);
         initiateFields();
-        initBack();
+        return mySentRequestView;
     }
+
 
     private void initiateFields() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
         RiderTicketsRef = FirebaseDatabase.getInstance().getReference().child("RiderTickets");
         DriverTicketsRef = FirebaseDatabase.getInstance().getReference().child("DriverTickets");
-        FriendRecyclerView = (RecyclerView) findViewById(R.id.acceptrrides_requested_recycler_view);
-        FriendRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        FriendRecyclerView = (RecyclerView) mySentRequestView.findViewById(R.id.acceptrrides_requested_recycler_view);
+        FriendRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
     @Override
@@ -102,7 +104,7 @@ public class AcceptRequestActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onClick(View view) {
                                                     clicked_user_id = getRef(i).getKey();
-                                                    Intent intent = new Intent(AcceptRequestActivity.this, IndividualDriverRequestActivity.class);
+                                                    Intent intent = new Intent(getActivity(), IndividualDriverRequestActivity.class);
                                                     intent.putExtra("clicked_user_id", clicked_user_id);
                                                     startActivity(intent);
                                                 }
@@ -151,17 +153,5 @@ public class AcceptRequestActivity extends AppCompatActivity {
             riderNumberOfSeats = itemView.findViewById(R.id.myr_text_passenger_number);
             riderPrice = itemView.findViewById(R.id.myr_text_earnings_entity);
         }
-    }
-
-
-
-    private void initBack() {
-        RelativeLayout back = (RelativeLayout) findViewById(R.id.acceptr_back_pending_requests);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 }
