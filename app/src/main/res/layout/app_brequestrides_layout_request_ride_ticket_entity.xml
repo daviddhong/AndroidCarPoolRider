@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="188dp"
+    android:layout_height="208dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="7dp"
-    android:layout_marginLeft="7dp"
-    android:layout_marginRight="7dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     android:orientation="vertical"
     android:padding="2dp"
-    app:cardCornerRadius="2dp"
-    app:cardElevation="5dp">
+    app:cardCornerRadius="15dp"
+    app:cardElevation="2dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,17 +17,16 @@
 
         <RelativeLayout
             android:id="@+id/rl_date_time"
-            android:layout_width="128dp"
+            android:layout_width="188dp"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/border_side">
+            android:layout_below="@+id/origin_destination_rl">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/date_time"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_marginLeft="42dp"
+                android:layout_marginTop="9dp">
 
                 <RelativeLayout
                     android:id="@+id/date_entity"
@@ -36,14 +34,24 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/text_date_constant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pick up date"
+                        android:textColor="#767676"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto_bold" />
+
+                    <TextView
                         android:id="@+id/text_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_date_constant"
                         android:hint="Date"
-                        android:textStyle="bold"
-                        android:textColor="#555B5B"
-                        android:textSize="15sp"
-                        app:fontFamily="@font/roboto_bold"  />
+                        android:textColor="#383838"
+                        android:textColorHint="#383838"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -51,63 +59,46 @@
                     android:layout_below="@id/date_entity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_centerHorizontal="true">
+                    android:layout_marginTop="7dp">
+
+                    <TextView
+                        android:id="@+id/text_time_constant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pick up time"
+                        android:textColor="#767676"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto_bold" />
 
                     <TextView
                         android:id="@+id/text_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_time_constant"
                         android:hint="Time"
-                        android:textColor="#555B5B"
-                        android:textSize="15sp"
-                        android:fontFamily="@font/roboto" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/pn_entity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/time_entity"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="12dp">
-
-                    <ImageView
-                        android:id="@+id/passenger_number_image"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_person"
-                        android:tint="#262626" />
-
-                    <TextView
-                        android:id="@+id/text_passenger_number"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@+id/passenger_number_image"
-                        android:hint="#"
-                        android:textColor="#555B5B"
+                        android:textColor="#383838"
+                        android:textColorHint="#383838"
                         android:textSize="12sp"
-                        android:fontFamily="@font/roboto" />
-
+                        app:fontFamily="@font/roboto" />
                 </RelativeLayout>
 
             </RelativeLayout>
+
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/origin_destination_rl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_toRightOf="@+id/rl_date_time">
+            android:layout_width="match_parent"
+            android:layout_height="118dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/border_bottom_ticket">
 
             <RelativeLayout
                 android:id="@+id/image_to_from"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true">
 
                 <ImageView
@@ -115,17 +106,8 @@
                     android:layout_width="7dp"
                     android:layout_height="7dp"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/border_oval_fill" />
-
-                <RelativeLayout
-                    android:id="@+id/vert_two_ticket"
-                    android:layout_width="3dp"
-                    android:layout_height="58dp"
-                    android:layout_below="@id/origin_ticket"
-                    android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="2dp"
-                    android:background="@drawable/path_solid" />
+                    android:src="@drawable/background_oval_filled"
+                    android:tint="#405DE6" />
 
                 <ImageView
                     android:id="@+id/destination"
@@ -134,7 +116,19 @@
                     android:layout_below="@id/vert_two_ticket"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="2dp"
-                    android:src="@drawable/border_oval_fill" />
+                    android:src="@drawable/background_oval_filled"
+                    android:tint="#405DE6" />
+
+                <RelativeLayout
+                    android:id="@+id/vert_two_ticket"
+                    android:layout_width="2dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/origin_ticket"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/path_solid"
+                    android:backgroundTint="#767676" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -142,7 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="12dp"
                 android:layout_toRightOf="@id/image_to_from">
 
                 <TextView
@@ -150,9 +144,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pickup location"
-                    android:textColor="#262626"
+                    android:textColor="#767676"
                     android:textSize="12sp"
-                    android:fontFamily="@font/roboto_bold"  />
+                    app:fontFamily="@font/roboto_bold" />
 
                 <TextView
                     android:id="@+id/text_origin"
@@ -161,11 +155,11 @@
                     android:layout_below="@+id/text_pickup_stable"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginTop="5dp"
                     android:hint="Pickup Location Name"
-                    android:textColor="#555B5B"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/roboto" />
+                    android:textColor="#383838"
+                    android:textColorHint="#383838"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -174,8 +168,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/relative_layout_request_new_ride_origin"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="25dp"
                 android:layout_marginBottom="8dp"
+                android:layout_marginTop="27dp"
                 android:layout_toRightOf="@id/image_to_from">
 
                 <TextView
@@ -183,9 +177,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Destination location"
-                    android:textColor="#262626"
+                    android:textColor="#767676"
                     android:textSize="12sp"
-                    android:fontFamily="@font/roboto_bold" />
+                    app:fontFamily="@font/roboto_bold"/>
 
                 <TextView
                     android:id="@+id/text_destination"
@@ -194,78 +188,112 @@
                     android:layout_below="@id/text_destination_stable"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginTop="5dp"
                     android:hint="Destination Location Name"
-                    android:textColor="#555B5B"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/roboto" />
+                    android:textColor="#383838"
+                    android:textColorHint="#383838"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto"/>
             </RelativeLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:id="@+id/earnings_rl"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/origin_destination_rl"
+            android:layout_marginTop="9dp"
             android:layout_toRightOf="@+id/rl_date_time">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="128dp"
+                android:layout_height="match_parent"
                 android:layout_centerHorizontal="true">
 
                 <TextView
-                    android:id="@+id/text_earnings_entity_post"
+                    android:id="@+id/riders_text_earnings_entity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Earnings:"
+                    android:text="Earnings"
                     android:textSize="12sp"
-                    android:layout_centerVertical="true"
                     app:fontFamily="@font/roboto_bold"
-                    android:textColor="#262626"/>
+                    android:textColor="#767676" />
 
                 <TextView
-                    android:layout_toRightOf="@+id/text_earnings_entity_post"
+                    android:layout_below="@+id/riders_text_earnings_entity"
                     android:id="@+id/text_earnings_entity"
-                    android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="$"
-                    android:textSize="15sp"
-                    android:textColor="#555B5B"
-                    android:fontFamily="@font/roboto" />
+                    android:textSize="12sp"
+                    android:textColor="#383838"
+                    android:textColorHint="#383838"
+                    app:fontFamily="@font/roboto" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/text_earnings_entity"
+                    android:layout_below="@+id/riders_text_earnings_entity"
                     android:text="(CAD)"
-                    android:layout_marginStart="10dp"
-                    android:textSize="15sp"
-                    android:layout_centerVertical="true"
-                    android:textColor="#555B5B"
-                    android:fontFamily="@font/roboto"/>
+                    android:layout_toRightOf="@+id/text_earnings_entity"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="12sp"
+                    android:textColor="#405DE6"
+                    app:fontFamily="@font/roboto"/>
             </RelativeLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/delete_my_ticket_information_entity_request"
+            android:id="@+id/pn_entity"
+            android:layout_below="@id/origin_destination_rl"
+            android:layout_marginTop="9dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/earnings_rl">
+
+            <TextView
+                android:id="@+id/text_passengers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Passengers"
+                android:textColor="#767676"
+                android:textSize="12sp"
+                app:fontFamily="@font/roboto_bold" />
+
+
+            <TextView
+                android:id="@+id/text_passenger_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_passengers"
+                android:layout_centerVertical="true"
+                android:hint="#"
+                android:textColor="#383838"
+                android:textColorHint="#383838"
+                android:textSize="12sp"
+                app:fontFamily="@font/roboto" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/delete_my_ticket_information_entity_request"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="18dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_close"
-                android:tint="#262626"/>
-
+                android:tint="#383838"/>
 
         </RelativeLayout>
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

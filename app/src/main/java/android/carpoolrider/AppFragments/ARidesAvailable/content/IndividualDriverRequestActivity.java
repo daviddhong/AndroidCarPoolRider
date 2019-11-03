@@ -63,7 +63,7 @@ public class IndividualDriverRequestActivity extends AppCompatActivity {
         RiderRequestingDriverRef = FirebaseDatabase.getInstance().getReference().child("RiderRequestingDriver");
         confirm_carpool_button_word = findViewById(R.id.confirm_carpool_button_word);
         confirmButton = findViewById(R.id.confirm_carpool);
-        backButton = findViewById(R.id.back_button_for_i_ticket);
+        backButton = findViewById(R.id.back_accept_decline_button_RelativeLayout);
 
         riderFrom = findViewById(R.id.origin_data);
         riderTo = findViewById(R.id.destination_data);
