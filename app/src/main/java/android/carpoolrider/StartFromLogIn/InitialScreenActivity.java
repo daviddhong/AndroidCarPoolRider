@@ -1,6 +1,5 @@
 package android.carpoolrider.StartFromLogIn;
 
-//import android.carpoolrider.AppFragments.BottomNavigationMainActivity;
 import android.carpoolrider.NavigationDrawerMainActivity;
 import android.carpoolrider.R;
 import android.carpoolrider.StartFromLogIn.CreateAccount.ACreateAccountNameActivity;
