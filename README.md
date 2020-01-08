@@ -10,19 +10,19 @@ AndroidCarPoolRider is an android app for a person who wishes to get picked up b
 
 
 <p align="center">
-<img src="./gifs/riderposting.gif" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+<img src="./ridergifs/riderposting.gif" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
 </p>
 
 * This is how the rider can accept a ticket:
 
 <p align="center">
-<img src="./gifs/gifaccepting.gif" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+<img src="./ridergifs/gifaccepting.gif" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
 </p>
 
 * This is how the rider can send a request:
 
 <p align="center">
-<img src="./gifs/gifsendingrequest.gif" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+<img src="./ridergifs/gifsendingrequest.gif" width="327" height="561" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
 </p>
 
 ## License
