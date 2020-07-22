@@ -1,9 +1,9 @@
 # AndroidCarPoolRider
 
-AndroidCarPoolRider is an android app for a person who wishes to get picked up by drivers in their vehicles heading to another location. The benefit for the riders is that it is a cheaper way to travel, as cost is calculated by the km driven with the current gas price. Riders can create tickets when they want to travel and they provide details such as locations, destination, time number of seats, date and time for the driver to be able to filter out potential riders heading in the same direction.
+AndroidCarPoolRider is an android application for a person who wishes to get picked up by drivers in their vehicles heading to another location. The benefit for the riders is that it is a cheaper way to travel, as cost is calculated by the km driven with the current gas price. Riders can create tickets when they want to travel and they provide details such as locations, destination, time number of seats, date and time for the driver to be able to filter out potential riders heading in the same direction.
 
 ## Carpool Driver
-To view the carpool driver go to https://github.com/EdwardKHKim/AndroidCarPoolDriver
+For the carpool driver application that works in conjunction with the Rider application go to https://github.com/daviddhong/AndroidCarPoolDriver
 
 ## Tech Stack 
 * Mapbox 
@@ -11,7 +11,7 @@ To view the carpool driver go to https://github.com/EdwardKHKim/AndroidCarPoolDr
 * Java
 
 ## Development Requirements
-* To use the map feature in the app, you need to create a Mapbox account in order to create and use the randomly generated key. 
+* To use the map feature in the app, you need to create a Mapbox account in order to create and use the randomly generated key, as well as a google firebase account to store the database. 
 
 ## Demo
 * This is how the rider can post a ticket:
